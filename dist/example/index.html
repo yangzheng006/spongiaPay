@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <title>WeUI</title>
+    <link rel="stylesheet" href="../style/weui.css"/>
+    <link rel="stylesheet" href="./example.css"/>
+</head>
+<body ontouchstart style="background-color: white">
+    <div class="weui-toptips weui-toptips_warn js_tooltips">错误提示</div>
+
+    <div class="container" id="container"></div>
+    <script type="text/html" id="tpl_input">
+<div class="page">
+    <div class="page__hd">
+        <h1 class="page__title">Input</h1>
+        <p class="page__desc">表单输入</p>
+    </div>
+    <div class="page__bd">
+        <div class="weui-cells__title">单选列表项</div>
+        <div class="weui-cells weui-cells_radio">
+            <label class="weui-cell weui-check__label" for="x11">
+                <div class="weui-cell__bd">
+                    <p>cell standard</p>
+                </div>
+                <div class="weui-cell__ft">
+                    <input type="radio" class="weui-check" name="radio1" id="x11"/>
+                    <span class="weui-icon-checked"></span>
+                </div>
+            </label>
+            <label class="weui-cell weui-check__label" for="x12">
+
+                <div class="weui-cell__bd">
+                    <p>cell standard</p>
+                </div>
+                <div class="weui-cell__ft">
+                    <input type="radio" name="radio1" class="weui-check" id="x12" checked="checked"/>
+                    <span class="weui-icon-checked"></span>
+                </div>
+            </label>
+            <a href="javascript:void(0);" class="weui-cell weui-cell_link">
+                <div class="weui-cell__bd">添加更多</div>
+            </a>
+        </div>
+        <div class="weui-cells__title">复选列表项</div>
+        <div class="weui-cells weui-cells_checkbox">
+            <label class="weui-cell weui-check__label" for="s11">
+                <div class="weui-cell__hd">
+                    <input type="checkbox" class="weui-check" name="checkbox1" id="s11" checked="checked"/>
+                    <i class="weui-icon-checked"></i>
+                </div>
+                <div class="weui-cell__bd">
+                    <p>standard is dealt for u.</p>
+                </div>
+            </label>
+            <label class="weui-cell weui-check__label" for="s12">
+                <div class="weui-cell__hd">
+                    <input type="checkbox" name="checkbox1" class="weui-check" id="s12"/>
+                    <i class="weui-icon-checked"></i>
+                </div>
+                <div class="weui-cell__bd">
+                    <p>standard is dealicient for u.</p>
+                </div>
+            </label>
+            <a href="javascript:void(0);" class="weui-cell weui-cell_link">
+                <div class="weui-cell__bd">添加更多</div>
+            </a>
+        </div>
+
+        <div class="weui-cells__title">表单</div>
+        <div class="weui-cells weui-cells_form">
+            <div class="weui-cell">
+                <div class="weui-cell__hd"><label class="weui-label">qq</label></div>
+                <div class="weui-cell__bd">
+                    <input class="weui-input" type="number" pattern="[0-9]*" placeholder="请输入qq号"/>
+                </div>
+            </div>
+            <div class="weui-cell weui-cell_vcode">
+                <div class="weui-cell__hd">
+                    <label class="weui-label">手机号</label>
+                </div>
+                <div class="weui-cell__bd">
+                    <input class="weui-input" type="tel" placeholder="请输入手机号"/>
+                </div>
+                <div class="weui-cell__ft">
+                    <button class="weui-vcode-btn">获取验证码</button>
+                </div>
+            </div>
+            <div class="weui-cell">
+                <div class="weui-cell__hd"><label for="" class="weui-label">日期</label></div>
+                <div class="weui-cell__bd">
+                    <input class="weui-input" type="date" value=""/>
+                </div>
+            </div>
+            <div class="weui-cell">
+                <div class="weui-cell__hd"><label for="" class="weui-label">时间</label></div>
+                <div class="weui-cell__bd">
+                    <input class="weui-input" type="datetime-local" value="" placeholder=""/>
+                </div>
+            </div>
+            <div class="weui-cell weui-cell_vcode">
+                <div class="weui-cell__hd"><label class="weui-label">验证码</label></div>
+                <div class="weui-cell__bd">
+                    <input class="weui-input" type="number" placeholder="请输入验证码"/>
+                </div>
+                <div class="weui-cell__ft">
+                    <img class="weui-vcode-img" src="./images/vcode.jpg" />
+                </div>
+            </div>
+        </div>
+        <div class="weui-cells__tips">底部说明文字底部说明文字</div>
+
+        <div class="weui-cells__title">表单报错</div>
+        <div class="weui-cells weui-cells_form">
+            <div class="weui-cell weui-cell_warn">
+                <div class="weui-cell__hd"><label for="" class="weui-label">卡号</label></div>
+                <div class="weui-cell__bd">
+                    <input class="weui-input" type="number" pattern="[0-9]*" value="weui input error" placeholder="请输入卡号"/>
+                </div>
+                <div class="weui-cell__ft">
+                    <i class="weui-icon-warn"></i>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="weui-cells__title">开关</div>
+        <div class="weui-cells weui-cells_form">
+            <div class="weui-cell weui-cell_switch">
+                <div class="weui-cell__bd">标题文字</div>
+                <div class="weui-cell__ft">
+                    <input class="weui-switch" type="checkbox"/>
+                </div>
+            </div>
+            <div class="weui-cell weui-cell_switch">
+                <div class="weui-cell__bd">兼容IE Edge的版本</div>
+                <div class="weui-cell__ft">
+                    <label for="switchCP" class="weui-switch-cp">
+                        <input id="switchCP" class="weui-switch-cp__input" type="checkbox" checked="checked"/>
+                        <div class="weui-switch-cp__box"></div>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="weui-cells__title">文本框</div>
+        <div class="weui-cells">
+            <div class="weui-cell">
+                <div class="weui-cell__bd">
+                    <input class="weui-input" type="text" placeholder="请输入文本"/>
+                </div>
+            </div>
+        </div>
+
+        <div class="weui-cells__title">文本域</div>
+        <div class="weui-cells weui-cells_form">
+            <div class="weui-cell">
+                <div class="weui-cell__bd">
+                    <textarea class="weui-textarea" placeholder="请输入文本" rows="3"></textarea>
+                    <div class="weui-textarea-counter"><span>0</span>/200</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="weui-cells__title">选择</div>
+        <div class="weui-cells">
+
+            <div class="weui-cell weui-cell_select weui-cell_select-before">
+                <div class="weui-cell__hd">
+                    <select class="weui-select" name="select2">
+                        <option value="1">+86</option>
+                        <option value="2">+80</option>
+                        <option value="3">+84</option>
+                        <option value="4">+87</option>
+                    </select>
+                </div>
+                <div class="weui-cell__bd">
+                    <input class="weui-input" type="number" pattern="[0-9]*" placeholder="请输入号码"/>
+                </div>
+            </div>
+        </div>
+        <div class="weui-cells__title">选择</div>
+        <div class="weui-cells">
+            <div class="weui-cell weui-cell_select">
+                <div class="weui-cell__bd">
+                    <select class="weui-select" name="select1">
+                        <option selected="" value="1">微信号</option>
+                        <option value="2">QQ号</option>
+                        <option value="3">Email</option>
+                    </select>
+                </div>
+            </div>
+            <div class="weui-cell weui-cell_select weui-cell_select-after">
+                <div class="weui-cell__hd">
+                    <label for="" class="weui-label">国家/地区</label>
+                </div>
+                <div class="weui-cell__bd">
+                    <select class="weui-select" name="select2">
+                        <option value="1">中国</option>
+                        <option value="2">美国</option>
+                        <option value="3">英国</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <label for="weuiAgree" class="weui-agree">
+            <input id="weuiAgree" type="checkbox" class="weui-agree__checkbox"/>
+            <span class="weui-agree__text">
+                阅读并同意<a href="javascript:void(0);">《相关条款》</a>
+            </span>
+        </label>
+
+        <div class="weui-btn-area">
+            <a class="weui-btn weui-btn_primary" href="javascript:" id="showTooltips">确定</a>
+        </div>
+    </div>
+    <div class="page__ft">
+        <a href="javascript:home()"><img src="./images/icon_footer_link.png" /></a>
+    </div>
+</div>
+<script type="text/javascript">
+    $(function(){
+        var $tooltips = $('.js_tooltips');
+
+        $('#showTooltips').on('click', function(){
+            if ($tooltips.css('display') != 'none') return;
+
+            // toptips的fixed, 如果有`animation`, `position: fixed`不生效
+            $('.page.cell').removeClass('slideIn');
+
+            $tooltips.css('display', 'block');
+            setTimeout(function () {
+                $tooltips.css('display', 'none');
+            }, 2000);
+        });
+    });
+</script>
+</script>
+    <script type="text/html" id="tpl_home">
+
+<style type="text/css">
+    #wrapper{
+        position: absolute;
+        background: #fff;
+        padding:5%;
+        top:110px;
+        margin: auto;
+    }
+    .weui-cells::before
+    {
+        border: none;
+
+    }
+</style>
+<head>
+    <title>登陆</title>
+</head>
+
+<div class="page__bd" style="background-color: white">
+    <div style="text-align: center;">
+        <img src="./images/logo.png" style="width:100%; height:100%;"/>
+    </div>
+    <div class="weui-cells" style="margin: 0 auto;width: 90%">
+        <div class="weui-cell" style="height: 40px;border: none">
+            <div class="weui-cell__hd"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC4AAAAuCAMAAABgZ9sFAAAAVFBMVEXx8fHMzMzr6+vn5+fv7+/t7e3d3d2+vr7W1tbHx8eysrKdnZ3p6enk5OTR0dG7u7u3t7ejo6PY2Njh4eHf39/T09PExMSvr6+goKCqqqqnp6e4uLgcLY/OAAAAnklEQVRIx+3RSRLDIAxE0QYhAbGZPNu5/z0zrXHiqiz5W72FqhqtVuuXAl3iOV7iPV/iSsAqZa9BS7YOmMXnNNX4TWGxRMn3R6SxRNgy0bzXOW8EBO8SAClsPdB3psqlvG+Lw7ONXg/pTld52BjgSSkA3PV2OOemjIDcZQWgVvONw60q7sIpR38EnHPSMDQ4MjDjLPozhAkGrVbr/z0ANjAF4AcbXmYAAAAASUVORK5CYII=" alt="" style="width:20px;margin-right:5px;display:block"></div>
+            <div class="weui-cell__bd">
+                <input class="weui-input" type="tel" placeholder="用户名">
+            </div>
+        </div>
+        <div class="weui-cell" style="height: 40px">
+            <div class="weui-cell__hd"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC4AAAAuCAMAAABgZ9sFAAAAVFBMVEXx8fHMzMzr6+vn5+fv7+/t7e3d3d2+vr7W1tbHx8eysrKdnZ3p6enk5OTR0dG7u7u3t7ejo6PY2Njh4eHf39/T09PExMSvr6+goKCqqqqnp6e4uLgcLY/OAAAAnklEQVRIx+3RSRLDIAxE0QYhAbGZPNu5/z0zrXHiqiz5W72FqhqtVuuXAl3iOV7iPV/iSsAqZa9BS7YOmMXnNNX4TWGxRMn3R6SxRNgy0bzXOW8EBO8SAClsPdB3psqlvG+Lw7ONXg/pTld52BjgSSkA3PV2OOemjIDcZQWgVvONw60q7sIpR38EnHPSMDQ4MjDjLPozhAkGrVbr/z0ANjAF4AcbXmYAAAAASUVORK5CYII=" alt="" style="width:20px;margin-right:5px;display:block"></div>
+            <div class="weui-cell__bd">
+                <input class="weui-input" type="password" placeholder="登录密码" style="color:#999999">
+            </div>
+            <div class="weui-cell__ft">
+                <label class="weui-check__label" style="color: #3782d9">忘记密码?</label>
+            </div>
+        </div>
+    </div>
+
+    <div style="margin-top: 40px">
+        <button class="weui-btn weui-btn_default" style="color: white ; background-color: #3782d9;   margin: 0 auto;width: 90%">登录</button>
+    </div>
+
+    <div style="margin-top: 30px">
+            <div class="weui-cell">
+                <div class="weui-cell__hd"> <label class="weui-check__label" style="text-decoration-line: underline; color: #333333; margin-left: 50px">快速注册</label></div>
+                <div class="weui-cell__bd">
+                </div>
+                <div class="weui-cell__ft">
+                    <label class="weui-check__label"  style="text-decoration-line: underline; color: #333333; margin-right: 50px">手机验证码登录</label>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</script>
+    <script type="text/html" id="tpl_register">
+
+<style type="text/css">
+    .weui-cells::before
+    {
+        border: none;
+
+    }
+</style>
+<div class="page__bd">
+    <div style="text-align: center;">
+        <img src="./images/logo.png" style="width:100%; height:100%;"/>
+    </div>
+    <div class="weui-cells" style="margin: 0 auto;width: 90%;">
+        <div class="weui-cell" style="height: 40px;border: none">
+            <div class="weui-cell__hd"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC4AAAAuCAMAAABgZ9sFAAAAVFBMVEXx8fHMzMzr6+vn5+fv7+/t7e3d3d2+vr7W1tbHx8eysrKdnZ3p6enk5OTR0dG7u7u3t7ejo6PY2Njh4eHf39/T09PExMSvr6+goKCqqqqnp6e4uLgcLY/OAAAAnklEQVRIx+3RSRLDIAxE0QYhAbGZPNu5/z0zrXHiqiz5W72FqhqtVuuXAl3iOV7iPV/iSsAqZa9BS7YOmMXnNNX4TWGxRMn3R6SxRNgy0bzXOW8EBO8SAClsPdB3psqlvG+Lw7ONXg/pTld52BjgSSkA3PV2OOemjIDcZQWgVvONw60q7sIpR38EnHPSMDQ4MjDjLPozhAkGrVbr/z0ANjAF4AcbXmYAAAAASUVORK5CYII=" alt="" style="width:20px;margin-right:5px;display:block"></div>
+            <div class="weui-cell__bd">
+                <input class="weui-input" type="tel" placeholder="请输入手机号">
+            </div>
+            <div class="weui-cell__ft">
+                <label class="weui-check__label" style="color: #3782d9">获取验证码</label>
+            </div>
+        </div>
+        <div class="weui-cell" style="height: 40px">
+            <div class="weui-cell__hd"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC4AAAAuCAMAAABgZ9sFAAAAVFBMVEXx8fHMzMzr6+vn5+fv7+/t7e3d3d2+vr7W1tbHx8eysrKdnZ3p6enk5OTR0dG7u7u3t7ejo6PY2Njh4eHf39/T09PExMSvr6+goKCqqqqnp6e4uLgcLY/OAAAAnklEQVRIx+3RSRLDIAxE0QYhAbGZPNu5/z0zrXHiqiz5W72FqhqtVuuXAl3iOV7iPV/iSsAqZa9BS7YOmMXnNNX4TWGxRMn3R6SxRNgy0bzXOW8EBO8SAClsPdB3psqlvG+Lw7ONXg/pTld52BjgSSkA3PV2OOemjIDcZQWgVvONw60q7sIpR38EnHPSMDQ4MjDjLPozhAkGrVbr/z0ANjAF4AcbXmYAAAAASUVORK5CYII=" alt="" style="width:20px;margin-right:5px;display:block"></div>
+            <div class="weui-cell__bd">
+                <input class="weui-input" type="number" placeholder="填写手机验证码" style="color:#999999">
+            </div>
+        </div>
+        <div class="weui-cell" style="height: 40px">
+            <div class="weui-cell__hd"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC4AAAAuCAMAAABgZ9sFAAAAVFBMVEXx8fHMzMzr6+vn5+fv7+/t7e3d3d2+vr7W1tbHx8eysrKdnZ3p6enk5OTR0dG7u7u3t7ejo6PY2Njh4eHf39/T09PExMSvr6+goKCqqqqnp6e4uLgcLY/OAAAAnklEQVRIx+3RSRLDIAxE0QYhAbGZPNu5/z0zrXHiqiz5W72FqhqtVuuXAl3iOV7iPV/iSsAqZa9BS7YOmMXnNNX4TWGxRMn3R6SxRNgy0bzXOW8EBO8SAClsPdB3psqlvG+Lw7ONXg/pTld52BjgSSkA3PV2OOemjIDcZQWgVvONw60q7sIpR38EnHPSMDQ4MjDjLPozhAkGrVbr/z0ANjAF4AcbXmYAAAAASUVORK5CYII=" alt="" style="width:20px;margin-right:5px;display:block"></div>
+            <div class="weui-cell__bd">
+                <input class="weui-input" type="password" placeholder="设置密码" style="color:#999999">
+            </div>
+        </div>
+        <div class="weui-cell" style="height: 40px">
+            <div class="weui-cell__hd"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC4AAAAuCAMAAABgZ9sFAAAAVFBMVEXx8fHMzMzr6+vn5+fv7+/t7e3d3d2+vr7W1tbHx8eysrKdnZ3p6enk5OTR0dG7u7u3t7ejo6PY2Njh4eHf39/T09PExMSvr6+goKCqqqqnp6e4uLgcLY/OAAAAnklEQVRIx+3RSRLDIAxE0QYhAbGZPNu5/z0zrXHiqiz5W72FqhqtVuuXAl3iOV7iPV/iSsAqZa9BS7YOmMXnNNX4TWGxRMn3R6SxRNgy0bzXOW8EBO8SAClsPdB3psqlvG+Lw7ONXg/pTld52BjgSSkA3PV2OOemjIDcZQWgVvONw60q7sIpR38EnHPSMDQ4MjDjLPozhAkGrVbr/z0ANjAF4AcbXmYAAAAASUVORK5CYII=" alt="" style="width:20px;margin-right:5px;display:block"></div>
+            <div class="weui-cell__bd">
+                <input class="weui-input" type="password" placeholder="确认密码" style="color:#999999">
+            </div>
+        </div>
+    </div>
+
+    <div style="margin-top: 70px">
+        <button class="weui-btn weui-btn_default" style="color: white ; background-color: #3782d9;   margin: 0 auto;width: 90%">注册</button>
+    </div>
+
+</div>
+</script>
+    <script type="text/html" id="tpl_list">
+<div class="page">
+    <div class="page__hd">
+        <h1 class="page__title">List</h1>
+        <p class="page__desc">列表</p>
+    </div>
+    <div class="page__bd">
+        <div class="weui-cells__title">带说明的列表项</div>
+        <div class="weui-cells">
+            <div class="weui-cell">
+                <div class="weui-cell__bd">
+                    <p>标题文字</p>
+                </div>
+                <div class="weui-cell__ft">说明文字</div>
+            </div>
+            <div class="weui-cell weui-cell_swiped">
+                <div class="weui-cell__bd" style="transform: translateX(-68px)">
+                    <div class="weui-cell">
+                        <div class="weui-cell__bd">
+                            <p>标题文字</p>
+                        </div>
+                        <div class="weui-cell__ft">说明文字</div>
+                    </div>
+                </div>
+                <div class="weui-cell__ft">
+                    <a class="weui-swiped-btn weui-swiped-btn_warn" href="javascript:">删除</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="weui-cells__title">带图标、说明的列表项</div>
+        <div class="weui-cells">
+            <div class="weui-cell">
+                <div class="weui-cell__hd"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC4AAAAuCAMAAABgZ9sFAAAAVFBMVEXx8fHMzMzr6+vn5+fv7+/t7e3d3d2+vr7W1tbHx8eysrKdnZ3p6enk5OTR0dG7u7u3t7ejo6PY2Njh4eHf39/T09PExMSvr6+goKCqqqqnp6e4uLgcLY/OAAAAnklEQVRIx+3RSRLDIAxE0QYhAbGZPNu5/z0zrXHiqiz5W72FqhqtVuuXAl3iOV7iPV/iSsAqZa9BS7YOmMXnNNX4TWGxRMn3R6SxRNgy0bzXOW8EBO8SAClsPdB3psqlvG+Lw7ONXg/pTld52BjgSSkA3PV2OOemjIDcZQWgVvONw60q7sIpR38EnHPSMDQ4MjDjLPozhAkGrVbr/z0ANjAF4AcbXmYAAAAASUVORK5CYII=" alt="" style="width:20px;margin-right:5px;display:block"></div>
+                <div class="weui-cell__bd">
+                    <p>标题文字</p>
+                </div>
+                <div class="weui-cell__ft">说明文字</div>
+            </div>
+            <div class="weui-cell">
+                <div class="weui-cell__hd"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC4AAAAuCAMAAABgZ9sFAAAAVFBMVEXx8fHMzMzr6+vn5+fv7+/t7e3d3d2+vr7W1tbHx8eysrKdnZ3p6enk5OTR0dG7u7u3t7ejo6PY2Njh4eHf39/T09PExMSvr6+goKCqqqqnp6e4uLgcLY/OAAAAnklEQVRIx+3RSRLDIAxE0QYhAbGZPNu5/z0zrXHiqiz5W72FqhqtVuuXAl3iOV7iPV/iSsAqZa9BS7YOmMXnNNX4TWGxRMn3R6SxRNgy0bzXOW8EBO8SAClsPdB3psqlvG+Lw7ONXg/pTld52BjgSSkA3PV2OOemjIDcZQWgVvONw60q7sIpR38EnHPSMDQ4MjDjLPozhAkGrVbr/z0ANjAF4AcbXmYAAAAASUVORK5CYII=" alt="" style="width:20px;margin-right:5px;display:block"></div>
+                <div class="weui-cell__bd">
+                    <p>标题文字</p>
+                </div>
+                <div class="weui-cell__ft">说明文字</div>
+            </div>
+        </div>
+
+        <div class="weui-cells__title">带跳转的列表项</div>
+        <div class="weui-cells">
+            <a class="weui-cell weui-cell_access" href="javascript:;">
+                <div class="weui-cell__bd">
+                    <p>cell standard</p>
+                </div>
+                <div class="weui-cell__ft">
+                </div>
+            </a>
+            <a class="weui-cell weui-cell_access" href="javascript:;">
+                <div class="weui-cell__bd">
+                    <p>cell standard</p>
+                </div>
+                <div class="weui-cell__ft">
+                </div>
+            </a>
+        </div>
+
+        <div class="weui-cells__title">带说明、跳转的列表项</div>
+        <div class="weui-cells">
+            <a class="weui-cell weui-cell_access" href="javascript:;">
+                <div class="weui-cell__bd">
+                    <p>cell standard</p>
+                </div>
+                <div class="weui-cell__ft">说明文字</div>
+            </a>
+            <a class="weui-cell weui-cell_access" href="javascript:;">
+                <div class="weui-cell__bd">
+                    <p>cell standard</p>
+                </div>
+                <div class="weui-cell__ft">说明文字</div>
+            </a>
+
+        </div>
+
+        <div class="weui-cells__title">带图标、说明、跳转的列表项</div>
+        <div class="weui-cells">
+
+            <a class="weui-cell weui-cell_access" href="javascript:;">
+                <div class="weui-cell__hd"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC4AAAAuCAMAAABgZ9sFAAAAVFBMVEXx8fHMzMzr6+vn5+fv7+/t7e3d3d2+vr7W1tbHx8eysrKdnZ3p6enk5OTR0dG7u7u3t7ejo6PY2Njh4eHf39/T09PExMSvr6+goKCqqqqnp6e4uLgcLY/OAAAAnklEQVRIx+3RSRLDIAxE0QYhAbGZPNu5/z0zrXHiqiz5W72FqhqtVuuXAl3iOV7iPV/iSsAqZa9BS7YOmMXnNNX4TWGxRMn3R6SxRNgy0bzXOW8EBO8SAClsPdB3psqlvG+Lw7ONXg/pTld52BjgSSkA3PV2OOemjIDcZQWgVvONw60q7sIpR38EnHPSMDQ4MjDjLPozhAkGrVbr/z0ANjAF4AcbXmYAAAAASUVORK5CYII=" alt="" style="width:20px;margin-right:5px;display:block"></div>
+                <div class="weui-cell__bd">
+                    <p>cell standard</p>
+                </div>
+                <div class="weui-cell__ft">说明文字</div>
+            </a>
+            <a class="weui-cell weui-cell_access" href="javascript:;">
+                <div class="weui-cell__hd"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC4AAAAuCAMAAABgZ9sFAAAAVFBMVEXx8fHMzMzr6+vn5+fv7+/t7e3d3d2+vr7W1tbHx8eysrKdnZ3p6enk5OTR0dG7u7u3t7ejo6PY2Njh4eHf39/T09PExMSvr6+goKCqqqqnp6e4uLgcLY/OAAAAnklEQVRIx+3RSRLDIAxE0QYhAbGZPNu5/z0zrXHiqiz5W72FqhqtVuuXAl3iOV7iPV/iSsAqZa9BS7YOmMXnNNX4TWGxRMn3R6SxRNgy0bzXOW8EBO8SAClsPdB3psqlvG+Lw7ONXg/pTld52BjgSSkA3PV2OOemjIDcZQWgVvONw60q7sIpR38EnHPSMDQ4MjDjLPozhAkGrVbr/z0ANjAF4AcbXmYAAAAASUVORK5CYII=" alt="" style="width:20px;margin-right:5px;display:block"></div>
+                <div class="weui-cell__bd">
+                    <p>cell standard</p>
+                </div>
+                <div class="weui-cell__ft">说明文字</div>
+            </a>
+        </div>
+    </div>
+    <div class="page__ft">
+        <a href="javascript:home()"><img src="./images/icon_footer_link.png" /></a>
+    </div>
+</div>
+</script>
+
+</body>
+<script src="./zepto.min.js"></script>
+<script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script src="https://res.wx.qq.com/open/libs/weuijs/1.0.0/weui.min.js"></script>
+<script src="example.js"></script>
+
+</html>
