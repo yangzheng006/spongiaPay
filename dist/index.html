@@ -11,35 +11,13 @@
     <div class="weui-toptips weui-toptips_warn js_tooltips">错误提示</div>
     <div class="container js_container" id="container">
     </div>
-    <script type="text/html" id="tpl_home">
-
+    
 <div class="page">
     <div class="page__bd" style="height: 100%;">
         <div class="weui-tab">
             <div class="weui-tab__panel">
             </div>
-            <div class="weui-tabbar">
-    <a href="javascript:;" class="weui-tabbar__item weui-bar__item_on">
-                <span style="display: inline-block;position: relative;">
-                    <img src="./images/icon_tabbar.png" alt="" class="weui-tabbar__icon">
-                </span>
-        <p class="weui-tabbar__label">首页</p>
-    </a>
-    <a href="javascript:;" class="weui-tabbar__item">
-        <img src="./images/icon_tabbar.png" alt="" class="weui-tabbar__icon">
-        <p class="weui-tabbar__label">推荐商家</p>
-    </a>
-    <a href="javascript:;" class="weui-tabbar__item">
-                <span style="display: inline-block;position: relative;">
-                    <img src="./images/icon_tabbar.png" alt="" class="weui-tabbar__icon">
-                </span>
-        <p class="weui-tabbar__label">海绵金融</p>
-    </a>
-    <a href="javascript:;" class="weui-tabbar__item">
-        <img src="./images/icon_tabbar.png" alt="" class="weui-tabbar__icon">
-        <p class="weui-tabbar__label">我的</p>
-    </a>
-</div>
+            @import "tabbar.html"
         </div>
     </div>
 </div>
@@ -54,7 +32,7 @@
         });
     });
 </script>
-</script>>
+    <!--<link rel="import" href="./fragment/home.html">>-->
 </body>
 <script src="./zepto.min.js"></script>
 <script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>

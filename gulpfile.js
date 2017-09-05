@@ -12,6 +12,9 @@ var rename = require('gulp-rename');
 var sourcemaps = require('gulp-sourcemaps');
 var browserSync = require('browser-sync');
 var pkg = require('./package.json');
+var htmlImport = require('gulp-html-import');
+var gulpSequence = require('gulp-sequence');
+
 var yargs = require('yargs').options({
   w: {
     alias: 'watch',
@@ -74,6 +77,7 @@ gulp.task('build:example:assets', function() {
     .pipe(browserSync.reload({ stream: true }));
 });
 
+
 gulp.task('build:example:style', function() {
   gulp
     .src('src/example/example.less', option)
@@ -94,13 +98,15 @@ gulp.task('build:example:style', function() {
     .pipe(browserSync.reload({ stream: true }));
 });
 
-gulp.task('build:example:html', function() {
+
+gulp.task('build:example:html' ,function() {
   gulp
     .src('src/example/index.html', option)
     .pipe(
       tap(function(file) {
         var dir = path.dirname(file.path);
         var contents = file.contents.toString();
+
         contents = contents.replace(
           /<link\s+rel="import"\s+href="(.*)">/gi,
           function(match, $1) {
@@ -114,20 +120,21 @@ gulp.task('build:example:html', function() {
               content +
               '\n</script>'
             );
-          }
-        );
-        file.contents = new Buffer(contents);
-      })
-    )
-    .pipe(gulp.dest(dist))
-    .pipe(browserSync.reload({ stream: true }));
-});
+           }
+         );
+         file.contents = new Buffer(contents);
+       })
+     ).pipe(htmlImport('src/example/widget/'))
+     .pipe(gulp.dest(dist))
+     .pipe(browserSync.reload({ stream: true }));
+ });
 
-gulp.task('build:example', [
-  'build:example:assets',
-  'build:example:style',
-  'build:example:html'
-]);
+
+gulp.task('build:example',
+    ['build:example:assets',
+    'build:example:style',
+    'build:example:html']
+);
 
 gulp.task('release', ['build:style', 'build:example']);
 
