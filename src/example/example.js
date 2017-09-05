@@ -289,7 +289,7 @@ $(function () {
         setPageManager();
 
         window.pageManager = pageManager;
-        whindow.home = function(){
+        window.home = function(){
             location.hash = '';
         };
     }
