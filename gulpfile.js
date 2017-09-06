@@ -98,6 +98,11 @@ gulp.task('build:example:style', function() {
     .pipe(browserSync.reload({ stream: true }));
 });
 
+gulp.task('build:example:css',function () {
+   gulp.src('src/style/*.css',option)
+       .pipe(gulp.dest(dist));
+});
+
 
 gulp.task('build:example:html' ,function() {
   gulp
@@ -133,7 +138,9 @@ gulp.task('build:example:html' ,function() {
 gulp.task('build:example',
     ['build:example:assets',
     'build:example:style',
-    'build:example:html']
+    'build:example:html',
+    'build:example:css'
+    ]
 );
 
 gulp.task('release', ['build:style', 'build:example']);
