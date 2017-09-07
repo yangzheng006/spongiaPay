@@ -70,6 +70,13 @@ gulp.task('build:style', function() {
     .pipe(gulp.dest(dist));
 });
 
+
+gulp.task('import', function () {
+    gulp.src('./src/example/fragment/*.html')
+        .pipe(htmlImport('./src/example/widget/'))
+        .pipe(gulp.dest('dist'));
+})
+
 gulp.task('build:example:assets', function() {
   gulp
     .src('src/example/**/*.?(png|jpg|gif|js)', option)
@@ -143,6 +150,7 @@ gulp.task('build:example',
     ['build:example:assets',
     'build:example:style',
     'build:example:html',
+    'import',
     'build:example:css',
     'build:example:css2'
     ]
