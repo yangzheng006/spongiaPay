@@ -72,7 +72,7 @@ gulp.task('build:style', function() {
 
 
 gulp.task('import', function () {
-    gulp.src('./src/example/fragment/*.html')
+    gulp.src('./example/fragment/*.html')
         .pipe(htmlImport('./src/example/widget/'))
         .pipe(gulp.dest('dist'));
 })
@@ -156,7 +156,6 @@ gulp.task('build:example',
     'build:example:html',
     'import',
     'build:example:css',
-    'build:example:css2'
     ]
 );
 
