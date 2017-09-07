@@ -103,6 +103,10 @@ gulp.task('build:example:css',function () {
        .pipe(gulp.dest(dist));
 });
 
+gulp.task('build:example:css2',function () {
+    gulp.src('src/example/css/*.css',option)
+        .pipe(gulp.dest(dist));
+});
 
 gulp.task('build:example:html' ,function() {
   gulp
@@ -139,7 +143,8 @@ gulp.task('build:example',
     ['build:example:assets',
     'build:example:style',
     'build:example:html',
-    'build:example:css'
+    'build:example:css',
+    'build:example:css2'
     ]
 );
 
