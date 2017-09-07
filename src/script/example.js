@@ -249,6 +249,7 @@ $(function () {
             });
         });
     }
+
     function setPageManager(){
         var pages = {}, tpls = $('script[type="text/html"]');
         var winH = $(window).height();
@@ -261,7 +262,7 @@ $(function () {
                 template: '#' + tpl.id
             };
         }
-        pages.home.url = '#';
+        pages.mine.url = '#';
 
         for (var page in pages) {
             pageManager.push(pages[page]);
@@ -277,7 +278,7 @@ $(function () {
                     $foot.removeClass('j_bottom');
                 }
             })
-            .setDefault('button')
+            .setDefault('mine')
             .init();
     }
 
@@ -289,7 +290,7 @@ $(function () {
         setPageManager();
 
         window.pageManager = pageManager;
-        window.home = function(){
+        window.mine = function(){
             location.hash = '';
         };
     }
