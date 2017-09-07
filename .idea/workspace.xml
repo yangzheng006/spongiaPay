@@ -2,12 +2,111 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f9023910-4a62-4b29-9810-b7641dbe9224" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/example/images/MBImg.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/example/images/icon_footer.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/example/images/icon_footer_link.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/example/images/icon_intro.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/example/images/icon_nav_actionSheet.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/example/images/icon_nav_article.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/example/images/icon_nav_button.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/example/images/icon_nav_cell.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/example/images/icon_nav_dialog.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/example/images/icon_nav_feedback.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/example/images/icon_nav_flow.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/example/images/icon_nav_form.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/example/images/icon_nav_icons.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/example/images/icon_nav_layout.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/example/images/icon_nav_msg.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/example/images/icon_nav_nav.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/example/images/icon_nav_panel.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/example/images/icon_nav_progress.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/example/images/icon_nav_search.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/example/images/icon_nav_search_bar.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/example/images/icon_nav_special.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/example/images/icon_nav_tab.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/example/images/icon_nav_toast.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/example/images/icon_nav_z-index.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/example/images/icon_nav_zindex.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/example/images/icon_tabbar.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/example/images/layers/content.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/example/images/layers/navigation.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/example/images/layers/popout.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/example/images/layers/transparent.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/example/images/logo.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/example/images/mine/Certification CA.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/example/images/mine/MBImg.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/example/images/mine/Merchant CA.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/example/images/mine/about.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/example/images/mine/bindcarts.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/example/images/mine/help.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/example/images/mine/integralMoney.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/example/images/mine/integralRecord.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/example/images/mine/integralSend.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/example/images/mine/integralUsed.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/example/images/mine/invitefriends.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/example/images/mine/recommend.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/example/images/mine/使用积分.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/example/images/mine/关于我们.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/example/images/mine/历史推荐.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/example/images/mine/右箭头.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/example/images/mine/商家已认证.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/example/images/mine/商户认证.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/example/images/mine/实名认证.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/example/images/mine/帮助中心.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/example/images/mine/猪.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/example/images/mine/用户已认证.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/example/images/mine/积分提现.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/example/images/mine/积分记录.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/example/images/mine/绑定银行卡.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/example/images/mine/设置.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/example/images/mine/赠送积分.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/example/images/mine/邀请好友.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/example/images/pic_160.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/example/images/pic_article.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/example/images/vcode.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/example/images/tabbar/finance.png" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/dist/example/images/tabbar/finance.png" afterPath="$PROJECT_DIR$/src/example/images/tabbarImgs/finance.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/example/images/tabbar/financeon.png" afterPath="$PROJECT_DIR$/src/example/images/tabbarImgs/financeon.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/example/images/tabbar/home.png" afterPath="$PROJECT_DIR$/src/example/images/tabbarImgs/home.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/example/images/tabbar/homeon.png" afterPath="$PROJECT_DIR$/src/example/images/tabbarImgs/homeon.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/example/images/tabbar/mine.png" afterPath="$PROJECT_DIR$/src/example/images/tabbarImgs/mine.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/example/images/tabbar/mineon.png" afterPath="$PROJECT_DIR$/src/example/images/tabbarImgs/mineon.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/example/images/tabbar/recommend.png" afterPath="$PROJECT_DIR$/src/example/images/tabbarImgs/recommend.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/example/images/tabbar/recommendon.png" afterPath="$PROJECT_DIR$/src/example/images/tabbarImgs/recommendon.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/example/images/mine/Certification CA.png" afterPath="$PROJECT_DIR$/src/example/images/mine/Certification CA.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/example/images/mine/MBImg.png" afterPath="$PROJECT_DIR$/src/example/images/mine/MBImg.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/example/images/mine/Merchant CA.png" afterPath="$PROJECT_DIR$/src/example/images/mine/Merchant CA.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/example/images/mine/about.png" afterPath="$PROJECT_DIR$/src/example/images/mine/about.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/example/images/mine/bindcarts.png" afterPath="$PROJECT_DIR$/src/example/images/mine/bindcarts.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/example/images/mine/help.png" afterPath="$PROJECT_DIR$/src/example/images/mine/help.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/example/images/mine/integralMoney.png" afterPath="$PROJECT_DIR$/src/example/images/mine/integralMoney.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/example/images/mine/integralRecord.png" afterPath="$PROJECT_DIR$/src/example/images/mine/integralRecord.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/example/images/mine/integralSend.png" afterPath="$PROJECT_DIR$/src/example/images/mine/integralSend.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/example/images/mine/integralUsed.png" afterPath="$PROJECT_DIR$/src/example/images/mine/integralUsed.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/example/images/mine/invitefriends.png" afterPath="$PROJECT_DIR$/src/example/images/mine/invitefriends.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/example/images/mine/recommend.png" afterPath="$PROJECT_DIR$/src/example/images/mine/recommend.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/example/images/mine/使用积分.png" afterPath="$PROJECT_DIR$/src/example/images/mine/使用积分.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/example/images/mine/关于我们.png" afterPath="$PROJECT_DIR$/src/example/images/mine/关于我们.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/example/images/mine/历史推荐.png" afterPath="$PROJECT_DIR$/src/example/images/mine/历史推荐.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/example/images/mine/右箭头.png" afterPath="$PROJECT_DIR$/src/example/images/mine/右箭头.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/example/images/mine/商家已认证.png" afterPath="$PROJECT_DIR$/src/example/images/mine/商家已认证.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/example/images/mine/商户认证.png" afterPath="$PROJECT_DIR$/src/example/images/mine/商户认证.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/example/images/mine/实名认证.png" afterPath="$PROJECT_DIR$/src/example/images/mine/实名认证.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/example/images/mine/帮助中心.png" afterPath="$PROJECT_DIR$/src/example/images/mine/帮助中心.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/example/images/mine/猪.png" afterPath="$PROJECT_DIR$/src/example/images/mine/猪.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/example/images/mine/用户已认证.png" afterPath="$PROJECT_DIR$/src/example/images/mine/用户已认证.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/example/images/mine/积分提现.png" afterPath="$PROJECT_DIR$/src/example/images/mine/积分提现.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/example/images/mine/积分记录.png" afterPath="$PROJECT_DIR$/src/example/images/mine/积分记录.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/example/images/mine/绑定银行卡.png" afterPath="$PROJECT_DIR$/src/example/images/mine/绑定银行卡.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/example/images/mine/设置.png" afterPath="$PROJECT_DIR$/src/example/images/mine/设置.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/example/images/mine/赠送积分.png" afterPath="$PROJECT_DIR$/src/example/images/mine/赠送积分.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/example/images/mine/邀请好友.png" afterPath="$PROJECT_DIR$/src/example/images/mine/邀请好友.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/example/index.html" afterPath="$PROJECT_DIR$/dist/example/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/home.html" afterPath="$PROJECT_DIR$/dist/home.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/mine.html" afterPath="$PROJECT_DIR$/dist/mine.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/recommendBusiness.html" afterPath="$PROJECT_DIR$/dist/recommendBusiness.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gulpfile.js" afterPath="$PROJECT_DIR$/gulpfile.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/example/fragment/mine.html" afterPath="$PROJECT_DIR$/src/example/fragment/mine.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/example/widget/memberView.html" afterPath="$PROJECT_DIR$/src/example/widget/memberView.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/example/widget/tabbar.html" afterPath="$PROJECT_DIR$/src/example/widget/tabbar.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -22,34 +121,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="mine.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/example/fragment/mine.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="33" column="22" lean-forward="false" selection-start-line="33" selection-start-column="22" selection-end-line="33" selection-end-column="22" />
-              <folding>
-                <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#2;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#img#0;n#div#0;n#a#0;n#div#0;n#div#2;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#img#0;n#div#0;n#a#1;n#div#0;n#div#2;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#1;n#div#2;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#img#0;n#div#0;n#a#0;n#div#1;n#div#2;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#img#0;n#div#0;n#a#1;n#div#1;n#div#2;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#2;n#div#2;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#img#0;n#div#0;n#a#0;n#div#2;n#div#2;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#img#0;n#div#0;n#a#1;n#div#2;n#div#2;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#3;n#div#2;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#img#0;n#div#0;n#a#0;n#div#3;n#div#2;n#div#0;n#div#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="tabbar.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="tabbar.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/example/widget/tabbar.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="21" column="57" lean-forward="false" selection-start-line="21" selection-start-column="57" selection-end-line="21" selection-end-column="57" />
+            <state relative-caret-position="225">
+              <caret line="15" column="63" lean-forward="false" selection-start-line="15" selection-start-column="63" selection-end-line="15" selection-end-column="63" />
               <folding>
                 <element signature="n#style#0;n#span#0;n#a#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#span#0;n#a#1;n#div#0;n#!!top" expanded="true" />
@@ -57,6 +133,51 @@
                 <element signature="n#style#0;n#span#0;n#a#3;n#div#0;n#!!top" expanded="true" />
               </folding>
             </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="gulpfile.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/gulpfile.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="326">
+              <caret line="154" column="26" lean-forward="true" selection-start-line="154" selection-start-column="26" selection-end-line="154" selection-end-column="26" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="finance.png" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/example/images/tabbarImgs/finance.png">
+          <provider selected="true" editor-type-id="images">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="financeon.png" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/example/images/tabbarImgs/financeon.png">
+          <provider selected="true" editor-type-id="images">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="homeon.png" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/example/images/tabbarImgs/homeon.png">
+          <provider selected="true" editor-type-id="images">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="mine.png" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/example/images/tabbarImgs/mine.png">
+          <provider selected="true" editor-type-id="images">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="home.png" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/example/images/tabbarImgs/home.png">
+          <provider selected="true" editor-type-id="images">
+            <state />
           </provider>
         </entry>
       </file>
@@ -84,6 +205,7 @@
       <find>build:example:css</find>
       <find>我的钱包</find>
       <find>assets</find>
+      <find>assets2</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -105,9 +227,9 @@
         <option value="$PROJECT_DIR$/src/example/index.html" />
         <option value="$PROJECT_DIR$/dist/mine.html" />
         <option value="$PROJECT_DIR$/src/example/widget/memberView.html" />
-        <option value="$PROJECT_DIR$/gulpfile.js" />
         <option value="$PROJECT_DIR$/src/example/fragment/mine.html" />
         <option value="$PROJECT_DIR$/src/example/widget/tabbar.html" />
+        <option value="$PROJECT_DIR$/gulpfile.js" />
       </list>
     </option>
   </component>
@@ -130,11 +252,9 @@
   <component name="PackageJsonUpdateNotifier">
     <dismissed value="$PROJECT_DIR$/package.json" />
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="-17" />
-    <option name="y" value="23" />
-    <option name="width" value="1229" />
-    <option name="height" value="777" />
+  <component name="ProjectFrameBounds" fullScreen="true">
+    <option name="width" value="1280" />
+    <option name="height" value="800" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -151,8 +271,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -164,6 +282,12 @@
               <item name="spongiaPay" type="b2602c69:ProjectViewProjectNode" />
               <item name="spongiaPay" type="462c0819:PsiDirectoryNode" />
               <item name="dist" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="spongiaPay" type="b2602c69:ProjectViewProjectNode" />
+              <item name="spongiaPay" type="462c0819:PsiDirectoryNode" />
+              <item name="dist" type="462c0819:PsiDirectoryNode" />
+              <item name="example" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="spongiaPay" type="b2602c69:ProjectViewProjectNode" />
@@ -187,6 +311,8 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -238,25 +364,27 @@
       <workItem from="1504685952754" duration="6847000" />
       <workItem from="1504703124718" duration="4714000" />
       <workItem from="1504751686825" duration="1285000" />
-      <workItem from="1504753012110" duration="8801000" />
+      <workItem from="1504753012110" duration="9196000" />
+      <workItem from="1504767241550" duration="1457000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="55945000" />
+    <option name="totallyTimeSpent" value="57797000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-17" y="23" width="1229" height="777" extended-state="0" />
+    <frame x="0" y="0" width="1280" height="800" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23923841" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2279587" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30938417" sideWeight="0.5033113" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32991204" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24926686" sideWeight="0.49668875" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2008253" sideWeight="0.49668875" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -279,43 +407,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/example/fragment/recommendBusiness.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/example/fragment/input.html" />
-    <entry file="file://$PROJECT_DIR$/src/example/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="20" lean-forward="true" selection-start-line="12" selection-start-column="20" selection-end-line="12" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/example/example.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="36" column="21" lean-forward="true" selection-start-line="36" selection-start-column="21" selection-end-line="36" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/example/fragment/recommendBusiness.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/example/fragment/recommendBusiness.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/example/fragment/panel.html" />
     <entry file="file://$PROJECT_DIR$/src/example/index.html">
       <provider selected="true" editor-type-id="text-editor">
@@ -443,7 +534,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="218">
           <caret line="78" column="16" lean-forward="false" selection-start-line="78" selection-start-column="16" selection-end-line="78" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -452,7 +542,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
           <caret line="36" column="21" lean-forward="false" selection-start-line="36" selection-start-column="21" selection-end-line="36" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -467,7 +556,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="8" column="1" lean-forward="false" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -527,64 +615,72 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="7" selection-end-column="8" />
-          <folding>
-            <element signature="n#style#0;n#button#0;n#div#2;n#div#0;n#!!top" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/example/images/MBImg.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/example/images/MBImg.png" />
     <entry file="file://$PROJECT_DIR$/src/example/widget/memberView.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="8" column="50" lean-forward="false" selection-start-line="8" selection-start-column="31" selection-end-line="8" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gulpfile.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="259">
-          <caret line="158" column="4" lean-forward="false" selection-start-line="158" selection-start-column="4" selection-end-line="158" selection-end-column="4" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/example/fragment/mine.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
+        <state relative-caret-position="146">
           <caret line="33" column="22" lean-forward="false" selection-start-line="33" selection-start-column="22" selection-end-line="33" selection-end-column="22" />
-          <folding>
-            <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#2;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#div#0;n#a#0;n#div#0;n#div#2;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#div#0;n#a#1;n#div#0;n#div#2;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#2;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#div#0;n#a#0;n#div#1;n#div#2;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#div#0;n#a#1;n#div#1;n#div#2;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#div#2;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#div#0;n#a#0;n#div#2;n#div#2;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#div#0;n#a#1;n#div#2;n#div#2;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#3;n#div#2;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#div#0;n#a#0;n#div#3;n#div#2;n#div#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/example/widget/tabbar.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="57" lean-forward="false" selection-start-line="21" selection-start-column="57" selection-end-line="21" selection-end-column="57" />
+        <state relative-caret-position="225">
+          <caret line="15" column="63" lean-forward="false" selection-start-line="15" selection-start-column="63" selection-end-line="15" selection-end-column="63" />
           <folding>
             <element signature="n#style#0;n#span#0;n#a#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#span#0;n#a#1;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#span#0;n#a#2;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#span#0;n#a#3;n#div#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dist/example/images/tabbarImgs/finance.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/example/images/tabbarImgs/finance.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/example/images/tabbarImgs/home.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/example/images/tabbarImgs/financeon.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/example/images/tabbarImgs/homeon.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/example/images/tabbarImgs/mine.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gulpfile.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="326">
+          <caret line="154" column="26" lean-forward="true" selection-start-line="154" selection-start-column="26" selection-end-line="154" selection-end-column="26" />
+          <folding />
         </state>
       </provider>
     </entry>
