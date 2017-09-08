@@ -1,4 +1,17 @@
-@import "financeNa.html"
+<!--<link rel="import" href="html/widget/navigationbar.html">-->
 
 
 @import "tabbar.html"
+
+<script>
+
+window.onload = function(){
+    var tel = Handlebars.compile(document.getElementById('tpl_navigationbar').innerHTML)
+    var s = tel({
+        titleLeft:'<a class="icon icon-109 f-white">返回</a>',
+        title:'asd',
+        titleRight:'asd'
+    })
+    document.getElementById('container').innerHTML += s;
+}
+</script>
