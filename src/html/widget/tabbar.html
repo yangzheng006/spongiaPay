@@ -1,27 +1,54 @@
-<div class="weui-tabbar">
-    <a href="/src/html/fragment/home.html" class="weui-tabbar__item" id="home">
-                <span style="display: inline-block;position: relative;">
-                    <img src="/src/images/tabbar/home.png" alt="" class="weui-tabbar__icon">
-                </span>
-        <p class="weui-tabbar__label">首页</p>
+<style type="text/css">
+    .weui_tabbar_item.weui_bar_item_on .weui_tabbar_label{
+        color: #3782d9;
+    }
+</style>
+
+
+<div class="weui_tabbar " style="height: 52px">
+    <a href="javascript:;" class="weui_tabbar_item weui_bar_item_on">
+        <div class="weui_tabbar_icon">
+            <img src="/images/tabbar/home.png" alt="">
+            <img src="/images/tabbar/homeon.png" alt="" style="display: none">
+        </div>
+        <p class="weui_tabbar_label">首页</p>
     </a>
-    <a href="/src/html/fragment/recommendBusiness.html" class="weui-tabbar__item" id="business">
-                <span style="display: inline-block;position: relative;">
-                    <img src="/src/images/tabbar/recommend.png" alt="" class="weui-tabbar__icon">
-                </span>
-        <p class="weui-tabbar__label">推荐商家</p>
+    <a href="javascript:;" class="weui_tabbar_item">
+        <div class="weui_tabbar_icon">
+            <img src="/images/tabbar/recommend.png" alt="">
+            <img src="/images/tabbar/recommendon.png" alt="" style="display: none">
+        </div>
+        <p class="weui_tabbar_label">推荐商家</p>
     </a>
-    <a href="/src/html/fragment/finance.html" class="weui-tabbar__item" id="finance">
-                <span style="display: inline-block;position: relative;">
-                    <img src="/src/images/tabbar/finance.png" alt="" class="weui-tabbar__icon">
-                </span>
-        <p class="weui-tabbar__label">海绵金融</p>
+    <a href="javascript:;" class="weui_tabbar_item">
+        <div class="weui_tabbar_icon">
+            <img src="/images/tabbar/finance.png" alt="">
+            <img src="/images/tabbar/financeon.png" alt="" style="display: none">
+        </div>
+        <p class="weui_tabbar_label">海绵金融</p>
     </a>
-    <a href="/src/html/fragment/mine.html" class="weui-tabbar__item" id="mine">
-                <span style="display: inline-block;position: relative;">
-                    <img src="/src/images/tabbar/mine.png" alt="" class="weui-tabbar__icon">
-                </span>
-        <p class="weui-tabbar__label">我的</p>
+    <a href="javascript:;" class="weui_tabbar_item">
+        <div class="weui_tabbar_icon">
+            <img src="/images/tabbar/mine.png" alt="">
+            <img src="/images/tabbar/mineon.png" alt="" style="display: none">
+        </div>
+        <p class="weui_tabbar_label">我的</p>
     </a>
 </div>
+
+<script type="text/javascript">
+    $(function(){
+        $('.weui_tabbar_item').on('click', function () {
+            $(this).addClass('weui_bar_item_on').siblings('.weui_bar_item_on').removeClass('weui_bar_item_on');
+            for(var i=0;i<$('.weui_tabbar_item').length;i++){
+                $('.weui_tabbar .weui_tabbar_item').eq(i).find('img').eq(0).show()
+                $('.weui_tabbar .weui_tabbar_item').eq(i).find('img').eq(1).hide()
+            }
+            $(this).find('img').eq(1).show()
+            $(this).find('img').eq(0).hide()
+            pageManager.go('panel');
+
+        });
+    });
+</script>
 

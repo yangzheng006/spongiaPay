@@ -72,7 +72,7 @@ gulp.task('build:style', function() {
 
 /*引入@import 引入的文件*/
 gulp.task('import', function () {
-    gulp.src('src/html/**/*.html')
+    gulp.src('src/**/*.html')
         .pipe(htmlImport('src/html/widget/'))
         .pipe(gulp.dest('dist'));
 })
