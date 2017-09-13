@@ -6,28 +6,28 @@
 
 
 <div class="weui_tabbar " style="height: 52px">
-    <a href="javascript:;" class="weui_tabbar_item weui_bar_item_on">
+    <a href="#home" class="weui_tabbar_item">
         <div class="weui_tabbar_icon">
             <img src="/images/tabbar/home.png" alt="">
             <img src="/images/tabbar/homeon.png" alt="" style="display: none">
         </div>
         <p class="weui_tabbar_label">首页</p>
     </a>
-    <a href="javascript:;" class="weui_tabbar_item">
+    <a href="#recommendBusiness" class="weui_tabbar_item">
         <div class="weui_tabbar_icon">
             <img src="/images/tabbar/recommend.png" alt="">
             <img src="/images/tabbar/recommendon.png" alt="" style="display: none">
         </div>
         <p class="weui_tabbar_label">推荐商家</p>
     </a>
-    <a href="javascript:;" class="weui_tabbar_item">
+    <a href="#finance" class="weui_tabbar_item">
         <div class="weui_tabbar_icon">
             <img src="/images/tabbar/finance.png" alt="">
             <img src="/images/tabbar/financeon.png" alt="" style="display: none">
         </div>
         <p class="weui_tabbar_label">海绵金融</p>
     </a>
-    <a href="javascript:;" class="weui_tabbar_item">
+    <a href="#mine" class="weui_tabbar_item">
         <div class="weui_tabbar_icon">
             <img src="/images/tabbar/mine.png" alt="">
             <img src="/images/tabbar/mineon.png" alt="" style="display: none">
@@ -37,6 +37,7 @@
 </div>
 
 <script type="text/javascript">
+
     $(function(){
         $('.weui_tabbar_item').on('click', function () {
             $(this).addClass('weui_bar_item_on').siblings('.weui_bar_item_on').removeClass('weui_bar_item_on');
@@ -46,9 +47,10 @@
             }
             $(this).find('img').eq(1).show()
             $(this).find('img').eq(0).hide()
-            pageManager.go('panel');
+//            pageManager.go('panel');
 
         });
+
     });
 </script>
 

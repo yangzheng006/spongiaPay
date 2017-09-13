@@ -1,17 +1,37 @@
-<!--<link rel="import" href="html/widget/navigationbar.html">-->
+<div class="page">
+    <div class="weui-header bg-blue themeColor">
+        <h1 class="weui-header-title">海绵金融</h1>
+    </div>
+    <div id="tagnav" class="weui-navigator weui-navigator-wrapper">
+        <ul class="weui-navigator-list">
+            <li><a href="javascript:;">理财</a></li>
+            <li><a href="javascript:;">信用卡</a></li>
+            <li><a href="javascript:;">贷款</a></li>
+        </ul>
+    </div>
+
+    <div class="weui-label-list">
+        <label class="weui-label">银行理财</label><label class="weui-label">网贷理财</label>
+        <label class="weui-label">贷款</label><label class="weui-label">保险</label>
+        <label class="weui-label">徽菜</label><label class="weui-label">川菜</label>
+        <label class="weui-label">湘菜</label><label class="weui-label">韩国料理</label>
+    </div>
 
 
-@import "tabbar.html"
 
-<script>
+    <div class="weui_cells">
+        <a href="" class="weui_media_box weui_media_appmsg">
+            <div class="weui_media_hd weui-updown">
+                <img class="weui_media_appmsg_thumb lazyload" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAUAAAAFACAYAAADNkKWqAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AAAABZ0RVh0Q3JlYXRpb24gVGltZQAwNi8wNS8xNrqrthwAAAAcdEVYdFNvZnR3YXJlAEFkb2JlIEZpcmV3b3JrcyBDUzbovLKMAAAEMElEQVR4nO3UQQEAEADAQPRvqIESxPDYXYK9Nvc+dwAErd8BAL8YIJBlgECWAQJZBghkGSCQZYBAlgECWQYIZBkgkGWAQJYBAlkGCGQZIJBlgECWAQJZBghkGSCQZYBAlgECWQYIZBkgkGWAQJYBAlkGCGQZIJBlgECWAQJZBghkGSCQZYBAlgECWQYIZBkgkGWAQJYBAlkGCGQZIJBlgECWAQJZBghkGSCQZYBAlgECWQYIZBkgkGWAQJYBAlkGCGQZIJBlgECWAQJZBghkGSCQZYBAlgECWQYIZBkgkGWAQJYBAlkGCGQZIJBlgECWAQJZBghkGSCQZYBAlgECWQYIZBkgkGWAQJYBAlkGCGQZIJBlgECWAQJZBghkGSCQZYBAlgECWQYIZBkgkGWAQJYBAlkGCGQZIJBlgECWAQJZBghkGSCQZYBAlgECWQYIZBkgkGWAQJYBAlkGCGQZIJBlgECWAQJZBghkGSCQZYBAlgECWQYIZBkgkGWAQJYBAlkGCGQZIJBlgECWAQJZBghkGSCQZYBAlgECWQYIZBkgkGWAQJYBAlkGCGQZIJBlgECWAQJZBghkGSCQZYBAlgECWQYIZBkgkGWAQJYBAlkGCGQZIJBlgECWAQJZBghkGSCQZYBAlgECWQYIZBkgkGWAQJYBAlkGCGQZIJBlgECWAQJZBghkGSCQZYBAlgECWQYIZBkgkGWAQJYBAlkGCGQZIJBlgECWAQJZBghkGSCQZYBAlgECWQYIZBkgkGWAQJYBAlkGCGQZIJBlgECWAQJZBghkGSCQZYBAlgECWQYIZBkgkGWAQJYBAlkGCGQZIJBlgECWAQJZBghkGSCQZYBAlgECWQYIZBkgkGWAQJYBAlkGCGQZIJBlgECWAQJZBghkGSCQZYBAlgECWQYIZBkgkGWAQJYBAlkGCGQZIJBlgECWAQJZBghkGSCQZYBAlgECWQYIZBkgkGWAQJYBAlkGCGQZIJBlgECWAQJZBghkGSCQZYBAlgECWQYIZBkgkGWAQJYBAlkGCGQZIJBlgECWAQJZBghkGSCQZYBAlgECWQYIZBkgkGWAQJYBAlkGCGQZIJBlgECWAQJZBghkGSCQZYBAlgECWQYIZBkgkGWAQJYBAlkGCGQZIJBlgECWAQJZBghkGSCQZYBAlgECWQYIZBkgkGWAQJYBAlkGCGQZIJBlgECWAQJZBghkGSCQZYBAlgECWQYIZBkgkGWAQJYBAlkGCGQZIJBlgECWAQJZBghkGSCQZYBAlgECWQYIZBkgkGWAQJYBAlkGCGQZIJBlgECWAQJZBghkGSCQZYBAlgECWQYIZBkgkGWAQJYBAlkGCGQZIJBlgECWAQJZBghkGSCQZYBAlgECWQYIZBkgkGWAQJYBAlkGCGQZIJBlgECWAQJZBghkGSCQZYBA1gPYJgYfB4WzDQAAAABJRU5ErkJggg==" alt="" data-img="">
+            </div>
 
-window.onload = function(){
-    var tel = Handlebars.compile(document.getElementById('tpl_navigationbar').innerHTML)
-    var s = tel({
-        titleLeft:'<a class="icon icon-109 f-white">返回</a>',
-        title:'asd',
-        titleRight:'asd'
-    })
-    document.getElementById('container').innerHTML += s;
-}
-</script>
+            <div class="weui_media_bd">
+                <h4 class="weui_media_title">1111</h4>
+                <h4 class="weui_media_title">55555555</h4>
+                <p class="weui_media_desc">2222222</p>
+            </div>
+        </a>
+
+    </div>
+
+</div>
