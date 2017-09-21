@@ -5,7 +5,7 @@
 </style>
 
 
-<div class="weui_tabbar " style="height: 52px">
+<div class="weui_tabbar " style="height: 52px" id="tabbar">
     <a href="#home" class="weui_tabbar_item">
         <div class="weui_tabbar_icon">
             <img src="/images/tabbar/home.png" alt="">
@@ -39,7 +39,7 @@
 <script type="text/javascript">
 
     $(function(){
-        $('.weui_tabbar_item').on('click', function () {
+        $(document).on('click','.weui_tabbar_item', function () {
             $(this).addClass('weui_bar_item_on').siblings('.weui_bar_item_on').removeClass('weui_bar_item_on');
             for(var i=0;i<$('.weui_tabbar_item').length;i++){
                 $('.weui_tabbar .weui_tabbar_item').eq(i).find('img').eq(0).show()
@@ -47,8 +47,6 @@
             }
             $(this).find('img').eq(1).show()
             $(this).find('img').eq(0).hide()
-//            pageManager.go('panel');
-
         });
 
     });

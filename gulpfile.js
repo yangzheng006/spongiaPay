@@ -155,7 +155,7 @@ gulp.task('release', [ 'build:example']);
 
 gulp.task('watch', ['release'], function() {
   // gulp.watch('src/style/**/*', ['build:style']);
-  gulp.watch('src/style/less/example.less', ['build:example:style']);
+  gulp.watch('src/style/css/common.css', ['build:example:style']);
   gulp.watch('src/**/*.?(png|jpg|gif|js)', ['build:example:assets']);
   gulp.watch('src/html/**/*.html', ['build:example:html']);
 });

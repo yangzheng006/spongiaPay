@@ -3,3 +3,24 @@
 {
     background-color: #3782d9;
 }
+
+.navigationHeight
+{
+    height: 64px;
+    display: flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.navigationBack
+{
+    display: flex;
+    justify-content: space-around;
+    align-items:center;
+    top: auto!important;
+}
+.buttonRadius
+{
+    border-radius: 20.0px;
+}
+
