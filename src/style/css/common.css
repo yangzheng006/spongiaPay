@@ -4,6 +4,11 @@
     background-color: #3782d9;
 }
 
+.normalColor
+{
+    color: #f3f2f2;
+}
+
 .navigationHeight
 {
     height: 64px;
@@ -22,5 +27,10 @@
 .buttonRadius
 {
     border-radius: 20.0px;
+}
+
+.thumbRadius
+{
+    border-radius: 10.0px;
 }
 
