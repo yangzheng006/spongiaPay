@@ -8,14 +8,12 @@
         color: #333333;
         margin-left: 50px
     }
-
-    .loginIcon
-    {
-        width:20px;
-        margin-right:5px;
-        display:block;
+    
+    .loginIcon {
+        width: 20px;
+        margin-right: 5px;
+        display: block;
     }
-
 </style>
 
 <head>
@@ -29,7 +27,9 @@
         </div>
         <div class="weui_cells" style="margin: 0 auto;width: 90%">
             <div class="weui_cell" style="height: 40px;border: none">
-                <div class="weui_cell_hd"><img src="/images/login/account.png" alt="" class="loginIcon" id="loginAccountImg"></div>
+                <div class="weui_cell_hd">
+                    <img src="/images/login/account.png" alt="" class="loginIcon" id="loginAccountImg">
+                </div>
                 <div class="weui_cell_bd">
                     <input class="weui_input" type="tel" placeholder="用户名" id="loginAccountTxt">
                 </div>
@@ -38,7 +38,9 @@
                 </div>
             </div>
             <div class="weui_cell" style="height: 40px">
-                <div class="weui_cell_hd"><img src="/images/login/passwd.png" alt="" class="loginIcon" id="loginPasswdImg"></div>
+                <div class="weui_cell_hd">
+                    <img src="/images/login/passwd.png" alt="" class="loginIcon" id="loginPasswdImg">
+                </div>
                 <div class="weui_cell_bd">
                     <input class="weui_input" type="password" placeholder="登录密码" style="color:#999999" id="loginPasswdTxt">
                 </div>
@@ -53,11 +55,13 @@
         </div>
 
 
-        <a class="weui_cell " >
+        <a class="weui_cell ">
             <div class="weui_cell_bd weui_cell_primary">
                 <div class="weui_check_label" style="text-decoration-line: underline; color: #333333;" id="registerAction">快速注册</div>
             </div>
-            <div class="weui_cell_ft"> <label class="weui_check_label" style="text-decoration-line: underline; color: #333333;" id="phoneLoginAction">手机验证码登录</label></div>
+            <div class="weui_cell_ft">
+                <label class="weui_check_label" style="text-decoration-line: underline; color: #333333;" id="phoneLoginAction">手机验证码登录</label>
+            </div>
         </a>
     </div>
 
@@ -65,59 +69,77 @@
 
 
 <script type="text/javascript">
+    var status = "NO";
+    $(function() {
+        $(document).on('click', '#registerAction', function() {
+            location.href = "#register";
+        });
+    })
 
-        var status="NO";
-        $(function(){
-            $(document).on('click', '#registerAction', function() {
-                location.href = "#register";
+    $(function() {
+        $(document).on('click', '#phoneLoginAction', function() {
+            if (status == "NO") {
+                status = "YES";
+                document.getElementById("loginAuthoCode").style.display = "block";
+                document.getElementById("normalLogin").style.display = "none";
+                document.getElementById("phoneLoginAction").innerText = "使用账号登录";
+                document.getElementById("loginAccountTxt").setAttribute("placeholder", "请输入手机号");
+                document.getElementById("loginPasswdTxt").setAttribute("placeholder", "请填写验证码");
+                document.getElementById("loginAccountImg").setAttribute("src",
+                    "/images/register/phone.png");
+                document.getElementById("loginPasswdImg").setAttribute("src",
+                    "/images/register/code.png");
+            } else {
+                status = "NO";
+                document.getElementById("loginAuthoCode").style.display = "none";
+                document.getElementById("normalLogin").style.display = "block";
+                document.getElementById("phoneLoginAction").innerText = "使用手机验证码登录";
+                document.getElementById("loginAccountTxt").setAttribute("placeholder", "用户名");
+                document.getElementById("loginPasswdTxt").setAttribute("placeholder", "登录密码");
+                document.getElementById("loginAccountImg").setAttribute("src",
+                    "/images/login/account.png");
+                document.getElementById("loginPasswdImg").setAttribute("src",
+                    "/images/login/passwd.png");
+            }
+
+        })
+
+        $(document).on('click', '#goToHomeAction', function() {
+            // location.href = "#home"; $.showLoading();
+            $.showLoading();
+            $.ajax({
+                method: 'POST',
+                url: 'http://121.43.175.18//JK_HM_GATHER/login',
+                data: {
+                    type: 1,
+                    account: '1',
+                    authoCode: '111111'
+                },
+                crossDomain: true,
+                timeout: 50000,
+                success: function(res) {
+                    if (res["ok"]) {
+                        $.hideLoading();
+                        location.href = "#home"
+                    }
+                },
+                fail: function(err) {
+                    console.log(err)
+                }
             });
         })
-
-        $(function(){
-            $(document).on('click','#phoneLoginAction',function () {
-                if(status=="NO")
-                {
-                    status = "YES";
-                    document.getElementById("loginAuthoCode").style.display="block";
-                    document.getElementById("normalLogin").style.display="none";
-                    document.getElementById("phoneLoginAction").innerText="使用账号登录";
-                    document.getElementById("loginAccountTxt").setAttribute("placeholder","请输入手机号");
-                    document.getElementById("loginPasswdTxt").setAttribute("placeholder","请填写验证码");
-                    document.getElementById("loginAccountImg").setAttribute("src","/images/register/phone.png");
-                    document.getElementById("loginPasswdImg").setAttribute("src","/images/register/code.png");
-                }
-                else
-                {
-                    status = "NO";
-                    document.getElementById("loginAuthoCode").style.display="none";
-                    document.getElementById("normalLogin").style.display="block";
-                    document.getElementById("phoneLoginAction").innerText="使用手机验证码登录";
-                    document.getElementById("loginAccountTxt").setAttribute("placeholder","用户名");
-                    document.getElementById("loginPasswdTxt").setAttribute("placeholder","登录密码");
-                    document.getElementById("loginAccountImg").setAttribute("src","/images/login/account.png");
-                    document.getElementById("loginPasswdImg").setAttribute("src","/images/login/passwd.png");
-                }
-
-            })
-
-            $(document).on('click','#goToHomeAction',function () {
-                location.href="#home";
-            })
-        })
+    })
 
 
-        window.onhashchange=function () {
-            if(window.location.hash=="#login")
-            {
-                document.getElementById("tabbar").style.display="none";
-            }
+    window.onhashchange = function() {
+        if (window.location.hash == "#login") {
+            document.getElementById("tabbar").style.display = "none";
         }
+    }
 
-        window.onload=function () {
-            if(window.location.hash=="#login")
-            {
-                document.getElementById("tabbar").style.display="none";
-            }
+    window.onload = function() {
+        if (window.location.hash == "#login") {
+            document.getElementById("tabbar").style.display = "none";
         }
-
+    }
 </script>
