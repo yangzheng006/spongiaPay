@@ -121,10 +121,12 @@
                     if (res["ok"]) {
                         $.hideLoading();
                         location.href = "#home"
+                    } else {
+                        $.toast("网络链接失败！");
                     }
                 },
                 fail: function(err) {
-                    console.log(err)
+                    $.toast("网络链接失败！");
                 }
             });
         })

@@ -1,41 +1,51 @@
-
-
 <style type="text/css">
-    .xxp
-    {
+    .xxp {
         border: 1px;
         border-radius: 30px;
-        width: 180%;
-        height: 180%;
-        background-color:white;
+        width: 22%;
+        background-color: white;
         margin-left: 8px;
-        text-align:center;
+        text-align: center;
+        margin-top: 14px;
     }
-
+    
+    .xxp1 {
+        text-decoration: underline;
+        margin-left: 10px;
+    }
+    
+    .weui_navbar {
+        background-color: #3782d9;
+    }
+    
+    .weui_navbar_item.tab-green {
+        background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+        border-bottom: 3px solid white;
+        color: white;
+    }
 </style>
 
 <div class="page">
     <div class="weui-header themeColor navigationHeight">
         <h1 class="weui-header-title">海绵金融</h1>
     </div>
-    <div id="tagnav" class="weui-navigator weui-navigator-wrapper themeColor" style="color: white">
-        <ul class="weui-navigator-list">
-            <li><a href="javascript:;" style="color: white">理财</a></li>
-            <li><a href="javascript:;" style="color: white">信用卡</a></li>
-            <li><a href="javascript:;" style="color: white">贷款</a></li>
-        </ul>
+
+
+    <div class="weui_tab " style="height:44px;" id="tab1">
+
     </div>
 
-    <div class="weui-label-list" style="display: flex;justify-content:space-between;margin-top: 8px">
-        <div class=" normalColor xxp">银行理财</div><div class=" normalColor xxp">网贷理财</div>
-        <div class=" normalColor xxp">贷款 </div><div class=" normalColor xxp">保险  </div>
-    </div>
 
-    <div class="weui-label-list" style="display: flex;justify-content:space-between;margin-top: 8px">
-        <div class="normalColor xxp">理财</div><div class="normalColor xxp">投资</div>
-        <div class="normalColor xxp">金融</div><div class="normalColor xxp">服务贷款</div>
+    <div class="weui-label-list" style="display: flex;justify-content:space-between;flex-wrap: wrap;justify-content:space-around">
+        <div class=" normalColor xxp">银行理财</div>
+        <div class=" normalColor xxp">网贷理财</div>
+        <div class=" normalColor xxp">贷款 </div>
+        <div class=" normalColor xxp">保险 </div>
+        <div class="normalColor xxp">理财</div>
+        <div class="normalColor xxp">投资</div>
+        <div class="normalColor xxp">金融</div>
+        <div class="normalColor xxp">服务贷款</div>
     </div>
-
 
     <div class="weui_cells" style="margin-top: 8px">
         <a href="" class="weui_media_box weui_media_appmsg">
@@ -67,3 +77,140 @@
     </div>
 
 </div>
+
+<script id="tpl_test" type="text/x-handlebars-template">
+    <!--tab-fixed添加顶部-->
+    <div class="weui_tab themeColor " style="height:44px;" id="tab1">
+        <div class="weui_navbar" style="height:44px;">
+            {{#each list}}
+            <div class="weui_navbar_item " id="pp{{ID}}">
+                {{LBMC}}
+            </div>
+            {{/each}}
+        </div>
+    </div>
+</script>
+
+<script>
+    $(function() {
+
+        setTimeout(function() {
+            $('#tab1').tab({
+                defaultIndex: 1,
+                activeClass: "tab-green",
+            });
+        }, 1000)
+    });
+
+    $(document).on('click', '#pp4', function() {
+        $.showLoading();
+        $.ajax({
+            method: 'GET',
+            url: 'http://121.43.175.18//JK_HM_GATHER/productListGet',
+            data: {
+                superiorId: 4
+            },
+            dataType: 'json',
+            crossDomain: true,
+            timeout: 50000,
+            success: function(res) {
+                if (res["ok"]) {
+                    $.hideLoading();
+
+
+                    console.log(res)
+                } else {
+                    $.toast("网络链接失败！");
+                }
+            },
+            fail: function(err) {
+                $.toast("网络链接失败！");
+            }
+        });
+    })
+    $(document).on('click', '#pp5', function() {
+        $.showLoading();
+        $.ajax({
+            method: 'GET',
+            url: 'http://121.43.175.18//JK_HM_GATHER/productListGet',
+            data: {
+                superiorId: 5
+            },
+            dataType: 'json',
+            crossDomain: true,
+            timeout: 50000,
+            success: function(res) {
+                if (res["ok"]) {
+                    $.hideLoading();
+
+
+                    console.log(res)
+                } else {
+                    $.toast("网络链接失败！");
+                }
+            },
+            fail: function(err) {
+                $.toast("网络链接失败！");
+            }
+        });
+    })
+    $(document).on('click', '#pp6', function() {
+        $.showLoading();
+        $.ajax({
+            method: 'GET',
+            url: 'http://121.43.175.18//JK_HM_GATHER/classificationGet',
+            data: {
+                superiorId: 6
+            },
+            dataType: 'json',
+            crossDomain: true,
+            timeout: 50000,
+            success: function(res) {
+                if (res["ok"]) {
+                    $.hideLoading();
+
+
+                    console.log(res)
+                } else {
+                    $.toast("网络链接失败！");
+                }
+            },
+            fail: function(err) {
+                $.toast("网络链接失败！");
+            }
+        });
+    })
+
+    window.onload = function() {
+        $.showLoading();
+        $.ajax({
+            method: 'GET',
+            url: 'http://121.43.175.18//JK_HM_GATHER/classificationGet',
+            data: {
+                superiorId: 0
+            },
+            dataType: 'json',
+            crossDomain: true,
+            timeout: 50000,
+            success: function(res) {
+                if (res["ok"]) {
+                    $.hideLoading();
+
+                    var source = document.getElementById('tpl_test').innerHTML;
+                    //预编译模板
+                    var template = Handlebars.compile(source);
+                    //匹配json内容
+                    var html = template(res);
+                    document.getElementById('tab1').innerHTML = html
+                    console.log(document.getElementById('tab1').innerHTML);
+                    console.log(res)
+                } else {
+                    $.toast("网络链接失败！");
+                }
+            },
+            fail: function(err) {
+                $.toast("网络链接失败！");
+            }
+        });
+    }
+</script>
