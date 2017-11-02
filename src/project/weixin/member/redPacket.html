@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <title>我的红包</title>
+    @import "../include/header.inc";
+</head>
+<body ontouchstart>
+<div class="weui-toptips weui-toptips_warn js_tooltips">错误提示</div>
+<div class="container" id="container"></div>
+
+
+<!--红包-->
+<link rel="import" href="../../../pages/member/redPacket/redPacket.html">
+<link rel="import" href="../../../pages/member/redPacket/useRedPacket.html">
+
+<link rel="import" href="../../../model/templete/member/redPacket/list.html">
+
+
+@import "../../../model/widget/include/toast.html";
+@import "../../../model/widget/include/dialog.html";
+<script src="/weixin/js/common.min.js"></script>
+<script src="/weixin/js/wap.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+        pageManager.show("redPacket");
+
+        if(window.location.hash=='#useRedPacket'){
+            document.title='红包';
+            $('.imgs').attr("src",base+"weixin/member/redPacket/qrcode.jhtml?code="+pageManager.GetQueryString("code"));
+            $('#tenantName').text(pageManager.GetQueryString('tenantName'));
+        }else{
+            //使用红包
+            $(document).on("click", "#user", function () {
+                var code = $(this).attr("code");
+                var red = new redPacket(function (data) {
+                    location.href=location.origin+'/weixin/member/redPacket.html?code='+code+'&tenantName='+escape(data.tenantName)+'#useRedPacket';
+                });
+                red.use({code: code});
+            });
+            //加载我的红包模板
+            var canshu = window.location.search;
+            if(canshu.indexOf("?id=")>-1){
+                $('.myCoupon').find('a').attr('href','javascript:location.replace(location.origin+"/weixin/member/coupon.html?id=' + pageManager.GetQueryString("id") + '")');
+                var pge = $(".pageable").pageable({
+                    loadUpFn:function(me) {
+                        var tu = new redPacket(function (data) {
+                            var h = render.fill($("#tpl_list"),data);
+                            $(".pageable .myRed").html(h);
+//                me.unlock();
+                            me.noData(false);
+                            me.resetload();
+                        });
+                        tu.list({pageNumber: 1,tenantId:pageManager.GetQueryString('id')});
+                    },
+                    loadDownFn :function(me) {
+                        var td = new redPacket(function (data) {
+                            me.pageNumber = me.pageNumber +1;
+                            var h = render.fill($("#tpl_list"),data);
+                            $(".pageable .myRed").append(h);
+
+                            if (data.length<20){
+                                pge.lock();
+                                pge.noData();
+                            }
+                            pge.resetload();
+                        });
+                        td.list({pageNumber: me.pageNumber,tenantId:pageManager.GetQueryString('id')});
+                    }
+                });
+            }else{
+                var pge = $(".pageable").pageable({
+                    loadUpFn:function(me) {
+                        var tu = new redPacket(function (data) {
+                            var h = render.fill($("#tpl_list"),data);
+                            $(".pageable .myRed").html(h);
+//                me.unlock();
+                            me.noData(false);
+                            me.resetload();
+                        });
+                        tu.list({pageNumber: 1});
+                    },
+                    loadDownFn :function(me) {
+                        var td = new redPacket(function (data) {
+                            me.pageNumber = me.pageNumber +1;
+                            var h = render.fill($("#tpl_list"),data);
+                            $(".pageable .myRed").append(h);
+
+                            if (data.length<20){
+                                pge.lock();
+                                pge.noData();
+                            }
+                            pge.resetload();
+                        });
+                        td.list({pageNumber: me.pageNumber});
+                    }
+                });
+            }
+        }
+    });
+</script>
+</body>
+</html>
+
