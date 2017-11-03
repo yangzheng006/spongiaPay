@@ -12,7 +12,7 @@
 <div class="container" id="container"></div>
 
 <!--首页-->
-<link rel="import" href="../../../pages/home/main2.html">
+<link rel="import" href="../../../pages/home/main.html">
 
 <!--模版-->
 <!--横屏广告位模板-->
@@ -29,7 +29,7 @@
 <script type="text/javascript">
 
     $(function(){
-        pageManager.show("main2");
+        pageManager.show("main");
     });
     var pageFn = function () {
             //顶部轮播图片
@@ -41,141 +41,18 @@
                     }
             );
             ads.do(187);
-            //横屏广告位
-            var hp = new ad(function (data) {
-                var h = render.fill($("#tpl_hpAd"), data);
-                $("#hp_ad").html(h);
-                $('img').picLazyLoad();
-            });
-            hp.do(206);
-
-            //横屏广告位1F(导购上方)
-            new ad(function (data) {
-                var h = render.fill($("#tpl_hpAd"), data);
-                $("#hp_ad1").html(h);
-                $('img').picLazyLoad();
-            }).do(219);
 
 
-            //横屏广告位2F(五个商品广告位上部)
-            new ad(function (data) {
-                var h = render.fill($("#tpl_hpAd"), data);
-                $("#hp_ad2").html(h);
-                $('img').picLazyLoad();
-            }).do(220);
-
-            //广告位
-            for (var j = 1; j <= 5; j++) {
-                function adTopLoad(j) {
-                    new ad(function (data) {
-                        console.log(i);
-                        var obj = data[0];
-                        if (obj.linkType == "tenant") {
-                            $(".index_ad" + j).attr("href", "../tenant/index.jhtml?id=" + obj.linkId);
-                        } else if (obj.linkType == "product") {
-                            $(".index_ad" + j).attr("href", "../product/view.html?id=" + obj.linkId);
-                        } else if (obj.linkType == "none" && obj.url == null) {
-                            $(".index_ad" + j).attr("href", "javascript:;");
-                        } else if (obj.linkType == "none" && obj.url != null) {
-                            $(".index_ad" + j).attr("href", obj.url);
-                        } else if (obj.linkType == "unionActivity") {
-                            $(".index_ad" + j).attr("href", "../activity/index.html?linkId=" + obj.linkId);
-                        }
-                        imgReset(obj.image);
-                        if(j == 1 || j == 2){
-                            $(".index_ad" + j).find("img").attr("src", obj.image + '@' + Math.ceil(50 * screen / 100) + 'w_' + Math.ceil(27 * screen / 100) + 'h_1e_1c_100Q');
-                        }else {
-                            $(".index_ad" + j).find("img").attr("src", obj.image + '@' + Math.ceil(33.3 * screen / 100) + 'w_' + Math.ceil(38.6 * screen / 100) + 'h_1e_1c_100Q');
-                        }
-                    }).do(188 + j);
-                }
-                adTopLoad(j);
-            }
 
 
-                //频道轮播
-                var pc = new productChannel(
-                        function (data) {
-                            if (data.noImages.length > 15) {
-                                $('#channel_pic_noImg').css('height', '105px');
-                                $("#channel_pic_noImg").silderProductChannel(data.noImages, 15, 16, 12);
-                            } else if (data.noImages.length == 0) {
-                                $('#channel_pic_noImg').addClass('none');
-                            } else {
-                                $('#channel_pic_noImg').css('height', '60px');
-                                $("#channel_pic_noImg").silderProductChannel(data.noImages, 7, 8, 12);
-                            }
-                            if (data.images.length > 7) {
-                                $('#channel_pic').find('.zhanwei').attr('src', '../images/placeholder/blank750x420.png');
-                                $("#channel_pic").silderProductChannel(data.images, 7, 8, 10);
-                            } else if (data.images.length == 0) {
-                                $('#channel_pic').addClass('none');
-                            } else {
-                                $("#channel_pic").silderProductChannel(data.images, 4, 5, 10);
-                            }
-                        }
-                );
-                pc.list();
-                //广告位
-                setTimeout(function () {
-                    $('.ad_bottom').removeClass('none');
-                    $('#hp_ad_2F').removeClass('none');
-                }, 300);
-                //横屏广告位2F
-                var hp_ad = new ad(function (data) {
-                    var h = render.fill($("#tpl_hpAd"), data);
-                    $("#hp_ad_2F").html(h);
-                    $('img').picLazyLoad();
-                });
-                hp_ad.do(126);
 
-//              广告位
-                for (var i = 6; i <= 10; i++) {
-                    function adBottomLoad(i) {
-                        new ad(function (data) {
-                            console.log(i);
-                            var obj = data[0];
-                            if (obj.linkType == "tenant") {
-                                $(".index_ad" + i).attr("href", "../tenant/index.jhtml?id=" + obj.linkId);
-                            } else if (obj.linkType == "product") {
-                                $(".index_ad" + i).attr("href", "../product/view.html?id=" + obj.linkId);
-                            } else if (obj.linkType == "none" && obj.url == null) {
-                                $(".index_ad" + i).attr("href", "javascript:;");
-                            } else if (obj.linkType == "none" && obj.url != null) {
-                                $(".index_ad" + i).attr("href", obj.url);
-                            }
-                            imgReset(obj.image);
-                            if(i == 6){
-                                $(".index_ad" + i).find("img").attr("src", obj.image + '@' + Math.ceil(33.33 * screen / 100) + 'w_' + Math.ceil(63 * screen / 100) + 'h_1e_1c_100Q');
-                            }else {
-                                $(".index_ad" + i).find("img").attr("src", obj.image + '@' + Math.ceil(33.33 * screen / 100) + 'w_' + Math.ceil(31.2 * screen / 100) + 'h_1e_1c_100Q');
-                            }
-                        }).do(188 + i);
-                    }
-                    adBottomLoad(i);
-                }
 
-                //活动商圈数据
-                var tu = new activity(function (data) {
-                    $(".activity_img_thw").removeClass('none');
-                    if (data != '') {
-                        var h = render.fill($("#tpl_activityCircle"), data);
-                        $(".activity_img_thw").html(h);
-                        $('img').picLazyLoad();
-                        $(".activity_img_thw .activity_item:first-child").removeClass('act_item none');
-                        if (data.length > 1) {
-                            $('.zhankai').removeClass('none');
-                        }
-                        //点击显示更多(活动商圈)
-                        $(document).on('click', '.zhankai', function () {
-                            $(".act_item").each(function () {
-                                $(this).toggleClass('none');
-                            });
-                            $('.zhankai').toggleClass('shouqi');
-                        });
-                    }
-                });
-                tu.list();
+
+
+
+
+
+
 
 
             //点击搜索框跳转页面

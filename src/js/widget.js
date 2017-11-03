@@ -4,7 +4,6 @@
  */
 @import "../../js/widget/dialog.js";
 @import "../../js/widget/toast.js";
-// @import "../../js/widget/serachBar.js";
 @import "../../js/widget/actionsheet.js";
 @import "../../js/widget/progress.js";
 @import "../../js/widget/silderGallery.js";
@@ -24,13 +23,7 @@
 @import "../../js/widget/weixin.js";
 @import "../../js/widget/choosead.js";
 @import "../../js/widget/weui.js";
-@import "../../js/widget/base64.js";
-@import "../../js/widget/jsbn.js";
-@import "../../js/widget/prng4.js";
-@import "../../js/widget/rng.js";
-@import "../../js/widget/rsa.js";
 @import "../../js/widget/fly_cart.js";
-@import "../../js/widget/huanxin.js";
 @import "../../js/widget/siderGuide.js";
 @import "../../js/widget/topNav.js";
 @import "../../js/widget/siderNews.js";
@@ -42,9 +35,4 @@
 @import "../../js/widget/silderProduct.js";
 @import "../../js/widget/silderProductDot.js";
 @import "../../js/widget/tenantThw.js";
-@import "../../js/widget/tenantZtb.js";
-@import "../../js/widget/menuTenant.js";
-@import "../../js/widget/hiddenBtn.js";
-@import "../../js/widget/utils.js";
-@import "../../js/widget/imgReset.js";
 @import "../../js/widget/productSilder.js";

@@ -3,15 +3,15 @@
         <div class="weui-tab">
             <!--BEGIN top-nav-->
             <div class="topNav row nav_change_HGY">
-                <div class="col-20">
-                    <div class="weui-search-bar__box fl iSearch" id="searchBars" style="padding-right: 0;">
-                        <i class="weui-icon-search"></i>
-                        <input type="search" class="weui-search-bar__input" id="searchInput" value="请输入搜索词" required="" disabled>
-                    </div>
-                </div>
                 <a href="../member/index.html#message" class="col-3">
                     <i class="iconfont icon-shouye1 f20"></i>
                 </a>
+                <div class="col-20">
+                    <div class="weui-search-bar__box fl iSearch" id="searchBars" style="padding-right: 0;">
+                        <i class="weui-icon-search"></i>
+                        <input type="search" class="weui-search-bar__input" id="searchInput" value="附近的商家" required="" disabled>
+                    </div>
+                </div>
             </div>
             <!--END top-nav-->
             <div class="weui-tab__panel pageable" style="padding-bottom: 53px;">
@@ -22,91 +22,102 @@
                     <div id="index_slider"></div>
                 </div>
                 <!--END gallery-slider-->
-                <!-- BEGIN channel-pic -->
-                <div id="channel_pic" class="channel_pic">
-                    <img class="zhanwei" src="../images/placeholder/blank750x210.png" alt="">
-                    <div class="kong"></div>
-                </div>
-                <div id="channel_pic_noImg" class="channel_pic">
-                    <div class="kong"></div>
-                </div>
-                <!-- BEGIN channel-pic end-->
-                <!-- BEGIN 快讯 -->
-                <div class="news row none">
-                    <div class="col-4 tc"><a href="../headlineNews/index.html"><img id="kuaixunlogo" src="" alt="" ></a></div>
-                    <div class="col-18 weui-cell weui-cell_access bornone f14 coupon_index" id="myscroll">
 
-                        <!--<div id="myscroll">-->
 
-                        <!--</div>-->
+                <!--优质商家-->
+                <div class="weui-cell clr_mediumGray f14 title">
+                    <div class="weui-cell__bd tc"><span class="title_line">-</span>优质商家<span class="title_line">-</span></div>
+                    <div class="weui-cell__ft">更多>></div>
+                </div>
+                <div class="weui-cells">
+                    <div class="weui-cell">
+                        <div class="weui-cell__hd"><img src="http://cdn.tiaohuo.com/upload/image/201709/574356ef-e5fc-4c8b-8da6-e097308f6268.jpg@192w_141h_1e_1c_100Q" /></div>
+                        <div class="weui-cell__bd">
+                            <p>佐客牛排</p>
+                            <div class="weui-cell">
+                                <div class="weui-cell__bd">紫云路与西藏路</div>
+                                <div class="weui-cell__ft">1.8km</div>
+                            </div>
+                            <p><span></span></p>
+                        </div>
+                    </div>
+                </div>
+                <!--金融普惠-->
+                <div class="weui-cell clr_mediumGray f14 title">
+                    <div class="weui-cell__bd tc"><span class="title_line">-</span>金融普惠<span class="title_line">-</span></div>
+                    <div class="weui-cell__ft">更多>></div>
+                </div>
+                <div class="weui-cells">
+                    <div class="weui-cell">
+                        <div class="weui-cell__hd"><img src="http://cdn.tiaohuo.com/upload/image/201709/574356ef-e5fc-4c8b-8da6-e097308f6268.jpg@192w_141h_1e_1c_100Q" /></div>
+                        <div class="weui-cell__bd">
+                            <p>佐客牛排</p>
+                            <div class="weui-cell">
+                                <div class="weui-cell__bd">紫云路与西藏路</div>
+                                <div class="weui-cell__ft">1.8km</div>
+                            </div>
+                            <p><span></span></p>
+                        </div>
                     </div>
                 </div>
 
-                <!-- BEGIN  导购上方广告位1F 219 -->
-                <div id="hp_ad1" class="lineH_clear weui-cells weui-cells_border act_ad"></div>
-                <!-- BEGIN  导购 -->
-                <div class="guidesx">
-                    <div id="guides">
-                    </div>
-                </div>
-                <!--BEGIN 活动广告位-->
-                <!--<div id="act_ad" class="lineH_clear weui-cells weui-cells_border act_ad"></div>-->
-                <!--活动商圈-->
-                <div class="activity_img activity_img_thw row none"></div>
 
-                <!-- BEGIN  五个商品广告位上部广告2F 220 -->
-                <div id="hp_ad2" class="lineH_clear weui-cells weui-cells_border act_ad"></div>
-                <!-- BEGIN 广告位 -->
-                <div class="row ad_top">
-                    <a href="javascript:;" class="col-12 index_ad1">
-                        <img src="../images/placeholder/blank640x288.png" alt=""/>
-                    </a>
-                    <a href="javascript:;" class="col-12 index_ad2">
-                        <img src="../images/placeholder/blank640x288.png" alt=""/>
-                    </a>
-                    <a href="javascript:;" class="col-8 index_ad3">
-                        <img src="../images/placeholder/blank640x288.png" alt=""/>
-                    </a>
-                    <a href="javascript:;" class="col-8 index_ad4">
-                        <img src="../images/placeholder/blank640x288.png" alt=""/>
-                    </a>
-                    <a href="javascript:;" class="col-8 index_ad5">
-                        <img src="../images/placeholder/blank640x288.png" alt=""/>
-                    </a>
+                <div class="weui-cell clr_mediumGray f14 title">
+                    <div class="weui-cell__bd tc"><span class="title_line">-</span>金融普惠<span class="title_line">-</span></div>
+                    <div class="weui-cell__ft">更多>></div>
                 </div>
-                <!--BEGIN 横屏广告位-->
-                <div id="hp_ad" class="lineH_clear weui-cells weui-cells_border act_ad"></div>
-                <div class="row ad_bottom none">
-                    <div class="col-8">
-                        <a href="javascript:;" class="col-24 index_ad6">
-                            <img src="../images/placeholder/blank640x288.png" alt=""/>
-                        </a>
+                <div class="weui-cells">
+                    <div class="weui-cell">
+                        <div class="weui-cell__hd">
+                            <img src="http://cdn.tiaohuo.com/upload/image/201709/574356ef-e5fc-4c8b-8da6-e097308f6268.jpg@192w_141h_1e_1c_100Q"/>
+                        </div>
+                        <div class="weui-cell__bd">
+                            <div class="weui-cell">
+                                <div class="weui-cell__bd">金钥匙</div>
+                                <div class="weui-cell__ft">中国农业银行</div>
+                            </div>
+                            <div class="weui-flex">
+                                <div class="weui-flex__item">
+                                    <p>起投</p>
+                                    <p><span>5</span>万元</p>
+                                </div>
+                                <div class="weui-flex__item">
+                                    <p>期限</p>
+                                    <p>181天</p>
+                                </div>
+                                <div class="weui-flex__item">
+                                    <p>七日年化</p>
+                                    <p>5%</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-16">
-                        <a href="javascript:;" class="col-12 index_ad7">
-                            <img src="../images/placeholder/blank640x288.png" alt=""/>
-                        </a>
-                        <a href="javascript:;" class="col-12 index_ad8">
-                            <img src="../images/placeholder/blank640x288.png" alt=""/>
-                        </a>
-                        <a href="javascript:;" class="col-12 index_ad9">
-                            <img src="../images/placeholder/blank640x288.png" alt=""/>
-                        </a>
-                        <a href="javascript:;" class="col-12 index_ad10">
-                            <img src="../images/placeholder/blank640x288.png" alt=""/>
-                        </a>
+                    <div class="weui-cell">
+                        <div class="weui-cell__hd">
+                            <img src="http://cdn.tiaohuo.com/upload/image/201709/574356ef-e5fc-4c8b-8da6-e097308f6268.jpg@192w_141h_1e_1c_100Q"/>
+                        </div>
+                        <div class="weui-cell__bd">
+                            <p>中心白金卡</p>
+                            <p>一款神奇的app</p>
+                            <p>173919人申请</p>
+                        </div>
                     </div>
-                </div>
-                <!--BEGIN 横屏广告位-->
-                <div id="hp_ad_2F" class="lineH_clear weui-cells weui-cells_border act_ad none"></div>
-                <!--活动商圈-->
-                <div class="activity_img_ztb row none"></div>
-                <div class="bor_bottom_none">
-                    <!--<div class="tc tit_ztb">-->
-                        <!--<p class="f15 bold">推荐商家</p>-->
-                        <!--<i class="iconfont icon-yingwenziti1 f12" style="color: #a4a4a4"></i>-->
-                    <!--</div>-->
-                    <div class="weui-cells TenantList" style="margin-top: 0;"></div>
+                    <div class="weui-cell">
+                        <div class="weui-cell__hd">
+                            <img src="http://cdn.tiaohuo.com/upload/image/201709/574356ef-e5fc-4c8b-8da6-e097308f6268.jpg@192w_141h_1e_1c_100Q"/>
+                        </div>
+                        <div class="weui-cell__bd">
+                            <p>宜信-工薪贷</p>
+                            <div class="weui-cell">
+                                <div class="weui-cell__bd">90人申请/1天放款</div>
+                                <div class="weui-cell__ft">1.2</div>
+                            </div>
+                            <div class="weui-cell">
+                                <div class="weui-cell__bd">无抵押</div>
+                                <div class="weui-cell__ft"><span>可带20万</span><span>分期付款</span></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             @import "../../model/widget/include/menu.html";
