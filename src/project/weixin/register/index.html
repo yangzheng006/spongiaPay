@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <title>注册</title>
+    @import "../include/header.inc";
+    <link rel="stylesheet" href="/weixin/style/wap.min.css"/>
+</head>
+<body>
+<div class="weui-toptips weui-toptips_warn js_tooltips">错误提示</div>
+<div class="container" id="container"></div>
+
+<!--会员首页-->
+<link rel="import" href="../../../pages/register/index.html">
+
+
+@import "../../../model/widget/include/toast.html";
+@import "../../../model/widget/include/dialog.html";
+<script src="/weixin/js/common.min.js"></script>
+<script src="/weixin/js/wap.min.js"></script>
+<script type="text/javascript">
+
+    $(function(){
+        pageManager.show("index");
+    })
+    var pageFn = function(){
+        if(pageManager._getHash()=='#'){
+
+        }
+
+
+    };
+    window.addEventListener('pageGoOk',pageFn)
+</script>
+</body>
+</html>
+

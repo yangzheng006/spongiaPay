@@ -154,6 +154,9 @@ i{
 }
 
 //页面通用颜色
+.baseColor{
+  color: @baseColor;
+}
 .orange{
   color: @baseColor;
 }
@@ -360,6 +363,16 @@ em {font-style: normal;}
 }
 .bordernone{
   &:before,&:after{
+    border: none;
+  }
+}
+.bordernone_before{
+  &:before{
+    border: none;
+  }
+}
+.bordernone_after{
+  &:after{
     border: none;
   }
 }
@@ -760,4 +773,9 @@ em {font-style: normal;}
 }
 .weui-mask_transparent {
   background: rgba(0,0,0,.6)
+}
+
+//文本下划线
+.underline{
+  text-decoration-line: underline;
 }

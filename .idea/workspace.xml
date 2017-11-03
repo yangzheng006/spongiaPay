@@ -1,299 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f9023910-4a62-4b29-9810-b7641dbe9224" name="Default" comment="文件">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/pages/finance/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/pages/recommend/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/project/weixin/finance/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/project/weixin/recommend/index.html" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/js/widget/menuTenant.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/js/widget/menu_capp.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/model/templete/activity/activityCircle/activeBarrage.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/model/templete/activity/activityCircle/businessCircleMB.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/model/templete/activity/include/recommendTenant.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/model/templete/activity/include/recommendTenantZTB.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/model/templete/activity/index/activityMoban.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/model/templete/app/count/shopList.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/model/templete/app/faqList.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/model/templete/app/hardRanking/rankList.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/model/templete/app/partner/partnerList.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/model/templete/app/personal/sayList.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/model/templete/app/product/detail.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/model/templete/app/product/detailsDesc.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/model/templete/app/product/evaluate.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/model/templete/app/product/proEvaluate.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/model/templete/app/product/productListApp.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/model/templete/app/product/tenantInfoApp.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/model/templete/app/sellShare/extensionList.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/model/templete/app/sellShare/productList.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/model/templete/app/sellShare/shareResults/visitList.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/model/templete/app/sellShare/topNav.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/model/templete/app/tenant/defaultAd.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/model/templete/app/tenant/listApp.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/model/templete/app/tenant/newProductList.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/model/templete/app/tenant/productClassify.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/model/templete/app/tenant/productListApp.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/model/templete/app/tenant/promotionProductList.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/model/templete/app/tenant/tenantAddress.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/model/templete/app/tenant/tenantAddressApp.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/model/templete/app/tenant/tenantBannerInfo.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/model/templete/article/index/actionSheetNav.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/model/templete/article/index/articleList.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/model/templete/article/index/articleListBottom.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/model/templete/article/index/readme" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/model/templete/article/index/topNav.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/model/templete/article/view/comment.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/model/templete/article/view/readme" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/model/templete/article/view/recommendArticle.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/model/templete/brand/productList.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/model/templete/brand/readme" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/model/templete/capp/oneTenant.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/model/templete/capp/tenantList.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/model/templete/card/chargeMb.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/model/templete/card/couponList.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/model/templete/card/inviteMid.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/model/templete/card/inviteTop.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/model/templete/card/list.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/model/templete/card/menu.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/model/templete/card/view.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/model/templete/cart/carts.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/model/templete/cart/confirmOrder.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/model/templete/cart/deliveryAddress.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/model/templete/cart/readme" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/model/templete/category/productList.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/model/templete/channel/readme" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/model/templete/channel/recommendTenant.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/model/templete/channel/topNav.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/model/templete/coupon/redBonus.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/model/templete/coupon/redCoupon.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/model/templete/coupon/redMail.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/model/templete/guide/BaseInfo.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/model/templete/guide/currentAreaSelect.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/model/templete/guide/dynamic/contactList.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/model/templete/guide/dynamic/productList.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/model/templete/guide/dynamic/tenant.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/model/templete/guide/dynamic/view.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/model/templete/guide/fans.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/model/templete/guide/intresetTag.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/model/templete/guide/list.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/model/templete/guide/readme" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/model/templete/nearby/readme" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/model/templete/nearby/tenantList.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/model/templete/nearby/tenantListZTB.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/model/templete/product/default/matchService.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/model/templete/product/default/productList.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/model/templete/product/view/bottom.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/model/templete/product/view/detail.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/model/templete/product/view/detailsDesc.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/model/templete/product/view/evaluate.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/model/templete/product/view/proEvaluate.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/model/templete/product/view/productList.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/model/templete/product/view/readme" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/model/templete/product/view/shopGuideTemp.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/model/templete/product/view/tenantInfo.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/model/templete/tenantRedPacket/recommendTenant.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/model/templete/tenantRedPacket/redPacketList.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/model/templete/verification/veriRedPacket.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/model/widget/article/news_pic.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/model/widget/article/news_pic_hp.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/model/widget/capp/menu.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/model/widget/capp/menu2.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/model/widget/capp/shareModel.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/model/widget/capp/topMenu.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/model/widget/capp/topMenuHome.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/model/widget/capp/topMenuHome_old.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/model/widget/capp/topMenuProduct.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/model/widget/include/menu2.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/model/widget/include/openRedPacket.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/model/widget/include/shareProductSearch.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/model/widget/product/productDetailsSlider.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/model/widget/product/productDetailsSliderApp.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/home/main2.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/member/address/addAddress.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/member/address/editAddress.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/member/address/listAddress.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/member/becomevip.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/member/coupon/coupon.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/member/coupon/platformTicket.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/member/favorite/favoriteGuide.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/member/favorite/favoriteNew.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/member/favorite/favoriteProduct.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/member/favorite/favoriteTenant.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/member/message/billMes.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/member/message/message.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/member/message/orderMes.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/member/message/systemMes.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/member/order/orderEvaluate.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/member/order/orderList.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/member/order/orderView.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/member/partner/invitePartner.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/member/partner/recruitPartner.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/member/purse/addBank.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/member/purse/bank.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/member/purse/billList.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/member/purse/cashBank.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/member/purse/cashWeixin.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/member/purse/charge.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/member/purse/purseIndex.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/member/redPacket/redPacket.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/member/redPacket/useRedPacket.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/member/shop/openshop.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/member/shop/openshopDown.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/payment/paySuccessPayBill.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/payment/payZero.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/product/default/defaultView.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/product/view/productDetails.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/product/view/productDetails2.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/product/view/productEvaluate.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/product/view/shopGuide.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/search/article/article.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/search/article/articleResult.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/tenant/default/default.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/tenant/default/tenantAddress.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/tenant/map.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/tenant/shop/cart.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/tenant/shop/category.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/tenant/shop/member.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/tenant/shop/shop.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/project/weixin/images/static/activity/top.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/project/weixin/images/static/app/aboutus/about_us_01.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/project/weixin/images/static/app/aboutus/about_us_02.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/project/weixin/images/static/app/aboutus/about_us_03.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/project/weixin/images/static/app/aboutus/about_us_04.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/project/weixin/images/static/app/aboutus/about_us_05.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/project/weixin/images/static/app/aboutus/about_us_06.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/project/weixin/images/static/app/aboutus/about_us_07.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/project/weixin/images/static/app/aboutus/about_us_08.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/project/weixin/images/static/app/aboutus/about_us_09.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/project/weixin/images/static/app/aboutus/about_us_10.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/project/weixin/images/static/card/bg.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/project/weixin/images/static/card/bgTou.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/project/weixin/images/static/card/bonus.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/project/weixin/images/static/card/cic.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/project/weixin/images/static/card/coupon.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/project/weixin/images/static/card/qrcode.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/project/weixin/images/static/card/vip.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/project/weixin/images/static/category/category_img.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/project/weixin/images/static/channel/channel_img.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/project/weixin/images/static/channel/channelba.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/project/weixin/images/static/coupon/cashCouponTiaohuo.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/project/weixin/images/static/coupon/coupon.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/project/weixin/images/static/coupon/coupon_bg.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/project/weixin/images/static/coupon/coupons_00.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/project/weixin/images/static/coupon/coupons_11.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/project/weixin/images/static/coupon/pinshouqi.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/project/weixin/images/static/coupon/pinshouqired.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/project/weixin/images/static/coupon/redB2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/project/weixin/images/static/coupon/redB3.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/project/weixin/images/static/coupon/redBonus.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/project/weixin/images/static/coupon/redCoupon.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/project/weixin/images/static/coupon/redMail.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/project/weixin/images/static/guide/chat-ico1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/project/weixin/images/static/guide/chat-ico2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/project/weixin/images/static/guide/contactXjq.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/project/weixin/images/static/guide/contactYhq.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/project/weixin/images/static/guide/contanctHb.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/project/weixin/images/static/guide/dmLogo.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/project/weixin/images/static/guide/getCoupon.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/project/weixin/images/static/guide/getRedPac.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/project/weixin/images/static/guide/getvoucher.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/project/weixin/images/static/guide/hongbao.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/project/weixin/images/static/guide/loadImg.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/project/weixin/images/static/guide/location.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/project/weixin/images/static/guide/openRedPacket.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/project/weixin/images/static/guide/openRedPacketBg.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/project/weixin/images/static/guide/penyou.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/project/weixin/images/static/guide/redB5.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/project/weixin/images/static/guide/yuyin.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/project/weixin/images/static/include/share.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/project/weixin/images/static/member/becomevip.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/project/weixin/images/static/member/becomevip2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/project/weixin/images/static/member/becomevipz2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/project/weixin/images/static/member/coupon/coupon.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/project/weixin/images/static/member/coupon/hongbao.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/project/weixin/images/static/member/coupon/ygq.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/project/weixin/images/static/member/coupon/yhqbg-2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/project/weixin/images/static/member/coupon/yhqbg.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/project/weixin/images/static/member/coupon/yqw.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/project/weixin/images/static/member/coupon/ysy.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/project/weixin/images/static/member/shop/openshop1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/project/weixin/images/static/member/shop/openshop2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/project/weixin/images/static/member/shop/openshop3.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/project/weixin/images/static/member/shop/openshop_androide.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/project/weixin/images/static/member/shop/openshop_apple.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/project/weixin/images/static/member/shop/openshop_up.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/project/weixin/images/static/member/shop/zopenshop1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/project/weixin/images/static/member/shop/zopenshop2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/project/weixin/images/static/member/shop/zopenshop3.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/project/weixin/images/static/member/shop/zopenshop_up.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/project/weixin/images/static/payment/paySuccessNewNo.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/project/weixin/images/static/payment/paysuccessNew.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/project/weixin/images/static/product/product_tit01.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/project/weixin/images/static/product/product_tit02.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/project/weixin/images/static/product/product_tit03.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/project/weixin/images/static/product/product_tit04.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/project/weixin/images/static/product/product_tit05.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/project/weixin/images/static/tenant/guanzhu_tanchuang.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/project/weixin/images/static/tenant/guanzhu_tanchuang2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/project/weixin/images/static/tenant/position.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/project/weixin/images/static/tenant/product_new.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/project/weixin/images/static/tenant/product_recom.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/project/weixin/images/static/tenant/product_sale.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/project/weixin/images/static/tenant/tenant_new.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/project/weixin/images/static/tenant/tenant_none01.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/project/weixin/images/static/tenant/tenant_none02.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/project/weixin/images/static/tenant/tenant_none03.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/project/weixin/images/static/tenant/tenant_none04.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/project/weixin/images/static/tenant/tenant_none05.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/project/weixin/images/static/tenant/tiaohuowang.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/project/weixin/images/static/tenantRedPacket/hongbao.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/project/weixin/images/static/tenantRedPacket/pinhongbao.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/project/weixin/images/static/tenantRedPacket/yqw.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/project/weixin/images/static/ztb/zhitongkuaixun.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/project/weixin/images/static/ztb/ztb_logo.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/project/weixin/member.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/project/weixin/member/address.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/project/weixin/member/becomevip.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/project/weixin/member/coupon.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/project/weixin/member/redPacket.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/project/weixin/product/view.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/style/widget/app/aboutUs.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/style/widget/app/count/index.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/style/widget/app/feedback.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/style/widget/app/hardRanking/growthSystem/index.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/style/widget/app/hardRanking/index.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/style/widget/app/partner/recruit.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/style/widget/app/partner/setting.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/style/widget/app/personal/index.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/style/widget/app/product.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/style/widget/app/questions.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/style/widget/app/sellShare/extensionList.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/style/widget/app/sellShare/productList.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/style/widget/app/sellShare/shareResults/articleView.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/style/widget/app/sellShare/shareResults/index.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/style/widget/app/sellShare/shareResults/loadApp.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/style/widget/app/sellShare/shareResults/shareApp.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/style/widget/app/sellShare/topNav.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/style/widget/app/tenant.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/style/widget/app/total/index.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/style/widget/capp/include/iconfont.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/style/widget/capp/include/menu.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/style/widget/nearby/location.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/style/widget/tenantRedPacket/arrivalRedBag.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/style/widget/tenantRedPacket/recommendTenant.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/style/widget/verification/veriRedPacket.less" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+    <list default="true" id="f9023910-4a62-4b29-9810-b7641dbe9224" name="Default" comment="清除文件">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/project/weixin/images/static/common/LOGO.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/project/weixin/images/static/login/account.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/project/weixin/images/static/login/passwd.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/project/weixin/images/static/register/cfpwd.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/project/weixin/images/static/register/code.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/project/weixin/images/static/register/phone.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/project/weixin/images/static/register/pwd.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/pages/login/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/pages/register/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/project/weixin/login/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/project/weixin/register/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/style/widget/login/index.less" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/widget.js" afterPath="$PROJECT_DIR$/src/js/widget.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/widget/menu.js" afterPath="$PROJECT_DIR$/src/js/widget/menu.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/model/widget/include/menu.html" afterPath="$PROJECT_DIR$/src/model/widget/include/menu.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/home/main.html" afterPath="$PROJECT_DIR$/src/pages/home/main.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/member/index.html" afterPath="$PROJECT_DIR$/src/pages/member/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/project/weixin/home/index.html" afterPath="$PROJECT_DIR$/src/project/weixin/home/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/project/weixin/member/index.html" afterPath="$PROJECT_DIR$/src/project/weixin/member/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/project/weixin/part/tenantIndex.less" afterPath="$PROJECT_DIR$/src/project/weixin/part/tenantIndex.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/project/weixin/payment/pay.html" afterPath="$PROJECT_DIR$/src/project/weixin/payment/pay.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/project/weixin/tenant/home.html" afterPath="$PROJECT_DIR$/src/project/weixin/tenant/home.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/project/weixin/wap.less" afterPath="$PROJECT_DIR$/src/project/weixin/wap.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/style/variable/global.less" afterPath="$PROJECT_DIR$/src/style/variable/global.less" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -314,45 +38,52 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/pages/member/index.html">
+        <entry file="file://$PROJECT_DIR$/src/project/weixin/finance/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="25">
-              <caret line="1" column="66" lean-forward="false" selection-start-line="1" selection-start-column="66" selection-end-line="1" selection-end-column="66" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/project/weixin/member/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="14" column="52" lean-forward="false" selection-start-line="14" selection-start-column="52" selection-end-line="14" selection-end-column="52" />
-              <folding>
-                <element signature="e#1350#5492#0" expanded="false" />
-                <element signature="e#5550#8564#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="menu.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/js/widget/menu.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="725">
-              <caret line="29" column="17" lean-forward="false" selection-start-line="29" selection-start-column="17" selection-end-line="29" selection-end-column="17" />
+            <state relative-caret-position="281">
+              <caret line="25" column="6" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/project/weixin/finance/index.html">
+        <entry file="file://$PROJECT_DIR$/src/project/weixin/login/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="381">
-              <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+            <state relative-caret-position="325">
+              <caret line="55" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/pages/login/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="100">
+              <caret line="16" column="18" lean-forward="false" selection-start-line="16" selection-start-column="18" selection-end-line="16" selection-end-column="18" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#label#0;n#div#2;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#div#1;n#div#1;n#div#0;n#div#0;n#!!top" expanded="false" />
+                <element signature="n#style#0;n#input#0;n#div#1;n#div#1;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#label#0;n#div#2;n#div#1;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#3;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#3;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#label#0;n#div#1;n#div#3;n#div#0;n#div#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/project/weixin/register/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="350">
+              <caret line="14" column="53" lean-forward="false" selection-start-line="14" selection-start-column="53" selection-end-line="14" selection-end-column="53" />
               <folding />
             </state>
           </provider>
@@ -361,8 +92,57 @@
       <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+            <state relative-caret-position="0">
+              <caret line="0" column="6" lean-forward="true" selection-start-line="0" selection-start-column="6" selection-end-line="0" selection-end-column="6" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/pages/register/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-494">
+              <caret line="5" column="133" lean-forward="false" selection-start-line="5" selection-start-column="133" selection-end-line="5" selection-end-column="133" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#p#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#label#0;n#div#2;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#div#0;n#div#2;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="global.less" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/style/variable/global.less">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="250">
+              <caret line="156" column="10" lean-forward="false" selection-start-line="156" selection-start-column="1" selection-end-line="156" selection-end-column="10" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.less" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/style/widget/login/index.less">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="381">
+              <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="wap.less" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/project/weixin/wap.less">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1131">
+              <caret line="53" column="6" lean-forward="false" selection-start-line="53" selection-start-column="6" selection-end-line="53" selection-end-column="6" />
               <folding />
             </state>
           </provider>
@@ -371,8 +151,8 @@
       <file leaf-file-name="main.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pages/home/main.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="50">
-              <caret line="2" column="30" lean-forward="false" selection-start-line="2" selection-start-column="30" selection-end-line="2" selection-end-column="30" />
+            <state relative-caret-position="150">
+              <caret line="6" column="61" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="125" selection-end-column="6" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
               </folding>
@@ -386,20 +166,14 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="CSS File" />
+        <option value="FxmlFile" />
+        <option value="Less File" />
         <option value="HTML File" />
       </list>
     </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>default</find>
-      <find>build:examplebuild:example</find>
-      <find>setPageManager</find>
-      <find>@</find>
-      <find>less</find>
-      <find>j</find>
-      <find>conta</find>
-      <find>build:style</find>
       <find>weui-check__label</find>
       <find>weui</find>
       <find>weui_ch</find>
@@ -422,6 +196,14 @@
       <find>http://cdn.tiaohuo.com/upload/image/201709/574356ef-e5fc-4c8b-8da6-e097308f6268.jpg@192w_141h_1e_1c_100Q</find>
       <find>shareApp</find>
       <find>padding-bottom</find>
+      <find>weui-check</find>
+      <find>weui-cell__p</find>
+      <find>@gray01</find>
+      <find>text-decoration-line</find>
+      <find>:before</find>
+      <find>borderno</find>
+      <find>buttonRadius</find>
+      <find>inputWrap</find>
     </findStrings>
     <dirStrings>
       <dir>E:\workspaceNew\spongiaPay\src</dir>
@@ -439,13 +221,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/example/fragment/finance.html" />
-        <option value="$PROJECT_DIR$/src/example/index.html" />
-        <option value="$PROJECT_DIR$/src/example/widget/tabbar.html" />
-        <option value="$PROJECT_DIR$/dist/fragment/mine.html" />
-        <option value="$PROJECT_DIR$/src/html/widget/memberView.html" />
-        <option value="$PROJECT_DIR$/dist/index.html" />
-        <option value="$PROJECT_DIR$/src/html/fragment/setting.html" />
         <option value="$PROJECT_DIR$/dist/fragment/integralExchange.html" />
         <option value="$PROJECT_DIR$/src/html/widget/financeNa.html" />
         <option value="$PROJECT_DIR$/src/html/widget/backNa.html" />
@@ -477,7 +252,6 @@
         <option value="$PROJECT_DIR$/src/pages/home/main2.html" />
         <option value="$PROJECT_DIR$/src/pages/home/main.html" />
         <option value="$PROJECT_DIR$/src/project/weixin/payment/pay.html" />
-        <option value="$PROJECT_DIR$/src/project/weixin/wap.less" />
         <option value="$PROJECT_DIR$/src/project/weixin/part/tenantIndex.less" />
         <option value="$PROJECT_DIR$/src/model/widget/include/menu.html" />
         <option value="$PROJECT_DIR$/src/js/widget.js" />
@@ -489,6 +263,14 @@
         <option value="$PROJECT_DIR$/src/project/weixin/recommend/index.html" />
         <option value="$PROJECT_DIR$/src/pages/recommend/index.min.html" />
         <option value="$PROJECT_DIR$/src/pages/member/index.html" />
+        <option value="$PROJECT_DIR$/src/project/weixin/tenant/home.html" />
+        <option value="$PROJECT_DIR$/src/project/weixin/wap.less" />
+        <option value="$PROJECT_DIR$/src/project/weixin/login/index.html" />
+        <option value="$PROJECT_DIR$/src/style/widget/login/index.less" />
+        <option value="$PROJECT_DIR$/src/project/weixin/register/index.html" />
+        <option value="$PROJECT_DIR$/src/style/variable/global.less" />
+        <option value="$PROJECT_DIR$/src/pages/register/index.html" />
+        <option value="$PROJECT_DIR$/src/pages/login/index.html" />
         <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
@@ -556,24 +338,25 @@
   <component name="PropertiesComponent">
     <property name="nodejs_interpreter_path" value="/usr/local/bin/node" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/spongiaPay" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../weixin_v4" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
-    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="list.type.of.created.stylesheet" value="Less" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="js-jscs-nodeInterpreter" value="D:\Program Files\nodejs\node.exe" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\work\workspaceTiaohuo\spongiaPay\src\project\weixin\images\static" />
       <recent name="$PROJECT_DIR$/src/example/images" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\work\workspaceTiaohuo\spongiaPay\src\project\weixin\images" />
+      <recent name="D:\work\workspaceTiaohuo\spongiaPay\src\project\weixin\images\static" />
+      <recent name="D:\work\workspaceTiaohuo\spongiaPay\src\project\weixin\images\static\login" />
       <recent name="D:\work\workspaceTiaohuo\spongiaPay\src\pages\recommend" />
       <recent name="D:\work\workspaceTiaohuo\spongiaPay\src\pages\finance" />
-      <recent name="E:\workspaceNew\spongiaPay\src\project\weixin\images\static" />
-      <recent name="E:\workspaceNew\spongiaPay\src\project\weixin" />
-      <recent name="E:\workspaceNew\spongiaPay\src\project\weixin\images\static\mine" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -686,12 +469,20 @@
       <workItem from="1509599997720" duration="12652000" />
       <workItem from="1509670546122" duration="1476000" />
       <workItem from="1509673816152" duration="8179000" />
-      <workItem from="1509709626469" duration="2974000" />
+      <workItem from="1509709626469" duration="7517000" />
     </task>
+    <task id="LOCAL-00001" summary="清除文件">
+      <created>1509712636356</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1509712636356</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="147627000" />
+    <option name="totallyTimeSpent" value="152170000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -704,6 +495,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298193" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -713,11 +505,11 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30938417" sideWeight="0.5033113" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32991204" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3297062" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3405876" sideWeight="0.49668875" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297062" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3405876" sideWeight="0.49668875" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20469083" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20469083" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287483" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -779,7 +571,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="文件" />
-    <option name="LAST_COMMIT_MESSAGE" value="文件" />
+    <MESSAGE value="清除文件" />
+    <option name="LAST_COMMIT_MESSAGE" value="清除文件" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -788,56 +581,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/project/weixin/images/static/coupon/coupon_bg.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/project/weixin/images/static/coupon/coupons_11.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/project/weixin/images/static/coupon/pinshouqi.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/project/weixin/images/static/coupon/pinshouqired.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/project/weixin/images/static/coupon/redB3.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/project/weixin/images/static/coupon/redBonus.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/project/weixin/images/static/coupon/redCoupon.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/project/weixin/images/static/channel/channel_img.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/project/weixin/images/static/channel/channelba.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/project/weixin/images/static/category/category_img.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/project/weixin/images/static/include/slider_left.png">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -947,17 +690,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/project/weixin/tenant/home.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1509709601488" expanded="true" signature="8843:8857" ph="..." />
-            <marker date="1509709601488" expanded="true" signature="20359:20371" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/home/main2.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="329">
@@ -1014,14 +746,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/project/weixin/wap.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="653">
-          <caret line="50" column="54" lean-forward="false" selection-start-line="50" selection-start-column="54" selection-end-line="50" selection-end-column="54" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/project/weixin/part/tenantIndex.less">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="475">
@@ -1047,7 +771,7 @@
         <state relative-caret-position="400">
           <caret line="16" column="33" lean-forward="false" selection-start-line="16" selection-start-column="33" selection-end-line="16" selection-end-column="33" />
           <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1105,11 +829,11 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#1;n#a#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#1;n#a#1;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#1;n#a#2;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#1;n#a#3;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#img#1;n#a#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#img#1;n#a#1;n#div#1;n#div#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#img#1;n#a#2;n#div#1;n#div#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#img#1;n#a#3;n#div#1;n#div#0;n#div#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1119,24 +843,6 @@
         <state relative-caret-position="131">
           <caret line="14" column="49" lean-forward="false" selection-start-line="14" selection-start-column="49" selection-end-line="14" selection-end-column="49" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/project/weixin/finance/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="381">
-          <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/home/main.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="50">
-          <caret line="2" column="30" lean-forward="false" selection-start-line="2" selection-start-column="30" selection-end-line="2" selection-end-column="30" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1161,10 +867,148 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/project/weixin/tenant/home.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1303">
+          <caret line="70" column="0" lean-forward="true" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
+          <folding>
+            <marker date="1509712886817" expanded="true" signature="8843:8857" ph="..." />
+            <marker date="1509712886817" expanded="true" signature="15020:15032" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/page/page.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="235" column="4" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="519" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/home/main.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="6" column="61" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="125" selection-end-column="6" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/project/weixin/wap.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1131">
+          <caret line="53" column="6" lean-forward="false" selection-start-line="53" selection-start-column="6" selection-end-line="53" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/weui/weui.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="193">
+          <caret line="528" column="1" lean-forward="false" selection-start-line="528" selection-start-column="1" selection-end-line="528" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/project/weixin/finance/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="281">
+          <caret line="25" column="6" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/style/widget/login/index.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="381">
+          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/project/weixin/login/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="325">
+          <caret line="55" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/release/project/weixin/part/style/payment.min.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="193">
+          <caret line="0" column="1700" lean-forward="false" selection-start-line="0" selection-start-column="1700" selection-end-line="0" selection-end-column="1700" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/style/variable/color.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="3" column="1" lean-forward="false" selection-start-line="3" selection-start-column="1" selection-end-line="3" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/style/variable/global.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="156" column="10" lean-forward="false" selection-start-line="156" selection-start-column="1" selection-end-line="156" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/register/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-494">
+          <caret line="5" column="133" lean-forward="false" selection-start-line="5" selection-start-column="133" selection-end-line="5" selection-end-column="133" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#label#0;n#div#2;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#div#0;n#div#2;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/project/weixin/register/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="350">
+          <caret line="14" column="53" lean-forward="false" selection-start-line="14" selection-start-column="53" selection-end-line="14" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/login/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="16" column="18" lean-forward="false" selection-start-line="16" selection-start-column="18" selection-end-line="16" selection-end-column="18" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#label#0;n#div#2;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#div#1;n#div#1;n#div#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#input#0;n#div#1;n#div#1;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#label#0;n#div#2;n#div#1;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#3;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#3;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#label#0;n#div#1;n#div#3;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+        <state relative-caret-position="0">
+          <caret line="0" column="6" lean-forward="true" selection-start-line="0" selection-start-column="6" selection-end-line="0" selection-end-column="6" />
           <folding />
         </state>
       </provider>
