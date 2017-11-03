@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <title>优惠买单</title>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <link rel="stylesheet" href="/weixin/style/common.min.css"/>
+    <link rel="stylesheet" href="/weixin/part/style/payBill.min.css"/>
+    <style type="text/css">
+        @font-face {font-family: "iconfont";
+            src: url('../fonts/iconfont.eot?t=1495779286577'); /* IE9*/
+            src: url('../fonts/iconfont.svg?t=1495779286577#iconfont') format('svg'), /* iOS 4.1- */
+            url('../fonts/iconfont.svg?t=1495779286577#iconfont') format('svg'), /* iOS 4.1- */
+            url('../fonts/iconfont.woff?t=1495779286577') format('woff'), /* chrome, firefox */
+            url('../fonts/iconfont.ttf?t=1495779286577') format('truetype'),/* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+            url('../fonts/iconfont.svg?t=1495779286577#iconfont') format('svg'); /* iOS 4.1- */
+        }
+        @font-face {
+            font-weight: 400;
+            font-style: normal;
+            font-family: weui;
+            src: url("data:application/octet-stream;base64,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") format("truetype")
+        }
+    </style>
+
+</head>
+<body ontouchstart>
+<div class="weui-toptips weui-toptips_warn js_tooltips">错误提示</div>
+<div class="container" id="container"></div>
+
+<!--联系商家-->
+<link rel="import" href="../../../pages/payBill/index.html">
+
+<!--模版-->
+<link rel="import" href="../../../model/templete/payBill/tenantAddress.html">
+<link rel="import" href="../../../model/templete/payBill/coupon.html">
+<script src="/weixin/js/common.min.js"></script>
+<script src="/weixin/part/js/payBill.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+        pageManager.show("index");
+        if(window.location.hash==''){
+            document.title='优惠买单';
+
+            var ua = navigator.userAgent.toLowerCase();
+            if(ua.indexOf("alipayclient")>-1){
+                $('#tenant_coupon_3').addClass('none');
+                $('.aadress div').removeClass('rights');
+                $('#tenant_coupon_1').removeClass('none');
+            } else if(ua.match(/MicroMessenger/i)=="micromessenger") {
+                $('.aadress').click(function () {
+                    window.location.href='../tenant/index.jhtml?id='+pageManager.GetQueryString('id');
+                });
+            }
+
+            //分享
+            var txt = new tenant(function(data){
+                if(data.title==null||data.content==null){
+                    //无软文情况
+                    new tenant(function () {
+                        var imgUrl=data.imgUrl;
+                        var title=data.title;
+                        var link=data.link;
+                        var desc=data.desc;
+                        //分享功能
+                        weixin.share1({
+                            title:title,
+                            desc:desc,
+                            link:link,
+                            imgUrl:imgUrl,
+                            success: function () {
+                                showIntro();
+                            }
+                        })
+                    }).share({id:pageManager.GetQueryString('id')})
+                }else{
+                    //有软文情况
+                    $(".discount_img").html(data.content);
+                    //分享
+                    var imgSrc = $('.discount_img').find('img').attr('src');
+                    weixin.share1({
+                        title:data.title,
+                        link:data.link,
+                        imgUrl:imgSrc,
+                        success: function () {
+                            showIntro();
+                        }
+                    });
+                }
+            });
+            txt.article({id:pageManager.GetQueryString('id')});
+
+            //商家优惠券
+            var tu = new coupon(function (data) {
+                var h = render.fill($("#tpl_coupon"), data);
+                $(".coupon_all").html(h);
+
+                if(data.length>0){
+                    if(ua.indexOf("alipayclient")>-1){
+                        $('#tenant_coupon_3').addClass('none');
+                    }else{
+                        $('#tenant_coupon_3').removeClass('none');
+                    }
+
+                    //领取优惠券
+                    $(document).on('click','.couponItem_down',function () {
+                        var $this = $(this);
+                        var couponId = $this.parent().attr('data-id');
+                        var couponName = $this.parent().attr('data-name');
+                        if(couponName == 'false'){
+                            setTimeout(function () {
+                                var pick = new coupon(function (data) {
+                                    $this.parent().attr('data-name','true');
+                                    $this.find('a').addClass('lingqu');
+                                    $this.find('a').html('已领取');
+                                });
+                                pick.pickup({id:couponId});
+                            },200)
+                        }
+                    });
+                }else{
+                    $('#tenant_coupon_1').removeClass('none');
+                }
+            });
+            tu.listT({tenantId: pageManager.GetQueryString("id")});
+
+            var $iosMask2 = $('#iosMask2');
+            //显示弹框
+            function showIntro(){
+                $iosMask2.fadeIn(200);
+                $("#teannt_coupons").removeClass('none');
+                $("#mcover").addClass('none');
+            }
+            function showfenxiang(){
+                $iosMask2.fadeIn(200);
+                $("#mcover").removeClass('none');
+                $("#teannt_coupons").addClass('none');
+            }
+            $('#tenant_coupon_3').on('click', showfenxiang);
+            //隐藏弹框
+            function hideIntro(){
+                $iosMask2.fadeOut(200);
+                $("#teannt_coupons").addClass('none');
+                $("#mcover").addClass('none');
+            }
+            $iosMask2.on('click', hideIntro);
+            $('#teannt_coupons .icon-quxiao').on('click', hideIntro);
+
+            $(document).on('click','#ckBoxMoney', function () {
+
+                if($('#amount').val() == '' || $('#amount').val() < 0){
+                    $('#ckBoxMoney').checked='false';
+                }else{
+                    if($('#ckBoxMoney').prop('checked')==true){
+                        $('#ckBoxIco').removeClass('icon-l-square').addClass('icon-s-square');
+                        $('.money').removeClass('none');
+                    }else{
+                        $('#ckBoxIco').removeClass('icon-s-square').addClass('icon-l-square');
+                        $('.money').addClass('none');
+                    }
+                }
+            });
+
+            //获取门店
+            var deliveryId=pageManager.GetQueryString("deliveryId");
+            if(deliveryId){
+                new deliveryCenter(function (data) {
+                    $('#sheet_choose_store').attr('delivery_id', data.id).removeClass('none');
+                    $('#delivery_name').text(data.name);
+                    $('#delivery_address').text(data.address);
+                }).view({
+                    id:deliveryId
+                });
+            }else{
+                weixin.location(function () {
+                    new paybill(function (data) {
+                        $('#sheet_choose_store').attr('delivery_id', data.id).removeClass('none');
+                        $('#delivery_name').text(data.name);
+                        $('#delivery_address').text(data.address);
+                    }).deliveryCenter({
+                        id: pageManager.GetQueryString('id'),
+                        lat: weixin.lat,
+                        lng: weixin.lng
+                    });
+                });
+            }
+
+            var t1;
+            var t2;
+            $('body').on('input', '#amount', function () {
+                clearTimeout(t1);
+                var obj=this;
+                t1=setTimeout(function () {
+                    onAmount(obj)
+                },500);
+            }).on('input','#noAmount',function () {
+                clearTimeout(t2);
+                var obj=this;
+                t2=setTimeout(function () {
+                    onNoAmount(obj)
+                },500);
+            });
+
+            var onAmount=function (obj) {
+                if(obj.value > 0){
+                    getamount(obj.value);
+                }else{
+                    $('#ckBoxMoney').prop('checked','false');
+                    $('#ckBoxIco').removeClass('icon-s-square').addClass('icon-l-square');
+                    $('.money').addClass('none');
+                    $('#tenant_coupon_1').removeClass('none');
+                    $('#isBillDiscount').addClass("none");
+                    $('#tenant_coupon_2').addClass('none');
+                    $('#tenant_coupon_3').addClass('none');
+                    $('#activityAmount').text(0);
+                    $('#payAmount').text(0);
+                    $('#confirmPayBill').removeClass('active');
+                }
+            };
+
+            var onNoAmount=function (obj) {
+                if (Number(obj.value) > Number($('#amount').val())) {
+                    setTimeout(function () {
+                        toast.show('不参与优惠金额不得大于消费总额');
+                    },200);
+                    obj.value = $('#amount').val();
+                }
+                getamount(obj.value);
+            };
+
+            function getamount(){
+                new paybill(function(data){
+                    console.log(data);
+                    if(data.hasPromotion){
+                        $('#tenant_coupon_1').addClass('none');
+                        $('#isBillDiscount').removeClass("none");
+                        $('#promotionName').text(data.promotionName);
+                        $('#promotionAmount').text(data.promotionAmount);
+                        $('#promotionDate').text(data.promotionDate);
+                    }else if (data.coupon){
+                        $('#tenant_coupon_1').addClass('none');
+                        $('#tenant_coupon_2').removeClass('none');
+                        $('#tenant_coupon_3').addClass('none');
+                        $('#coupon_amount').text(data.coupon.amount);
+                        $('#coupon_minimumPrice').text(data.coupon.minimumPrice);
+                        $('#coupon_date').text(data.coupon.effectiveDate);
+                    }else {
+                        $('#tenant_coupon_1').removeClass('none');
+                        $('#tenant_coupon_2').addClass('none');
+                        $('#tenant_coupon_3').addClass('none');
+                        $('#isBillDiscount').addClass('none');
+                    }
+                    if (data.platformDiscount > 0) {
+                        $('#activityAmount').text(data.platformDiscount);
+                    } else {
+                        $('#activityAmount').text(0);
+                    }
+                    $('#payAmount').text(data.decimal);
+                    $('#confirmPayBill').addClass('active');
+                }).getAmount({
+                    id: pageManager.GetQueryString('id'),
+                    amount: $('#amount').val(),
+                    noAmount: $('#ckBoxMoney').prop('checked') ? $('#noAmount').val() : ''
+                });
+            }
+
+            //提交
+            $('#confirmPayBill').click(function () {
+                if (!$(this).hasClass('active')) return;
+                var deliverCenterId = $('#sheet_choose_store').attr('delivery_id');
+                new paybill(function (data) {
+                    if($('#payAmount').text()=='0'){
+                        location.href = '../payment/pay.html?id='+ pageManager.GetQueryString('id') +'&sn=' + data.sn + '#paySuccessPayBill';
+                    }else{
+//                    location.href = '/weixin/payment/payDiscount.html?url=' + data.url + '&id='+ pageManager.GetQueryString('id') +'&sn=' + data.sn;//微信扫码支付
+                        location.href = '../payment/pay.html?id='+ pageManager.GetQueryString('id') +'&sn=' + data.sn;
+                    }
+                }).submit({
+                    id: pageManager.GetQueryString('id'),
+                    amount: $('#amount').val(),
+                    noAmount: $('#ckBoxMoney').prop('checked') ? $('#noAmount').val() : '',
+                    deliveryCenterId: deliverCenterId ? deliverCenterId : ''
+//                type:1  //微信扫码支付
+                });
+            });
+
+        } else if(window.location.hash=='#tenantAddress'){
+            document.title='门店地址';
+            weixin.location(function () {
+                var tenantAddress = new tenant(function (data) {
+                    var h = render.fill($("#tpl_tenantNoneAddress"), data);
+                    $(".address").html(h);
+
+                    $(document).on('click','.daohang',function () {
+                        var me = this;
+                        var tenantLat = Number($(this).attr('lat'));
+                        var tenantLng = Number($(this).attr('lng'));
+                        weixin.openLocation({
+                            lat:tenantLat,
+                            lng:tenantLng,
+                            name: me.name,
+                            address: me.address
+                        });
+                    });
+                });
+                tenantAddress.deliveryCenterList({id:pageManager.GetQueryString("id")});
+            });
+        }
+
+    });
+</script>
+</body>
+</html>
+

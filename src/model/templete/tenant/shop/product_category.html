@@ -1,0 +1,65 @@
+<div class="category-ctn-left" id="silder-left" style="visibility: visible;">
+    <ul class="am-lists class-items"  id="rootProductCategory1">
+        {{#each this}}
+        <li data-id="{{id}}" class="cage" >
+            <a>{{name}}</a>
+        </li>
+        {{/each}}
+    </ul>
+</div>
+<div class="category-ctn-right" id="silder-right">
+    <ul class="am-list" id="subProductCategory">
+        {{#each this}}
+        {{#compare hasChildren '==' false}}
+        <li class="none" data-id="{{id}}">
+            <ul>
+                <p class="f14 tc clr_gray02 category-title">暂无分类</p>
+            </ul>
+        </li>
+        {{/compare}}
+        {{#compare hasChildren '==' true}}
+        <li class="none" data-id="{{id}}">
+            {{#each childrens}}
+                {{#compare hasChildren '==' false}}
+                    <ul class="category-product category-product_two" data-id="{{id}}">
+                        <li>
+                            <a href="javascript:;" class="aproductReasult" data-id="{{id}}">
+                                <p>
+                                    {{#compare image '==' null}}
+                                    <img src="../images/placeholder/product.png">
+                                    {{/compare}}
+                                    {{#compare image '!=' null}}
+                                    <img src="{{crop image 18 18}}">
+                                    {{/compare}}
+                                </p>
+                                <p class="f12">{{name}}</p>
+                            </a>
+                        </li>
+                    </ul>
+                {{/compare}}
+                {{#compare hasChildren '==' true}}
+                <ul class="category-product" data-id="{{id}}">
+                    <p class="category-title f13">{{name}}</p>
+                    {{#each childrens}}
+                    <li>
+                        <a href="javascript:;" class="aproductReasult" data-id="{{id}}">
+                            <p>
+                                {{#compare image '==' null}}
+                                <img src="../images/placeholder/product.png">
+                                {{/compare}}
+                                {{#compare image '!=' null}}
+                                <img src="{{crop image 18 18}}">
+                                {{/compare}}
+                            </p>
+                            <p class="f12">{{name}}</p>
+                        </a>
+                    </li>
+                    {{/each}}
+                </ul>
+                {{/compare}}
+            {{/each}}
+        </li>
+        {{/compare}}
+        {{/each}}
+    </ul>
+</div>

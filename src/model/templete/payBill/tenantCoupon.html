@@ -1,0 +1,55 @@
+<!-- BEGIN tenantCoupon -->
+    {{#if this}}
+    <div class="hd f14">
+        <P>先领券  再购物</P>
+        <P>first get coupons and then shopping</P>
+    </div>
+    <div class="bd">
+        <div class="items">
+                    {{#each this}}
+                        {{#if hasReceived}}
+                            <a href="javascript:;" data-id="{{id}}" class="gray-coupon">
+                                <div class="up">
+                                    <div class="amount f14">
+                                        <span>￥{{amount}}</span>
+                                    </div>
+                                    <div class="desc">
+                                        <h5 class="f12">优惠券</h5>
+                                        <span class="f12">满{{minimumPrice}}元可用</span>
+                                    </div>
+                                </div>
+                                <div class="down f14">
+                                    <span>点击领取</span>
+                                </div>
+                            </a>
+                        {{else}}
+                            <a href="../member/Bshare.html?id={{id}}" data-id="{{id}}" class="red-coupon">
+                                <div class="up">
+                                    <div class="amount f14">
+                                        <span>￥{{amount}}</span>
+                                    </div>
+                                    <div class="desc">
+                                        <h5 class="f12">优惠券</h5>
+                                        <span class="f12">满{{minimumPrice}}元可用</span>
+                                    </div>
+                                </div>
+                                <div class="down f14">
+                                    <span>点击领取</span>
+                                </div>
+                            </a>
+                        {{/if}}
+                    {{/each}}
+                </div>
+        </div>
+    {{/if}}
+<script>
+    $(function(){
+        //跳转领取优惠券
+        $('.items a').click(function(){
+            var couponId;
+            couponId =$(this).attr('data-id');
+            window.location.href='../member/Bshare.html?id='+ couponId;
+        });
+    });
+</script>
+<!-- END tenantCoupon -->

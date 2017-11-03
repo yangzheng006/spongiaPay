@@ -1,0 +1,40 @@
+@charset "UTF-8";
+.news_nav {
+  &.find_nav {
+    width: 80%;
+    padding-left: 2%;
+    background: @white;
+    .find_nav_left{
+      .page22 {
+        li {
+          &.find_nav_cur {
+            a {
+              color: @baseColor;
+              border-bottom: 2px solid @baseColor;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.news_nav_right {
+  width: 20%;
+  height: 44px;
+  line-height: 44px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 999;
+  background-color: @white;
+  display: flex;
+  a {
+    flex: 1;
+    -moz-box-flex: 1;
+    -webkit-flex: 1;
+    i {
+      position: relative;
+      top: -2px;
+    }
+  }
+}

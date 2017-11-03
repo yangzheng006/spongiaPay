@@ -1,0 +1,86 @@
+{{#each this}}
+<a class="weui-cell bornone sellShare_product" href="../product/index.html?id={{productId}}" data-id="{{productId}}" target="_blank">
+    {{#compare thumbnail '!=' null}}
+    <div class="weui-cell__hd img_one">
+        <img src="../images/placeholder/lazypic.png" data-original="{{crop thumbnail 92 52}}" alt="">
+    </div>
+    {{/compare}}
+
+    {{#compare thumbnail '==' null}}
+    {{#compare productImages.length '==' 0}}
+    <div class="weui-cell__hd row img_five">
+        <div class="fl img_big">
+            <span class="gray_block tc"></span>
+        </div>
+        <div class="fr img_small">
+            <span class="gray_block tc"><i class="iconfont icon-right-01 clr_white f20"></i></span>
+            <span class="gray_block clr_white f14 tc">查看更多</span>
+        </div>
+    </div>
+    {{/compare}}
+
+    {{#compare productImages.length '==' 1}}
+        <div class="weui-cell__hd row img_five">
+            {{#each productImages}}
+            {{#compare @index '==' 0}}
+            <div class="fl img_big">
+                <img src="../images/placeholder/lazypic.png" data-original="{{crop large 61 61}}" alt="">
+            </div>
+            {{/compare}}
+            {{/each}}
+            <div class="fr img_small">
+                <span class="gray_block tc"><i class="iconfont icon-right-01 clr_white f20"></i></span>
+                <span class="gray_block clr_white f14 tc">查看更多</span>
+            </div>
+        </div>
+    {{/compare}}
+
+    {{#compare productImages.length '==' 2}}
+        <div class="weui-cell__hd row img_five">
+            {{#each productImages}}
+            {{#compare @index '==' 0}}
+            <div class="fl img_big">
+                <img src="../images/placeholder/lazypic.png" data-original="{{crop large 61 61}}" alt="">
+            </div>
+            {{/compare}}
+            {{/each}}
+            <div class="fr img_small">
+                {{#each productImages}}
+                {{#compare @index '==' 1}}
+                    <img src="../images/placeholder/lazypic.png" data-original="{{crop thumbnail 30 30}}" alt="">
+                {{/compare}}
+                {{/each}}
+                <span class="gray_block clr_white f14 tc">查看更多</span>
+            </div>
+        </div>
+    {{/compare}}
+
+    {{#compare productImages.length '>=' 3}}
+        <div class="weui-cell__hd row img_five">
+            {{#each productImages}}
+            {{#compare @index '==' 0}}
+            <div class="fl img_big">
+                <img src="../images/placeholder/lazypic.png" data-original="{{crop large 61 61}}" alt="">
+            </div>
+            {{/compare}}
+            {{/each}}
+            <div class="fr img_small">
+                {{#each productImages}}
+                {{#compare @index '>' 0}}
+                {{#compare @index '<' 3}}
+                    <img src="../images/placeholder/lazypic.png" data-original="{{crop thumbnail 30 30}}" alt="">
+                {{/compare}}
+                {{/compare}}
+                {{/each}}
+            </div>
+        </div>
+    {{/compare}}
+    {{/compare}}
+    <div class="weui-cell__bd">
+        <p class="clr_gray01 f16 overone">{{description}}</p>
+        <p class="clr_lightGray f12">
+            推荐购买赚 {{recommendMoney}}元  | 合伙人赚 {{partnerMoney}}元
+            <span class="fr clr_red02 f18">￥{{price}}</span></p>
+    </div>
+</a>
+{{/each}}

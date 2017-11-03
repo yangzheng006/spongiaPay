@@ -1,0 +1,61 @@
+@charset "UTF-8";
+
+.product-app{
+  .actionsheet {
+    max-height: 50vh;
+    overflow: hidden;
+    .weui-cells {
+      margin-top: 0;
+
+      &.shop {
+        &.weui-cells:after{border-bottom:none}
+        .weui-cell {
+
+          padding: 2% 4%;
+          height: auto;
+
+          .shop_logo {
+            width: 20%;
+            height: auto;
+            margin-right: 10px;
+          }
+
+        }
+      }
+      &.address {
+        max-height: 35vh;
+        overflow-y: auto;
+        margin-top: 1px;
+        &.weui-cells:after, &.weui-cells:before {
+          border-top: none;
+          border-bottom: none;
+          height: 0px;
+        }
+        .weui-cell__bd {
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          #name{
+            line-height: 1.8em;
+          }
+          p {
+            display: block;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            &.shop_name {
+              line-height: 1.7em;
+            }
+          }
+        }
+      }
+    }
+    .cancel {
+      position: absolute;
+      top: 2%;
+      right: 4%;
+      margin-top: 0;
+    }
+
+  }
+}

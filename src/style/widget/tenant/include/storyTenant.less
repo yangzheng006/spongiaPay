@@ -1,0 +1,29 @@
+.tenant_new{
+  border: none;
+  padding: 2% 0;
+  position: relative;
+  display: block;
+  line-height: 40px;
+  cursor: pointer;
+
+  &:before{
+    .mixin(top,solid,@icon-gray)
+  }
+  .story_tenant{
+    position: relative;
+    &:before{
+      .mixin(left,solid,@icon-gray);
+      top: 20%;
+      height: 70%;
+    }
+    i{
+      position: absolute;
+      top: 3px;
+      left: 4%;
+    }
+    .new_title{
+      width: 58vw;
+      padding-left: 35px;
+    }
+  }
+}

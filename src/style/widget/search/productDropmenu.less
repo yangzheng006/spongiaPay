@@ -1,0 +1,67 @@
+@charset "UTF-8";
+//转换商品列表样式的按钮css
+.product_style {
+  .dropmenu{
+    #navbar{
+      width: 87vw;
+    }
+    #style{
+      display: block;
+      width: 13vw;
+      background: @white;
+      text-align: center;
+      height: 44px;
+      line-height: 44px;
+      position: fixed;
+      top:0;
+      right: 0;
+      z-index: 500;
+      &:after{
+        .mixin(bottom,solid,#ccc);
+      }
+    }
+    .weui-navbar__item{
+      &:last-child{
+        &:after{
+          display: block;
+          content: " ";
+          position: absolute;
+          right: 0;
+          width: 1px;
+          border-right: 1px solid #ccc;
+          color: #ccc;
+          -webkit-transform-origin: 100% 0;
+          transform-origin: 100% 0;
+          -webkit-transform: scaleX(.5);
+          transform: scaleX(.5);
+          top:20%;
+          bottom: 20%;
+        }
+      }
+    }
+  }
+  //顶部上有搜索框,改变距离顶部高度
+  .dp{
+    .dropmenu{
+      #navbar{
+        top:43px;
+      }
+      .bd{
+        top:87px;
+      }
+    }
+    #style{
+      top:43px;
+    }
+  }
+}
+.dp {
+  .dropmenu {
+    #navbar {
+      top: 43px;
+    }
+    .bd {
+      top: 87px;
+    }
+  }
+}

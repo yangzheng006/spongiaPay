@@ -1,0 +1,35 @@
+<!--我的银行卡模板-->
+{{#if this}}
+{{#each this}}
+<div class="weui-cell" id={{id}}>
+    <div class="weui-cell__hd">
+        {{#compare logo '!=' null}}
+        <img src="{{logo}}" />
+        {{/compare}}
+        {{#compare logo '==' null}}
+        <img src="../images/static/member/purse/bank.png" />
+        {{/compare}}
+    </div>
+    <div class="weui-cell__bd weui-cell__primary">
+        <p class="f14">{{bankName}}</p>
+        {{#if type}}
+        {{#compare type '==' 'debit'}}
+        <p class="f14">储蓄卡</p>
+        {{/compare}}
+        {{#compare type '==' 'credit'}}
+        <p class="f14">信用卡</p>
+        {{/compare}}
+        {{/if}}
+        <p class="f14">**** **** ****<span>&nbsp;{{cardNo}}</span><span>{{account}}</span></p>
+    </div>
+    <div class="weui-cell__ft">
+        <p class="deletecard f12"><span><i class="icon iconfont icon-delete-01" style="margin-right: 2px;"></i>删除</span></p>
+    </div>
+</div>
+{{/each}}
+{{else}}
+<div class="cartEmpty">
+    <i class="icon iconfont icon-creditcard"></i>
+    <p>亲还没有银行卡哦!快去添加吧！</p>
+</div>
+{{/if}}

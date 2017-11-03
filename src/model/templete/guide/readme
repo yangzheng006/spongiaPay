@@ -1,0 +1,12 @@
+
+ dynamic  contactList.html  说说列表模板
+ dynamic  productList.html  发说说分享商品模板
+ dynamic  tenant.html       发说说分享的联盟商家模板
+ dynamic  view.html         说说详情模板
+
+
+ BaseInfo.html           用户基本信息模板
+ currentAreaSelect.html  用户常用地址选择模板
+ fans.html               用户粉丝模板
+ intresetTag.html        用户兴趣标签模板
+ list.html               导购列表模板

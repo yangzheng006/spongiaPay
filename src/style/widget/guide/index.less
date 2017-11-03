@@ -1,0 +1,115 @@
+@charset "UTF-8";
+.guide_pic {
+  height: 90vh;
+  padding: 15% 6.25vw 0 6.25vw;
+  overflow: hidden!important;
+  //position: relative;
+  #guide_pic{
+    position: relative;
+  }
+  ul {
+    li {
+      position: relative;
+      display: block;
+      a {
+        border-radius: 6px;
+        overflow: hidden;
+        display: block;
+        z-index: 999;
+        //background-color: @white;
+        position: relative;
+        .visited{
+          position: absolute;
+          top: 10px;
+          right: 10px;
+          background: rgba(0,0,0,0.5);
+          width: 100px;
+          height: 30px;
+          line-height: 30px;
+          text-align: center;
+          color: #fff;
+          z-index: 10000;
+          display: block;
+          font-size: 14px;
+          border-radius: 20px;
+        }
+        img {
+          display: block;
+          width: 87.5vw;
+          height: 87.5vw;
+        }
+        .title {
+          padding: 2% 4%;
+          border-radius: 0 0 8px 8px;
+          background: #fff;
+          .pNum {
+            padding-left: 15%;
+            em{ margin-left: 5px}
+          }
+        }
+      }
+    }
+  }
+
+
+  .attention {
+    text-align: center;
+    background: @bodyBg;
+    padding: 20px 0;
+    cursor: pointer;
+    p{
+      padding: 3%;
+      display: inline-block;
+      line-height: 1;
+      background-color: #fff;
+      border-radius: 50%;
+      border: 8px solid #e6e6e6;
+      &.active {
+        border-color: #ff9999;
+      }
+      i.reds{ color: @ired;font-size: 28px;}
+      i.gray{color:@light-gray;font-size: 28px; }
+    }
+  }
+
+
+  .noneGuide{
+    width: 100%;
+    height: 100%;
+    background:@bodyBg;
+    font-size: 16px;
+    text-align: center;
+    color:#777;
+    padding-top: 20px;
+    display: block;
+    border: 1px solid #f8f8f8;
+  }
+
+  #guide_pic{
+    height: 100%;
+    width: 100%;
+    display: block;
+
+    ul{
+      li{
+        height: 90vh !important;
+      }
+    }
+  }
+
+}
+
+
+.guide_main{
+  .find_nav_left {
+    .page22 li{
+      &.find_nav_cur{
+        a{
+          color: #239afe;
+          border-bottom: 2px solid #239afe;
+        }
+      }
+    }
+  }
+
+}

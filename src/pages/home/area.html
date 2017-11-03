@@ -1,0 +1,46 @@
+<div class="page">
+    <div class="page__bd" style="height: 100%;">
+        <div class="weui-tab">
+            <!--search-->
+            <div class="weui-search-bar citySearch" id="searchBar">
+                <form class="weui-search-bar__form">
+                    <div class="weui-search-bar__box">
+                        <i class="weui-icon-search"></i>
+                        <input type="search" class="weui-search-bar__input search_city_val" id="searchInput" placeholder="城市/行政区" required="">
+                        <a href="javascript:" class="weui-icon-clear" id="searchClear"></a>
+                        <div class="clearSearchval">
+                            <i class="icon iconfont icon-remove-02"></i>
+                        </div>
+                    </div>
+                    <label class="weui-search-bar__label" id="searchText">
+                        <i class="weui-icon-search"></i>
+                        <span>搜索</span>
+                    </label>
+                </form>
+                <a href="javascript:" class="weui-search-bar__cancel-btn" id="searchGo">搜索</a>
+            </div>
+            <!--search end-->
+            <div class="weui-tab__panel" style="padding-top: 44px; padding-bottom: 0;">
+                <!--regionSelection -->
+                <div id="region" class="region">
+                    <div class="p10">
+                        <p class="region_title f14">定位城市</p>
+                        <div class="AreaClass_grid" id="locationCity">
+                            <p class="f12 clr_mediumGray noData">暂无数据</p>
+                        </div>
+                        <p class="region_title f14">最近访问城市</p>
+                        <div class="AreaClass_grid" id="historyCity">
+                            <p class="f12 clr_mediumGray noData">暂无数据</p>
+                        </div>
+                        <p class="region_title f14">热门城市</p>
+                        <div class="AreaClass_grid" id="hotCity">
+                            <p class="f12 clr_mediumGray noData">暂无数据</p>
+                        </div>
+                    </div>
+                    <div class="weui-cells" id="aread"></div>
+                </div>
+                <!--regionSelection end-->
+            </div>
+        </div>
+    </div>
+</div>

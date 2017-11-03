@@ -1,0 +1,24 @@
+{{#each this}}
+<div class="weui-cells" style="padding-bottom:2%;">
+    <div class="weui-cell weui-cell_access" onclick="pageManager.go('billList')">
+        <div class="weui-cell__hd" style="position: relative;">
+            <i class="iconfont icon-dingdan"><span class="badge countbill none"></span></i>
+            {{#if read}}
+
+            {{else}}
+            <em style="color: red;font-style: normal;font-size: 40px;font-weight: 600;position: absolute;top: -9px;right:7px;display: inline-block;line-height: 1;">·</em>
+            {{/if}}
+        </div>
+        <div class="weui-cell__bd weui-cell_access">
+            <div class="weui-cell" style="justify-content:space-between;padding: 0;margin-bottom: 4px;">
+                <div class="f14 weui-cell__hd bold-700">账单提醒</div>
+
+                <div class="f10 weui-cell__ft" style="flex: initial;">{{create_date}}</div>
+            </div>
+            <div class="weui-cell__bd clr_lightGray f13 overone" style="width: 75vw;">
+                {{content}}
+            </div>
+        </div>
+    </div>
+</div>
+{{/each}}

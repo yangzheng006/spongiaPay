@@ -1,0 +1,89 @@
+
+//拆红包成功后的详情页面
+
+@charset "UTF-8";
+
+.getRedSuccess,.getCouponSuccess,.getFreePostSuccess,.getCashCoupon{
+  background: #fff;
+  .top{
+    position: relative;
+    width:100%;
+    height:20vh;
+    background: #c04d3c;
+    border-bottom-left-radius:50%;
+    border-bottom-right-radius:50%;
+    img{
+      position: absolute;
+      width: 19vw;
+      height: 19vw;
+      border-radius: 50%;
+      left: 41%;
+      top: 71%;
+    }
+    span{
+      color:@white;
+      position: absolute;
+      right:0;
+      padding-right: 10px;
+      padding-top: 6px;
+    }
+  }
+
+  .tenant_add{
+    font-size: 14px;
+    padding-top:8vh;
+    text-align: center;
+    width: 90vw;
+    margin:0 auto;
+    p{
+      &:nth-child(2){
+        color:@light-gray;
+      }
+    }
+  }
+
+  .redAmount{
+    text-align: center;
+    padding-top: 4vh;
+    p{
+      &:first-child{
+        position: relative;
+        .max{
+          font-size: 40px;
+          font-weight:bold;
+        }
+        img{
+          position: absolute;
+          width: 12vw;
+          right: 20vw;
+          display: none;
+        }
+      }
+    }
+    .save{
+      color:@light-gray;
+    }
+  }
+  .continue{
+    text-align: center;
+    border-top: 1px solid @border-gray;
+    margin-top: 4vh;
+    padding: 10px 0;
+  }
+  .go_tenant{
+    background: #f1f1f1;
+    text-align: center;
+    padding-top: 10px;
+    p{
+      &:first-child{
+        i{
+          color:@orange;
+          font-size: 20px;
+        }
+      }
+      &:last-child{
+        color:#2878bc;
+      }
+    }
+  }
+}

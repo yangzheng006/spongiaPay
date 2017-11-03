@@ -1,0 +1,159 @@
+<div class="page productDefaultView">
+    <!--BEGIN actionSheet-选择规格-->
+    <div id="actionSheet_choose_norms" class="norms_ztb">
+        <div class="weui-mask_transparent actionsheet__mask" style="opacity: 0;display: none;"></div>
+        <div class="weui-actionsheet actionsheet" style="z-index: 9999999;">
+            <div style="background:#fff">
+                <div class="weui-cells bornone shop">
+                    <div class="weui-cell">
+                        <div class="weui-cell__hd shop_logo">
+                            <img id="acn_thumbnail" src=""/>
+                        </div>
+                        <div class="weui-cell__bd">
+                            <h2 class="f14 orange" id="acn_price">￥0</h2>
+                            <p class="f12">库存<span id="acn_stock"></span>件</p>
+                            <p class="f12" id="acn_choose">已选</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="weui-cells address">
+                    <div class="weui-cell norms">
+                    </div>
+                    <div class="weui-cell buyNum">
+                        <div class="weui-cell__bd f14">购买数量：</div>
+                        <div class="weui-cell__ft">
+                            <i class="icon iconfont icon-l-reduce f20 vux-number-selector-sub buy_reduce"></i>
+                            <input class="f16 input-number-int quantity" pattern="[1-100]*" name="listen" value="1" id="acn_quertity">
+                            <i class="icon iconfont icon-l-jia f20  vux-number-selector-plus buy_add"></i>
+                        </div>
+                    </div>
+                    <a class="weui-cell btn" href="javascript:;">
+                        <div class="weui-cell__bd f14" id="acn_confirm">确认</div>
+                    </a>
+                </div>
+                <div class="weui-actionsheet__action cancel">
+                    <i class="iconfont icon-remove-02"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--END actionSheet-选择规格-->
+
+    <div class="page__bd" style="height: 100%;">
+        <div class="weui-tab" style="height: 100%;">
+            <!--顶部悬浮弹窗-->
+            <div class="weui-cell share_app clr_white">
+                <div class="weui-cell__hd close_shareApp">
+                    <i class="iconfont icon-remove-02"></i>
+                </div>
+                <div class="weui-cell__bd f10 clr_white">
+                    <div class="weui-cell">
+                        <div class="weui-cell__hd logo"><img src="/app/images/dmLogo.png"></div>
+                        <div class="weui-cell__bd">
+                            <p>点击购买</p>
+                            <p>通过APP购买有惊喜哦~</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="weui-cell__ft f13">
+                    <!--<a href="/rzico/assiant/app/open/" id="openApp">打开APP</a>-->
+                    <a href="javascript:;" id="openApp">打开APP</a>
+                </div>
+            </div>
+            <!--搭配服务-->
+            <div id="actionSheet_collocation">
+                <div class="weui-mask_transparent actionsheet__mask" id="mask" style="opacity: 0;display: none;"></div>
+                <div class="weui-actionsheet" style="padding-bottom: 53px; background: transparent; overflow: hidden;">
+                    <div class="weui-cell" style="background: #fff;">
+                        <div class="weui-cell__bd f15 clr_titleWhite">请选择您要的搭配服务</div>
+                        <div class="weui-cell__ft">
+                            <div class="weui-actionsheet__action cancel" style="margin-top: 0;">
+                                <i class="iconfont icon-remove-02"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="actionSheet_collocation_info"></div>
+                </div>
+            </div>
+            <div class="weui-tab__panel pageable" style=" padding: 60px 0 52px 0; background: #fff;">
+
+                <!--BEGIN 商品轮播-->
+                <div id="product_album" class="mask dot_right">
+                    <img src="../images/placeholder/blank640x640.png" alt="">
+                    <div class="mask-bg"></div>
+                    <div id="islder_dot"></div>
+                </div>
+                <div class="product_icon"><img id="tenant_logo" src="" alt=""></div>
+                <!--END productDetailsSlider-->
+
+                <div class="tenant_none_info">
+                    <p class="f18 bold tenant_name" id="product_name"></p>
+                    <p class="f11"><span class="f22 bold clr_titleWhite product_price"></span>元/<span class="clr_titleWhite unit"></span><s class="clr_address" style="margin-left: 5px"><span class="marketPrice"></span>元</s></p>
+                    <p class="f12 clr_address"><i class="iconfont icon-shoucang_ f12"></i><span class="shoucang"></span>人收藏</p>
+                </div>
+
+                <div class="top_line weui-cells bordernone tc tenant_information">
+                    <div class="weui-cell store_address bold tl">
+                        <div class="weui-cell__bd f14 moren_name"></div>
+                        <div class="weui-cell__ft ">
+                            <a href="javascript:;" class="orange dianhua"><i class="iconfont icon-dianhua1 f30"></i></a>
+                        </div>
+                    </div>
+                    <div class="weui-cell store_address bold tl" style="margin: 10px auto 20px;">
+                        <div class="weui-cell__bd f14 moren_address"></div>
+                        <div class="weui-cell__ft ">
+                            <a href="javascript:;" class="orange goThere" name="" address=""><i class="iconfont icon-daohang4 f30"></i></a>
+                        </div>
+                    </div>
+                    <a href="javscript:;" class="orange f14 shanghu">查看商户详情</a>
+                </div>
+
+                <div class="top_line recommended_reason tc bold" style="margin: 20px auto 0;">
+                    <div class="f18 tc weui-cell head_tit"><img src="../images/static/product/product_tit01.png" alt="">推荐理由 </div>
+                    <div class="f13 recommended" style="max-height: 22vw; overflow: hidden; margin-bottom: 7vw;"></div>
+                    <a href="javascript:;" class="orange f13 gonglue none">查看详情</a>
+                </div>
+
+                <!--商品信息-->
+                <div class="top_line product_ztb_info tc bold">
+                    <div class="f18 bold tc weui-cell head_tit"><img src="../images/static/product/product_tit05.png" alt="">产品详情</div>
+                    <div class="f13 introduction"></div>
+                </div>
+
+                <div class="top_line additional_info">
+                    <div class="f18 bold tc weui-cell head_tit"><img src="../images/static/product/product_tit02.png" alt="">配套设施</div>
+                    <div class="f12">
+                        <div class="fujia"></div>
+                        <p class="f13 tc tenant_hours">每天：<span class="hours"></span></p>
+                    </div>
+                </div>
+
+                <div class="top_line tip">
+                    <div class="f18 bold tc weui-cell head_tit"><img src="../images/static/product/product_tit03.png" alt="">温馨提示</div>
+                    <div class="f13 tc tip_cont"></div>
+                    <p class="tag tc">
+                        <span class="noReason"><i class="iconfont icon-dagou- clr-iconGray f13 m5"></i>七天退货</span>
+                        <span class="tamPo"><i class="iconfont icon-dagou- clr-iconGray f13 m5"></i>担保交易</span>
+                    </p>
+                </div>
+
+                <div class="tenant_like">
+                    <div class="f18 bold tc weui-cell head_tit"><img src="../images/static/product/product_tit04.png" alt="">猜你喜欢</div>
+                    <div class="product-list weui-cells weui-cells_border goods_ztb"></div>
+                </div>
+            </div>
+
+            <div class="foot_menu weui-tabbar tenant_none_bottom">
+                <a id="collect" class="weui-tabbar__item Ftext" data-id="">
+                    <i class="iconfont icon-shoucang"></i>
+                    <p class="weui-tabbar__label f12">收藏</p>
+                </a>
+                <a href="javascript:;" class="weui-tabbar__item Ftext" id="collocation" style="background: #feba58;">
+                    <i class="iconfont icon-fuwu clr_white"></i>
+                    <p class="clr_white f12">搭配服务</p>
+                </a>
+                <a href="javascript:;" class="weui-tabbar__item clr_white f14 buy_btn offerToPay">立即购买</a>
+            </div>
+        </div>
+    </div>
+</div>

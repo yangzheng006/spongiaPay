@@ -1,0 +1,70 @@
+@charset "UTF-8";
+.guanzhu{
+  position: fixed;
+  left:9vw;
+  top:50%;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  z-index: 999999;
+  display: block;
+  width: 82vw;
+  margin: 0 auto;
+  background: @white;
+  border-radius: 5px;
+  p{
+    line-height: 2.5em;
+  }
+  .top{
+    position: relative;
+    height: 24.5vw;
+    img{
+      position: absolute;
+      bottom:0;
+      left:0;
+      z-index: 10000;
+    }
+    .line{
+      width: 1px;
+      height:20px;
+      background: @white;
+      position: absolute;
+      right: 30px;
+      top:-23px;
+      z-index: 9999;
+    }
+    i{
+      &.icon-quxiao1{
+        position: absolute;
+        right: 15px;
+        top:-63px;
+        z-index: 10001;
+        font-size: 32px;
+        color: @white;
+      }
+    }
+  }
+  .bottom{
+    border-top: 1px solid #282828;
+    margin-top: 5px;
+    .dianji{
+      width: 54vw;
+      margin: 5px auto;
+      i{
+        color:#787878;
+        font-size: 78px;
+        display: block;
+        margin-top: -10px;
+      }
+      img{
+        width: 20vw;
+        height:20vw;
+        margin: 2vw 2vw 3vw;
+        &#tenant_ewm{
+          width: 24vw;
+          height:24vw;
+          margin: 0 0 3vw;
+        }
+      }
+    }
+  }
+}

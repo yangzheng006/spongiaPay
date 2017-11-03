@@ -1,0 +1,54 @@
+.news{
+  z-index:90;
+  position: relative;
+  border-top: 5px solid @bodyBg;
+  padding:2%;
+  cursor: pointer;
+  .col-4{
+    line-height: 43px;
+    i{
+      &.icon-lingquantubiaox{
+        display: block;
+        margin-top: 1.5vw;
+      }
+    }
+  }
+  .coupon_index{
+    cursor: pointer;
+    padding: 0 0 0 4%;
+    border-left: 1px solid @border-gray;
+    div{
+      position:relative;
+      float: left;
+      height: 50px;
+      line-height: 25px;
+      overflow: hidden;
+      width: auto;
+      &.weui-cell__ft{
+        &:after{
+          width: 10px;
+          height:10px;
+          border-color: @brown;
+          border-width: 1.5px 1.5px 0 0;
+        }
+      }
+    }
+  }
+}
+@media (max-width:360px) {
+  .news {
+    .col-4{
+      a{
+        img{
+          height: 39.42px;
+          margin-top: 5.29px;
+        }
+      }
+    }
+    .col-19{
+      li{
+        margin-top: 1px;
+      }
+    }
+  }
+}

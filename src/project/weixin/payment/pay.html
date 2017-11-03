@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <title>支付</title>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <link rel="stylesheet" href="/weixin/style/common.min.css"/>
+    <link rel="stylesheet" href="/weixin/part/style/payment.min.css"/>
+</head>
+<body ontouchstart>
+<div class="weui-toptips weui-toptips_warn js_tooltips">错误提示</div>
+<div class="container" id="container"></div>
+
+
+<!--充值提现支付-->
+<link rel="import" href="../../../pages/payment/pay.html">
+<!--支付成功-->
+<link rel="import" href="../../../pages/payment/paySuccess.html">
+<link rel="import" href="../../../pages/payment/paySuccessPayBill.html">
+
+
+<link rel="import" href="../../../model/templete/pay/success.html">
+
+
+
+@import "../../../model/widget/include/toast.html";
+@import "../../../model/widget/include/dialog.html";
+<script src="/weixin/js/common.min.js"></script>
+<script src="/weixin/part/js/payment.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+        pageManager.show("pay");
+    });
+
+    var payFn=function () {
+
+        //付款页面逻辑
+        if(window.location.hash==''){
+            //接收付款单号
+            var sn = pageManager.GetQueryString("sn");
+            var orderType;   //订单的付款类型
+
+            $(document).ready(function () {
+                var h = $(window).height();
+                $(window).resize(function () {
+                    if ($(window).height() < h) {
+                        $('.weui-btn-area').hide();
+//                        $('.cashpay').addClass('payed').removeClass('paying');
+                    }
+                    if ($(window).height() >= h) {
+                        $('.weui-btn-area').show();
+//                        $('.cashpay').addClass('paying').removeClass('payed');
+
+                    }
+                });
+            });
+
+            //打开付款单号,获取订单的支付详情
+            var o = new order(function (data) {
+                console.log('订单的信息');
+                console.log(data);
+                $("#sn").text(data.sn);
+                $("#memo").text(data.memo);
+                $("#payamount").text(data.amount);
+                orderType=data.type;
+
+                if(!data.useBalance){
+                    $('.balancePay').addClass('none');
+                }
+                if(!data.useCardMember){
+                    $('.cardMemberPay').addClass('none');
+
+                }
+
+
+//                绑定手机状态
+                var bindMobile;
+                new member(function (data) {
+                    bindMobile=data.bindMobile;
+                }).view();
+
+                var ua = navigator.userAgent.toLowerCase();
+                //在支付宝浏览器
+                if(ua.indexOf("alipayclient")>-1){
+                    $('.cardMemberPay').addClass('none');
+                    $('.zhifubao').removeClass('none');
+                    $('.weixin').addClass('none');
+                    $("#sendpay").click(function (){
+                        new order(function (data) {
+                            AlipayJSBridge.call("tradePay",{
+                                "tradeNO": data.tradeNO
+                            }, function(result){
+                                if(result.resultCode == '9000'){
+                                    //支付成功
+                                    if(pageManager.GetQueryString('id')){
+                                        //优惠买单付款成功跳转独有的成功页面
+                                        if(orderType=='paybill'){
+                                            location.replace(location.origin + '/weixin/payment/pay.html?id='+pageManager.GetQueryString('id')+'&sn=' + sn +'&ext='+(+new Date())+'#paySuccessPayBill');
+                                        }else{
+                                            //其他交易类型跳转独有的成功页面
+                                            location.replace(location.origin + '/weixin/payment/pay.html?id='+pageManager.GetQueryString('id')+'&sn=' + sn +'&ext='+(+new Date())+'#paySuccess');
+                                        }
+                                    }else{
+                                        //优惠买单付款成功跳转独有的成功页面
+                                        if(orderType=='paybill'){
+                                            location.replace(location.origin + '/weixin/payment/pay.html?id='+pageManager.GetQueryString('id')+'&sn=' + sn + '&ext='+(+new Date())+'#paySuccessPayBill');
+                                        }
+                                        else{
+                                            //其他交易类型跳转独有的成功页面
+                                            location.replace(location.origin + '/weixin/payment/pay.html?sn=' + sn + '&ext='+(+new Date())+'#paySuccess');
+                                        }
+                                    }
+                                }
+                            });
+                        }).paymentSubmitAli({
+                            sn:sn,
+                            paymentPluginId:'cebAliPayPlugin'
+                        });
+                    });
+                    setTimeout(function () {
+                        $("#sendpay").trigger('click');
+                    },10)
+                }else{
+                    $('.zhifubao').addClass('none');
+                    $('.weixin').removeClass('none');
+                    $("#sendpay").click(function () {
+                        $("#pwd-input").val('');
+                        $(".fake-box input").val('');
+                        var payid = $('.safepay').find('.changestyle').attr('styleid');
+                        if (payid == 1) {  //微信支付
+                            var o = new order(function (data) {
+                                function onBridgeReady() {
+                                    WeixinJSBridge.invoke(
+                                        'getBrandWCPayRequest', {
+                                            "appId": data.appId,
+                                            "timeStamp": data.timeStamp,
+                                            "nonceStr": data.nonceStr,
+                                            "package": data.package,
+                                            "signType": data.signType,
+                                            "paySign": data.paySign
+                                        },
+                                        function (res) {
+                                            if (res.err_msg == "get_brand_wcpay_request:ok") {
+                                                //支付成功
+                                                if(pageManager.GetQueryString('id')){
+                                                    //优惠买单付款成功跳转独有的成功页面
+                                                    if(orderType=='paybill'){
+                                                        pageManager.replace('paySuccessPayBill');
+//                                                        location.replace(location.origin + '/weixin/payment/pay.html?id='+pageManager.GetQueryString('id')+'&sn=' + sn +'&ext='+(+new Date())+'#paySuccessPayBill');
+                                                    }else{
+                                                        //其他交易类型跳转独有的成功页面
+                                                        pageManager.replace('paySuccess');
+//                                                        location.replace(location.origin + '/weixin/payment/pay.html?tenantId='+pageManager.GetQueryString('tenantId')+'&sn=' + sn +'&ext='+(+new Date())+'#paySuccess');
+                                                    }
+                                                }else{
+                                                    //优惠买单付款成功跳转独有的成功页面
+                                                    if(orderType=='paybill'){
+                                                        pageManager.replace('paySuccessPayBill')
+//                                                        location.replace(location.origin + '/weixin/payment/pay.html?id='+pageManager.GetQueryString('id')+'&sn=' + sn + '&ext='+(+new Date())+'#paySuccessPayBill');
+                                                    }
+                                                    else{
+                                                        //其他交易类型跳转独有的成功页面
+                                                        pageManager.replace('paySuccess')
+//                                                        location.replace(location.origin + '/weixin/payment/pay.html?sn=' + sn + '&ext='+(+new Date())+'#paySuccess');
+                                                    }
+                                                }
+                                            } else {
+                                                //支付失败
+                                            }
+                                        }
+                                    );
+                                }
+
+                                if (typeof WeixinJSBridge == "undefined") {
+                                    if (document.addEventListener) {
+                                        document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
+                                    } else if (document.attachEvent) {
+                                        document.attachEvent('WeixinJSBridgeReady', onBridgeReady);
+                                        document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
+                                    }
+                                } else {
+                                    onBridgeReady();
+                                }
+                            });
+                            o.paymentSubmit({
+                                paymentPluginId: "weixinPayPlugin",
+                                sn: sn
+                            });
+                        } else if (payid == 2) {//余额支付
+                            console.log('订单类型');
+                            console.log(orderType);
+                            $('.cashpay').css("display", 'block');
+                            $('input[type="tel"]').trigger("click").focus();
+                            new member(function (data) {
+                                if (data.paymentPassword) {     //是否设置了支付密码
+                                    console.log(sn);
+                                    var $iosMask = $('#iosMask');
+                                    $iosMask.fadeIn(200);
+                                    function hideActionSheet() {
+                                        $iosMask.fadeOut(200);
+                                        $('.cashpay').css("display", 'none');
+                                    }
+
+                                    $iosMask.on('click', hideActionSheet);
+
+                                    $("#cashmoney").html($("#payamount").text() + '元');  //同步到密码框里面的金额
+                                    //按钮关闭密码框
+                                    $(".icon-remove-02").click(function () {
+                                        $('.cashpay').css("display", 'none');
+                                        $iosMask.fadeOut(200);
+                                    });
+                                    //密码框js控制
+                                    var $input = $(".fake-box input");
+                                    $("#pwd-input").off().on("input", function () {
+                                        var pwd = $(this).val().trim();
+                                        for (var i = 0, len = pwd.length; i < len; i++) {
+                                            $input.eq("" + i + "").val(pwd[i]);
+                                        }
+                                        document.onkeydown = function (event) {
+                                            var e = event || window.event || arguments.callee.caller.arguments[0];
+                                            if (e && e.keyCode == 8) { // enter 键
+                                                //要做的事情
+                                                $("#pwd-input").val('');
+                                                $(".fake-box input").val('');
+                                            }
+                                        };
+
+
+
+
+
+                                        $input.each(function () {
+                                            var index = $(this).index();
+                                            if (index >= len) {
+                                                $(this).val("");
+                                            }
+                                        });
+                                        if (len == 6) {
+                                            //密码到达6位数后执行接口
+                                            toast.loadingSelf(100000,'付款请求中');
+                                            var cm = new common(function (data) {
+                                                var rsaKey = new RSAKey();
+                                                rsaKey.setPublic(b64tohex(data.modulus), b64tohex(data.exponent));
+                                                var enPassword = hex2b64(rsaKey.encrypt(pwd));
+                                                var o = new order(function (data) {
+                                                    //支付成功
+                                                    toast.closeLoading();
+                                                    console.log(data);
+                                                    if(pageManager.GetQueryString('id')){
+                                                        //优惠买单付款成功跳转独有的成功页面
+                                                        if(orderType=='paybill'){
+                                                            pageManager.replace('paySuccessPayBill')
+//                                                        location.replace(location.origin + '/weixin/payment/pay.html?id='+pageManager.GetQueryString('id')+'&sn=' + sn +'&ext='+(+new Date())+'#paySuccessPayBill');
+                                                        }else{
+                                                            //其他交易类型跳转独有的成功页面
+                                                            pageManager.replace('paySuccess')
+//                                                        location.replace(location.origin + '/weixin/payment/pay.html?tenantId='+pageManager.GetQueryString('tenantId')+'&sn=' + sn +'&ext='+(+new Date())+'#paySuccess');
+                                                        }
+                                                    }else{
+                                                        //优惠买单付款成功跳转独有的成功页面
+                                                        if(orderType=='paybill'){
+                                                            pageManager.replace('paySuccessPayBill')
+//                                                        location.replace(location.origin + '/weixin/payment/pay.html?id='+pageManager.GetQueryString('id')+'&sn=' + sn + '&ext='+(+new Date())+'#paySuccessPayBill');
+                                                        }
+                                                        else{
+                                                            //其他交易类型跳转独有的成功页面
+                                                            pageManager.replace('paySuccess')
+//                                                        location.replace(location.origin + '/weixin/payment/pay.html?sn=' + sn + '&ext='+(+new Date())+'#paySuccess');
+                                                        }
+                                                    }
+//
+                                                });
+
+                                                o.paymentSubmit({
+                                                    paymentPluginId: "balancePayPlugin",
+                                                    sn: sn,
+                                                    enPassword: enPassword
+                                                });
+                                            });
+                                            cm.getPublicKey();
+                                            $('.cashpay').css("display", 'none');
+                                            $iosMask.fadeOut(200);
+                                            $('.weui-dialog').css('top', '18%');
+                                        }
+                                    });
+                                }  else if(!data.paymentPassword && bindMobile=='binded') {   //没有设置密码但是绑定了手机
+                                    $('input[type="tel"]').blur();
+                                    $('.cashpay').css("display", 'none');
+                                    dialog.show('请先设置支付密码',function () {
+                                        location.href=location.origin+'/weixin/payment/payPassword.html';
+                                    });
+
+                                } else if(!data.paymentPassword && bindMobile!='binded'){  //没有设置密码也没有绑定手机
+                                    $('input[type="tel"]').blur();
+                                    $('.cashpay').css("display", 'none');
+                                    dialog.show('请先绑定手机并设置支付密码',function () {
+                                        location.href='../member/index.html?type=password#bind';
+                                    });
+                                }
+                            }).passwordSet();//获取用户是否设置密码
+
+                        }else if (payid == 3) {//余额支付
+                            $('.cashpay').css("display", 'block');
+                            $('input[type="tel"]').trigger("click").focus();
+                            new member(function (data) {
+                                if (data.paymentPassword && bindMobile=='binded') {     //是否设置了支付密码
+                                    console.log(sn);
+                                    var $iosMask = $('#iosMask');
+                                    $iosMask.fadeIn(200);
+                                    function hideActionSheet() {
+                                        $iosMask.fadeOut(200);
+                                        $('.cashpay').css("display", 'none');
+                                    }
+
+                                    $iosMask.on('click', hideActionSheet);
+
+                                    $("#cashmoney").html($("#payamount").text() + '元');  //同步到密码框里面的金额
+                                    //按钮关闭密码框
+                                    $(".icon-remove-02").click(function () {
+                                        $('.cashpay').css("display", 'none');
+                                        $iosMask.fadeOut(200);
+                                    });
+                                    //密码框js控制
+                                    var $input = $(".fake-box input");
+                                    $("#pwd-input").off().on("input", function () {
+                                        var pwd = $(this).val().trim();
+                                        for (var i = 0, len = pwd.length; i < len; i++) {
+                                            $input.eq("" + i + "").val(pwd[i]);
+                                        }
+                                        document.onkeydown = function (event) {
+                                            var e = event || window.event || arguments.callee.caller.arguments[0];
+                                            if (e && e.keyCode == 8) { // enter 键
+                                                //要做的事情
+                                                $("#pwd-input").val('');
+                                                $(".fake-box input").val('');
+                                            }
+                                        };
+                                        $input.each(function () {
+                                            var index = $(this).index();
+                                            if (index >= len) {
+                                                $(this).val("");
+                                            }
+                                        });
+                                        if (len == 6) {
+                                            //密码到达6位数后执行接口
+                                            toast.loadingSelf(100000,'付款请求中')
+                                            var cm = new common(function (data) {
+                                                var rsaKey = new RSAKey();
+                                                rsaKey.setPublic(b64tohex(data.modulus), b64tohex(data.exponent));
+                                                var enPassword = hex2b64(rsaKey.encrypt(pwd));
+                                                var o = new order(function (data) {
+                                                    //支付成功
+                                                    toast.closeLoading();
+                                                    console.log(data);
+                                                    pageManager.replace('paySuccess')
+                                                });
+                                                o.paymentSubmit({
+                                                    paymentPluginId: "cardMemberPayPlugin",
+                                                    sn: sn,
+                                                    enPassword: enPassword
+                                                });
+                                            });
+                                            cm.getPublicKey();
+                                            $('.cashpay').css("display", 'none');
+                                            $iosMask.fadeOut(200);
+                                            $('.weui-dialog').css('top', '18%');
+                                        }
+                                    });
+                                } else if(!data.paymentPassword && bindMobile=='binded') {   //没有设置密码但是绑定了手机
+                                    $('input[type="tel"]').blur();
+                                    $('.cashpay').css("display", 'none');
+                                    dialog.show('请先设置支付密码',function () {
+                                        location.href=location.origin+'/weixin/payment/payPassword.html';
+                                    });
+
+                                } else if(!data.paymentPassword && bindMobile!='binded'){  //没有设置密码也没有绑定手机
+                                    $('input[type="tel"]').blur();
+                                    $('.cashpay').css("display", 'none');
+                                    dialog.show('请先绑定手机并设置支付密码',function () {
+                                        location.href='../member/index.html?type=password#bind';
+                                    });
+                                }
+                            }).passwordSet();//获取用户是否设置密码
+
+                        }
+
+                    })
+                    setTimeout(function () {
+                        $("#sendpay").trigger('click');
+                    },10)
+                }
+            });
+            o.paymentView({sn: sn});
+
+        }
+
+        //非优惠买单付款成功页面
+        if(pageManager._getHash() == '#paySuccess'){
+            var sn=pageManager.GetQueryString('sn');
+            var tp;
+            var ua = navigator.userAgent.toLowerCase();
+
+            //在支付宝浏览器
+            if(ua.indexOf("alipayclient")>-1){
+
+                function findStatus() {
+                    new order(function (data) {
+                        if(data=='wait'){
+                            setTimeout(function () {
+                                findStatus();
+                            },5000)
+                        }
+                    }).aliQuery({
+                        sn:sn
+                    })
+                }
+
+            }else{
+
+                function findStatus() {
+                    new order(function (data) {
+                        if(data=='wait'){
+                            setTimeout(function () {
+                                findStatus();
+                            },5000)
+                        }
+                    }).queryStatus({
+                        sn:sn
+                    })
+                }
+            }
+
+
+
+
+            var m=new order(function(data){
+                console.log(data);
+                findStatus();
+                var h = render.fill($("#tpl_success"), data);
+                $(".paySuccessNormal").html(h);
+                if(data.tradeSn){
+                    var qcrode=data.tradeSn;
+                    var src=base+'weixin/member/order/pickUpQrcode.jhtml?sn='+qcrode;
+                    $('#tihuocode').attr('src',src);
+
+                    setTimeout(function () {
+                        $('.tihuoStyle').removeClass('none');
+                    },500)
+                }
+
+                $('.closeTihuo').on('click',function () {
+                    $('.tihuoStyle').addClass('none');
+                });
+                tp=data.type;
+
+                $('.paySuccessNormal .paysuccess_btn').click(function(){
+                    if (tp == 'payment') {   //购物付款从成功，确定后跳转到待发货页面
+                        if(pageManager.GetQueryString('id')){
+                            location.href = location.origin + '/weixin/member/index.html?id='+pageManager.GetQueryString('id')+'&type=unshipped#orderList';
+                        }else{
+                            location.href = location.origin + '/weixin/member/index.html?type=unshipped#orderList';
+                        }
+                    } else if (tp == 'recharge') {  //充值成功后跳转到我的钱包页面
+                        pageManager.back();
+                    } else if (tp == 'withdraw') {   //提现成功后跳转到我的钱包页面
+                        location.href = location.origin + '/weixin/member/index.html#purseIndex';
+                    } else if (tp == 'paybill') {   //买单优惠支付成功跳转个人中心页面
+                        window.history.go(-1);
+                    }else if(tp=='cardfill'){
+                        window.history.go(-1);
+                    }
+                })
+            });
+            m.paymentView({sn:sn});
+        }
+
+        //优惠买单付款成功成功页面
+        if(pageManager._getHash() =='#paySuccessPayBill'){
+            $(window).on("hashchange",function(){
+                history.go(-2);
+            });
+            var host = window.location.host;
+            var ua = navigator.userAgent.toLowerCase();
+            //在支付宝浏览器
+            if(ua.indexOf("alipayclient")>-1){
+                $('.discountShare').addClass('none');
+
+                function findStatus() {
+                    new order(function (data) {
+                        if(data=='wait'){
+                            setTimeout(function () {
+                                findStatus();
+                            },5000)
+                        }
+                    }).aliQuery({
+                        sn:sn
+                    })
+                }
+
+            }else{
+
+                function findStatus() {
+                    new order(function (data) {
+                        if(data=='wait'){
+                            setTimeout(function () {
+                                findStatus();
+                            },5000)
+                        }
+                    }).queryStatus({
+                        sn:sn
+                    })
+                }
+
+            }
+
+            //域名为直通邦
+            if(/www.ztbmall.com/gi.test(host)){
+                $('.sharePayBillRedSuccess .explain').html('本活动最终解释权归平台所有');
+
+            }else{
+                $('.sharePayBillRedSuccess .explain').html('本活动最终解释权归平台所有');
+            }
+
+            $(document).on('click','.discountShare',function () {
+                $('.weui-mask').fadeIn(200);
+                $('#mcover').removeClass('none');
+            });
+
+            var $iosMask2 = $('.weui-mask');
+            var $close = $('.close');
+            //显示弹框
+            function showIntro(){
+                $iosMask2.fadeIn(200);
+                $(".quan").removeClass('none');
+            }
+//        $('.discountShare').on('click',showIntro);
+            //隐藏弹框
+            function hideIntro(){
+                $iosMask2.fadeOut(200);
+                $(".quan").addClass('none');
+                $('#mcover').addClass('none');
+            }
+            $iosMask2.on('click', hideIntro);
+            $close.on('click', hideIntro);
+
+
+            //底部图片文案
+            var txt = new tenant(function(data){
+                if(data.title==null||data.content==null){
+                    //无软文情况
+                    $('.discountShare img').attr('src','../images/static/payment/paySuccessNewNo.png');
+                    $('.discountShare .discountShare_txt').hide();
+                    new coupon(function (sdata) {
+                        //域名为直通邦
+                        if(/www.ztbmall.com/gi.test(host)){
+                            weixin.share1({
+                                title:'拼手气,抢优惠,赢免单',
+                                desc:'优惠买单就上直通邦，扫码领红包、分享能赚钱，拼拼手气吧。',
+                                link:sdata.link,
+                                imgUrl:sdata.imgUrl,
+                                success: function () {
+                                    $('#mcover').addClass('none');
+                                    $('.weui-mask').hide();
+                                    $('.sharePayBillRedSuccess').removeClass('none');
+                                }
+                            })
+                        }else{
+                            weixin.share1({
+                                title:'拼手气,抢优惠,赢免单',
+                                desc:'优惠买单就上好过云，扫码领红包、分享能赚钱，拼拼手气吧。',
+                                link:sdata.link,
+                                imgUrl:sdata.imgUrl,
+                                success: function () {
+                                    $('#mcover').addClass('none');
+                                    $('.weui-mask').hide();
+                                    $('.sharePayBillRedSuccess').removeClass('none');
+                                }
+                            })
+                        }
+                    }).payBillRedShare();
+                }else{
+                    //有软文情况
+                    var tNmae;
+                    new order(function (data) {
+                        tNmae=data.tenantName;
+                        $(".discount_txt").html(tNmae);
+                    }).paymentView({sn:pageManager.GetQueryString('sn')})
+
+                    $(".discount_img").html(data.content);
+                    //分享
+                    var imgSrc = $('.discount_img').find('img').attr('src');
+                    weixin.share1({
+                        title:data.title,
+                        link:data.link,
+                        imgUrl:imgSrc,
+                        success: function () {
+                            $('#mcover').addClass('none');
+                            $('.weui-mask').hide();
+                            $('.sharePayBillRedSuccess').removeClass('none');
+//                        new tenant(function (data) {
+//                            console.log(data);
+//                        }).updateLuck();
+                        }
+                    });
+                }
+            });
+            txt.article({id:pageManager.GetQueryString('id')});
+
+
+            //点击拼手气按钮转动效果
+            $('.sharePayBillRedSuccess .chai').on('click',function () {
+                $(this).addClass('rotate');
+                setTimeout(function () {
+                    weixin.location(function () {
+                        new tenant(function (cdata) {
+                            console.log('红包信息');
+                            console.log(cdata);
+//                        $('.sharePayBillRedSuccess').addClass('none');
+                            //现金券
+                            if(cdata.length==0){
+                                dialog.show('没抽中，再“拼”一次吧');
+                            }else if(cdata[0].type=='multipleCoupon'){
+                                location.href=location.origin+'/weixin/coupon/getCashCouponPin.html?id='+cdata[0].id;
+                                //店铺红包
+                            }else if(cdata[0].type=='tenantBonus'){
+                                location.href=location.origin+'/weixin/coupon/getRedSuccessPin.html?id='+cdata[0].id;
+
+                                //店铺代金券
+                            }else if(cdata[0].type=='tenantCoupon'){
+                                location.href=location.origin+'/weixin/coupon/getCouponSuccessPin.html?id='+cdata[0].id;
+                            }
+                        }).coupon({lng:weixin.lng,lat:weixin.lat})
+                    })
+                },1000);
+
+                //消失拼手气和旋转效果
+                setTimeout(function () {
+//                $('.sharePayBillRedSuccess').addClass('none');
+                    $('.sharePayBillRedSuccess .chai').removeClass('rotate');
+                },2000);
+
+            });
+
+
+            //关闭拼手气
+            $('.sharePayBillRedSuccess .remove').on('click',function () {
+                $('.sharePayBillRedSuccess').addClass('none');
+                $('.pinshouing').removeClass('none');
+            });
+
+            //打开拼手气
+            $('.pinshouing').on('click',function () {
+                $('.sharePayBillRedSuccess').removeClass('none');
+                $('.pinshouing').addClass('none');
+            });
+
+
+            var sn=pageManager.GetQueryString('sn');
+            var tp;
+            var m=new order(function(data){
+                console.log(data);
+                $('.amount').html(data.amount);//支付金额
+//            $("#sn").html(data.sn);
+                $(".totalAmount").html(data.totalAmount);//消费金额
+                if (data.discount == null){
+                    $(".discount").html("0");//优惠金额
+                }else {
+                    $(".discount").html(data.discount);//优惠金额
+                }
+                if(data.backDiscount == null){
+                    $(".backDiscount").html("0");//返现金额
+                }else {
+                    $(".backDiscount").html(data.backDiscount);//返现金额
+                }
+                $("#tenantName").html(data.tenantName);//收款商家
+                $("#createDate").html(data.createDate);//支付时间
+                tp=data.type;
+                $('.paysuccess .paysuccess_btn').click(function(){
+                    if (tp == 'payment') {   //购物付款从成功，确定后跳转到待发货页面
+                        location.href = location.origin + '/weixin/member/index.html?type=unshipped#order-list';
+                    } else if (tp == 'recharge') {  //充值成功后跳转到我的钱包页面
+                        location.href = location.origin + '/weixin/member/index.html#purse-index';
+                    } else if (tp == 'withdraw') {   //提现成功后跳转到我的钱包页面
+                        location.href = location.origin + '/weixin/member/index.html#purse-index';
+                    } else if (tp == 'paybill') {   //买单优惠支付成功跳转个人中心页面
+//                    location.href = location.origin + '/weixin/member/member-home.html';
+                        window.history.go(-2);
+                    }
+                })
+            });
+            m.paymentView({sn:sn});
+        }
+
+    };
+
+    window.addEventListener('pageGoOk',payFn)
+
+</script>
+</body>
+</html>
+

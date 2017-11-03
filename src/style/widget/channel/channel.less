@@ -1,0 +1,96 @@
+@charset "UTF-8";
+//频道页顶部导航（老版）
+.channels-nav {
+  font-size: 0;
+  white-space: nowrap;
+  overflow: auto;
+  overflow-x: auto;
+  padding: 2vw;
+  background-color: @white;
+  margin-bottom: 10px;
+  .it{
+    text-align: center;
+    width: 15vw;
+    display: inline-block;
+    padding: 2vw 4.5vw;
+    letter-spacing: normal;
+    word-spacing: normal;
+
+  img{
+    max-width: 80%;
+    margin: 0 auto;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+  p{
+    text-align: center;
+    line-height: 2.4em;
+    height: 2em;
+  }
+  }
+}
+//频道页顶部导航（新）
+/*swipe*/
+.find_nav{
+  width: 100%;
+  height:44px;
+  line-height: 44px;
+  position: fixed;
+  top:0;
+  left:0;
+  z-index: 999;
+}
+.find_nav_left{
+  position: relative;
+  height:44px;
+  overflow: hidden;
+  background: #fff;
+  &:after{
+    .mixin(bottom,solid,@border-gray);
+  }
+  .find_nav_list{
+    top:0;
+    left:0;
+    position: absolute;
+    z-index: 99999;
+  }
+  .page22{
+    background: @white;
+    height: 44px;
+    text-align:left;
+    white-space: nowrap;
+    overflow-x: auto;
+    position:relative;
+    width: auto;
+
+    li{
+      padding: 0 5px;
+      display:inline-block;
+      color:#000;
+      text-align:center;
+      &.find_nav_cur{
+        a{
+          color: @baseColor;
+          border-bottom: 2px solid @baseColor;
+        }
+      }
+      a{
+        color:#000;
+        display:block;
+        height:42px;
+        line-height: 44px;
+      }
+      &.sideline{
+        background: #f8373d;
+        height: 2px;
+        display: block;
+        position: absolute;
+        border: 0;
+        left: 0;
+        top: 42px;
+        line-height: 0;
+        pointer-events: none;
+      }
+    }
+  }
+}

@@ -1,0 +1,114 @@
+@charset "UTF-8";
+.news_list {
+  a {
+    &.weui-cell {
+      padding: 3% 4%;
+      .sr_weui-cell;
+      &:nth-child(1) {
+        &:before {
+          border: none;
+          -webkit-transform-origin: 0 0;
+          transform-origin: 0 0;
+        }
+      }
+      &:before {
+        border-top: 1px solid #d9d9d9;
+      }
+      .weui-cell__hd {
+        line-height: 0;
+        width: 29.445vw;
+        height: 22.1vw;
+        overflow: hidden;
+        position: relative;
+        z-index: 9;
+        img {
+          width: 29.445vw;
+          height: 22.1vw;
+        }
+      }
+      .weui-cell__bd {
+        .sr_weui-cell__bd;
+        overflow: hidden;
+        padding-left: 3%;
+        .title {
+          color: #111111;
+        }
+        .other {
+          display: flex;
+          width: 100%;
+          color: #cbc5ba;
+          font-size: 13px;
+          span {
+            &.date{
+              //width: 30%;
+              flex: 1;
+              -webkit-flex: 1;
+              -webkit-box-flex: 1;
+              -moz-box-flex: 1;
+              text-align: left;
+              i {
+                color: #fff;
+                margin-left: -16px;
+              }
+            }
+            &:nth-child(2){
+              width: 66px;
+              text-align: left;
+            }
+            &:nth-child(3){
+              width: 52px;
+              text-align: left;
+            }
+            i {
+              padding-right: 2px;
+              &.icon-zhuyechakan1 {
+                position: relative;
+                top:1px;
+              }
+            }
+          }
+        }
+      }
+    }
+    &.weui-cell.news_list_more {
+      .weui-cell__bd {
+        padding-left: 0;
+        .pic {
+          line-height: 0;
+          display: flex;
+          padding: 2% 0;
+          span {
+            flex: 1;
+            -webkit-flex: 1;
+            -moz-box-flex: 1;
+            -webkit-box-flex: 1;
+            &:nth-child(2) {
+              padding-left: 2%;
+              padding-right: 2%;
+            }
+            img {
+              height: 22.1vw;
+              width: 32vw;
+            }
+          }
+        }
+        .other {
+          span {
+            &:nth-child(1) {
+              width: 40%;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.news_pics {
+  background: #f1f1f1;
+  padding: 2% 0;
+  position: relative;
+  .islider-dot-wrap {
+    height: auto;
+    z-index: 99;
+  }
+}

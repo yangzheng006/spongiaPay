@@ -1,0 +1,112 @@
+{{#each this}}
+<div class="guide_article weui-cells" cantactId="{{id}}">
+    <div class="weui-cell userInfo">
+        <div class="weui-cell__hd">
+            {{#if headImg}}
+            <img src="{{crop headImg 12 12}}" alt="">
+            {{else}}
+            <img src="../../images/placeholder/user.png" alt="">
+            {{/if}}
+        </div>
+        <div class="weui-cell__bd">
+            {{#if memberNickName}}
+            <p class="f14 clr_darkGray overone">{{memberNickName}}</p>
+            {{else}}
+            <p class="f14 clr_darkGray overone">{{memberName}}</p>
+            {{/if}}
+            <p class="f10 clr_lightGray contactTime "><span class="time">{{pastHours}}</span><span>小时前</span></p>
+        </div>
+
+        <div class="weui-cell__ft">
+            <p class="f12 clr_darkGray overone">{{tenantName}}</p>
+            <p class="f10 clr_lightGray"><i class="icon iconfont icon-daohang3 clr_orange"></i>距离{{distance}}KM</p>
+        </div>
+    </div>
+    <div class="weui-cell contactImg">
+        <div class="weui-cell__bd f14">
+            <p conid="{{id}}" class="shareTitle">{{content}}</p>
+            {{#if images}}
+            <ul class="weui-uploader__files uploaderFiles">
+                {{#with images}}
+                {{#each this}}
+                <img class="weui-uploader__file sendimg" style="cursor:pointer;" src="{{source}}" alt="">
+                {{/each}}
+                {{/with}}
+            </ul>
+            {{/if}}
+        </div>
+    </div>
+    {{#with products}}
+    {{#each this}}
+    <div class="weui-cells shareProduct">
+        <a class="weui-cell padding_none shareby weui-cell_access" href="javascript:;" snid="{{sn}}">
+            <div class="weui-cell__hd dynamic_product_img"><img src="{{thumbnail}}" style="width: 100%;height: 100%;" /></div>
+            <div class="weui-cell__bd">
+                <p class="f12 overtwo bold shareDesc">{{name}}</p>
+                <p class="f10 clr_darkGray bold overtwo">￥<span id="price">{{price}}</span></p>
+            </div>
+            <div class="weui-cell__ft"></div>
+        </a>
+    </div>
+    {{/each}}
+    {{/with}}
+    {{#with coupons}}
+    {{#each this}}
+    <div class="weui-cells dynamic_Red">
+        <a class="weui-cell weui-cell_access" href="javascript:;">
+            <div class="weui-cell__hd dynamic_Red_img">
+                {{#compare type '==' 'multipleCoupon'}}
+                <img src="../../images/static/guide/contactXjq.png">
+                {{/compare}}
+                {{#compare type '==' 'tenantBonus'}}
+                <img src="../../images/static/guide/contanctHb.png">
+                {{/compare}}
+                {{#compare type '==' 'tenantCoupon'}}
+                <img src="../../images/static/guide/contactYhq.png">
+                {{/compare}}
+            </div>
+            <div class="weui-cell__bd">
+                <p class="overtwo f12 red_title clr_gray01 shareDesc">{{title}}</p>
+                <p class="overtwo f10 red_xianzhi  clr_mediumGray">{{content}}</p>
+            </div>
+            <div class="weui-cell__ft red_get" couponId="{{couponId}}" type="{{type}}" tenantId="{{../../tenantId}}"></div>
+        </a>
+    </div>
+    {{/each}}
+    {{/with}}
+    <div class="weui-flex shuo contactOp" >
+        <div class="weui-flex__item getReply" cid="{{id}}">
+            <div class="placeholder f10">
+                <i class="icon iconfont icon-pinglun f20"></i>
+                <span class="previewCount">{{previewCount}}</span>
+            </div>
+        </div>
+        <div class="weui-flex__item shareFriends" style="cursor: pointer;" contactId="{{id}}">
+            <div class="placeholder f10">
+                <i class="icon iconfont icon-fenxiang f20"></i>
+                <span>分享</span>
+            </div>
+        </div>
+        {{#if praised}}
+        <div class="weui-flex__item hitPrise" pid="{{id}}">
+            <div class="placeholder f10" style="float:right">
+                <i class="icon iconfont icon-icon-copy iconred f20"></i>
+                <span class="praisesCount">{{praisesCount}}</span>
+            </div>
+        </div>
+        {{else}}
+        <div class="weui-flex__item hitPrise" pid="{{id}}">
+            <div class="placeholder f10" style="float:right">
+                <i class="icon iconfont icon-icon-copy f20"></i>
+                <span class="praisesCount">{{praisesCount}}</span>
+            </div>
+        </div>
+        {{/if}}
+    </div>
+    <div class="tosk replycontact"></div>
+    <div class="interaction">
+        <input type="text" placeholder="评论" class="replyContainer" cid="{{id}}">
+        <i class="icon iconfont icon-bianji1"></i>
+    </div>
+</div>
+{{/each}}

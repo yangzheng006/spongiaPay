@@ -1,0 +1,88 @@
+<div id="act_nav">
+    <ul>
+{{#each singleProductPositions}}
+        {{#compare @index '>=' 1}}
+        <li>
+            <a data-id="act-{{@index}}" class="clr_white f14 tc overone" href="javascript:;">{{name}}</a>
+        </li>
+        {{/compare}}
+{{/each}}
+    </ul>
+</div>
+{{#each singleProductPositions}}
+<div data-id="act-{{@index}}" id="act-{{@index}}" class="newYear_act_bd weui_cells">
+    {{#compare singleProducts '==' ''}}
+    {{/compare}}
+    {{#compare singleProducts '!=' ''}}
+    <div class="title f14 clr_red tc"><span>{{name}}</span></div>
+    {{/compare}}
+
+    {{#compare @index '==' 0}}
+    <div id="newYear_act_pic">
+        <ul>
+            {{#each singleProducts}}
+            <li>
+                <a href="../product/view.html?id={{id}}">
+                    <div class="img">
+                        <img class="lazy" src="../images/placeholder/lazypic.png" data-original="{{crop thumbnail 31 31}}">
+                    </div>
+                    <p class="f14">{{name}}</p>
+                    <p class="f14 price">
+                        <span class="clr_red">￥{{price}}</span>
+                        {{#compare marketPrice '!=' price}}
+                        <span class="f12">￥<span class="marketPricead">{{marketPrice}}</span></span>
+                        {{/compare}}
+                        {{#compare marketPrice '==' price}}
+                        {{/compare}}
+                    </p>
+                </a>
+            </li>
+            {{/each}}
+        </ul>
+    </div>
+    {{/compare}}
+    {{#compare @index '!=' 0}}
+    {{#each singleProducts}}
+    <div class="item">
+        <a class="weui_cell" href="../product/view.html?id={{id}}">
+            <div class="weui_cell_hd">
+                <img class="lazy" src="../images/placeholder/lazypic.png" data-original="{{crop thumbnail 38.3 38.3}}">
+            </div>
+            <div class="weui_cell_bd">
+                <h2 class="f16 overone">
+                    <!--<span class="clr_mauve f14">[包邮]</span>-->
+                    {{name}}
+                </h2>
+                <p class="info overone clr-Medium-gray f14">{{title}}</p>
+                <div class="like clr-LightGray f14 overone">
+                    <p>
+                        <span class="f12">
+                            {{hits}}人喜欢
+                        </span>
+                    </p>
+                    <p>
+                        <i class="iconfont icon-s-heart-01 f14 clr_red"></i>
+                    </p>
+                </div>
+                <div class="priceT clr-LightGray">
+                    {{#compare marketPrice '!=' price}}
+                    <s class="f12 marketPricead">￥<span class="marketPricead">{{marketPrice}}</span></s>
+                    {{/compare}}
+                    {{#compare marketPrice '==' price}}
+                    {{/compare}}
+                    <span class="f12"><em class="clr_red">{{monthSales}}</em>件已售</span>
+                </div>
+                <div class="price clr_red overone">
+                    <em class="f16">￥</em>
+                    <span class="f24">{{price}}</span>
+                    <span class="weui_cell_ft f14 clr_white" style="float: right; margin-top:8px;">
+                        <span>马上抢</span>
+                    </span>
+                </div>
+            </div>
+        </a>
+    </div>
+    {{/each}}
+    {{/compare}}
+</div>
+{{/each}}

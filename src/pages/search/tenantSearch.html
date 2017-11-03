@@ -1,0 +1,51 @@
+<div class="page">
+    <div class="page__bd product_style" style="height: 100%;">
+        <div class="weui-tab">
+            <!--searchBar-->
+            <div class="weui-cell__bd top_position">
+                <div class="weui-search-bar" id="searchBar" style="padding:0; margin:2%;">
+                    <form class="weui-search-bar__form"  action="">
+                        <div class="weui-search-bar__box boxs">
+                            <i class="weui-icon-search"></i>
+                            <input type="search" class="weui-search-bar__input" id="searchInput" placeholder="搜索" required/>
+                            <a href="javascript:" class="weui-icon-clear" id="searchClear"></a>
+                            <div class="clearSearchval">
+                                <i class="icon iconfont icon-remove-02"></i>
+                            </div>
+                        </div>
+                        <label class="weui-search-bar__label" id="searchText" >
+                            <i class="weui-icon-search"></i>
+                            <span>搜索</span>
+                        </label>
+                    </form>
+                    <a href="../search/searchProduct.html" class="weui-search-bar__cancel-btn" >取消</a>
+                </div>
+            </div>
+            <!--searchBar end-->
+
+            <div class="dp">
+                <div class="dropmenu">
+                    <div class="weui-navbar hd " id="navbar">
+                        <div class="weui-navbar__item active" data-type="weight" rel="synthetic">
+                            <span class="f14"><span class="navbar1">综合排序</span></span>
+                        </div>
+                        <div class="weui-navbar__item"  data-type="priceAsc" rel="price">
+                            <span class="f14"><span class="navbar2">价格降序</span></span>
+                        </div>
+                        <div class="weui-navbar__item"  data-type="monthSalesDesc" rel="sales">
+                            <span class="f14"><span class="navbar3">销量优先</span></span>
+                        </div>
+                    </div>
+                    <div id="style">
+                        <i class="iconfont icon-details style col-1" id="goods_style"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="weui-tab__panel pageable" style="padding: 95px 0 0;">
+                <div class="productListWrapper product-list  weui-cells product hot_product" style="margin-top:0;"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<input type="hidden" id="orderType" name="orderType" value="">

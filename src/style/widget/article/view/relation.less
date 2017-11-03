@@ -1,0 +1,32 @@
+
+.new_tenant{
+  width: 92vw;
+  margin: 6.66vw auto;
+  background: #f7f7f7;
+  display: none !important;
+  .sr_weui-cell;
+  .new_tenant_img{
+    width: 18.667vw;
+    height:18.667vw;
+    margin-right: 20px;
+    img{
+      width: 100%;
+      height:100%;
+    }
+  }
+  .new_tenant_txt{
+    .sr_weui-cell__bd;
+    #relation_tit{
+      line-height: 1.3em;
+    }
+    .weui-cell{
+      padding: 0;
+      .weui-cell__ft{
+        &:after{
+          border-color: @title-white;
+          border-width: 1px 1px 0 0;
+        }
+      }
+    }
+  }
+}

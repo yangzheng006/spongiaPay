@@ -1,0 +1,44 @@
+<!--直通邦商家列表（除频道页）所用模板-->
+<!-- BEGIN tenant-list -->
+{{#each this}}
+<a href="javascript:;" id="{{id}}" class="weui-cells weui-cells_border tenant_ztb union_tenant_list">
+    <div class="weui-cell">
+        <div class="weui-cell__hd tenant_img">
+            {{#compare thumbnail '!=' null}}
+            <img src="../images/placeholder/lazypic.png" data-original="{{crop thumbnail 45 27}}"/>
+            {{/compare}}
+
+            {{#compare thumbnail '==' null}}
+            <img src="../images/placeholder/tenant.png"/>
+            {{/compare}}
+            {{#if closed}}
+            <div class="shopRest">
+                <div class="tooltip-inner">休息中</div>
+            </div>
+            {{/if}}
+        </div>
+        <div class="weui-cell__bd">
+            <p class="f16 clr_darkGray tenant-name">{{name}}</p>
+            {{#if keyWords}}
+            <p class="f13 clr-downGray tenant-recommend" >{{keyWords}}</p>
+            {{else}}
+            <p class="f13 clr-downGray tenant-recommend" >{{tenantCategoryName}}</p>
+            {{/if}}
+            <p class="ico f12 clr_mediumGray" >
+                {{#if perCapita}}
+                <span class="add f11">￥<span>{{perCapita}}</span>/人</span>
+                {{else}}
+                {{/if}}
+            </p>
+            <div class="weui-flex f12 clr_darkGray" >
+                {{#if communityName}}
+                <div class="weui-flex__item f12 zhuying bold-700">{{communityName}}</div>
+                {{else}}
+                {{/if}}
+                <div class="weui-flex__item clr_lightGray" style="text-align: left;">{{#ifcond distance -1}}{{distance}}km{{else}}{{/ifcond}}</div>
+            </div>
+        </div>
+    </div>
+</a>
+{{/each}}
+<!-- END tenant-list -->

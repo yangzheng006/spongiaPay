@@ -1,0 +1,38 @@
+{{#each this}}
+<div class="weui-cells bornone" data-id="{{id}}">
+    <div class="weui-cell bornone">
+        <div class="weui-cell__hd pinglun_img">
+            {{#compare headimg '!=' null}}
+            <img src="{{headimg}}" />
+            {{/compare}}
+            {{#compare headimg '==' null}}
+            <img src="../images/placeholder/user.png" alt="" />
+            {{/compare}}
+        </div>
+        <div class="weui-cell__bd pinglun_txt">
+            <p class="f14 clr_blue01 nick_name">{{nickName}}</p>
+            <div class="weui-cell bornone">
+                <div class="weui-cell__bd clr_gray05 f11">{{createDate}}</div>
+                {{#compare praised '==' true}}
+                <div class="weui-cell__ft clr_gray06 f11 pinglun_praise orange" id="{{id}}" data-name="{{praised}}">
+                    <span class="praise_num{{id}}">{{praise}}</span>
+                    <i class="icon iconfont icon-xiangqingdianzan f16"></i>
+                </div>
+                {{/compare}}
+                {{#compare praised '==' false}}
+                <div class="weui-cell__ft clr_gray06 f11 pinglun_praise" id="{{id}}" data-name="{{praised}}">
+                    <span class="praise_num{{id}}">{{praise}}</span>
+                    <i class="icon iconfont icon-xiangqingdianzan f16"></i>
+                </div>
+                {{/compare}}
+            </div>
+        </div>
+    </div>
+    <div class="weui-cell bornone">
+        <div class="weui-cell__hd pinglun_img"></div>
+        <div class="weui-cell__bd f14 clr_titleWhite">
+            {{content}}
+        </div>
+    </div>
+</div>
+{{/each}}

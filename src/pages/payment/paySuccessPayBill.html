@@ -1,0 +1,75 @@
+<div class="page">
+    <div class="page__bd" style="height: 100%;">
+        <div class="weui-tab">
+            <div class="paysuccess2 paySuccessPayBill">
+                <div class="weui-cell bg_gray">
+                    <div class="weui-cell__hd">
+                        <i class="weui-icon-success weui-icon_msg f10"></i>
+                    </div>
+                    <div class="weui-cell__bd f16 bold">支付完成</div>
+                </div>
+                <div class="weui-cells f15 bd">
+                    <div class="weui-cell">
+                        <div class="weui-cell__hd">消费金额：</div>
+                        <div class="weui-cell__bd tr">￥<span class="totalAmount"></span></div>
+                    </div>
+                    <div class="weui-cell clr_lightGray">
+                        <div class="weui-cell__hd">收款商家：</div>
+                        <div id="tenantName" class="weui-cell__bd tr"></div>
+                    </div>
+                    <div class="weui-cell clr_lightGray">
+                        <div class="weui-cell__hd">支付时间：</div>
+                        <div id="createDate" class="weui-cell__bd tr"></div>
+                    </div>
+                    <div class="weui-cell clr_lightGray">
+                        <div class="weui-cell__hd">优惠金额：</div>
+                        <div class="weui-cell__bd tr">￥<span class="discount"></span></div>
+                    </div>
+                    <div class="weui-cell clr_lightGray">
+                        <div class="weui-cell__hd">返现金额：</div>
+                        <div class="weui-cell__bd tr">￥<span class="backDiscount"></span></div>
+                    </div>
+                </div>
+
+                <div class="weui-cell Paid">
+                    <div class="weui-cell__hd clr_lightGray"></div>
+                    <div class="weui-cell__bd tr f13">实付：<span class="f28 bold">￥</span><span class="f28 bold amount"></span></div>
+                </div>
+
+                <div class="discountShare">
+                    <img src="../images/static/payment/paysuccessNew.png" alt="">
+                    <div class="discountShare_txt f16">
+                        你所不知道的<span class="discount_txt f28"></span>
+                        <span class="discount_img none"></span>
+                    </div>
+                </div>
+                
+                <!--分享弹窗-->
+                @import "../../model/widget/include/shareModel.html";
+
+                <div class="weui-mask none"></div>
+                <div class="quan none">
+                    <p class="f28 bold">恭喜！</p>
+                    <div class="close"><i class="iconfont icon-remove-02 bold"></i></div>
+                    <div class="quan_mb">
+
+                    </div>
+                    <a class="f14 bold mu_quan" href="../member/coupon.html">已存入“我的券包”</a>
+                </div>
+            </div>
+
+            <div class="pinshouing none">
+                <img src="../images/static/coupon/pinshouqi.png" alt="" class="doudong">
+            </div>
+            <div class="sharePayBillRedSuccess none">
+                <div class="pinshouqi">
+                    <p class="remove"><i class="icon iconfont icon-remove-02"></i></p>
+                    <img src="../images/static/coupon/pinshouqired.png" alt="" class="beijing">
+                    <img src="../images/static/coupon/pinshouqi.png" alt="" class="chai">
+                    <p class="f12 explain">本活动最终解释权归平台所有</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

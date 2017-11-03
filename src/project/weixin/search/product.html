@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <title>搜索好货</title>
+    @import "../include/header.inc";
+</head>
+<body ontouchstart>
+<div class="weui-toptips weui-toptips_warn js_tooltips">错误提示</div>
+<div class="container" id="container"></div>
+
+<!--分类产品搜索-->
+<link rel="import" href="../../../pages/search/product/product.html">
+
+<!--模版-->
+<!--搜索产品列表页模版页-->
+<link rel="import" href="../../../model/templete/search/productList.html">
+
+@import "../../../model/widget/include/toast.html";
+@import "../../../model/widget/include/dialog.html";
+<script src="/weixin/js/common.min.js"></script>
+<script src="/weixin/js/wap.min.js"></script>
+
+<script type="text/javascript">
+    $(function () {
+        pageManager.show("product");
+
+        //清空输入框值
+        $('.clearSearchval').on('click',function () {
+            $('#searchInput').val('');
+        });
+
+        //历史搜索
+        var search_products_str = cookie.getCookie('search_products');
+        var search_products = [];
+        if (search_products_str != null && search_products_str != '') {
+            search_products = search_products_str.split(',');
+        }
+        if (search_products.length > 0) {
+            var html = '';
+            $.each(search_products, function (index, keyword) {
+                html += '<a href="/weixin/search/productReasult.html?keyword=' + escape(keyword) + '" class="col-11 f11 clr_mediumGray overone tc">' + keyword + '</a>';
+            });
+            $('.historySearch').html(html);
+        }else{
+            $('.history').hide();
+            $('.historySearch').hide();
+        }
+
+        //删除历史记录
+        $('.del').on('click',function(){
+            dialog.query("确认删除全部历史记录？",function () {
+                cookie.delCookie('search_products');
+                $('.historySearch').remove('');
+                $('.history').remove('');
+            });
+        });
+
+        var a = pageManager.GetQueryString("id");
+        if(a==1){
+            $('.changestyle').text("商家");
+            $('.tenant_checked').addClass('checked');
+            $('.product_checked').removeClass('checked');
+
+        }else{
+            $('.changestyle').text("商品");
+            $('.product_checked').addClass('checked');
+            $('.tenant_checked').removeClass('checked');
+        }
+
+        //热门搜索
+        var tt=new product(function (data) {
+            var s='';
+            $.each(data,function (i, v) {
+                s+='<a href="/weixin/search/productReasult.html?keyword=' + escape(v) + '" class="col-11 f11 clr_mediumGray overone tc">'+v+'</a>';
+            });
+            $('.hotSearch').html(s);
+        });
+        tt.hot_search();
+
+
+        //好货搜索searchGo
+        $('#searchGo').click(function() {
+            var keyword = $("#searchInput").val();
+            if ( keyword == null || keyword == '') {
+                toast.show('请先输入您想搜索的内容');
+                return;
+            }
+            //添加进历史搜索
+            var exist = false;
+            for (var i = 0; i < search_products.length; i++) {
+                if (search_products[i].trim()==keyword.trim()) {
+                    exist = true;
+                    break;
+                }
+            }
+            if (!exist) {
+                var arr = [keyword.trim()];
+                if (search_products.length > 0) {
+                    search_products = arr.concat(search_products);
+                } else {
+                    search_products = arr;
+                }
+                if (search_products.length > 0) cookie.setCookie("search_products", search_products.join(","), 1);
+            }
+
+            window.location.href='../search/productReasult.html?keyword='+ escape(keyword);
+            return false;
+        });
+
+        //产品搜索
+        $(document).on('keydown',function(e) {
+            // 回车键事件
+            var code = e.keyCode || e.which;
+            if( code == 13) {
+                var keyword = $("#searchInput").val();
+                if ( keyword == null || keyword == '') {
+                    toast.show('请先输入您想搜索的内容');
+                    return;
+                }
+                //添加进历史搜索
+                var exist = false;
+                for (var i = 0; i < search_products.length; i++) {
+                    if (search_products[i].trim()==keyword.trim()) {
+                        exist = true;
+                        break;
+                    }
+                }
+                if (!exist) {
+                    var arr = [keyword.trim()];
+                    if (search_products.length > 0) {
+                        search_products = arr.concat(search_products);
+                    } else {
+                        search_products = arr;
+                    }
+                    if (search_products.length > 0) cookie.setCookie("search_products", search_products.join(","), 1);
+                }
+
+                window.location.href='../search/productReasult.html?keyword='+ escape(keyword);
+                return false;
+            }
+        });
+
+        //热门好货列表
+        var tu = new product(function (data) {
+            var h = render.fill($("#tpl_productList"), data);
+            $(".product-list").html(h);
+            $('img').picLazyLoad();
+        });
+        tu.list({pageSize:20,tagIds: 19,lat: weixin.lat, lng: weixin.lng});
+
+        var pge = $(".pageable").pageable({
+            scrollFn: function () {
+                $(window).trigger('scroll');
+            },
+            loadDownFn: function (me) {
+                $('.pageable-down').remove();
+            }
+        })
+    });
+</script>
+</body>
+</html>
+

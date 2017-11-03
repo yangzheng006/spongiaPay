@@ -1,0 +1,34 @@
+{{#each this}}
+{{#compare linkType '==' 'unionActivity'}}
+    <a href="../activity/index.html?linkId={{linkId}}">
+        <img src="../images/placeholder/lazypic.png" data-original="{{crop image 100 1}}">
+    </a>
+{{/compare}}
+{{#compare linkType '==' 'tenant'}}
+    <a href="../tenant/index.jhtml?id={{linkId}}">
+        <img src="../images/placeholder/lazypic.png" data-original="{{crop image 100 1}}">
+    </a>
+{{/compare}}
+{{#compare linkType '==' 'none'}}
+    {{#compare url '==' null }}
+        <a href="javascript:;">
+            <img src="../images/placeholder/lazypic.png" data-original="{{crop image 100 1}}">
+        </a>
+    {{/compare}}
+    {{#compare url '!=' null }}
+        <a href="{{url}}">
+            <img src="../images/placeholder/lazypic.png" data-original="{{crop image 100 1}}">
+        </a>
+    {{/compare}}
+{{/compare}}
+{{#compare linkType '==' 'community'}}
+    <a href="{{url}}">
+        <img src="../images/placeholder/lazypic.png" data-original="{{crop image 100 1}}">
+    </a>
+{{/compare}}
+{{#compare linkType '==' 'product'}}
+    <a href="../product/view.html?id={{linkId}}">
+        <img src="../images/placeholder/lazypic.png" data-original="{{crop image 100 1}}">
+    </a>
+{{/compare}}
+{{/each}}

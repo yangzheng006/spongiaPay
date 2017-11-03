@@ -1,0 +1,84 @@
+<div class="weui-cells weui-cells_border" style="margin-top: 0">
+    {{#each this}}
+        {{#compare images.length '>=' 3}}
+            <a data-id="{{id}}" class="weui-cell news_list_more" href="../article/index.html#view?funId={{id}}">
+                <div class="weui-cell__bd">
+                    <p class="f14 title">{{title}}</p>
+                    <div class="pic">
+                        {{#each images}}
+                        {{#compare @index '<=' 2}}
+                        <span><img src="../images/placeholder/lazypic.png" data-original="{{crop this 32 22.1}}" alt=""></span>
+                        {{/compare}}
+                        {{#compare @index '>' 2}}
+                        {{/compare}}
+                        {{/each}}
+                    </div>
+                    <p class="other other_r f12">
+                        <span class="date"><i class="iconfont icon-chakan"></i>{{createDate}}</span>
+                        <span><i class="iconfont icon-zhuyechakan1"></i>{{looks}}</span>
+                        <span class="none">
+                            {{#if praised}}
+                                <i class="iconfont icon-zhuyedianzan1"></i>
+                            {{else}}
+                                <i class="iconfont icon-zhuyedianzan1"></i>
+                            {{/if}}
+                            {{praise}}
+                        </span>
+                    </p>
+                </div>
+            </a>
+        {{/compare}}
+        {{#compare images.length '<' 3}}
+        {{#compare images.length '!=' 0}}
+    <a data-id="{{id}}" class="weui-cell" href="../article/index.html#view?funId={{id}}">
+        <div class="weui-cell__hd">
+            {{#each images}}
+            {{#compare @index '<=' 0}}
+            <span><img src="../images/placeholder/lazypic.png" data-original="{{crop this 29.445 22.1}}" alt=""></span>
+            {{/compare}}
+            {{#compare @index '>' 0}}
+            {{/compare}}
+            {{/each}}
+        </div>
+        <div class="weui-cell__bd">
+            <p class="f14 title">{{title}}</p>
+            <p class="other f12">
+                <span class="date"><i class="iconfont icon-chakan"></i>{{createDate}}</span>
+                <span><i class="iconfont icon-zhuyechakan1"></i>{{looks}}</span>
+                <span class="none">
+                    {{#if praised}}
+                        <i class="iconfont icon-zhuyedianzan1"></i>
+                    {{else}}
+                        <i class="iconfont icon-zhuyedianzan1"></i>
+                    {{/if}}
+                    {{praise}}
+                </span>
+            </p>
+        </div>
+    </a>
+        {{/compare}}
+        {{/compare}}
+        {{#compare images.length '==' 0}}
+    <a data-id="{{id}}" class="weui-cell" href="../article/index.html#view?funId={{id}}">
+        <div class="weui-cell__hd">
+            <img src="../images/placeholder/product.png" alt="">
+        </div>
+        <div class="weui-cell__bd">
+            <p class="f14 title">{{title}}</p>
+            <p class="other f12">
+                <span class="date"><i class="iconfont icon-chakan"></i>{{createDate}}</span>
+                <span><i class="iconfont icon-zhuyechakan1"></i>{{looks}}</span>
+                <span class="none">
+                    {{#if praised}}
+                        <i class="iconfont icon-zhuyedianzan1"></i>
+                    {{else}}
+                        <i class="iconfont icon-zhuyedianzan1"></i>
+                    {{/if}}
+                    {{praise}}
+                </span>
+            </p>
+        </div>
+    </a>
+        {{/compare}}
+    {{/each}}
+</div>

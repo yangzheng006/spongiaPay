@@ -1,0 +1,23 @@
+<!-- BEGIN tenant-list -->
+{{#each this}}
+<a class="weui-cell weui-cell_access" id="{{id}}"  href="../tenant/index.jhtml?id={{id}}" >
+    <div class="weui-cell__hd">
+        {{#compare thumbnail '!=' null}}
+        <img src="../images/placeholder/lazypic.png" data-original="{{crop thumbnail 45 27}}"/>
+        {{/compare}}
+        {{#compare thumbnail '==' null}}
+        <img src="../images/placeholder/product.png" />
+        {{/compare}}
+    </div>
+    <div class="weui-cell__bd">
+        <p class="f13 clr_darkGray">{{name}}</p>
+        <p class="f10 clr_lightGray">主营：{{tenantCategoryName}}<span class="distance">{{#ifcond distance -1}}{{distance}}km{{else}}{{/ifcond}}</span><i class="iconfont icon-go orange"></i></p>
+        <p>
+            {{#each promotions}}
+                <i class="iconfont icon-{{type}}"></i>
+            {{/each}}
+        </p>
+    </div>
+</a>
+{{/each}}
+<!-- END tenant-list -->

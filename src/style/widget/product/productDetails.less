@@ -1,0 +1,231 @@
+.productDetails,.productDetails2{
+  #product_album{
+    position: relative;
+    line-height: 0;
+  }
+  .product_desc {
+    padding: 2%;
+    &.weui-cells {
+      margin: 0;
+      line-height: 1;
+      &:after {
+        border: none;
+      }
+    }
+    .weui-cell {
+      &:before {
+        border: none;
+      }
+    }
+    .hd {
+      color: @dark-gray;
+      line-height: 1.4;
+      margin-top: .2em;
+      margin-bottom: .1em;
+    }
+    .bd {
+      padding: 0;
+      line-height: 1.4;
+      .weui-cell__bd {
+        span {
+          padding-right: 2%;
+          &:nth-child(1){
+            color: @orange;
+          }
+          &:nth-child(2){
+            color: @Medium-gray;
+            text-decoration: line-through;
+          }
+        }
+      }
+      .weui-cell__ft {
+        color: @Medium-gray;
+      }
+
+    }
+    .other {
+      color: @Medium-gray;
+      span {
+        display: inline-block;
+        padding-right: 2%;
+      }
+
+    }
+  }
+
+
+
+  .not{
+    color: @light-gray;
+    width: 100%;
+    display: block;
+    text-align: center;
+    padding: .8em 0;
+  }
+  .product_evaluate {
+    &.weui-cells {
+      margin-top: 2%;
+      .weui-cell {
+        padding: 2%;
+      }
+    }
+    .hd {
+      .weui-cell__bd {
+        text-align: right;
+        color: @orange;
+        span {
+          &:nth-child(1) {
+            display: none;
+          }
+          &:nth-child(2) {
+            display: block;
+          }
+        }
+        &.no_evaluate {
+          text-align: left;
+          padding-left: 2%;
+          span {
+            &:nth-child(1) {
+              display: block;
+            }
+            &:nth-child(2) {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+    .bd {
+      margin-top: 0;
+      .weui-cell {
+        padding: 0 2%;
+        &:nth-child(1) {
+          padding: 2%;
+          .weui-cell__hd {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            line-height: 0;
+            overflow: hidden;
+            margin-right: 2%;
+            border:1px solid #eee;
+          }
+        }
+        &:last-child {
+          padding: 2%;
+          .weui-cell__bd {
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            -ms-text-overflow: ellipsis;
+            -o-text-overflow: ellipsis;
+          }
+        }
+      }
+    }
+    .ft {
+      text-align: center;
+    }
+  }
+
+  .evaluate{
+    padding:2%;
+    .weui-cells{
+      .weui-cell:nth-child(2){
+        .weui-cell__bd{
+          p{padding-bottom:10px}
+        }
+      }
+      border-radius: 5px;
+      border:1px solid #eee;
+      margin-bottom: 10px;
+      .stars{
+        border-top:1px solid #eee;
+        text-align: right;
+        padding:0 10px 10px 0;
+      }
+    }
+  }
+
+  .details {
+    padding:2%;
+    background-color: @white;
+    .title {
+      p {
+        line-height: 1.4;
+      }
+    }
+    .content {
+      line-height: 0;
+    }
+    img {
+      //padding-top: 2%;
+    }
+
+    #details{
+      &>span{
+        max-width: 93vw !important;
+      }
+      table{
+        max-width: 93vw !important;
+      }
+      span{
+        img{
+          max-width: 93vw !important;
+          display: block;
+        }
+      }
+    }
+
+  }
+
+
+  //商品详情页栏目标题
+  .product_hd {
+    margin-top: 2%;
+    background-color: @white;
+    .title {
+      text-align: center;
+      padding: 2%;
+    }
+  }
+  .fl{
+    margin-top: -2px;
+  }
+}
+
+//好过云
+.product_keyword{
+  line-height: 3em;
+  padding: 0 2vw;
+}
+.lesson{
+  line-height: 2em;
+  padding: 4vw 2vw;
+  background: @white;
+  p{
+      margin-bottom: 10px;
+  }
+  .lesson_section{
+    position: relative;
+    .num_circle{
+      position: absolute;
+      top:0.4em;
+      left:2vw;
+      display: inline-block;
+      background: @border-gray;
+      width: 20px;
+      height:20px;
+      line-height: 20px;
+      margin-right: 5px;
+      border-radius: 50%;
+    }
+    .lesson_txt{
+      display: inline-block;
+      width:82vw;
+      line-height: 1.6em;
+      margin-left: 2.5em;
+    }
+  }
+
+}

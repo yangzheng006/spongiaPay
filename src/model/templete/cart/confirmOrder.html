@@ -1,0 +1,236 @@
+<div class="accordion2 none">
+    <div class="weui-flex  weui-cell_access" >
+        <input type="hidden" name="" value="x09">
+        <p class="weui-flex__item Ftitle">支付方式</p>
+        <p class="weui-flex__item changestyle f14" styleid="" method="" id="paymentMethodId"></p>
+        <span class="weui-cell__ft"></span>
+    </div>
+    <div class="erji f14 payment">
+        {{#with paymentMethods}}
+        {{#each this}}
+        <div class="weui-cells_radio">
+            <label class="weui-cell weui-check__label" for="x{{id}}">
+                <div class="weui-cell__bd weui_cell_primary">
+                    <p data-id="{{id}}" method="{{method}}">{{name}}</p>
+                </div>
+                <div class="weui-cell__ft">
+                    <input type="radio" class="weui-check" name="radio2" id="x{{id}}">
+                    <span class="weui-icon-checked"></span>
+                </div>
+            </label>
+        </div>
+        {{/each}}
+        {{/with}}
+    </div>
+</div>
+<div class="accordion2 shipstyle">
+    <div class="weui-flex  weui-cell_access h30" >
+        <input type="hidden" name="" value="x10">
+        <p class="weui-flex__item f14 clr_gray01">配送方式：</p>
+        <p class="weui-flex__item changestyle f14" styleid="" method="" id="shippingMethodId"></p>
+        <span class="weui-cell__ft"></span>
+    </div>
+    <div class="erji f14 shippement">
+        {{#with shippingMethods}}
+        {{#each this}}
+        <div class="weui-cells_radio">
+            <label class="weui-cell weui-check__label h30" for="s{{id}}">
+                <div class="weui-cell__bd weui_cell_primary">
+                    <p data-id="{{id}}" method="{{method}}">{{name}}</p>
+                </div>
+                <div class="weui-cell__ft">
+                    <input type="radio" class="weui-check" name="radio2" id="s{{id}}">
+                    <span class="weui-icon-checked"></span>
+                </div>
+            </label>
+        </div>
+        {{/each}}
+        {{/with}}
+    </div>
+</div>
+{{#if receiver}}
+{{#with receiver}}
+<div class="weui-cells bornone bor_bottom_none receipt" id="myad">
+    <a class="weui-cell weui-cell_access h30" href="javascript:;" id="adBtn" adid="{{id}}" style="padding: 2% 2% 2% 1.5%;">
+        <div class="weui-cell__hd" style="margin-right: 7px;"><i class="iconfont icon-weizhi f24"></i></div>
+        <div class="weui-cell__bd" style="line-height: 1.8;">
+            <p class="f14 bold clr_gray01" style="margin-left: 0;">
+                <span>{{consignee}}</span><span style="margin-left: 10px;">{{phone}}</span>
+            </p>
+            <p class="clr_gray01 address_moren f14 overtwo" style="margin-top: 0;"><span id="fullName">{{area.fullName}}</span>,<span id="address">{{address}}</span></p>
+        </div>
+        <div class="weui-cell__ft"></div>
+    </a>
+</div>
+{{/with}}
+{{else}}
+<div class="weui-cells weui-cells__access h30" style="margin-top:0.5em" id="choose_receiver">
+    <a class="weui-cell noneAddress" onclick="location.href='../member/address.html?type=cart#addAddress'">
+        <div class="weui-cell__bd weui-cell__primary f14">
+            <p>添加收货地址</p>
+        </div>
+        <div class="weui-cell__ft">
+            <i class="weui-icon-warn"></i>
+            <i class="icon iconfont"></i>
+        </div>
+    </a>
+</div>
+{{/if}}
+<div class="weui-actionsheet" id="iosActionsheet">
+    <div class="weui-actionsheet__menu tedadress">
+    </div>
+</div>
+<div class="weui-cells tihuo">
+    <div class="delivery" style="display: block;">
+    <a class="weui-cell weui-cell_access" href="javascript:;" id="showSheet{{tenantId}}"  tid="{{tenantId}}" style="padding: 3.82vw 2%;-webkit-align-items: center; -webkit-box-align: center; align-items: center;">
+        <div class="weui-cell_hd" >
+            <p class="f14"><span class="tihuo_panduan">提货</span>地址</p>
+        </div>
+        <div class="weui-cell__bd f12">
+        </div>
+        <div class="weui-cell__ft f12 selectad" style="width:72vw;white-space:normal;">
+            <!--<i class="weui-icon-warn"></i>-->
+            <p class="delivery_name"></p>
+            <p class="delivery_address">请选择<span class="tihuo_panduan">提货</span>地址</p>
+        </div>
+    </a>
+    </div>
+    <div class="weui-cell weui-cell_access h30 time_tihuo">
+        <div class="weui-cell__bd">
+            <p class="f14"><span class="tihuo_panduan">提货</span>时间</p>
+        </div>
+        <div class="weui-cell__ft orange f12 deliveryDate"></div>
+    </div>
+    {{#compare isService '==' true}}
+    <div class="weui-cell h30 bg_white" style="margin-top: 0;">
+        <div class="weui-cell__hd"><label class="weui-label f14">到店人数</label></div>
+        <div class="weui-cell__bd">
+            <input class="weui-input f14" id="num_people" type="number"  placeholder="请输入到店人数" style="text-align: right; height: 30px; line-height: 30px;">
+        </div>
+    </div>
+    {{/compare}}
+    {{#compare isService '==' false}}
+    {{/compare}}
+    <div class="weui-cell h30 bg_white" style="margin-top: 0;">
+        <div class="weui-cell__bd">
+            <input class="weui-input f14" id="menber_name" type="text"  placeholder="请输入姓名" style=" height: 30px; line-height: 30px;">
+        </div>
+    </div>
+    <div class="weui-cell h30 bg_white" style="margin-top: 0;">
+        <div class="weui-cell__bd">
+            <input class="weui-input f14" id="phone" type="number"  placeholder="请输入电话号码" style=" height: 30px; line-height: 30px;">
+        </div>
+        <div class="weui-cell__ft none" id="send"><input class="gain lineH_reset orange f14 tc" style="width: 40vw; height: 30px; border: none;" value="发送验证码" readonly></div>
+    </div>
+    <div class="weui-cell bor_bottom_none h30 bg_white code_fuwu none" style="margin-top: 0;">
+        <div class="weui-cell__bd">
+            <input class="weui-input f14" id="captcha" type="number"  placeholder="请输入验证码" style=" height: 30px; line-height: 30px;">
+        </div>
+    </div>
+</div>
+{{#each order.trades}}
+<div class="weui-cells bor_bottom_none store">
+    <a class="weui-cell h30 tenant_id" href="../tenant/index.jhtml?id={{tenantId}}" tid="{{tenantId}}">
+        <div class="weui-cell__bd f14 order_tenant_icon">
+            <i class="iconfont icon-kaidian f22"></i>{{tenantName}}
+        </div>
+    </a>
+    <div class="product-list weui-cells match_item" style="background: transparent; margin-top: 0;">
+        {{#each categoryProduct}}
+        <!--{{#compare name '!=' null}}-->
+        <!--<div class="clr_titleWhite f14 bold match_tit">-->
+            <!--<div class="pinglun_tit" data-id="{{id}}">{{name}}</div>-->
+        <!--</div>-->
+        <!--{{/compare}}-->
+        <!--{{#compare name '==' null}}-->
+        <!--{{/compare}}-->
+        <div class="clr_lighterGray position" style="padding: 0">
+            {{#each orderItems}}
+            <a class="weui-cell clr_lighterGray bornone" href="../product/view.html?id={{productId}}">
+                <div class="weui-cell__hd">
+                    <img src="{{thumbnail}}" alt="">
+                </div>
+                <div class="weui-cell__bd">
+                    <p class="f14">{{name}}</p>
+                    <p class="size f13 clr_lightGray">{{spec}}</p>
+                    <p class="f16 weui-flex sr_cell"><span class="weui-flex__item orange">￥{{price}}</span><span class="f14 weui-flex__item tr">x{{quantity}}</span></p>
+                </div>
+            </a>
+            {{#if promotions}}
+            {{#with promotions}}
+            <a class="weui-cell clr_lighterGray bornone" href="javascript:;">
+                <div class="weui-cell__hd" style="height: auto"></div>
+                <div class="weui-cell__bd border-top Fauxiliary">
+                    {{#each this}}
+                    <div class="f12"><i class="iconfont icon-{{type}} tenant_i fl"></i>{{name}}</div>
+                    {{/each}}
+                </div>
+            </a>
+            {{/with}}
+            {{/if}}
+            {{/each}}
+        </div>
+        {{/each}}
+        {{#with availableCoupons}}
+        <div class="weui-actionsheet" id="couponActionsheet">
+            <div class="weui-actionsheet__menu ucoupon">
+                <div class="title">可用优惠券<span><i class="icon iconfont icon-remove-02"></i></span></div>
+                <div class="soll">
+                    {{#each this}}
+                    <div class="weui-actionsheet__cell weui-cell" id="{{id}}" code="{{code}}">
+                        <div class="weui-cell__hd">
+                        </div>
+                        <div class="weui-cell__bd f12">
+                            <p class="cpamount clr_orange">{{amount}}元代金券</p>
+                            <p>使用期限:{{endDate}}</p>
+                        </div>
+                        <div class="weui-cell__ft f12">
+                            <p>使用</p>
+                        </div>
+                    </div>
+                    {{/each}}
+                </div>
+                <div style="display: flex;">
+                    <div class="closecoupon cancelselect f14" style="width: 100%;background:forestgreen;">取消使用</div>
+                    <div class="closecoupon closethis f14" style="width: 100%;">关闭</div>
+                </div>
+            </div>
+        </div>
+        {{/with}}
+        {{#compare availableCoupons '==' ''}}
+        {{/compare}}
+        {{#compare availableCoupons '!=' ''}}
+        <div class="weui-cells couponList" style="background: transparent; margin-top: 0;">
+            <a class="weui-cell weui-cell_access h30" href="javascript:;"  id="showcoupon{{tenantId}}"  tid="{{tenantId}}">
+                <div class="weui-cell_hd" >
+                    <p class="f14">优惠券</p>
+                </div>
+                <div class="weui-cell__bd">
+                    {{#compare availableCoupons '!=' ''}}
+                    <span class="f13 usable">{{availableCoupons.length}}张可用</span>
+                    {{/compare}}
+                </div>
+                <div class="weui-cell__ft f12 selectcp clr_block">
+                    {{#compare availableCoupons '!=' ''}}
+                    未使用
+                    {{/compare}}
+                </div>
+            </a>
+
+        {{/compare}}
+        <div class="weui-cell bornone kuaidi none h30">
+            <div class="weui-cell__bd">
+                <p class="f14">快递运费</p>
+            </div>
+            <div class="weui-cell__ft f14" style="color: #333;">￥<span class="freight">{{freight}}</span></div>
+        </div>
+        <div class="weui-cell bor_bottom_none bornone input-text">
+            <div class="weui-cell__hd f14">买家留言</div>
+            <div class="weui-cell__bd f14"><input class="weui-input f14 memo" maxlength="500" style=" width: 98%; text-align: right;" placeholder="给商家留言（500字以内）" data-id="{{tenantId}}" id="memo"></div>
+        </div>
+        <div class="weui-cell Subtotal f14" style="padding-right: 2%; text-align: right; color:inherit; height: 8.74vw; line-height:8.74vw; background: transparent;">
+            <div class="weui-cell__bd tr">小计：<span style=" margin-left: 5px;">￥<span class="trueamount f16">{{amount}}</span></span></div>
+        </div>
+    </div>
+</div>
+{{/each}}

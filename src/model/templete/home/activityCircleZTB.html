@@ -1,0 +1,14 @@
+<!--BEGIN activityImg-->
+{{#each this}}
+    {{#compare linkId '!=' null}}
+    <a href="../activity/businessCircle.html?linkId={{linkId}}" class="activity_item act_item none">
+        <img src="../images/placeholder/lazypic.png" data-original="{{crop image 100 40}}" alt="" />
+    </a>
+    {{/compare}}
+    {{#compare linkId '==' null}}
+    <a href="javascropt:;" class="activity_item act_item none">
+        <img src="../images/placeholder/lazypic.png" data-original="{{image}}" alt="" />
+    </a>
+    {{/compare}}
+{{/each}}
+<!--END activityImg-->

@@ -1,0 +1,81 @@
+@charset "UTF-8";
+
+//弹出支付密码框样式
+.cashpay{
+  position: fixed;
+  width:80vw;
+  left:10vw;
+  top:10vw;
+  padding-bottom: 10px;
+  background:@white;
+  border-radius: 5px;
+  display: none;
+  z-index: 1200;
+  border-bottom: 1px solid #eee;
+  .Ftitle{background:@bodyBg;border-radius: 5px 5px 0 0}
+  .f14{ margin-top: 10px;}
+  .pwd-box{
+    width:65.6vw;
+    height:10.6vw;
+    position: relative;
+    border: 1px solid #eee;
+    border-radius: 3px;
+    overflow:hidden ;
+    margin:0 auto;
+    input[type="tel"]{
+      width: 100%;
+      height: 10.6vw;
+      color: transparent;
+      position: absolute;
+      top: 0;
+      left: 0;
+      border: none;
+      font-size: 5vw;
+      opacity: 0;
+      z-index: 1;
+      letter-spacing: 35px;
+    }
+    .fake-box{
+      input{
+        margin-right:-4px;
+        width:10.58vw;
+        height:10.6vw;
+        border: none;
+        border-right: 1px solid @border-gray;
+        text-align: center;
+        font-size: 5vw;
+        line-height: 10.6vw;
+
+        &:last-child{
+          border:0;
+        }
+      }
+
+    }
+  }
+  p{
+    text-align: center;
+    &:first-child{
+      border-bottom: 1px solid #eee;
+      padding: 10px 0;
+    }
+
+    &:nth-child(3){
+      font-size: 25px;
+      color:@orange;
+    }
+  }
+  .icon-remove-02{
+    position: absolute;
+    top:8px;
+    right:8px;
+  }
+}
+.paying{
+  top: 50%;
+  transform: translateY(-50%);
+  -webkit-transform:translateY(-50%);
+}
+.payed{
+  bottom:1em;
+}

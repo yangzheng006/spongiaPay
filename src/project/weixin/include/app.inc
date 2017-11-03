@@ -1,0 +1,1 @@
+<script src="/weixin/part/js/app.min.js"></script>

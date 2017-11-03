@@ -1,0 +1,36 @@
+<!-- product_list -->
+{{#each this}}
+<div class="position">
+    <a class="weui-cell" href="../product/index.html?id={{id}}" data-id="{{id}}" >
+        <div class="weui-cell__hd fly_img">
+            {{#compare thumbnail '!=' null}}
+            <img src="{{thumbnail}}" />
+            {{/compare}}
+            {{#compare thumbnail '==' null}}
+            <img src="../images/placeholder/product.png" />
+            {{/compare}}
+        </div>
+        <div class="weui-cell__bd">
+            <p class="Ftitle f13 overone">{{name}}</p>
+            <p class="Ftext f11"><span class="fl">{{tenantName}}</span><span class="fr">{{#ifcond distance -1}}{{distance}}km{{else}}{{/ifcond}}</span></p>
+            <div style="clear:both">
+                <p class="price f14 fl"><span>￥{{price}}
+                    {{#compare price '==' marketPrice}}
+                    {{/compare}}
+                    {{#compare price '!=' marketPrice}}
+                        <i class="marketPrice">￥{{marketPrice}}</i></span>
+                    {{/compare}}
+                </p>
+                <p class="tag_list fl">
+                    {{#each promotions}}
+                    <i class="iconfont icon-{{type}}"></i>
+                    {{/each}}
+                </p>
+            </div>
+            <p class="Fauxiliary f10" style="margin-top: 5px;clear: both;color: #999;">人气 {{hits}} /月销量 {{monthSales}}<span class="pingjia f10 orange fr">好评 <span class="fixed">{{floor positivePercent}}%</span></span></p>
+        </div>
+    </a>
+    <!--<span class="cart fly_cart_start" data-id="{{id}}" id="sheet_choose_norms" ><i class="icon iconfont icon-carto"></i></span>-->
+</div>
+{{/each}}
+<!-- product_list end -->

@@ -1,0 +1,47 @@
+<!-- product_list -->
+{{#each this}}
+<div class="position">
+    <a class="weui-cell" href="../product/view.html?id={{id}}" data-id="{{id}}" >
+        <div class="weui-cell__hd fly_img">
+            {{#compare thumbnail '!=' null}}
+            <img src="../images/placeholder/lazypic.png" data-original="{{crop thumbnail 47 47}}"/>
+            {{/compare}}
+
+            {{#compare thumbnail '==' null}}
+            <img src="../images/placeholder/product.png" />
+            {{/compare}}
+        </div>
+        <div class="weui-cell__bd">
+            <p class="f12 clr_gray01 overtwo product_name">{{name}}</p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p class="clr_lightGray f12 product_praise">好评<span>{{positivePercent}}%</span></p>
+            <div style="clear:both" >
+                <p class="price f16 fl">
+                    <span class="orange">￥{{price}}</span>
+                    {{#compare price '==' marketPrice}}
+                    {{/compare}}
+                    {{#compare price '>' marketPrice}}
+                    {{/compare}}
+                    {{#compare price '<' marketPrice}}
+                   <s class="marketPrice clr_lightGray  f12">￥{{marketPrice}}</s>
+                    {{/compare}}
+                </p>
+                <p class="tag_list fl">
+                    {{#if promotions}}
+                    {{#each promotions}}
+                    <i class="iconfont icon-{{type}}"></i>
+                    {{/each}}
+                    {{else}}
+                    <i class="iconfont icon-mail" style="visibility: hidden;"></i>
+                    {{/if}}
+                </p>
+            </div>
+        </div>
+    </a>
+    <span class="tc cart fly_cart_start" data-id="{{id}}" id="sheet_choose_norms"><span><i class="iconfont icon-gouwuche2 orange f14"></i></span></span>
+</div>
+{{/each}}
+<!-- product_list end -->

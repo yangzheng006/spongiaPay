@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <title>城市搜索</title>
+    @import "../include/header.inc";
+</head>
+<body ontouchstart>
+<div class="weui-toptips weui-toptips_warn js_tooltips">错误提示</div>
+<div class="container" id="container"></div>
+
+<!--分类产品搜索-->
+<link rel="import" href="../../../pages/search/city.html">
+
+@import "../../../model/widget/include/toast.html";
+@import "../../../model/widget/include/dialog.html";
+<script src="/weixin/js/common.min.js"></script>
+<script src="/weixin/js/wap.min.js"></script>
+
+<script type="text/javascript">
+
+    //获取city文件
+    var head = document.getElementsByTagName('head')[0];
+    var cityScript = document.createElement('script');
+    cityScript.type = 'text/javascript';
+    cityScript.src = base+'resources/data/city.js';
+    head.appendChild(cityScript);
+    $(function () {
+        pageManager.show("city");
+        cityScript.onload = function(){
+            initCity();
+            //当前页面搜索框的值
+            $(document).keypress(function(e) {
+                var code = e.keyCode || e.which;
+                if( code == 13) {
+                    var keyword = $("#searchInput").val();
+                    if ( keyword == null || keyword == '') {
+                        toast.show('请先输入您想搜索的内容');
+                        return;
+                    }
+                    var areas = getCityName(keyword);
+                    if(areas.length != 0){
+                        var s='';
+                        for (var j = 0; j < areas.length; j++) {
+                            s += "<li class='fl tc'><a class='clr_darkGray cityA' cityId='" + areas[j].id + "' href='javascript:;'>" + areas[j].name + "</a></li>";
+                        }
+                        $('.areah').html(s);
+                    }
+                    return false;
+                }
+            });
+
+            //点击搜索的值返回到首页
+            $("body").on('click','.cityA',function () {
+                var cityId=$(this).attr("cityId");
+                var lb = new lbs(function (data) {
+                    window.location.href = '../home/index.html';
+                });
+                lb.update({
+                    areaId: $(this).attr("cityId")
+                })
+            });
+
+            //传过来的搜索值
+            var areas = getCityName(pageManager.GetQueryString('keyword'));
+            if(areas.length != 0){
+                var s='';
+                for (var j = 0; j < areas.length; j++) {
+                    s += "<li class='fl tc'><a class='clr_darkGray cityA' cityId='" + areas[j].id + "' href='javascript:;'>" + areas[j].name + "</a></li>";
+                }
+                $('.areah').html(s);
+            }
+        }
+
+    });
+</script>
+</body>
+</html>

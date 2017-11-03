@@ -1,0 +1,135 @@
+@charset "UTF-8";
+//频道页广告位
+.single-ad{
+  background: @white;
+  position: relative;
+  margin: 0px auto 10px;
+  font-size: 0;
+  height: 47.34375vw;
+  //&:before{
+  //  .mixin(top,solid,@border-gray);
+  //}
+  &:after{
+    .mixin(bottom,solid,@border-gray);
+  }
+  img{
+    width: 100%;
+    height: 100%;
+  }
+  .single-ad1,.single-ad2,.single-ad3{
+    position: relative;
+  }
+
+  .single-ad1{
+    height: 47.34375vw;
+  }
+  .col-15{
+    &.row{
+      height: 47.34375vw;
+    }
+  }
+  .single-ad2{
+    height: 18.4375vw;
+  }
+  .single-ad3{
+    height: 28.90625vw;
+  }
+  .single-ad4{
+    height: 28.90625vw;
+  }
+  //.single-ad1:before,.single-ad2:before{
+  //  .mixin(top,solid,@border-gray);
+  //}
+  .single-ad1:after,.single-ad3:after{
+    .mixin(right,solid,@border-gray);
+
+  }
+  .single-ad2:after{
+    .mixin(bottom,solid,@border-gray);
+    z-index: 999;
+  }
+}
+
+//首页广告位中间（大图）
+.act_ad{
+  margin-top: 0;
+  background: transparent;
+  position: relative;
+  z-index: 10;
+  //border-bottom: 5px solid @bodyBg;
+  a{
+    img{
+      //margin-top: 5px;
+      background: @white;
+    }
+    &:first-child{
+      img{
+        margin: 0;
+      }
+    }
+  }
+}
+
+
+//首页广告位
+.row{
+  a{
+    img{
+      width: 100%;
+      height:100%;
+    }
+  }
+}
+.ad_top,.ad_bottom{
+  a{
+    position: relative;
+  }
+}
+.ad_top{
+  border-bottom: 5px solid @bodyBg;
+  a{
+    z-index: 499;
+    display: block;
+    &:nth-child(1),&:nth-child(2){
+      &:after{
+        .mixin(bottom,solid,@border-gray);
+      }
+    }
+    &:nth-child(1),&:nth-child(3),&:nth-child(4){
+      &:before{
+        .mixin(right,solid,@border-gray);
+      }
+    }
+  }
+}
+.ad_bottom{
+  height:62.5vw;
+  border-bottom: 5px solid @bodyBg;
+  .col-8{
+    height: 62.5vw;
+    a{
+      display: block;
+      height: 62.5vw;
+      &:after{
+        .mixin(right,solid,@border-gray);
+      }
+    }
+  }
+  .col-16{
+    height: 62.5vw;
+    a{
+      display: block;
+      height:31.25vw;
+      &:nth-child(1),&:nth-child(2){
+        &:after{
+          .mixin(bottom,solid,@border-gray);
+        }
+      }
+      &:nth-child(1),&:nth-child(3){
+        &:before{
+          .mixin(right,solid,@border-gray);
+        }
+      }
+    }
+  }
+}

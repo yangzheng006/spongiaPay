@@ -1,0 +1,64 @@
+
+//TAB切换样式
+.tabBer {
+  .vux-tab {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    background-color: #fff;
+    height: 44px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 66;
+    box-shadow: 0 0 15px #c9c9c9;
+    .vux-tab-item {
+      display: block;
+      -webkit-box-flex: 1;
+      -ms-flex: 1;
+      flex: 1;
+      width: 100%;
+      height: 100%;
+      box-sizing: border-box;
+      background: -webkit-linear-gradient(top, #e5e5e5, #e5e5e5, hsla(0, 0%, 90%, 0)) 0 100% no-repeat;
+      background: linear-gradient(180deg, #e5e5e5, #e5e5e5, hsla(0, 0%, 90%, 0)) 0 100% no-repeat;
+      background-size: 100% 1px;
+      text-align: center;
+      line-height: 44px;
+      color: @Medium-gray;
+      border: none;
+      .tab_nav {
+        position: relative;
+      }
+    }
+    .vux-tab-ink-bar {
+      position: absolute;
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      display: block;
+      background-color:@baseColor;
+    }
+    .vux-tab-ink-bar-transition-forward {
+      -webkit-transition: right .3s cubic-bezier(.35, 0, .25, 1), left .3s cubic-bezier(.35, 0, .25, 1) .09s;
+      transition: right .3s cubic-bezier(.35, 0, .25, 1), left .3s cubic-bezier(.35, 0, .25, 1) .09s;
+    }
+  }
+
+  .vux-slider {
+    overflow: hidden;
+    .vux-swiper {
+      overflow: hidden;
+      .block {
+        display: block;
+      }
+      .none {
+        display: none;
+      }
+      .tab-swiper {
+
+      }
+    }
+  }
+}

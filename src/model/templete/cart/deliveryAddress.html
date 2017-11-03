@@ -1,0 +1,15 @@
+<div class="title">提货地址<span><i class="icon iconfont icon-remove-02"></i></span></div>
+<div class="weui-cells weui-cells_radio soll" style="margin-top: 0;">
+{{#each this}}
+<label class="weui-cell weui-check__label weui-actionsheet__cell" id="{{id}}">
+    <div class="weui-cell__ft">
+        <input type="radio" class="weui-check" name="radio1" id="x11">
+        <span class="weui-icon-checked"></span>
+    </div>
+    <div class="weui-cell__bd f12">
+        <p>{{name}}</p>
+        <p>{{areaName}}{{address}}</p>
+    </div>
+</label>
+{{/each}}
+</div>

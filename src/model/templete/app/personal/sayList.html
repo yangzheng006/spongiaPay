@@ -1,0 +1,48 @@
+{{#each this}}
+{{#compare type '==' 'product'}}
+<div class="weui-cells bornone" data-id="{{id}}">
+    <div class="weui-cell bornone">
+        <div class="weui-cell__hd head_img">
+            {{#compare headImg '==' null}}
+            <img src="../images/placeholder/lazypic.png" data-original="../images/dmLogo.png">
+            {{/compare}}
+            {{#compare headImg '!=' null}}
+            <img src="../images/placeholder/lazypic.png" data-original="{{crop headImg 11.33 11.33}}">
+            {{/compare}}
+        </div>
+        <div class="weui-cell__bd personal_info">
+            <p class="f15 overone">{{memberName}}</p>
+            <p class="f10 clr_gray12 overone"><span class="time none">{{createDate}}</span><span class="pastHours">{{pastHours}}</span>&nbsp;&nbsp;&nbsp;来自&nbsp;<a href="/weixin/tenant/index.jhtml?id={{tenantId}}" class="clr_blue03">{{tenantName}}</a></p>
+        </div>
+    </div>
+    <div class="weui-cell bornone">
+        <div class="weui-cell__bd f15">
+            <p>{{content}}</p>
+            {{#compare images.length '==' 1}}
+            <div class="img_one weui-uploader__files uploaderFiles">
+                {{#each images}}
+                <img class="weui-uploader__file" src="{{large}}">
+                {{/each}}
+            </div>
+            {{/compare}}
+            {{#compare images.length '>' 1}}
+            <div class="img_more weui-uploader__files uploaderFiles">
+                {{#each images}}
+                <img class="weui-uploader__file" src="{{medium}}">
+                {{/each}}
+            </div>
+            {{/compare}}
+        </div>
+    </div>
+    {{#each products}}
+    <a href="/weixin/product/view.html?id={{productId}}" class="weui-cell bornone link_product">
+        <div class="weui-cell__hd link_img"><img src="../images/placeholder/lazypic.png" data-original="{{crop thumbnail 13.33 13.33}}"></div>
+        <div class="weui-cell__bd link_txt">
+            <p class="f14 overone">{{name}}</p>
+            <p>￥{{price}}</p>
+        </div>
+    </a>
+    {{/each}}
+</div>
+{{/compare}}
+{{/each}}

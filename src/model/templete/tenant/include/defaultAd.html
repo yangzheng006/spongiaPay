@@ -1,0 +1,34 @@
+{{#each this}}
+    {{#compare linkType '==' 'none'}}
+    {{#compare linkId '==' null}}
+        <a href="javascript:;"><img src="{{crop image 100 1}}" alt=""/></a>
+    {{/compare}}
+    {{#compare linkId '!=' null}}
+        <a href="../product/view.html?id={{linkId}}"><img src="{{crop image 100 1}}" alt=""/></a>
+    {{/compare}}
+    {{/compare}}
+    {{#compare linkType '==' 'product'}}
+        {{#compare linkId '==' null}}
+        <a href="javascript:;"><img src="{{image}}" alt=""/></a>
+        {{/compare}}
+        {{#compare linkId '!=' null}}
+        <a href="../product/view.html?id={{linkId}}"><img src="{{crop image 100 1}}" alt=""/></a>
+        {{/compare}}
+    {{/compare}}
+    {{#compare linkType '==' 'news'}}
+        {{#compare linkId '==' null}}
+        <a href="javascript:;"><img src="{{image}}" alt=""/></a>
+        {{/compare}}
+        {{#compare linkId '!=' null}}
+        <a href="../product/view.html?id={{linkId}}"><img src="{{crop image 100 1}}" alt=""/></a>
+        {{/compare}}
+    {{/compare}}
+    {{#compare linkType '==' 'special'}}
+        {{#compare linkId '==' null}}
+        <a href="javascript:;"><img src="{{crop image 100 1}}" alt=""/></a>
+        {{/compare}}
+        {{#compare linkId '!=' null}}
+        <a href="../product/view.html?id={{linkId}}"><img src="{{crop image 100 1}}" alt=""/></a>
+        {{/compare}}
+    {{/compare}}
+{{/each}}

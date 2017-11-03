@@ -1,0 +1,44 @@
+@charset "UTF-8";
+.paySuccessZero{
+  .section1{
+    p{
+      text-align: center;
+      &:first-child{
+        font-size: 60px;
+        .icon-s-selected{
+          color:@light-green;
+
+          font-size:60px;
+        }
+      }
+      &:nth-child(2){
+        color:@Medium-gray;
+      }
+    }
+    h1{
+      text-align: center;
+      color:@light-green;
+    }
+  }
+  .section2{
+    width:200px;
+    padding-top: 20px;
+    margin:0 auto;
+    padding-bottom: 30px;
+    p{
+      font-size: 13px;
+      color:@Medium-gray;
+      overflow:hidden;
+      text-overflow:ellipsis;
+      -o-text-overflow:ellipsis;
+      white-space:nowrap;
+      width:100%;
+      span{
+        color:@dark-gray;
+      }
+    }
+  }
+  .weui-btn{
+    width:300px;
+  }
+}

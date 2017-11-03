@@ -1,0 +1,21 @@
+
+
+address  list.html  我的地址列表模板
+
+coupon list.html    我的优惠券模板
+coupon platformList.html   平台券领取记录模板
+
+favorite guide.html  收藏的导购模板
+favorite tenant.html 收藏的商家模板
+
+message  billMessage.html 账单消息模板
+message  orderMessage.html 订单消息模板
+message  systemMessage.html 系统消息模板
+
+order  evaluate.html   订单评价模板
+order  evaluate.html   订单列表模板
+order  view.html        订单详情模板
+
+purse bankList.html  我的钱包银行卡模板
+
+redPacket list.html  我的红包列表

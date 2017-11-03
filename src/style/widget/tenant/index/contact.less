@@ -1,0 +1,183 @@
+@charset "UTF-8";
+.tenant_contact {
+  .weui-cells {
+    &:nth-child(1){
+      margin-top: 0;
+      &.contact_top {
+        background-color: @bodyBg;
+        width: 100%;
+        padding-top: 2%;
+        position: absolute;
+        left:0;
+        top:0;
+        .weui-cell {
+          .sr_weui-cell;
+          background-color: @white;
+          .weui-cell__hd {
+          width: 52px;
+          height: 52px;
+          line-height: 0;
+          margin-right: 3%;
+        }
+          .weui-cell__bd {
+          .sr_weui-cell__bd;
+          overflow: hidden;
+          line-height: 1;
+          h2 {
+            font-weight: 400;
+          }
+        }
+          .weui-cell__ft{
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -moz-flex;
+            display: flex;
+            -webkit-box-direction: normal;
+            -webkit-box-orient: horizontal;
+            -webkit-flex-direction: row;
+            -moz-flex-direction: row;
+            flex-direction: row;
+            -webkit-align-items: center;
+            -webkit-box-align: center;
+            align-items: center;
+            a{
+              position: relative;
+              display: block;
+              padding-left: 10px;
+              color: @orange;
+              &:before{
+                .mixin(left,solid,#bbb);
+              }
+            }
+          }
+      }
+      }
+
+      a.weui-cell {
+        margin-bottom: 2%;
+        span {
+          padding-left: 2%;
+        }
+      }
+    }
+    &:nth-child(2){
+      margin-top: 0;
+      width: 100%;
+      position: absolute !important;
+      left:0;
+      bottom:0;
+      .hd {
+        padding: 2%;
+        position: relative;
+        span {
+          padding-left: 2%;
+        }
+        &:before {
+          content: " ";
+          position: absolute;
+          left: 0;
+          right: 0;
+          height: 1px;
+          color: #d9d9d9;
+          bottom: 0;
+          border-bottom: 1px solid #d9d9d9;
+          -webkit-transform-origin: 0 100%;
+          transform-origin: 0 100%;
+          -webkit-transform: scaleY(.5);
+          transform: scaleY(.5);
+        }
+      }
+      .item {
+        &.weui-cells {
+          margin-top: 0;
+          position: relative !important;
+          &:after {
+            transform-origin: 0 0;
+          }
+          &:before {
+            border: none;
+          }
+          .weui-cell{
+            position: relative;
+          }
+        }
+        .weui-cell {
+          &:before {
+            border: none;
+          }
+          &:nth-child(1) {
+            .sr_weui-cell;
+            .weui-cell__hd {
+              width: 52px;
+              height: 52px;
+              line-height: 0;
+              margin-right: 10px;
+            }
+            .weui-cell__bd {
+              .sr_weui-cell__bd;
+              overflow: hidden;
+              line-height: 1;
+              h2 {
+                font-weight: 400;
+              }
+              .info {
+                display: flex;
+                span {
+                  flex: 1;
+                }
+              }
+            }
+          }
+          &:nth-child(2) {
+            p.weui-cell__bd {
+              display: flex;
+              a {
+                background-color: @orange;
+                color: @white;
+                display: inline-flex;
+                margin: 0 auto;
+                padding: 5px 10px;
+                line-height: 1;
+                border-radius: 2px;
+                span {
+                  padding-left: 5px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+#wrapper {
+  width: 100%;
+  //height: auto;
+  //position: relative;
+  //z-index: 3;
+  overflow: auto;
+}
+
+#scroller {
+  height: auto;
+  //position: relative;
+  //overflow: hidden;
+
+  .weui-cells{
+    overflow: auto;
+    .weui-cell{
+      &:nth-child(2){
+        padding-left: 62px;
+        margin-left: 2%;
+        p{
+          &.weui-cell__bd{
+            a{
+              margin: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}

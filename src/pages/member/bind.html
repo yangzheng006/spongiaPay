@@ -1,0 +1,67 @@
+<div class="page">
+    <div class="page__bd" style="height: 100%;">
+        <div class="weui-tab" style="background: #f8f8f8;">
+            <!--BEGIN userPhone-->
+            <div class="user_addphone">
+                <p class="f12" style="padding: 5px 15px">请选择您的国家和地区</p>
+                <div class="weui-cells" style="margin-top: 0;">
+                    <div class="weui-cell weui-cell_select weui-cell_select-after">
+                        <div class="weui-cell__hd f14">
+                            <label  class="weui-label">国家/地区</label>
+                        </div>
+                        <div class="weui-cell__bd f14">
+                            <select class="weui-select" name="select2">
+                                <option value="1">中国</option>
+                                <option value="2">美国</option>
+                                <option value="3">英国</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="weui-cell weui-cell_select weui-cell_select-before">
+                        <div class="weui-cell__hd f14">
+                            <select class="weui-select" name="select2">
+                                <option value="1">+86</option>
+                                <option value="2">+80</option>
+                                <option value="3">+84</option>
+                                <option value="4">+87</option>
+                            </select>
+                        </div>
+                        <div class="weui-cell__bd f14">
+                            <input class="weui-input" type="number" pattern="[0-9]*" placeholder="请输入手机号码" id="mobnum"/>
+                        </div>
+                    </div>
+                </div>
+                <div  class="weui-cells">
+                    <div class="weui-cell weui-cell_vcode" style="padding:5px 15px;">
+                        <div class="weui-cell__hd f14">
+                            <label class="weui-label" style="width:60px;">验证码</label>
+                        </div>
+                        <div class="weui-cell__bd f14">
+                            <input class="weui-input" type="tel" placeholder="请输入验证码" id="captcha">
+                        </div>
+                        <div class="weui-cell_ft">
+                            <input type="button" id="getcap" class="weui-btn weui-btn__primary" style="background:#00a0e9;font-size: 12px;" value="发送验证码">
+                        </div>
+                    </div>
+                </div>
+                <div class="weui-cells">
+                    <div class="weui-cell">
+                        <div class="weui-cell__bd f14">
+                            <input class="weui-input" type="tel" placeholder="若有邀请码，请输入邀请码" id="inviteCode">
+                        </div>
+                    </div>
+                </div>
+                <label for="weuiAgree" class="weui-agree">
+                    <input id="weuiAgree" type="checkbox" class="weui-agree__checkbox" checked>
+                    <span class="weui-agree__text">
+                已阅读并同意<a href="javascript:void(0);">《用户注册协议》</a>
+            </span>
+                </label>
+                <div class="btnNext weui-btn-hidden">
+                    <a class="weui-btn btn-default" href="javascript:" id="login">綁 定</a>
+                </div>
+            </div>
+            <!--END userPhone-->
+        </div>
+    </div>
+</div>

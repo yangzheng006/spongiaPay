@@ -1,0 +1,48 @@
+<div class="page">
+    <div class="page__bd" style="height: 100%;overflow: hidden;">
+        <div class="weui-tab">
+            <!--BEGIN openshop_up-->
+            <div class="openshopDown">
+                <div class="background">
+                    <img src="" alt="" id="imgbg">
+                    <div class="upload">
+                        <p><a href="javascript:;" id="openIos"><img src="../images/static/member/shop/openshop_apple.png" alt=""></a></p>
+                        <p><a href="javascript:;" id="openAndroid"><img src="../images/static/member/shop/openshop_androide.png" alt=""></a></p>
+                    </div>
+                </div>
+            </div>
+            <!--END openshop_up-->
+        </div>
+    </div>
+</div>
+<script>
+    $(function () {
+        document.title='立即开店';
+        var host = window.location.host;
+        if(/www.ztbmall.com/gi.test(host)){
+            $('#imgbg').attr('src','../images/static/member/shop/zopenshop_up.png');
+            document.getElementById('openAndroid').onclick=document.getElementById('openIos').onclick = function(e) {
+                var ua = window.navigator.userAgent.toLowerCase();
+                if (ua.match(/MicroMessenger/i) == 'micromessenger') {
+                    dialog.show("点击右上角“···”其他浏览器打开进行下载！");
+                } else {
+                    if (navigator.userAgent.match(/(iPhone|iPod|iPad);?/i)) {
+                        window.setTimeout(function () {
+                            window.location.href = "http://itunes.apple.com/cn/app/id1102277749?mt=8";
+                        }, 1000)
+                    }
+                    if (navigator.userAgent.match(/android/i)) {
+                        window.setTimeout(function () {
+                            window.location.href = "http://oss.rzico.com/update/ztb/ztb-b-release.apk";//android 下载地址
+                        }, 1000)
+                    }
+                }
+            }
+        }else{
+            $('#imgbg').attr('src','../images/static/member/shop/openshop_up.png');
+            document.getElementById('openIos').onclick=document.getElementById('openAndroid').onclick=document.getElementById('openIos').onclick = function(e) {
+                window.location.href = "http://a.app.qq.com/o/simple.jsp?pkgname=com.tiaohuo.assistant";
+            }
+        }
+    });
+</script>

@@ -1,0 +1,1 @@
+<script src="/weixin/part/js/tenantIndex.min.js"></script>

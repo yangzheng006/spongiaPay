@@ -1,0 +1,54 @@
+<div class="page">
+    <div class="page__bd" style="height: 100%;">
+        <div class="weui-tab" style="background: #f8f8f8">
+            <div class="weui-tab__panel">
+                <!--BEGIN user_address_add-->
+                <div class="myaddressadd">
+                    <i class="icon iconfont icon-quxiao1 none" style="position: absolute;right: 1%;top: 1vh;z-index: 1002;font-size: 25px;color: #fff;"></i>
+                    <div class="chooseWidget weui-tab__panel" style="width:100%;background: #FFFFFF;position: fixed;z-index: 1001;display: none;">
+                    </div>
+                    <div class="weui-cells weui-cells_form" style="margin-top:0">
+                        <div class="weui-cell">
+                            <div class="weui-cell__hd f14"><label class="weui-label">收货人</label></div>
+                            <div class="weui-cell__bd f14">
+                                <input class="weui-input" type="text" placeholder="请输入收货姓名" id="consignee"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="weui-cells weui-cells_form">
+                        <div class="weui-cell">
+                            <div class="weui-cell__hd f14"><label class="weui-label">联系方式</label></div>
+                            <div class="weui-cell__bd f14">
+                                <input class="weui-input" maxlength="11" type="number" pattern="[0-9]*" placeholder="请输入11位收货电话号" id="phone"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="weui-cells weui-cells_form">
+                        <div class="weui-cell" id="changeArea" >
+                            <div class="weui-cell__hd f14"><label class="weui-label">所在地区</label></div>
+                            <div class="weui-cell__bd f14">
+                                <span id="myarea"></span>
+                            </div>
+                            <div class="weui-cell__ft">
+                                <i class="icon iconfont icon-right-01"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="weui-cells weui-cells_form">
+                        <div class="weui-cell">
+                            <div class="weui-cell__hd f14"><label class="weui-label">详细地址</label></div>
+                            <div class="weui-cell__bd f14">
+                                <input class="weui-input" type="text" placeholder="请输入详细地址" id="address"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="btnNext weui-btn-hidden" id="saveadd">
+                        <a class="weui-btn btn-default" href="javascript:" id="showTooltips">保存</a>
+                    </div>
+                </div>
+                <div class="weui-mask none" id="iosMask2" ></div>
+                <!--END user_address_add-->
+            </div>
+        </div>
+    </div>
+</div>

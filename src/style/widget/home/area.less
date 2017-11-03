@@ -1,0 +1,53 @@
+@charset "UTF-8";
+.region{
+  .AreaClass_grid{
+    li{
+      border-radius: 3px;
+      border:1px solid @border-gray;
+      width:28.6%;
+      padding:8px 0;
+      margin:2%;
+      list-style: none;
+      background:@white;
+    }
+  }
+  //标题
+  .p10{
+    padding:@10;
+    .region_title{
+      padding:2% 0 0 2%;
+      clear:both;
+    }
+    .AreaClass_grid{
+      padding:0;
+      margin: 0;
+    }
+  }
+  .weui-cell_access{
+    width: 100%;
+    display:block;
+    clear:both;
+  }
+
+  .weui-cells{
+    clear: both;
+    margin: 0;
+    .indexes{
+      background:@border-gray;
+      color:@dark-gray;
+      padding:4px 15px;
+      clear: both;
+    }
+  }
+  .noData{
+    padding: 2%;
+  }
+}
+//选择城市顶部搜索框
+.citySearch{
+  width: 100%;
+  position: fixed;
+  top:0;
+  left:0;
+  z-index: 500;
+}

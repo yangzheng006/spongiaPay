@@ -1,0 +1,82 @@
+{{#if tenants}}
+{{!购物车不为空时加载数据}}
+{{#each tenants}}
+<div class="cart-tenant" data-tenant-id="{{id}}">
+    <label class="weui-cell weui-check__label" for="{{id}}">
+        <div class="weui-cell__hd">
+            <input type="checkbox" class="weui-check parent_check" name="checkbox" data-id="'+i+'" id="{{id}}">
+            <i class="weui-icon-checked"></i>
+        </div>
+        <div class="weui-cell__bd">
+            <p class="f14">{{name}}</p>
+        </div>
+    </label>
+    {{#if mailPromotion}}
+    <div class="border-top Fauxiliary  weui-cell">
+        <div class="weui-cell__hd">
+        </div>
+        <div class="weui-cell__bd">
+            <div><span class="clr_orange_border" style="margin-right: 5px;">满邮</span><span>{{mailPromotion.name}}</span></div>
+        </div>
+    </div>
+    {{/if}}
+    {{#with cartItems}}
+    {{#each this}}
+    <div class="cart-product weui-cell" cart-product-id="{{id}}" product-id="{{productId}}">
+        <label class="weui-check__label" for="{{productId}}">
+            <p class="checkboxs">
+                {{#if selected}}
+                <input type="checkbox" id="{{productId}}" class="weui-check child_check sub'+i+' " name="checkbox" data-id="{{id}}" checked>
+                {{else}}
+                <input type="checkbox" id="{{productId}}" class="weui-check child_check sub'+i+' " name="checkbox" data-id="{{id}}">
+                {{/if}}
+                <i class="weui-icon-checked"></i>
+            </p>
+        </label>
+        <div class="weui-cell__hd" onclick="location.href='../product/view.html?id={{productId}}'">
+            <img src="{{crop thumbnail 23 23}}" alt="">
+        </div>
+        <div class="weui-cell__bd">
+            <p class="Ftitle">{{fullName}}</p>
+            <p class="size clr_mediumGray f11">
+                {{#each specification}}
+                <span>{{title}}:<i class="orange">{{name}}</i></span>
+                {{/each}}
+            </p>
+            <p class="price f14"><span>￥{{price}}<i class="f12">￥{{marketPrice}}</i></span></p>
+
+            {{#if promotions}}
+            <div class="border-top Fauxiliary">
+                {{#each promotions}}
+                <div class="f12"><i class="iconfont icon-{{type}} tenant_i fl"></i>{{name}}</div>
+                {{/each}}
+            </div>
+            {{/if}}
+            <div class="actv">
+                <div class="weui_cell_ft" style="width:80%">
+                    <a class="vux-number-selector vux-number-selector-sub">-</a>
+                    {{#if selected}}
+                    <input class="vux-number-input input-number-int" data-checked="1" data-value={{price}}  type="number"  name="listen" value="{{quantity}}" onkeydown="old(this)" oninput="modifyQuantity(this)"
+                           onpropertychange="modifyQuantity(this)"  style="width: 40px;">
+                    {{else}}
+                    <input class="vux-number-input input-number-int" data-checked="0" data-value={{price}}  type="number"  name="listen" value="{{quantity}}" onkeydown="old(this)" oninput="modifyQuantity(this)"
+                           onpropertychange="modifyQuantity(this)"  style="width: 40px;">
+                    {{/if}}
+                    <a class="vux-number-selector vux-number-selector-plus">+</a>
+                </div>
+                <span class="detal" data-del-product="{{id}}"><i class="icon iconfont icon-delete-01"></i></span>
+            </div>
+        </div>
+    </div>
+    {{/each}}
+    {{/with}}
+</div>
+{{/each}}
+{{else}}
+{{!购物车为空时}}
+<div class="cartEmpty">
+    <i class="icon iconfont icon-carto"></i>
+    <p>购物车快饿瘪了T.T</p>
+    <p style="padding-top: 10px"><a href="javascript:;" class="btn-actvie">去逛逛</a></p>
+</div>
+{{/if}}

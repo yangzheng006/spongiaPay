@@ -1,0 +1,31 @@
+{{#each this}}
+<a class="weui-cell bornone cell_block extension_article" href="shareResults/articleView.html?id={{id}}" data-id="{{id}}" target="_blank">
+    <div class="weui-cell__hd">
+        <img src="../images/placeholder/lazypic.png" data-original="{{crop image 92 52}}" alt="" />
+        <span class="total_num clr_white f10 tc"><i class="iconfont icon-yanjing"></i>{{totalCount}}</span>
+    </div>
+    <div class="weui-cell__bd">
+        <p class="clr_gray01 f16 overone">{{title}}</p>
+    </div>
+</a>
+<a href="shareResults/index.html?id={{id}}" data-id="{{id}}" target="_blank" class="weui-cell weui-cell_access bornone extension_money">
+    <div class="weui-cell__hd clr_lightGray f12">分享好友浏览获</div>
+    <div class="weui-cell__bd clr_lightGray f12">{{singleCost}}元/人</div>
+    {{#compare articleVisitRecordCount '==' 0}}
+    <div class="weui-cell__ft clr_lightGray f12">分享即赚钱</div>
+    {{/compare}}
+    {{#compare articleVisitRecordCount '>' 0}}
+    <div class="weui-cell__ft clr_lightGray f12">
+        {{#each articleVisitRecordSingleModels}}
+        {{#compare headImg '==' null}}
+            <img src="../images/placeholder/user.png" alt="">
+        {{/compare}}
+        {{#compare headImg '!=' null}}
+            <img src="../images/placeholder/lazypic.png" data-original="{{crop headImg 5 5}}" alt="">
+        {{/compare}}
+        {{/each}}
+        <span class="num_read clr_white tc f10">+{{articleVisitRecordCount}}</span>
+    </div>
+    {{/compare}}
+</a>
+{{/each}}

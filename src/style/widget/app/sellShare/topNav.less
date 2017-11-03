@@ -1,0 +1,39 @@
+@charset "UTF-8";
+/*swipe*/
+.sellShare{
+  .find_nav{
+    width: 96%;
+    padding: 0 2%;
+    border-bottom: 1px solid @border-gray;
+  }
+  .find_nav_left{
+    .page22{
+      background: @white;
+      li{
+        &.find_nav_cur{
+          a{
+            color: inherit;
+            border-bottom: none;
+          }
+        }
+        a{
+          padding: 0 10px;
+        }
+      }
+
+      .vux-tab-ink-bar {
+        position: absolute;
+        width: 80px;
+        height: 2px;
+        bottom: 0;
+        left: 0;
+        display: block;
+        background-color:#ffd703;
+      }
+      .vux-tab-ink-bar-transition-forward {
+        -webkit-transition: right .3s cubic-bezier(.35, 0, .25, 1), left .3s cubic-bezier(.35, 0, .25, 1) .09s;
+        transition: right .3s cubic-bezier(.35, 0, .25, 1), left .3s cubic-bezier(.35, 0, .25, 1) .09s;
+      }
+    }
+  }
+}

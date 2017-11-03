@@ -1,0 +1,40 @@
+.search{
+  cursor: pointer;
+  background: @white;
+  padding: 8px 0;
+  .tenant_search{
+    //width: 88vw;
+    width: 76vw;
+    height: 30px;
+    padding: 0 0 0 2.667vw;
+    //border: 1px solid #c7c7c7;
+    border-radius: 15px;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid @icon-gray;
+    margin: 0 auto;
+    position: relative;
+
+    .weui-icon-clear:before, .weui-icon-search:before{
+      color: @white;
+    }
+    span{
+      &.scan_code{
+        cursor: pointer;
+        position: absolute;
+        display: inline-block;
+        top: -2px;
+        right: 1vw;
+        z-index: 99;
+        padding: 5px 10px;
+      }
+    }
+
+    input{
+      width: 78%;
+      height:100%;
+      color: @white;
+      border: none;
+      background: transparent;
+    }
+  }
+}

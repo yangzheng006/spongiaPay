@@ -1,0 +1,38 @@
+<!-- product_list -->
+{{#each this}}
+    <a class="weui-cell productList_ztb" href="../product/view.html?id={{id}}" data-id="{{id}}">
+        <div class="weui-cell__hd fly_img">
+            {{#compare thumbnail '!=' null}}
+            <img src="{{crop thumbnail 28 28}}" />
+            {{/compare}}
+            {{#compare thumbnail '==' null}}
+            <img src="../images/placeholder/product.png" />
+            {{/compare}}
+        </div>
+        <div class="weui-cell__bd">
+            <div class="product_info">
+                <p class="f16 clr_titleWhite overtwo">{{name}}</p>
+                <p class="f12 clr_address m3 overtwo">{{address}}</p>
+                <p class="f14">{{price}}元/{{unit}}</p>
+            </div>
+            <p class="tag_list f12 clr_address">
+                {{#compare keyWord1 '==' null}}
+                {{/compare}}
+                {{#compare keyWord1 '!=' null}}
+                <span>{{keyWord1}}</span>
+                {{/compare}}
+                {{#compare keyWord2 '==' null}}
+                {{/compare}}
+                {{#compare keyWord2 '!=' null}}
+                <span>{{keyWord2}}</span>
+                {{/compare}}
+                {{#compare keyWord3 '==' null}}
+                {{/compare}}
+                {{#compare keyWord3 '!=' null}}
+                <span>{{keyWord3}}</span>
+                {{/compare}}
+            </p>
+        </div>
+    </a>
+{{/each}}
+<!-- product_list end -->

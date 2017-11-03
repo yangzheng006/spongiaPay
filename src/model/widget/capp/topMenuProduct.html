@@ -1,0 +1,84 @@
+<style>
+    .page.js_show,
+    .page {
+        padding-top: 50px;
+    }
+
+    .location {
+        position: absolute!important;
+    }
+
+    .nav_change2 {
+        position: absolute !important;
+    }
+
+    .topNav {
+        position: absolute !important;
+    }
+
+    .dropmenu #navbar {
+        position: absolute!important;
+    }
+
+    .dropmenu .bd {
+        position: absolute!important;
+    }
+
+    #topMenu {
+        position: fixed;
+        z-index: 999;
+        top: 0;
+        left: 0;
+        color: #fff;
+        background: #d2ca87;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: justify;
+        -webkit-justify-content: space-between;
+        justify-content: space-between;
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+        width: 100%;
+        height: 50px;
+        border-bottom: 1px solid #eee;
+        padding: 0 4%;
+        box-sizing: border-box;
+    }
+
+    #topMenu>div {
+        width: 100%;
+    }
+
+    #topMenu .topMenu_return i,
+    #topMenu .topMenu_return span {
+        margin-right: 5px;
+        vertical-align: middle;
+    }
+
+    #topMenu .topMenu_title {
+        text-align: center;
+    }
+</style>
+
+<div id="topMenu" style="visibility:hidden;">
+    <div class="topMenu_return f14" id="topMenu_returnID" onclick="javascript:window.history.back(-1)"><i class="icon iconfont icon-houtui f24"></i></div>
+    <div class="topMenu_title f18 overone"></div>
+    <div class="topMenu_right topMenu_right_product tr" style="cursor: pointer;">分享</div>
+</div>
+<script>
+    document.getElementsByClassName('topMenu_title')[0].innerText = document.title;
+    window.addEventListener('pageGoOk', function () {
+        if ((window.location.href.indexOf('member/index.html') > -1||window.location.href.indexOf('nearby/index.html') > -1) && window.location.hash == '') {
+            document.getElementById('topMenu').style.visibility = 'hidden';
+        } else {
+            document.getElementById('topMenu').style.visibility = 'visible';
+        }
+    })
+//    if(window.history.length<=1){
+//        document.getElementById('topMenu_returnID').style.visibility = 'hidden';
+//        document.getElementById('topMenu_returnID').onclick = {};
+//    }
+
+</script>

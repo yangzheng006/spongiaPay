@@ -1,0 +1,18 @@
+{{#each this}}
+<div class="couponItem clr_coupon_red2" data-id="{{id}}" data-name="{{hasReceived}}">
+    <div class="weui-flex couponItem_up">
+        <div class="weui-flex__item f12 bold coupon_money"><span class="f40">{{amount}}</span>元</div>
+        <div class="weui-flex__item coupon_man">
+            <p class="f11">单笔满{{minimumPrice}}元使用</p>
+            <p class="f22 bold">优惠券</p>
+        </div>
+    </div>
+    {{#compare hasReceived '==' true}}
+    <div class="couponItem_down"><a href="javascript:;" class="f16 lingqu">已领取</a></div>
+    {{/compare}}
+    {{#compare hasReceived '==' false}}
+    <div class="couponItem_down"><a href="javascript:;" class="f16">立即领取</a></div>
+    {{/compare}}
+</div>
+{{/each}}
+

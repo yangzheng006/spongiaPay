@@ -1,0 +1,1 @@
+<script src="/weixin/part/js/payBill.min.js"></script>

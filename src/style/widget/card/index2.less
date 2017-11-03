@@ -1,0 +1,194 @@
+@charset "UTF-8";
+
+.card2 {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+  .weui-tab {
+    background: #f1f1f1;
+  }
+  .cardTop {
+    width: 90vw;
+    height: 54vw;
+    color: @white;
+    margin: 10vw auto 0;
+    position: relative;
+    border-radius: 4vw;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    background-position: center center;
+    background-size: cover;
+    .head {
+      width: 100%;
+      padding: 0;
+      margin-left: 2vw;
+      font-weight: bold;
+    }
+    .weui-cell:before {
+      display: none;
+    }
+    .headImg {
+      width: 8.5vw;
+      height: 8.5vw;
+      img {
+        width: 8.5vw;
+        height: 8.5vw;
+        border-radius: 50%;
+        line-height: 1;
+      }
+    }
+    //.cardDescribe{
+    //  position: absolute;
+    //  bottom:10vw;
+    //  left:5vw;
+    //}
+  }
+  .qrcode {
+    width: 94vw;
+    //height: 60vw;
+    text-align: center;
+    margin: 0 auto;
+    padding-top: 3vw;
+    border-radius: 4vw;
+    background: #fff;
+    overflow-y: scroll;
+    &::-webkit-scrollbar {/*隐藏滚轮*/
+      display: none;
+    }
+    .erwei {
+      display: block;
+      width:40vw;
+      margin: 0 auto;
+    }
+    .code {
+      color: @light-gray;
+    }
+    div:last-child {
+      margin-top: 0vw;
+    }
+  }
+  .goPay {
+    width: 94vw;
+    margin: 0 auto;
+    border-radius: 4vw;
+    line-height: 2;
+    color: @iblue;
+    text-align: center;
+    background: @blue01;
+  }
+  .moveTop {
+    width: 94vw;
+    height:100%;
+    background: #fff;
+    border-radius: 4vw;
+    z-index: 2;
+    position: absolute;
+    left: 3vw;
+    top: 90vh;
+    .bottomShow{
+      padding: 2vw;
+      height:20vw;
+      margin-top: -10vw;
+      div{
+        border-left:5px solid #000;
+        line-height: 1;
+        padding-left: 10px;
+      }
+    }
+    .imgWrap {
+      width: 18vw;
+      height: 15vw;
+      margin: -3vw auto 0 auto;
+      background: #fff;
+      border-radius: 50%;
+      text-align: center;
+      cursor: pointer;
+      i{
+        width: 15vw;
+        height: 15vw;
+        display: inline-block;
+        z-index: 1000;
+        position: relative;
+      }
+      img {
+        display: block;
+        width: 10vw;
+        height: 10vw;
+        padding-top: 2.5vw;
+        margin: 0 auto;
+      }
+    }
+    .menuWrap{
+      a{
+        padding:3% 2%;
+        //&:nth-child(3){
+        //  margin-top: 4%;
+        //}
+        &:first-child{
+          border-top: 1px solid #eee;
+        }
+        &:last-child:after{
+          content: " ";
+          position: absolute;
+          left: 0;
+          bottom: 0;
+          right: 0;
+          height: 1px;
+          border-top: 1px solid #d9d9d9;
+          color: #d9d9d9;
+          -webkit-transform-origin: 0 0;
+          transform-origin: 0 0;
+          -webkit-transform: scaleY(.5);
+          transform: scaleY(.5);
+          z-index: 2;
+        }
+      }
+    }
+  }
+
+  .cardInfo{
+    position: absolute;
+    z-index: 100;
+    width: 95%;
+    top: 30vw;
+    margin: 5vw auto 0;
+    &.weui-cell:before{
+      display: none;
+    }
+    .centerLine{
+      flex: 1;
+      &>div{
+        display: inline-block;
+        position: relative;
+        //padding: 0 30%;
+        //&::after,&::before{
+        //  content:'';
+        //  display: block;
+        //  height:70%;
+        //  position: absolute;
+        //  top:15%;
+        //  right:0;
+        //  width:1px;
+        //  background: @gray03;
+        //}
+        //&::before{
+        //  left:0;
+        //}
+      }
+    }
+    &>div{
+      justify-content:space-between;
+      flex:1;
+      text-align: center;
+      color:#fff;
+      //p:nth-child(2){
+      //  color: @red01;
+      //}
+    }
+  }
+
+  a{
+    cursor: pointer;
+  }
+}

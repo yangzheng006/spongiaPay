@@ -1,0 +1,114 @@
+<div class="page">
+    <div class="weui-mask weui-mask_transparent none" id="iosMask2"></div>
+    <div id="mcover" class="shareModelSwap none">
+        <img src="../images/static/payBill/guide1.png">
+    </div>
+    <!--BEGIN actionSheet-选择规格-->
+    <div id="actionSheet_choose_norms">
+        <div class="weui-mask_transparent actionsheet__mask" style="opacity: 0;display: none;"></div>
+        <div class="weui-actionsheet actionsheet">
+            <div style="background:#fff">
+                <div class="weui-cells bornone shop">
+                    <div class="weui-cell">
+                        <div class="weui-cell__hd shop_logo">
+                            <img id="acn_thumbnail" src=""/>
+                        </div>
+                        <div class="weui-cell__bd">
+                            <h2 class="f14 orange" id="acn_price">￥0</h2>
+                            <p class="f12">库存<span id="acn_stock"></span>件</p>
+                            <p class="f12" id="acn_choose">已选</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="weui-cells address">
+                    <div class="weui-cell norms">
+                    </div>
+                    <div class="weui-cell buyNum">
+                        <div class="weui-cell__bd f14">购买数量：</div>
+                        <div class="weui-cell__ft">
+                            <i class="icon iconfont icon-l-reduce f20 vux-number-selector-sub"></i>
+                            <input class="f16 input-number-int" pattern="[1-100]*" name="listen" value="1" id="acn_quertity">
+                            <i class="icon iconfont icon-l-jia f20  vux-number-selector-plus"></i>
+                        </div>
+                    </div>
+                    <a class="weui-cell btn" href="javascript:;">
+                        <div class="weui-cell__bd f14" id="acn_confirm">确认</div>
+                    </a>
+                </div>
+                <div class="weui-actionsheet__action cancel">
+                    <i class="iconfont icon-remove-02"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--END actionSheet-选择规格-->
+
+    <div class="page__bd" style="height: 100%;">
+        <div class="weui-tab">
+            <!--顶部悬浮弹窗-->
+            <div class="weui-cell share_app clr_white" style="display: none !important;">
+                <div class="weui-cell__hd close_shareApp">
+                    <i class="iconfont icon-remove-02"></i>
+                </div>
+                <div class="weui-cell__bd f10 clr_white">
+                    <div class="weui-cell">
+                        <div class="weui-cell__hd logo"><img src="/app/images/dmLogo.png"></div>
+                        <div class="weui-cell__bd">
+                            <p>点击购买</p>
+                            <p>通过APP购买有惊喜哦~</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="weui-cell__ft f13">
+                    <!--<a href="/rzico/assiant/app/open/" id="openApp">打开APP</a>-->
+                    <a href="javascript:;" id="openApp">打开APP</a>
+                </div>
+            </div>
+            <div class="weui-tab__panel pageable" style="padding-bottom: 50px;">
+                @import "../../../model/widget/product/productDetailsSlider.html";
+
+                <!--<div class="f14 product_keyword">-->
+                    <!--关键词：<span class="clr_lightGray">销售秘诀/产品塑造/成交方法</span>-->
+                <!--</div>-->
+                <!--<div class="f14 lesson">-->
+                    <!--<p class="f12 clr_mediumGray">共17节课</p>-->
+                    <!--<p class="lesson_section"><span class="tc num_circle">1</span><span class="lesson_txt">销售人员问题汇总销售人员问题汇总销售人员问题汇总</span></p>-->
+                    <!--<p class="lesson_section"><span class="tc num_circle">2</span><span class="lesson_txt">销售人员问题汇总销售人员问题汇总销售人员问题汇总</span></p>-->
+                    <!--<p class="lesson_section"><span class="tc num_circle">3</span><span class="lesson_txt">销售人员问题汇总销售人员问题汇总销售人员问题汇总</span></p>-->
+                    <!--<p class="lesson_section"><span class="tc num_circle">4</span><span class="lesson_txt">销售人员问题汇总销售人员问题汇总销售人员问题汇总</span></p>-->
+                <!--</div>-->
+
+                <div class="product_desc weui-cells"></div>
+                <div class="tenant_info weui-cells"></div>
+                <!-- BEGIN specifications -->
+                <div id="sheet_choose_norms" class="specifications weui-cells weui-cells_border none">
+                    <div class="weui-cell weui-cell_access" style="padding:15px 10px">
+                        <div class="weui-cell__bd f12" style="font-weight: bold">选择：规格/属性</div>
+                        <div class="weui-cell__ft"></div>
+                    </div>
+                </div>
+                <!-- END specifications -->
+
+                <div class="product_evaluate weui-cells bornone"></div>
+                <div id="feature_detail"></div>
+                <div class="product_hd weui-cells weui-cells_border" id="rec_tit">
+                    <div class="title f14">
+                        店主推荐
+                    </div>
+                </div>
+                <div class="product-grid product-recommend weui-cells weui-cells_border"></div>
+                <div class="product_hd weui-cells weui-cells_border" id="neighbor_tit">
+                    <div class="title f14">
+                        邻家好货
+                    </div>
+                </div>
+                <div class="product-grid product-neighbor weui-cells weui-cells_border"></div>
+
+
+            </div>
+
+            <!--底部导航-->
+            <div class="foot_menu ft weui-tabbar"></div>
+        </div>
+    </div>
+</div>

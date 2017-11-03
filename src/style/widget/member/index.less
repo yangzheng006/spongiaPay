@@ -1,0 +1,128 @@
+.memberIndex{
+  .memberTop{
+    height: 30vh;
+    background-image: url("../images/static/mine/MBImg.png");
+    background-repeat:no-repeat;
+    background-size:100% 100%;
+    -moz-background-size:100% 100%;
+    .weui-cells{
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: none;
+      margin-top: 0;
+      &:before{border-top:none}
+      &:after{border-bottom: none}
+      .info {
+        padding: 11.5vw 0 0 4.8vw;
+        line-height: 0;
+        .my_purse {
+          .gradual-change(right,#ffc51f,#ff9b18);
+          border-top-left-radius: 35px;
+          border-bottom-left-radius: 35px;
+          border-top-right-radius: 0;
+          border-bottom-right-radius: 0;
+          .weui-cell {
+            height: 30px;
+            padding: 0;
+            padding-left: 15px;
+            padding-top: 1px;
+            .weui-cell__hd {
+              height: 30px;
+              line-height: 30px;
+              i {
+                color: #fff;
+                font-size: 18px;
+              }
+            }
+            .weui-cell__bd {
+              height: 30px;
+              line-height: 30px;
+              color: #fff;
+              padding-left: 8px;
+            }
+            .weui-cell__ft {
+              height: 30px;
+              line-height: 30px;
+              padding-right: 25px;
+              &:after {
+                border-color: #fff;
+                margin-top: -3px;
+                border-width: 1px 1px 0 0;
+                right: 8px;
+              }
+
+            }
+          }
+        }
+      }
+
+      .headImg {
+        margin:0 4% 0 0;
+        position: relative;
+        width: 15vw;
+        height: 15vw;
+        border-radius:50%;
+        overflow: hidden;
+        img{
+          width: 100%;
+          height:100%;
+          border-radius:50%;
+        }
+        .lvs{
+          position: absolute;
+          bottom:-5px;
+          right:-5px;
+          &.icon_vip {
+            width: 40%;
+          }
+        }
+      }
+
+      .weui-cell__bd {
+        .user_name {
+          width: 100%;
+          display: inline-block;
+          clear: both;
+          p{
+            &:first-child{
+              padding-top: 1px;
+              max-width:25vw;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              white-space: nowrap;
+            }
+            float: left;
+            color: @white;
+          }
+        }
+
+      }
+
+    }
+
+  }
+  .navBarGrid{
+    padding: 5% 0 3% 0;
+    border-radius: 10px;
+    margin: 0 2%;
+    margin-top: -10%;
+    background: #fff;
+  }
+  .navBarGrid>.weui-cells>.weui-cell{
+    margin-left: 2%;
+    padding: 3% 2%;
+  }
+
+  .weui_grid_icon{
+    width:28px;
+    height:28px;
+    margin:0 auto;
+  }
+  .weui_grid_icon img {
+    display:block;
+    width:100%;
+    height:100%;
+  }
+}

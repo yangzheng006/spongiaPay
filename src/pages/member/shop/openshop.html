@@ -1,0 +1,32 @@
+<div class="page">
+    <div class="page__bd" style="height: 100%;">
+        <div class="weui-tab">
+            <!--BEGIN openshop-->
+            <div class="openshop">
+                <div class="section1">
+                    <img src="" alt="" id="oimg1">
+                    <img src="" alt="" id="oimg2">
+                    <img src="" alt="" id="oimg3">
+                    <p class="f16"><a href="javascript:pageManager.go('openshopDown');">立即开店</a></p>
+                </div>
+            </div>
+            <!--END openshop-->
+        </div>
+    </div>
+</div>
+<script>
+    $(function(){
+        document.title='我要开店';
+        var host = window.location.host;
+        //域名为直通邦
+        if(/www.ztbmall.com/gi.test(host)){
+            $('.openshop #oimg1').attr('src','../images/static/member/shop/zopenshop1.png');
+            $('.openshop #oimg2').attr('src','../images/static/member/shop/zopenshop2.png');
+            $('.openshop #oimg3').attr('src','../images/static/member/shop/zopenshop3.png');
+        }else{
+            $('.openshop #oimg1').attr('src','../images/static/member/shop/openshop1.png');
+            $('.openshop #oimg2').attr('src','../images/static/member/shop/openshop2.png');
+            $('.openshop #oimg3').attr('src','../images/static/member/shop/openshop3.png');
+        }
+    })
+</script>

@@ -1,0 +1,183 @@
+@charset "UTF-8";
+.edit_guide{
+  .guideimg{
+    position:relative;
+    width:100%;
+    height:45vh;
+    overflow:hidden;
+    img{
+      width:100%;
+      height:100%;
+    }
+    .addjia{
+      position: absolute;
+      color: @pure_red;
+      top: 42%;
+      left: 45%;
+      background: #fff;
+      width: 13vw;
+      height: 13vw;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 12vw;
+      font-size: 10vw;
+    }
+  }
+  .guide_label{
+    padding: 2% 2% 2% 4%;
+    position: relative;
+    background: @white;
+
+    .sex{
+      span{
+        margin-right:15px;
+        i{
+          color:@pure_red;
+          margin-right:5px;
+        }
+      }
+    }
+    .name{
+      padding: 6px 0;
+      input {
+        border: 0;
+        outline: none;
+        margin-left: 10px;
+        width: 60vw;
+        //text-align: center;
+        //font-size: 13px;
+        font-size: 15px;
+        color:@Medium-gray;
+        font-family: "Microsoft YaHei", -apple-system-font, "Helvetica Neue", Helvetica, sans-serif;
+        word-break: keep-all;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+    .info{
+      margin-top: 5px;
+      color:@light-gray;
+      .fans{
+        color:@dark-gray;
+        margin-right: 6px;
+      }
+    }
+    .heart_circle{
+      text-align: center;
+      line-height: 15vw;
+      position: absolute;
+      width: 15vw;
+      height: 15vw;
+      border-radius: 50%;
+      left: 46%;
+      top: 16vw;
+      z-index:1000;
+      background: @pure_red;
+      i{
+        text-align: center;
+        color: white;
+        font-size: 30px;
+      }
+    }
+  }
+  .guide_base{
+    padding:2% 2% 2% 4%;
+    .sign{
+      border: 0;
+      outline: none;
+      border-bottom: 1px solid @light-gray;
+      width: 80vw;
+      text-align: left;
+      color: @Medium-gray;
+      font-size: 16px;
+    }
+    &:before{
+      border-top:0;
+    }
+    background: @white;
+    .weui-cell__hd{
+      padding-right:5px;
+      color: @light-gray;
+      margin-bottom: auto;
+    }
+    .weui-cell__bd{
+      color:@Medium-gray;
+      .guide_lab{
+        span{
+          float: left;
+          border: 1px solid #666;
+          padding: 0 5px;
+          margin-right: 10px;
+          margin-bottom: 4px;
+          border-radius: 5px;
+          line-height: 20px;
+        }
+      }
+      .add{
+        color:@pure_red;
+        padding-right:5px;
+        font-size: 18px;
+      }
+    }
+  }
+
+
+  //裁剪框子样式
+
+    #photo_clip {
+      display: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 99;
+      width: 100%;
+      height: 100%;
+      background-color: #fff;
+
+      #clipArea {
+        height: 300px;
+      }
+      #clipBtn {
+        margin: 10%;
+        width: 80%;
+        padding: 4% 0;
+        font-family: Microsoft YaHei;
+        color: #fff;
+        background-color: #eb3341;
+        border: none;
+        line-height: 1;
+      }
+      #view {
+        display: none;
+        margin: 0 auto;
+        width: 200px;
+        height: 200px;
+        background-color: #666;
+      }
+
+    }
+
+
+
+  //添加个性签名
+  .inputSd{
+    font-family: "Microsoft YaHei", -apple-system-font, "Helvetica Neue", Helvetica, sans-serif ;
+    //font-size: 13px;
+    font-size: 15px;
+    word-break: keep-all;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+
+  .clr-red-border{
+    color: @baseColor;
+    border:1px solid @baseColor;
+    border-radius: 10px;
+    padding: 2px 14px;
+    font-size: 12px;
+  }
+
+}

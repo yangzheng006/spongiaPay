@@ -1,0 +1,30 @@
+@charset "UTF-8";
+.TenantList{
+  margin-bottom: 1.33vw;
+}
+.channelTenantList_HGY{
+  -webkit-box-align: stretch;
+  -webkit-align-items: stretch;
+  align-items: stretch;
+  .weui-cell__hd{
+    .sr_weui-cell();
+    width: 30vw;
+    height:22vw;
+    margin-right: 2vw;
+    img{
+      width: 100%;
+      height:100%;
+    }
+  }
+  .weui-cell__bd{
+    .sr_weui-cell__bd();
+  }
+}
+
+
+.ad_tit{
+  background: @white;
+  &:after{
+    .mixin(bottom,solid,@border-gray);
+  }
+}

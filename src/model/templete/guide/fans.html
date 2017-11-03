@@ -1,0 +1,11 @@
+<!--导购详情粉丝头像-->
+<div class="fansSwap">
+    {{#each this}}
+    {{#compare headImg '!=' null}}
+    <img src="{{crop headImg 10 10}}" alt="" onclick="location.href='view.html?mid={{id}}&who=other&userType=simple'">
+    {{/compare}}
+    {{#compare headImg '==' null}}
+    <img src="../images/placeholder/user.png" alt="" onclick="location.href='view.html?mid={{id}}&who=other&userType=simple'">
+    {{/compare}}
+    {{/each}}
+</div>

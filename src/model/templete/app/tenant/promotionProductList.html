@@ -1,0 +1,88 @@
+{{#each this}}
+<div class="weui-cell bornone">
+    <a class="product" href="../product/index.html?id={{id}}" data-id="{{id}}">
+        <div class="weui-cell__hd fly_img">
+            {{#compare images.length '==' 0}}
+            <img src="../images/placeholder/lazypic.png" data-original="../images/placeholder/product.png"/>
+            {{/compare}}
+            {{#compare images.length '==' 1}}
+            {{#each images}}
+            <img src="../images/placeholder/lazypic.png" data-original="{{large}}"/>
+            {{/each}}
+            {{/compare}}
+            {{#compare images.length '==' 2}}
+            <div class="img_two">
+                {{#each images}}
+                <img src="../images/placeholder/lazypic.png" data-original="{{medium}}"/>
+                {{/each}}
+            </div>
+            {{/compare}}
+            {{#compare images.length '==' 3}}
+            <div class="img_three clearfix">
+                {{#each images}}
+                {{#compare @index '==' 0}}
+                <img class="fl" src="../images/placeholder/lazypic.png" data-original="{{large}}" />
+                {{/compare}}
+                {{#compare @index '==' 1}}
+                <img class="fr" src="../images/placeholder/lazypic.png" data-original="{{thumbnail}}"/>
+                {{/compare}}
+                {{#compare @index '==' 2}}
+                <img class="fr" src="../images/placeholder/lazypic.png" data-original="{{thumbnail}}"/>
+                {{/compare}}
+                {{/each}}
+            </div>
+            {{/compare}}
+            {{#compare images.length '>' 3}}
+
+            {{#if_even @index}}
+            {{#each images}}
+            {{#compare @index '==' 1}}
+            <img src="../images/placeholder/lazypic.png" data-original="{{large}}"/>
+            {{/compare}}
+            {{#compare @index '>' 1}}
+            {{/compare}}
+            {{/each}}
+            {{else}}
+            <div class="img_three clearfix">
+                {{#each images}}
+                {{#compare @index '==' 0}}
+                <img class="fl" src="../images/placeholder/lazypic.png" data-original="{{large}}" />
+                {{/compare}}
+                {{#compare @index '==' 1}}
+                <img class="fr" src="../images/placeholder/lazypic.png" data-original="{{thumbnail}}"/>
+                {{/compare}}
+                {{#compare @index '==' 2}}
+                <img class="fr" src="../images/placeholder/lazypic.png" data-original="{{thumbnail}}"/>
+                {{/compare}}
+                {{#compare @index '>' 3}}
+                {{/compare}}
+                {{/each}}
+            </div>
+            {{/if_even}}
+
+            {{/compare}}
+            <div class="product_name none">
+                <p class="clr_white f18">{{name}}</p>
+            </div>
+        </div>
+        <div class="weui-cell__bd">
+            <p class="clr_titleWhite f15 overtwo product_describe none">
+                {{#each descriptions}}
+                    {{this}}
+                {{/each}}
+            </p>
+            <p class="clr_titleWhite f15 overtwo productNew_name none">{{name}}</p>
+            <p class="clr_lightGray f11 product_renqi1 none">人气{{hits}}/销量{{monthSales}}</p>
+            <p class="clr_lightGray f12 product_price"><span class="orange f18">¥{{price}}</span>
+                {{#compare price '==' marketPrice}}
+                {{/compare}}
+                {{#compare price '!=' marketPrice}}
+                <s>¥{{marketPrice}}</s>
+                {{/compare}}
+            </p>
+            <p class="clr_lightGray f11 product_renqi2 none">人气{{hits}}/销量{{monthSales}}</p>
+        </div>
+    </a>
+    <!--<span class="tc cart fly_cart_start" data-id="{{id}}" id="sheet_choose_norms" ><span><i class="iconfont icon-gouwuche2 orange f14"></i></span></span>-->
+</div>
+{{/each}}

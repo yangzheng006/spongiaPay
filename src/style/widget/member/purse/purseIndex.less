@@ -1,0 +1,64 @@
+@charset "UTF-8";
+.user_purse{
+  .purse_amount{
+    //background: #ff5959;
+    background: #282828;
+    text-align: center;
+    p{
+      &:first-child{
+        color:#ffd2be;
+        padding-top: 12vw;
+      }
+      &:nth-child(2){
+        color:@white;
+        padding: 8vw 0;
+      }
+    }
+  }
+  .purse_info{
+    //background:#f64f4f;
+    background: #353432;
+    text-align: center;
+    .weui-flex__item{
+      //padding: 3vw 0;
+      padding: 0;
+      p{
+        line-height: 1;
+        padding: 8% 0;
+        &:first-child{
+          //color:#ffd2be;
+          padding-bottom: 0;
+          color: #999;
+        }
+        &:nth-child(2){
+          padding-top: 5%;
+          color:@white;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+  .purse_cash{
+    text-align: center;
+    color: @dark-gray;
+    background: @white;
+    padding: 4vw 0;
+    font-weight: bold;
+  }
+  .section4{
+    .weui-cells{
+      .weui-cell{
+        padding: 4% 2%;
+      }
+      line-height: 1;
+      .weui__cell_hd{ margin:5px 0 0 5px}
+      i{
+        font-size: 6vw;
+      }
+      p{
+        color:@Medium-gray;
+        padding:2px 0 0 10px;
+      }
+    }
+  }
+}

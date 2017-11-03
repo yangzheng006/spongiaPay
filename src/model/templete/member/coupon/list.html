@@ -1,0 +1,31 @@
+<!--coupon-->
+<div class="couponList">
+    {{#each this}}
+    {{#compare type '==' 'multipleCoupon'}}
+    <div class="cou row">
+        <a href="../member/coupon.html?id={{id}}#platformTicket">
+            <div class="col-8">
+                <img src="../images/static/member/coupon/coupon.png" alt=""><span class="denomination f16">￥{{amount}}</span><span class="price f14">无门槛使用</span>
+            </div>
+            <div class="col-15">
+                <p class="f12">现金券</p>
+            </div>
+        </a>
+    </div>
+    {{/compare}}
+    {{/each}}
+    {{#each this}}
+    {{#compare type '==' 'tenantCoupon'}}
+    <div class="row">
+        <div class="col-8">
+            {{#if used}}<img src="../images/static/member/coupon/yhqbg-2.png" alt=""><span class="denomination f16">￥{{amount}}</span><span class="price f14">满{{minimumPrice}}可用</span><img src="../images/static/member/coupon/ysy.png" alt="">{{else}}<img src="../images/static/member/coupon/yhqbg.png" alt=""><span class="denomination f16">￥{{amount}}</span><span class="price f14">满{{minimumPrice}}可用</span>{{/if}}
+        </div>
+        <div class="col-15">
+            <p class="clr_darkGray f12">{{tenantName}}</p>
+            <p class="clr_lightGray f10">有限期至:{{endDate}}</p>
+        </div>
+    </div>
+    {{/compare}}
+    {{/each}}
+</div>
+<!--coupon end-->

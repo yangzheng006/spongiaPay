@@ -1,0 +1,22 @@
+<!--BEGIN channels-nav-->
+<!--众卖分享顶部导航-->
+<div class="find_nav_left">
+    <div class="find_nav_list">
+        <ul id="pagenavi1" class="page22 f14">
+            {{#compare recommend '!=' null}}
+            <li data-id="commend"><a href="javascript:;">{{recommend}}</a></li>
+            {{/compare}}
+            {{#each list}}
+            <li data-id="{{id}}"><a href="javascript:;">{{name}}</a></li>
+            {{/each}}
+            {{#compare other '==' "其它"}}
+            <li data-id="other"><a href="javascript:;">{{other}}</a></li>
+            {{/compare}}
+            {{#compare other '==' "全部"}}
+            <li data-id="all"><a href="javascript:;">{{other}}</a></li>
+            {{/compare}}
+            <div class="vux-tab-ink-bar vux-tab-ink-bar-transition-forward" id="bor" style=" left: 2vw;"></div>
+        </ul>
+    </div>
+</div>
+<!--END channels-nav-->

@@ -1,0 +1,71 @@
+<div class="page" >
+    <div class="page__bd" style="height: 100%;overflow: hidden">
+        <div class="weui-tab" >
+            <!--BEGIN certification-->
+            <div class="certification" >
+                <div class="weui-cells weui-cells_form">
+                    <div class="weui-cell input">
+                        <div class="weui-cell__hd f14"><label class="weui-label">姓名</label></div>
+                        <div class="weui-cell__bd weui-cell_primary f14">
+                            <input class="weui-input" type="text" placeholder="真实姓名" id="name">
+                        </div>
+                    </div>
+                    <div class="weui-cell input">
+                        <div class="weui-cell__hd f14"><label class="weui-label">身份证</label></div>
+                        <div class="weui-cell__bd weui-cell_primary f14">
+                            <input class="weui-input" type="number" placeholder="请输入15或18位身份证号码" id="idcard">
+                        </div>
+                    </div>
+                </div>
+                <p class="f12 title" style="padding-top: 8vw">点击图片上传身份证正面照</p>
+                <div class="weui-cells">
+                    <div class="weui-cell weui-cell_warn">
+                        <div class="weui-cell">
+                            <div class="weui-cell__hd">
+                                <div class="item-charter-wrap">
+                                    <div class="form-item">
+                                        <img src="../images/static/member/cardFont.png" id="uploadimg1" style="display: block; width: 112px; height: 80px;">
+                                        <form id="idform1" enctype ="multipart/form-data">
+                                            <input type="file" class="upload_img" name="file" id="idcard1" style="padding:8vw 0;position: absolute;top:3vw;opacity:0">
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="weui-cell__bd f12">
+                                <p>1.要求全部信息无遮挡</p>
+                                <p>2.证件上文字清晰可识别</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p class="f12 title">点击图片上传身份证反面照</p>
+                <div class="weui-cells">
+                    <div class="weui-cell weui-cell_warn">
+                        <div class="weui-cell">
+                            <div class="weui-cell__hd">
+                                <div class="item-charter-wrap">
+                                    <div class="form-item">
+                                        <img src="../images/static/member/cardBack.png" id="uploadimg2" style="display: block; width: 112px; height: 80px;">
+                                        <form id="idform2" enctype ="multipart/form-data">
+                                            <input type="file" class="upload_img" name="file" id="idcard2" style="padding:8vw 0;position: absolute;top:3vw;opacity:0">
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="weui-cell__bd f12">
+                                <p>1.要求全部信息无遮挡</p>
+                                <p>2.证件上文字清晰可识别</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="weui-btn-hidden btnNext">
+                <a class="weui-btn btn-default" href="javascript:"  id="sendcerti">提交</a>
+            </div>
+
+            <!--END certification-->
+        </div>
+    </div>
+</div>

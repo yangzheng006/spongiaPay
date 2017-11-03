@@ -1,0 +1,421 @@
+@charset "UTF-8";
+/*通用部分*/
+em {font-style: normal;}
+.clr_mauve{color: #896db8;}
+.clr_red{color: #ff0000;}
+
+/*活动导航*/
+#act_nav {
+  background: #ce0000;
+  position: relative;
+  padding-left: 4%;
+  padding-right: 4%;
+  height: 54px;
+  overflow: hidden;
+  z-index: 999;
+  width: 92%;
+  &.on {
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+  ul {
+    white-space: nowrap;
+    overflow: auto;
+    li {
+      display: inline-block;
+      padding: 0 4.5%;
+      &.active {
+        background-color: @baseColor;
+      }
+      a {
+        display: block;
+        width: 100%;
+        height: 54px;
+        line-height: 54px;
+      }
+    }
+  }
+}
+/*联盟活动样式*/
+.union_act_nav {
+  display: flex;
+  top: 0;
+  z-index: 999;
+  width: 100%;
+  background-color: #fff;
+  a {
+    display:flex;
+    flex: 1;
+    text-align: center;
+    padding: 2% 0;
+    color: #333;
+
+    &:first-child{
+      span {
+        border-right: 2px solid #ccc;
+      }
+    }
+
+    span {
+      flex: 1;
+      text-align: center;
+      line-height: 1.4;
+    }
+    &.active {
+      color: #ff6d06;
+    }
+  }
+}
+
+.union_act_bd{
+  &.weui_cells{
+    margin-top: 0;
+    &:before {border: none;}
+
+    .title {
+      background-color:#f0f0f0;
+      padding: 2% 0;
+    }
+
+    .weui_cell {
+      padding: 2%;
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -moz-flex;
+      display: flex;
+      -webkit-box-direction: normal;
+      -webkit-box-orient: horizontal;
+      -webkit-flex-direction: row;
+      -moz-flex-direction: row;
+      flex-direction: row;
+      -webkit-box-align: stretch;
+      -webkit-align-items: stretch;
+      -moz-align-items: stretch;
+      align-items: stretch;
+
+      &:before {left: 0;}
+      &:nth-child(2):before{border: none;}
+      .weui_cell_hd {width: 31.875vw;height: auto;}
+      .weui_cell_bd {
+        overflow: hidden;
+        padding-left:2%;
+       .sr_weui-cell__bd;
+        h2 {
+          font-weight: 400;
+        }
+        .price {
+          color:#eb3341;
+
+          .label {
+            background-color: #ffd2d2;
+            margin-left:5px;
+            padding: 1px 8px;
+            border-radius: 10px;
+            color: #fff;
+            top: -2px;
+          }
+        }
+      }
+
+      .weui_cell_ft {
+        position: absolute;
+        right: 2%;
+        bottom: 5%;
+        line-height: 1;
+        background-color: #ff0000;
+        padding: 2% 4%;
+        border-radius: 5px;
+      }
+    }
+  }
+}
+/*返回顶部-通用*/
+.act_goTop_ft {
+  display: block;
+  background-color: #f0f0f0;
+  padding: 15vw 0px;
+  text-align: center;
+  line-height: 1;
+
+  &:before {
+    content: "";
+    width: 60%;
+    color: #d9d9d9;
+    height: 2px;
+    top: 50%;
+    left: 20%;
+    right: 20%;
+    z-index: 2;
+    background-color: #999;
+  }
+
+  span{
+    line-height: 1;
+    display: inline-block;
+    background-color: #f0f0f0;
+    z-index: 3;
+    padding: 0 2%;
+    color: #666;
+    &.xian{
+      padding: 0;
+      width: 32vw;
+      height:1px;
+      background: #666;
+      margin-bottom: .3em;
+    }
+  }
+}
+
+.act_goTop {
+  z-index: 9999;
+  position: fixed;
+  bottom: 10px;
+  right: 5px;
+  display: none;
+  width: 12%;
+  overflow: hidden;
+}
+/*年货价活动样式*/
+#act_banner {
+  line-height: 0;
+}
+
+.newYear_act_nav {
+  display: flex;
+  top: 0;
+  z-index: 999;
+  width: 100%;
+  background-color: #fff;
+
+  a {
+    display:flex;
+    flex: 1;
+    text-align: center;
+    padding: 2% 0;
+    color: #333;
+
+    &:first-child{
+      span {
+        border-right: 2px solid #ccc;
+      }
+    }
+
+    span {
+      flex: 1;
+      text-align: center;
+      line-height: 1.4;
+    }
+    &.active {color: #ff6d06;}
+  }
+
+}
+
+
+.newYear_act_bd{
+  &.weui_cells{
+    margin-top: 2%;
+
+    &:before {border: none;}
+    .title {text-align: left;background-color: #fff;padding: 2% 0;line-height: 1;
+
+      span {display: block;padding-left: 10px;border-left: 5px solid #ff0000;}
+    }
+    .weui_cell {
+      color:#333;
+      padding: 2%;
+      .sr_weui-cell;
+
+      &:before {
+        left: 0;
+      }
+      &:nth-child(2):before{
+        border: none;
+      }
+      .weui_cell_hd {
+        //width: 40%;
+        //height: auto;
+        width: 38.3vw;
+        height:38.3vw;
+        line-height: 0;
+      }
+      .weui_cell_bd {
+        width: 59.7vw;
+        overflow: hidden;
+        padding-left:2%;
+        .sr_weui-cell__bd;
+
+        h2 {
+          font-weight: 400;
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+        }
+        .info {
+          color:#666;
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+        }
+
+        .priceT {
+          display: flex;
+
+          span {
+            flex: 1;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            text-align: right;
+          }
+        }
+
+        .price {
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+
+          .label {
+            background-color: #ffd2d2;
+            margin-left:5px;
+            padding: 1px 8px;
+            border-radius: 10px;
+            color: #fff;
+            top: -2px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.like {
+  color:#999;
+  display: flex;
+
+  p {
+    flex: 1;
+    line-height: 1;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    &:nth-child(1){
+      background-color: #ffb7b7;
+      border-radius: 15px;
+      flex: 2;
+
+      span{
+        background-color: #ff5d62;
+        color:#fff;
+        border-radius: 15px;
+        padding: 2px 10%;
+        display:inline-block;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+
+    }
+    &:nth-child(2){
+      padding-left: 5px;
+      padding-bottom: 0;
+      padding-top: 2px;
+    }
+  }
+}
+
+
+.newYear_act_bd{
+  &.weui_cells{
+    .item{
+      background-color: #fff;
+      &:before{
+        content: " ";
+        color: #ddd;
+        border-top: 1px solid #ddd;
+        left: 0;top: 0;
+        width: 100%;
+        height: 1px;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        -webkit-transform-style: preserve-3d;
+        transform-style: preserve-3d;
+        -webkit-transform: scaleY(0.5);
+        transform: scaleY(0.5);
+        -webkit-transform-origin: 0 0;
+        transform-origin: 0 0;
+      }
+      .weui_cell_ft {
+        right: 2%;
+        bottom: 5%;
+        line-height: 1;
+        background-color: #ff0000;
+        color: #fff;
+        padding: 3.5% 9%;
+        border-radius: 5px;
+      }
+    }
+  }
+}
+
+#newYear_act_pic {
+  background: #fff;
+  padding: 2%;
+  ul{
+    white-space: nowrap;
+    overflow: auto;
+    li{
+      width: 32.33%;
+      overflow: hidden;
+      display: inline-block;
+      a{
+        display: block;
+        color: #333;
+        .img{
+          line-height: 0;
+          width: 31vw;
+          height:31vw;
+        }
+        p{
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          padding-top: 2px;
+        }
+        .price {
+          display: flex;
+
+          span {
+            flex: 1;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+
+            &:nth-child(2) {
+              background-color: #ff0000;
+              color: #fff;
+              text-align: center;
+              padding: 1px;
+              text-decoration: line-through;
+              border-radius: 15px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+#tenant_title {
+  margin-top: 2%;
+  .title {
+    text-align: left;
+    background-color: #fff;
+    padding: 2% 0;
+    line-height: 1;
+    span {
+      display: block;
+      padding-left: 10px;
+      border-left: 5px solid #ff0000;
+    }
+  }
+}

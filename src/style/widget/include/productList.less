@@ -1,0 +1,48 @@
+@charset "UTF-8";
+.product-list{
+    .position {
+      position: relative;
+
+      a {
+        position: relative;
+        padding:2%;
+        width: 96%;
+        display: flex;
+        .sr_weui-cell;
+        .weui-cell__hd {
+          width: 28vw;
+          height: 28vw;
+          border-radius: 1.6vw;
+          margin-right:2%;
+          img{
+            border-radius: 1.6vw;
+          }
+        }
+        .weui-cell__bd{
+          flex:1;
+          position: relative;
+          .sr_weui-cell__bd;
+          .price{
+            max-width: 60%;
+            margin-right: 5px;
+            span:first-child {
+              color:@orange;
+              float: @left;
+              i{
+                text-decoration: line-through;
+                line-height: 1;
+                font-style: normal;
+                color:@light-gray;
+              }
+            }
+          }
+        }
+      }
+      .marketPrice{
+        text-decoration:line-through;
+        color:@light-gray;
+      }
+    }
+  }
+
+

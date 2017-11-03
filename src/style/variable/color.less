@@ -1,0 +1,135 @@
+//color
+//橙色APP主色系
+
+@orange:@baseColor;
+
+//@baseColor:#ff6d06;   //挑货网橙色系列
+//@baseColor:#fe5858;   //直通邦红色系列
+@baseColor:#3782d9;     //好过云黄色系列
+
+//用于突出的红色如提交按钮或价格等
+@red:#e4393c;
+//导购详情及编辑导购页面红色
+@pure_red:#ff5959;
+.clr_red2{
+  color: #ff5c5c;
+}
+@white:#fff;//白色
+
+@ztb_red:#fe5858;
+
+@coupon_red:#e30e24;
+
+@coupon_red2:#eb2d4c;
+
+@red_app:#ff0039;
+@orange_app:#ff8200;
+@yellow_app:#ffd703;
+@red02:#fe7773;
+
+//灰色系
+@dark-gray:#161616;//用于重要文字信息
+@Medium-gray:#666;//用于辅助文字普通段落和引导文字信息
+@light-gray:#999;//用于次要文字信息
+@border-gray:#eee;//分割边框线
+@block-gray:#f2f2f2;//分割模块颜色
+@down-gray:#444444;//分割模块颜色
+@icon-gray:#ccc;
+@title-white:#111111;
+@address:#565656;
+@lighter_gray:#f9f9f9;
+@block:#000;
+@gray01:#333;
+@gray02:#9d9d9d;
+@gray03:#b4b4b4;
+@gray04:#858585;
+@gray05:#b1b1b1;
+@gray06:#a8a8a8;
+@gray07:#a3a3a3;
+@gray08:#bebebe;
+@gray09:#d9d9d9;
+@gray10:#282828;
+@gray11:#f4f4f4;
+@gray12:#9a9a9a;
+@blue01:#70c0da;
+@blue02:#5f94fd;
+@blue03:#507daf;
+
+@red01:#fd5757;
+@brown:#d3a25d;
+@purple:#790c5f;
+
+@red03:#ff5c45;
+@orange02:#f39826;
+@blue03:#1e8fe1;
+@green:#46b7a0;
+
+//ico色系
+@blue:#00a1e9;//蓝色
+//@orange:#ff6d06;//橙色
+@roseRed:#ff3269;//玫红
+@violet:#c183e2;//紫色
+@icoRed:#ff6670;//图标红色
+@yellow:#fcd04c;//黄色
+@green:#06c1ae;//绿色
+@light-yellow:#feae31;
+@light-green:#1aad19;//微信绿
+@thin-green:#09bb07;//淡绿
+@dark-yellow:#e2b87c;//土黄
+
+
+//背景颜色
+@bodyBg:#EFEFF4;
+
+@ired:#ff5c5c;
+@iyellow:#dfb65e;
+@iblue:#5f94fd;
+@igreen:#99cc33;
+@f5gray:#f5f5f5;
+@grays:#909090;
+
+
+
+
+//点击状态和未点击状态色系
+@actvie:@dark-gray;
+@click:@orange;
+
+//界面规范尺寸
+@topNav:44px;//顶部导航栏高度
+@LRmargint:14px;//列表左右的间距
+
+
+//浮动和对齐
+@left:left;
+@right:right;
+@center:center;
+
+//间距
+@5:5px;
+@10:10px;
+@15:15px;
+
+.colortorgb(@color){
+  @red:red(@color);
+  @green:green(@color);
+  @blue:blue(@color);
+  background: linear-gradient(rgba(@red, @green, @blue, 1), rgba(@red, @green, @blue, 0.7)); /* 标准的语法 */
+}
+
+//解决DIV无法撑开的问题
+.kong{clear:both;height:0;font-size: 1px;line-height: 0px; border:0;padding:0;margin: 0;}
+
+
+//改变WEIUI的一些组件的色值
+//搜索取消色值
+.weui-search-bar__cancel-btn{ color:#a3a3a3;}
+//购物车选择checkbox的色值
+.weui-cells_checkbox .weui-check:checked+.weui-icon-checked:before{ color:@orange;}
+.weui-cells_checkbox .weui-icon-checked:before{ font-size:18px}
+
+.weui-navbar__item{padding:10px 0;}
+.weui-dialog__btn_primary{ color: @orange; font-weight: bold;}
+
+
+

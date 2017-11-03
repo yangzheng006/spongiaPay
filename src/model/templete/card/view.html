@@ -1,0 +1,48 @@
+
+<div class="weui-cell f14 cardInfo">
+    <div class="goPoint" style="cursor: pointer;visibility: hidden">
+        <p class="f12">积分</p>
+        <p class="">{{point}}</p>
+    </div>
+    <div style="position: absolute;right: 9vw;bottom: 9vw;">
+        <p class="f12 clr_white tr">等级</p>
+        <p class="f16 clr_white tr">{{grade}}</p>
+    </div>
+    <div class="centerLine" style="position: absolute;right: 9vw;bottom: -7vw;">
+        <div class="goBalance tr" style="cursor: pointer">
+            <p class="f12 clr_white">余额</p>
+            <p class="f20 clr_white"><span>￥</span><span class="viewBalance">{{balance}}</span></p>
+        </div>
+    </div>
+</div>
+
+{{#if background}}
+<div class="cardTop weui-cell" style="background-image:url('{{background}}');">
+    {{else}}
+    <div class="cardTop weui-cell" style="background-image:url('/weixin/images/static/card/bgTou.png');">
+        {{/if}}
+        <div class="weui-cell head" style="margin-top: 8vw;">
+            <div class="headImg">
+                <img src="{{crop logo 8 8}}" alt="">
+            </div>
+            <div class="weui-cell">
+                <p class="f14 overone" style="width: 60vw;">{{title}}会员卡</p>
+            </div>
+        </div>
+
+        <div class="weui-cell head" style="position: absolute;bottom:0 ;left:4vw;width: 90vw;">
+            <div class="weui-cell">
+                <p class="f14 overone" style="width: 60vw;font-weight: normal;">{{no}}</p>
+            </div>
+        </div>
+        <!--<div class="cardDescribe f12">-->
+        <!--支付 · 折扣 · 权益-->
+        <!--</div>-->
+    </div>
+
+    <div class="qrcode" style="height: calc(100vh - 90vw);">
+        <img src="" alt="" class="erwei">
+        <img src ="" alt=''  class="yiwei" style="width: 80vw;display: block;margin: 0 auto;"/>
+        <div class="f12 code none" >{{url}}</div>
+        <div class="f16">使用时，出示此码</div>
+    </div>

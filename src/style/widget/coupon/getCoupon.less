@@ -1,0 +1,133 @@
+.Bshare{
+  .share-user{
+    padding:5% 10% 10% 10%;
+    height: 50px;
+    background: #f8f8f8;
+    .po{
+      width:30%;float: left;
+      img{ width:15vw;height:15vw;border-radius: 50%}
+    }
+    div{ width: 65%;float: right;
+      p{width: 100%; text-align: right;
+        i{ color: @blue; margin: 0 2px}
+      }
+    }
+    .tr{text-align: right}
+  }
+
+  .share-userd{
+    background: @orange;
+    padding: 5vw 4%;
+    display: block;
+    .s1{
+        width: 100%;
+       border-bottom: 1px solid rgba(256,256,256,0.2);
+      .po{
+        text-align: center;
+        img{ width:15vw;height:15vw;border-radius: 50%}
+      }
+      div{
+        p{width: 100%; color: @white;text-align: center;
+        }
+      }
+    }
+    .money{ width: 100%; color:@white; clear: both; text-align: center; margin-top:4vw }
+    .data{ width: 100%; clear: both; color: @white;text-align: center;  }
+    #adresss{padding-bottom:5px}
+  }
+
+
+  .weui-cells {
+    a {
+      padding: 4% 2%
+    }
+  }
+
+  .share{
+    position: relative;
+    padding: 5vw 0 0 0;
+    background: #f8f8f8;
+
+    .user{
+      position: absolute;
+      top: -3%;
+      right: 5%;
+      z-index: 1000;
+      width: 18vw;}
+    .text{
+      position:absolute;
+      top:0;
+      left: 0;
+      z-index:50;
+      width: 100%;
+      .f30{ font-weight:bold;}
+      .bs{ margin-top: 25vw;}
+      p{ text-align: center; color:#f75600;
+        &.btn{ background: #ffed54; border-radius: 5px;padding:10px 0; width: 60%; margin: 10px 20%;
+          a{color:#f75600;}
+        }
+      }
+    }
+      img{
+        .img;
+        z-index: 1;
+        position: relative;
+      }
+  }
+
+  .guize{
+    padding: 4vw 8vw;
+    background: @white;
+  }
+
+  #over {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,.7);
+    display: none;
+    z-index: 1500;
+    img{
+      position: fixed;
+      right: 18px;
+      top: 5px;
+      width: 260px;
+      height: 180px;
+      z-index: 1600;
+    }
+  }
+}
+
+@media (max-width:414px) {
+  .Bshare{
+    .share{
+      .text{
+        margin-top: 25%;
+        .bs{
+          margin-top: 28vw;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width:360px) {
+  .Bshare{
+    .share{
+      .text{
+        margin-top: 26%;
+        .bs{
+          margin-top: 24vw;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width:320px) {
+  .Bshare .share .text .bs{ margin-top: 18vw;}
+}
+
+.Bshare-detail{
+  .weui-cell__hd{ margin-right: 10px}
+}

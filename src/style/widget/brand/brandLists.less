@@ -1,0 +1,45 @@
+@charset "UTF-8";
+.page__bd{
+  overflow-y: scroll;
+}
+.brandList {
+  .channel_tit{
+    color: @light-gray;
+    background: @white;
+  }
+  #imgList{
+    background: @white;
+    border-bottom:1px solid @bodyBg;
+  }
+  .brandLists {
+    .product-list a .weui-cell__bd .Ftext{
+      display: block;
+    }
+    ul {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    li {
+      width: 31vw;
+      background: @white;
+      padding: 1vw;
+      border-right:1px solid @bodyBg;
+      border-bottom:1px solid @bodyBg;
+      &:nth-child(3n){
+        border-right:none;
+      }
+      img {
+        width:100%;
+        display: block;
+        height: 14vw;
+      }
+    }
+  }
+  .recommendBrand {
+    border-top: 1px solid @bodyBg;
+    margin-top: -2px;
+    .weui-cell__hd {
+      color: @light-gray;
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{{#each this}}
+<div class="weui-cell">
+    <a href="tenant-contact.html?id={{id}}" class="weui-cell__bd f14" data-id="{{id}}">{{areaName}}{{address}}</a>
+    <div class="weui-cell__ft">
+        <a href="javascript:;" class="orange m5 daohang" name="{{name}}" address="{{address}}" lng="{{location.lng}}" lat="{{location.lat}}"><i class="iconfont icon-daohang5 f24"></i></a>
+        {{#compare phone '==' null}}
+        <a href="javascript:;" class="orange"><i class="iconfont icon-dianhua f28"></i></a>
+        {{/compare}}
+        {{#compare phone '!=' null}}
+        <a href="tel:{{phone}}" class="orange"><i class="iconfont icon-dianhua f28"></i></a>
+        {{/compare}}
+    </div>
+</div>
+{{/each}}

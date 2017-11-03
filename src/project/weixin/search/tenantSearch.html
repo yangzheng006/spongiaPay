@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <title>搜索</title>
+    @import "../include/header.inc";
+</head>
+<body ontouchstart>
+<div class="weui-toptips weui-toptips_warn js_tooltips">错误提示</div>
+<div class="container" id="container"></div>
+
+<!--搜索商家结果页-->
+<link rel="import" href="../../../pages/search/tenantSearch.html">
+
+<!--模版-->
+<!--商家搜索结果模版页-->
+<link rel="import" href="../../../model/templete/search/productListTenant.html">
+
+@import "../../../model/widget/include/toast.html";
+@import "../../../model/widget/include/dialog.html";
+<script src="/weixin/js/common.min.js"></script>
+<script src="/weixin/js/wap.min.js"></script>
+
+<script type="text/javascript">
+    $(function () {
+        pageManager.show("tenantSearch");
+
+        var canshu = window.location.search;
+        if(canshu.indexOf("?categoryId")>-1){
+            $('.top_position').addClass('none');
+            $('#navbar').css('top','0 !important');
+            $('#style').css('top','0 !important');
+            $('.weui-tab__panel').css('padding','49px 0 0');
+            document.title = pageManager.GetQueryString("categoryName")?pageManager.GetQueryString("categoryName"):'全部';
+
+            var orderType = $('#orderType').val() ? $('#orderType').val() : 'weight';
+            var jsonsData={
+                pageSize:20,
+                pageNumber:1,
+                id: pageManager.GetQueryString("id"),
+                productCategoryTenantId: pageManager.GetQueryString("cateId") == 'all' ? '' : pageManager.GetQueryString("cateId"),
+                orderType:orderType
+            };
+
+            var loadUpFn=function () {
+                jsonsData.pageNumber=1;
+                var tu = new product(function (data) {
+                    jsonsData.pageNumber += 1;
+                    var h = render.fill($("#tpl_productListTenant"), data);
+                    $(".pageable .productListWrapper").html(h);
+                    $('img').picLazyLoad();
+//                  pged.unlock();
+                    pged.noData(false);
+                    pged.resetload();
+                });
+                tu.listT(jsonsData);
+            };
+
+            var pged = null;
+            $('.pageable-down').remove();
+            pged = $(".pageable").pageable({
+                scrollFn: function () {
+                    $(window).trigger('scroll');
+                },
+                loadUpFn: function (me) {
+                    loadUpFn();
+                },
+                loadDownFn: function (me) {
+                    var td = new product(function (data) {
+                        jsonsData.pageNumber += 1;
+                        var h = render.fill($("#tpl_productListTenant"), data);
+                        $(".pageable .productListWrapper").append(h);
+                        $('img').picLazyLoad();
+                        if (data.length < jsonsData.pageSize) {
+                            me.lock();
+                            me.noData();
+                        }
+                        me.resetload();
+                    });
+                    td.listT(jsonsData);
+                }
+            });
+
+            //每次调用
+            var sd = function(){
+                $(".pageable .productListWrapper").html('');
+                jsonsData.orderType=$('#orderType').val() ? $('#orderType').val() : 'weight';
+                loadUpFn();
+            };
+
+            //点击加载排序
+            $('.weui-navbar__item').on('click', function () {
+                $(this).addClass('active').siblings('.weui-navbar__item').removeClass('active');
+                //上下箭头切换效果
+                if($(this).find('.navbar2').html()=='价格升序'){
+                    $(this).find('.navbar2').html('价格降序');
+                }else if($(this).find('.navbar2').html()=='价格降序'){
+                    $(this).find('.navbar2').html('价格升序');
+                }
+                if ($(this).find('i').hasClass('icon-shangjiantou')) {
+                    $(this).find('i').addClass('icon-xiajiantou1').removeClass('icon-shangjiantou');
+                }
+                else {
+                    $(this).find('i').addClass('icon-shangjiantou').removeClass('icon-xiajiantou1');
+                }
+
+                var datatype = $(this).attr('data-type');
+                var rel = $(this).attr('rel');
+
+                // 处理排序参
+                $('#orderType').val(datatype);
+
+                //默认加载
+                sd();
+
+                //设置排序
+                var reltype = '';
+                if (rel == 'synthetic') {
+                    reltype = datatype == 'weight' ? 'topDesc' : 'weight' ;
+                } else if (rel == 'price') {
+                    reltype = datatype == 'priceAsc' ? 'priceDesc' : 'priceAsc';
+                } else if (rel == 'sales') {
+                    reltype = datatype == 'monthSalesDesc' ? 'monthSalesDesc' : 'monthSalesDesc';
+                }
+                $(this).attr('data-type', reltype);
+            });
+
+        }else{
+            document.title = '搜索';
+            //清空输入框值
+            $('.clearSearchval').on('click',function () {
+                $('#searchInput').val('');
+            });
+            $('#searchGo').show();
+            $('#searchGo').css('width','37px').css('marginLeft','5px');
+
+//            $('.weui-search-bar').addClass('weui-search-bar_focusing');
+//            $("#searchInput").focus();
+//
+//
+            var keyword = $('#searchInput').val() ? $('#searchInput').val() : '';
+            var orderType = $('#orderType').val() ? $('#orderType').val() : 'weight';
+            var jsons={
+                id:pageManager.GetQueryString("id"),
+                pageNumber:1,
+                keyword:keyword,
+                orderType:orderType
+            };
+            var loadUpFn=function () {
+                jsons.pageNumber=1;
+                var tu = new product(function (data) {
+                    jsons.pageNumber += 1;
+                    var h = render.fill($("#tpl_productListTenant"), data);
+                    $(".pageable .productListWrapper").html(h);
+                    $('img').picLazyLoad();
+                    pge.noData(false);
+                    pge.resetload();
+                });
+                tu.listT(jsons);
+            };
+
+//            搜索商品列表
+            $('pageable-up').remove();
+            $('pageable-down').remove();
+            var pge = $(".pageable").pageable({
+                scrollFn: function () {
+                    $(window).trigger('scroll');
+                },
+                loadUpFn: function (me) {
+                    loadUpFn();
+                },
+                loadDownFn: function (me) {
+                    var td = new product(function (data) {
+                        jsons.pageNumber += 1;
+                        var h = render.fill($("#tpl_productListTenant"), data);
+                        $(".pageable .productListWrapper").append(h);
+                        $('img').picLazyLoad();
+                        if (data.length < 20) {
+                            me.lock();
+                            me.noData();
+                        }
+                        me.resetload();
+                    });
+                    td.listT(jsons);
+                }
+            });
+
+//            每次调用
+            var sd = function(){
+                $(".pageable .productListWrapper").html('');
+                jsons.keyword=$('#searchInput').val() ? $('#searchInput').val() : '';
+                jsons.orderType=$('#orderType').val() ? $('#orderType').val() : 'weight';
+                loadUpFn();
+            };
+
+            //点击加载排序
+            $('.weui-navbar__item').on('click', function () {
+                $(this).addClass('active').siblings('.weui-navbar__item').removeClass('active');
+                //上下箭头切换效果
+                if($(this).find('.navbar2').html()=='价格升序'){
+                    $(this).find('.navbar2').html('价格降序');
+                }else if($(this).find('.navbar2').html()=='价格降序'){
+                    $(this).find('.navbar2').html('价格升序');
+                }
+                if ($(this).find('i').hasClass('icon-shangjiantou')) {
+                    $(this).find('i').addClass('icon-xiajiantou1').removeClass('icon-shangjiantou');
+                }
+                else {
+                    $(this).find('i').addClass('icon-shangjiantou').removeClass('icon-xiajiantou1');
+                }
+
+                var datatype = $(this).attr('data-type');
+                var rel = $(this).attr('rel');
+
+                // 处理排序参
+                $('#orderType').val(datatype);
+
+                //默认加载
+                sd();
+
+                //设置排序
+                var reltype = '';
+                if (rel == 'synthetic') {
+                    reltype = datatype == 'weight' ? 'topDesc' : 'weight' ;
+                } else if (rel == 'price') {
+                    reltype = datatype == 'priceAsc' ? 'priceDesc' : 'priceAsc';
+                } else if (rel == 'sales') {
+                    reltype = datatype == 'monthSalesDesc' ? 'monthSalesDesc' : 'monthSalesDesc';
+                }
+                $(this).attr('data-type', reltype);
+            });
+
+//            搜索事件
+            $(document).keypress(function(e) {
+                // 回车键事件
+                var code = e.keyCode || e.which;
+                if( code == 13) {
+                    var keyword= $('#searchInput').val();
+                    if ( keyword == null || keyword == '') {
+                        toast.show('请先输入您想搜索的内容');
+                        return;
+                    }
+                    sd();
+                    return false;
+                }
+            });
+            $('#searchGo').click(function() {
+                sd();
+                return false;
+            });
+
+//            即时搜索
+//            var bind_name = 'input';
+//            if (navigator.userAgent.indexOf("MSIE") != -1) {
+//                bind_name = 'propertychange';
+//            }
+//            if(navigator.userAgent.match(/android/i) == "android")
+//            {
+//                bind_name = "keydown";
+//            }
+
+//            $("#searchInput").bind(bind_name, function (event) {
+//                sd();
+//                return false;
+//            });
+        }
+
+        //搜索结果页点击切换商品样式
+        $('#goods_style').on('click', function () {
+            $(this).toggleClass('col-2');
+            if ($('#goods_style').hasClass('col-2')) {
+                $('.product').addClass('product-grid').removeClass('product-list');
+            }
+            else {
+                $('.product').addClass('product-list').removeClass('product-grid');
+            }
+        });
+
+        //点击加入购物车
+        $(document).on('click','#sheet_choose_norms',function () {
+            var productCart;
+            productCart = $(this).attr('data-id');
+            var productCart1 = new cart(function (data) {
+            });
+            productCart1.add({id: productCart, quantity: 1});
+        })
+    });
+</script>
+</body>
+</html>

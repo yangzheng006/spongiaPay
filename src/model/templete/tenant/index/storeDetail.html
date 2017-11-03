@@ -1,0 +1,25 @@
+<div class="weui-cell" style="padding: 12px 2%">
+    <div class="weui-cell__hd">
+        {{#compare thumbnail '==' null}}
+            <img src="../images/placeholder/tenant.png" alt=""/>
+        {{/compare}}
+        {{#compare thumbnail '!=' null}}
+            <img src="{{crop thumbnail 15 15}}" />
+        {{/compare}}
+    </div>
+    <div class="weui-cell__bd">
+        <p class="f12 clr_lightGray overone">{{areaName}}</p>
+        <h2 class="f14 overone">{{name}}</h2>
+        <p class="f12 clr_lightGray overone">{{address}}</p>
+    </div>
+    <div class="weui-cell__ft">
+        <a href="tel:{{phone}}" id="tel">
+            <i class="iconfont icon-phone-a"></i>
+        </a>
+    </div>
+</div>
+<a class="weui-cell" href="javascript:;" id="goThere" name="{{name}}" address="{{address}}">
+    <i class="iconfont icon-go f14 clr_orange" style="margin: 0 6px 0 0;"></i>
+    <span class="f14">导航到门店</span>
+</a>
+<div class="margin"></div>

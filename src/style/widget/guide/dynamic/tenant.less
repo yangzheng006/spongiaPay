@@ -1,0 +1,46 @@
+@charset "UTF-8";
+
+.guideUnion{
+  background: none;
+  &:after{border-bottom: none}
+  .weui-cell{
+    background: @white;
+    margin-bottom:2%;
+    &:before{border-top: none}
+
+    .weui-cell__hd{
+      width: 24vw;
+      margin-right: 2vw;
+      img{
+        .img;
+      }
+    }
+
+    .weui-cell__bd{
+      .icons{
+        i{
+          //margin: 0 2px;
+          font-size: 12px;
+          //color: @light-gray;
+          //&:first-child{ color: @roseRed;}
+        }
+      }
+      .icon-s-star{
+        color:@roseRed;
+      }
+    }
+
+    .weui-cell__ft{
+      border-left:1px solid #eee;
+      padding-left:10px;
+      p{
+        text-align: center;
+        &:first-child{ color: @dark-gray; font-weight: 500}
+      }
+
+    }
+  }
+  .heartRed {
+    color: #ff3269;
+  }
+}

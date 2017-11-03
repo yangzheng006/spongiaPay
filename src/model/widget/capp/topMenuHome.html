@@ -1,0 +1,49 @@
+<style>
+    .page.js_show,
+    .page {
+        padding-top: 50px;
+    }
+    /*.nav_change2{*/
+        /*position: absolute !important;*/
+    /*}*/
+    /*.topNav{*/
+        /*position: absolute !important;*/
+    /*}*/
+
+    #topMenuHome {
+        position: fixed;
+        z-index: 999;
+        top: 0;
+        left: 0;
+        background: #fff;
+        width: 100%;
+        height: 50px;
+    }
+
+    #topMenuHome>div.active::after{
+        content:'';
+        display: block;
+        width: 80%;
+        height: 2px;
+        background:orange;
+        position:absolute;
+        bottom: -5px;
+        left: 10%;
+    }
+    #topMenuHome .topMenu_title {
+        text-align: center;
+    }
+</style>
+<div id="topMenuHome">
+    <div class="topNav row nav_change_HGY">
+        <div class="col-20">
+            <div class="weui-search-bar__box fl iSearch" id="searchBars" style="padding-right: 0;">
+                <i class="weui-icon-search"></i>
+                <input type="search" class="weui-search-bar__input" id="searchInput" value="请输入搜索词" required="" disabled>
+            </div>
+        </div>
+        <a href="javascript:;" class="col-3" id="message">
+            <i class="iconfont icon-shouye1 f20"></i>
+        </a>
+    </div>
+</div>

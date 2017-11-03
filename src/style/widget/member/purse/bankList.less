@@ -1,0 +1,57 @@
+@charset "UTF-8";
+
+.bankList{
+    weui-cells{background: none;}
+    height: 100%;
+    margin-top: 0;
+    .weui-cells{
+        margin-top: 0;
+        .weui-cell{
+            .weui-cell__hd{
+                width:20vw;
+                height:20vw;
+                img{
+                    width:100%;
+                    height:100%;
+                }
+            }
+            .weui-cell__bd{
+                margin-left: 5vw;
+            }
+        }
+    }
+
+    .addbank{
+        position: fixed;
+        bottom:0;
+        left:0;
+        width:100%;
+        background: @bodyBg;
+        .weui-btn{
+            width: 80%;
+            border-radius: 5px;
+        }
+        &.weui-btn-area{
+            margin: 1.17647059em auto 0;
+            padding:3vw 0 3vw;
+        }
+
+        div{
+            width:90%;
+            height:10vw;
+            border-radius:1vw;
+            background:@orange;
+            border:0;
+            color:@white;
+            text-align: center;
+            margin-left: 5%;
+            font-size: 5vw;
+        }
+    }
+    .cartEmpty{
+        width: 100%; padding-top: 30%;text-align: center;background: #f1f1f1;
+        i{ color:#ccc; font-size: 80px}
+        p{ text-align: center; margin-top: 10px;}
+    }
+
+}

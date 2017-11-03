@@ -1,0 +1,105 @@
+@charset "UTF-8";
+//---------------首页频道广告位样式-----------------//
+.channel_pic{
+  background:@white;
+  position: relative;
+  line-height: 0;
+  overflow: hidden;
+  z-index: 999;
+
+  &#channel_pic_noImg{
+    border-top: 5px solid @bodyBg;
+    border-bottom: 5px solid @bodyBg;
+  }
+
+  .islider-outer {
+    background-color:@white;
+    display: block;
+  }
+  .channel{
+    display: inline-block;             /* NEW, Spec - Opera 12.1, Firefox 20+ */
+    background-color:@white;
+    width: 100%;
+    padding: 4% 0;
+    height:100%;
+    .channel__item{
+      padding: 0 0 5%;
+      float: left;
+      width: 22.5%;
+      &:first-child {
+        padding-left: 5%;
+      }
+      &:nth-child(5){
+        padding-left: 5%;
+      }
+      &:last-child {
+        padding-right: 0;
+      }
+      a {
+        display: block;
+        p {
+          width: 90%;
+          height: auto;
+          margin: 0 auto;
+          padding: 0 2%;
+          img{
+            width: 67%;
+          }
+          span {
+            padding-top: 2px;
+            display: block;
+            line-height: 1;
+          }
+        }
+      }
+    }
+    &.no_img{
+      padding: 15px 0 0 0;
+      .channel__item{
+        width: 10.95%;
+        margin: 0 1.2% 15px 0;
+        overflow: hidden;
+        height: 30px;
+        padding: 0;
+        &:nth-child(5){
+          padding-left: 0;
+        }
+        &:first-child,&:nth-child(9){
+          margin-left: 2vw;
+        }
+        &:nth-child(8n){
+          margin-right: 0;
+        }
+        a{
+          p{
+            margin: 0;
+            border: 1px solid @border-gray;
+            span{
+              white-space:nowrap;
+              overflow: hidden;
+              width: 2em;
+              padding-top: 0;
+              margin: 0 auto;
+              line-height: 28px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &.channel_pic_hgy{
+    .channel{
+      .channel__item{
+        width: 20%;
+        &:first-child{
+          padding-left: 0 !important;
+        }
+        &:nth-child(5){
+          padding-left: 0;
+        }
+      }
+    }
+  }
+}
+

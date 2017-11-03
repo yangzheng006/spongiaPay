@@ -1,0 +1,26 @@
+@charset "UTF-8";
+//热门好货商品列表样式
+.hot_product,.product_search,.product-grid{
+  background: transparent;
+  .weui-cell{
+    margin-bottom: 10px;
+    background: @white;
+    &:before{
+      border-top: none;
+    }
+    .weui-cell__bd{
+      .pingjia{
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        i{
+          &.icon-zhuyedianzan{
+            position: absolute;
+            right: 32px;
+            bottom: -4px;
+          }
+        }
+      }
+    }
+  }
+}

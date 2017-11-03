@@ -1,0 +1,54 @@
+<!-- BEGIN tenant-list -->
+{{#each this}}
+<a href="../tenant/index.html?id={{id}}" tenantId="{{id}}" class="weui-cells weui-cells_border union_tenant_list">
+    <div class="weui-cell">
+        <div class="weui-cell__hd tenant_img">
+            {{#compare thumbnail '!=' null}}
+            <img src="{{thumbnail}}"  style="height: 100%;"/>
+            {{/compare}}
+            {{#compare thumbnail '==' null}}
+            <img src="../images/placeholder/tenant.png" style="height: 100%;"/>
+            {{/compare}}
+            {{#if closed}}
+                <div class="shopRest">
+                    <div class="tooltip-inner">休息中</div>
+                </div>
+            {{/if}}
+        </div>
+        <div class="weui-cell__bd">
+            <p class="f14 clr_darkGray tenant-name">{{name}}</p>
+            <p class="ico f12 clr_mediumGray">
+                    <span class="cf ft-bs starlevels"  data-starnum="{{grade}}" data-starlevelized="false">
+                        <i class="iconfont icon-xingxing f10 orange"></i>
+                        <i class="iconfont icon-xingxing f10 orange"></i>
+                        <i class="iconfont icon-xingxing f10 orange"></i>
+                        <i class="iconfont icon-xingxing f10 orange"></i>
+                        <i class="iconfont icon-xingxing f10 orange"></i>
+                    </span>
+                <!--<span class="add orange">{{grade}}分</span>-->
+                <span class="add">月售{{monthSales}}单</span>
+            </p>
+            <div class="weui-flex f12 clr_mediumGray">
+                <div class="weui-flex__item zhuying">主营：{{tenantCategoryName}}</div>
+                <div class="weui-flex__item">{{#ifcond distance -1}}{{distance}}km{{else}}{{/ifcond}}</div>
+            </div>
+        </div>
+    </div>
+    {{#if promotions}}
+    <div class="border-top f12 clr_mediumGray  weui-cell">
+        <div class="weui-cell__hd"></div>
+        <div class="weui-cell__bd">
+            {{#each promotions}}
+            <div><i class="iconfont icon-{{type}} f14"></i><p>{{name}}</p></div>
+            {{/each}}
+        </div>
+    </div>
+    {{/if}}
+</a>
+{{/each}}
+<!-- END tenant-list -->
+<!--获取星星-->
+<script>
+    $(".starlevels").starLevelize();
+</script>
+<!--获取星星结束-->

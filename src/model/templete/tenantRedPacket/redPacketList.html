@@ -1,0 +1,16 @@
+<!-- BEGIN tenant-redP-list -->
+    {{#each this}}
+    <div class="row">
+        <div class="col-7">
+            {{#if unused}}<img src="../images/static/tenantRedPacket/hongbao.png" alt=""><p class="denomination f18">￥{{amount}}</p><img src="../images/static/tenantRedPacket/yqw.png" alt="">{{else}}<img src="../images/static/tenantRedPacket/hongbao.png" alt=""> <p class="denomination f18">￥{{amount}}</p>{{/if}}
+        </div>
+        <div class="col-15">
+            <p class="f13 clr_darkGray">{{tenantName}}<span class="f10 clr_lightGray ares">{{#ifcond distance -1}}{{distance}}km{{else}}{{/ifcond}}</span></p>
+            <p class="f10 clr_lightGray wids">{{address}}</p>
+            <p class="f11 clr_mediumGray">{{receiveCount}}/{{count}}</p>
+            <p class="f10 clr_lightGray">结束时间:{{endDate}}</p>
+            {{#if received}}<button class="btns f12">已领取</button>{{else}}<a data-id="{{id}}"  class="btn f12 receiveBtn">领取</a>{{/if}}
+        </div>
+    </div>
+    {{/each}}
+<!-- END tenant-redP-list -->

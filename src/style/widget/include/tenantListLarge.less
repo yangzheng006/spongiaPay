@@ -1,0 +1,82 @@
+@charset "UTF-8";
+.channelTenantList{
+  background: @white;
+  padding-bottom: 5vw;
+  border-bottom: 1px solid #dcdcdc;
+  .weui-cell{
+    &:first-child{
+      .weui-cell__hd{
+        width: 14vw;
+        height: 14vw;
+        img{
+          border-radius: 50%;
+          width: 100%;
+          height: 100%;
+        }
+      }
+      .weui-cell__bd{
+        margin-left: 10px;
+        img{
+          width: 3vw;
+          height: 3vw;
+          margin-right: 5px;
+        }
+      }
+    }
+    &:last-child{
+      &:before{
+        border-top:0;
+      }
+      .weui-cell__hd{
+        p{
+          span{
+            margin: 0 6px;
+            &:first-child{
+              margin-left: 0;
+            }
+          }
+        }
+      }
+      .weui-cell__ft{
+        //color: @baseColor;
+        cursor: pointer;
+      }
+    }
+  }
+  .dianzhao{
+    width: 100%;
+    height: 60vw;
+    position: relative;
+    overflow: hidden;
+    i{
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      padding: 4vw;
+      font-size: 6vw;
+    }
+    .clr_white{
+      color: @white;
+    }
+    .orange{
+      color:@baseColor;
+    }
+    img{
+      width: 100%;
+    }
+  }
+  .tenant_strategy{
+    padding:2%;
+    line-height: 1.6;
+  }
+}
+.tag_tenant_ztb{
+  span{
+    display: inline-block;
+    padding: 2px 6px;
+    margin-right: 3px;
+    border: 1px solid @gray02;
+    border-radius: 15px;
+    margin-top: 3px;
+  }
+}

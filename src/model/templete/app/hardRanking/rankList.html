@@ -1,0 +1,73 @@
+{{#each this}}
+{{#compare rank '==' 1}}
+<div class="weui-cell">
+    <div class="weui-cell__hd">
+        {{#compare headImg '==' null}}
+        <img src="../images/placeholder/lazypic.png" data-original="../images/placeholder/morentouxiang.png">
+        {{/compare}}
+        {{#compare headImg '!=' null}}
+        <img src="../images/placeholder/lazypic.png" data-original="{{crop headImg 11.066 11.066}}">
+        {{/compare}}
+        <i class="iconfont icon-wangguan red_app"></i>
+    </div>
+    <div class="weui-cell__bd f15">{{name}}</div>
+    <div class="weui-cell__ft">
+        <p class="f15 tc red_app">第{{rank}}名</p>
+        <p class="f12 tc red_app">{{hardValue}}</p>
+    </div>
+</div>
+{{/compare}}
+{{#compare rank '==' 2}}
+<div class="weui-cell">
+    <div class="weui-cell__hd">
+        {{#compare headImg '==' null}}
+        <img src="../images/placeholder/lazypic.png" data-original="../images/placeholder/morentouxiang.png">
+        {{/compare}}
+        {{#compare headImg '!=' null}}
+        <img src="../images/placeholder/lazypic.png" data-original="{{crop headImg 11.066 11.066}}">
+        {{/compare}}
+        <i class="iconfont icon-wangguan orange_app"></i>
+    </div>
+    <div class="weui-cell__bd f15">{{name}}</div>
+    <div class="weui-cell__ft">
+        <p class="f15 tc orange_app">第{{rank}}名</p>
+        <p class="f12 tc orange_app">{{hardValue}}</p>
+    </div>
+</div>
+{{/compare}}
+{{#compare rank '==' 3}}
+<div class="weui-cell">
+    <div class="weui-cell__hd">
+        {{#compare headImg '==' null}}
+        <img src="../images/placeholder/lazypic.png" data-original="../images/placeholder/morentouxiang.png">
+        {{/compare}}
+        {{#compare headImg '!=' null}}
+        <img src="../images/placeholder/lazypic.png" data-original="{{crop headImg 11.066 11.066}}">
+        {{/compare}}
+        <i class="iconfont icon-wangguan yellow_app"></i>
+    </div>
+    <div class="weui-cell__bd f15">{{name}}</div>
+    <div class="weui-cell__ft">
+        <p class="f15 tc yellow_app">第{{rank}}名</p>
+        <p class="f12 tc yellow_app">{{hardValue}}</p>
+    </div>
+</div>
+{{/compare}}
+{{#compare rank '>' 3}}
+<div class="weui-cell">
+    <div class="weui-cell__hd">
+        {{#compare headImg '==' null}}
+        <img src="../images/placeholder/lazypic.png" data-original="../images/placeholder/morentouxiang.png">
+        {{/compare}}
+        {{#compare headImg '!=' null}}
+        <img src="../images/placeholder/lazypic.png" data-original="{{crop headImg 11.066 11.066}}">
+        {{/compare}}
+    </div>
+    <div class="weui-cell__bd f15">{{name}}</div>
+    <div class="weui-cell__ft">
+        <p class="f15 tc">第{{rank}}名</p>
+        <p class="f12 tc">{{hardValue}}</p>
+    </div>
+</div>
+{{/compare}}
+{{/each}}

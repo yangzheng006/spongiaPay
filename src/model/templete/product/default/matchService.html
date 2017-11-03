@@ -1,0 +1,57 @@
+{{#each this}}
+<div class="match_item" data-id="{{id}}">
+    {{#compare name '==' null}}
+    {{/compare}}
+    {{#compare name '!=' null}}
+    <div class="f16 clr_titleWhite bold tenant_tit">
+        <i class="iconfont icon-kaidian f22"></i>{{name}}
+    </div>
+    {{/compare}}
+    {{#each categories}}
+        {{#compare name '==' null}}
+        {{/compare}}
+        {{#compare name '!=' null}}
+        <div class="clr_titleWhite f14 bold match_tit pinglun_tit">{{name}}</div>
+        {{/compare}}
+        {{#each products}}
+        <div class="weui-cell bornone match_product" data-id="{{id}}">
+            {{#compare multiSpecification '==' false}}
+            {{/compare}}
+            {{#compare multiSpecification '==' true}}
+            <div class="tc zhankai_guige" data-id="{{id}}"><i class="iconfont icon-up"></i></div>
+            {{/compare}}
+            <div class="weui-cell__hd match_product_img">
+                <a href="../product/view.html?id={{id}}"><img src="{{crop thumbnail 24 24}}"></a>
+            </div>
+            <div class="weui-cell__bd match_product_info">
+                <a  href="../product/view.html?id={{id}}">
+                    <p class="clr_titleWhite f16 overtwo">{{name}}</p>
+                    <p class="clr_gray03 f12 overone">{{keyWord1}} {{keyWord2}} {{keyWord3}}</p>
+                </a>
+                <div class="weui-cell bornone clr_titleWhite f14">
+                    <div class="weui-cell__bd">￥<span class="f16" id="price">{{price}}</span></div>
+                    <div class="weui-cell__ft" data-id="{{id}}">
+                        <span class="f20 clr_titleWhite fl tc vux-number-selector-sub match_reduce"  data-id="">-</span>
+                        <input class="f16 input-number-int tc fl" pattern="[1-100]*" name="listen" value="{{cartItemQuantity}}" id="acn_quertity">
+                        <span class="f20 clr_titleWhite fl tc vux-number-selector-plus match_add"  data-id="">+</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{#compare multiSpecification '==' false}}
+        {{/compare}}
+        {{#compare multiSpecification '==' true}}
+        <ul class="f13 guige none" id="{{id}}">
+            {{#each productSpecifications}}
+            <li data-id="{{id}}"><a href="javascript:;">
+                {{#each specifications}}
+                {{name}}
+                {{/each}}
+            </a></li>
+            {{/each}}
+        </ul>
+        {{/compare}}
+        {{/each}}
+    {{/each}}
+</div>
+{{/each}}

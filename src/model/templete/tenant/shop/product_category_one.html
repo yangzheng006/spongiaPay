@@ -1,0 +1,23 @@
+<div class="category-ctn-right" id="silder-right">
+    <ul class="am-list" id="subProductCategory">
+        <li>
+            <ul class="category-product">
+                {{#each this}}
+                <li>
+                    <a href="javascript:;" class="aproductReasult" data-id="{{id}}">
+                        <p>
+                            {{#compare image '==' null}}
+                            <img src="../images/placeholder/product.png">
+                            {{/compare}}
+                            {{#compare image '!=' null}}
+                            <img src="{{image}}">
+                            {{/compare}}
+                        </p>
+                        <p class="f12">{{name}}</p>
+                    </a>
+                </li>
+                {{/each}}
+            </ul>
+        </li>
+    </ul>
+</div>

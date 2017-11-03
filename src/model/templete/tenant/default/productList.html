@@ -1,0 +1,46 @@
+<!-- product_list -->
+{{#each this}}
+<div class="position">
+    <a class="weui-cell" href="../product/view.html?id={{id}}" data-id="{{id}}" >
+        <div class="weui-cell__hd fly_img">
+            {{#compare thumbnail '!=' null}}
+            <img src="../images/placeholder/lazypic.png" data-original="{{crop thumbnail 28 28}}"/>
+            {{/compare}}
+
+            {{#compare thumbnail '==' null}}
+            <img src="../images/placeholder/product.png" />
+            {{/compare}}
+        </div>
+        <div class="weui-cell__bd">
+            <p class="f12 clr_gray01 overtwo product_name">{{name}}</p>
+            <p class="f11 clr_mediumGray"><span class="fl">{{tenantName}}</span><span class="fr">{{#ifcond distance -1}}{{distance}}km{{else}}{{/ifcond}}</span></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <div style="clear:both" >
+                <p class="price f16 fl"><span>￥{{price}}
+                    {{#compare price '==' marketPrice}}
+                    {{/compare}}
+                    {{#compare price '>' marketPrice}}
+                    {{/compare}}
+                    {{#compare price '<' marketPrice}}
+                    <i class="f12"><i class="marketPrice">￥{{marketPrice}}</i></i></span>
+                    {{/compare}}
+                </p>
+                <p class="tag_list fl">
+                    {{#if promotions}}
+                    {{#each promotions}}
+                    <i class="iconfont icon-{{type}}"></i>
+                    {{/each}}
+                    {{else}}
+                    <i class="iconfont icon-mail" style="visibility: hidden;"></i>
+                    {{/if}}
+                </p>
+            </div>
+            <p class="f10 clr_lightGray renqi" style="margin-top: 0;">人气 {{hits}} /月销量 {{monthSales}}<span class="product_ztb orange f14 bold fr">查看详情<i class="iconfont icon-right-01"></i> </span></p>
+        </div>
+    </a>
+</div>
+{{/each}}
+<!-- product_list end -->

@@ -1,0 +1,24 @@
+
+<!--会员卡列表模板-->
+{{#with cards}}
+{{#each this}}
+<a href="javascript:;" data-id="{{id}}">
+    {{#if background}}
+    <img src="../images/static/card/bg.png" alt="">
+    {{else}}
+    <img src="../images/static/card/bgTou.png" alt="">
+    {{/if}}
+    <div class="weui-cell cardInfo bordernone">
+        <div class="weui-cell__hd">
+            <img src="{{crop logo 8 8}}" alt="">
+        </div>
+        <div class="weui-cell__bd f16">
+            <p class="bold">{{title}}</p>
+        </div>
+    </div>
+    <div class="goBalance tr">
+        <p class="f12 clr_white">余额  <span class="f16">￥{{balance}}</span></p>
+    </div>
+</a>
+{{/each}}
+{{/with}}

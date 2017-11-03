@@ -1,0 +1,107 @@
+@charset "UTF-8";
+.tenant_info {
+  &.weui-cells {
+    margin-top: 2%;
+    &:before {
+      border: none;
+    }
+    &:after {
+      border: none;
+    }
+  }
+  .weui-cell {
+    .sr_weui-cell();
+    padding: 2%;
+    &:before {
+      left: 0;
+    }
+    .weui-cell__hd {
+      width: 52px;
+      height: 52px;
+      padding-right: 2%;
+      line-height: 0;
+    }
+    .weui-cell__bd {
+      .sr_weui-cell__bd();
+    }
+    .weui-cell__ft {
+      .sr_weui-cell__ft();
+    }
+  }
+  div.weui-cell {
+    .weui-cell__bd {
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      width: 100%;
+      line-height: 1;
+      .address {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        width: 100%;
+        color: #999;
+        i {
+          color: @orange;
+        }
+
+
+        span {
+          color: #999;
+          margin-left: -4px;
+        }
+      }
+      .info {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        width: 100%;
+        color: @light-gray;
+        line-height: 2em;
+        span {
+          padding-right: 2%;
+        }
+        .stars {
+          display: inline-block;
+        }
+      }
+      .other {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        width: 100%;
+        color: @orange;
+        span {
+          padding-right: 2%;
+        }
+      }
+    }
+    .weui-cell__ft {
+      a {
+        position: relative;
+        padding-left: 10px;
+        &:before {
+          content: " ";
+          position: absolute;
+          color: #bbb;
+          border-left: 1px solid #bbb;
+          top: 0;
+          left: 0;
+          width: 1px;
+          height: 100%;
+          -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+          -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+          -webkit-transform: scaleX(0.5);
+          transform: scaleX(0.5);
+          -webkit-transform-origin: 0 0;
+          transform-origin: 0 0;
+        }
+        i {
+          color: @orange;
+        }
+      }
+    }
+  }
+}

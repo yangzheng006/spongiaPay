@@ -1,0 +1,209 @@
+@charset "UTF-8";
+.paySuccessPayBill {
+
+
+  .weui-icon_msg:before {
+    font-size:30px;
+    margin-right: 10px;
+  }
+
+  .weui-cell{
+    padding: 4%;
+  }
+  .bd {
+    line-height: 1;
+    margin-top: 0;
+    padding: 6%;
+    &:after,&:before {
+      border: none;
+    }
+    .weui-cell {
+      &:after {
+        border: none;
+      }
+      &:before {
+        border: none;
+      }
+      padding: 0;
+      padding-top: 4%;
+    }
+  }
+
+  .Paid{
+    padding: 4% 6%;
+    background: @white;
+    &:before{
+      left: 4%;
+      right: 6%;
+    }
+  }
+  .paysuccess_btn {
+    background-color: @bodyBg;
+    padding: 8% 4%;
+    a {
+      display: block;
+      text-align: center;
+      color: #ffffff;
+      background-color:@baseColor;
+      padding: 4% 0;
+      line-height: 1;
+    }
+  }
+  .discountShare{
+    position: absolute;
+    left:0;
+    bottom:2vw;
+    width: 100%;
+    height: auto;
+    cursor: pointer;
+    img{
+      position: absolute;
+      bottom: 2vw;
+      left:0;
+      width: 100%;
+    }
+    .discountShare_txt{
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+      position: absolute;
+      bottom:12vw;
+      left:0;
+      width: 100%;
+      text-align: center;
+      color: @white;
+      letter-spacing:2px;
+    }
+  }
+
+  .quan{
+    width: 84vw;
+    padding: 2vw;
+    background: @white;
+    position: fixed;
+    top:48vw;
+    left:6vw;
+    z-index: 99999;
+    text-align: center;
+    border-radius: 5px;
+
+    p,a{
+      color: #b51d36;
+    }
+
+    .close{
+      position: absolute;
+      top: 4vw;
+      right: 4vw;
+    }
+
+    .mu_quan{
+      display: block;
+      margin: 20px 0 10px;
+    }
+    .quan_bg{
+      //width: 56vw;
+      //height:18vw;
+      width: 72vw;
+      margin: 10px auto 0;
+      background: #b51d36;
+      position: relative;
+      padding: 1vw;
+      overflow: hidden;
+
+      &.xianjin{
+        background: #e0cb83;
+        .yuan1,.yuan2{
+          background: #e0cb83;
+        }
+        .yuan2_top,.yuan2_bottom{
+          background: #e0cb83;
+        }
+      }
+
+      .yuan1,.yuan2{
+        width: 5vw;
+        height:5vw;
+        border-radius: 50%;
+        position: absolute;
+        left:23.5vw;
+        background: #b51d36;
+        z-index: 999;
+      }
+      .yuan1{
+        top:-2.5vw;
+      }
+      .yuan2{
+        bottom: -2.5vw;
+      }
+
+      .yuan_top,.yuan_bottom{
+        position: absolute;
+        left:24vw;
+        z-index: 9999;
+        width: 4vw;
+        height:4vw;
+        border-radius: 50%;
+        background: @white;
+      }
+      .yuan_top{
+        top:-3vw;
+      }
+      .yuan_bottom{
+        bottom: -3vw;
+      }
+
+      .yuan2_top,.yuan2_bottom{
+        width: 5vw;
+        height: 5vw;
+        position: absolute;
+        left:22vw;
+        z-index: 99;
+        border-radius: 50%;
+        border:1px dashed @white;
+        background: #b51d36;
+      }
+      .yuan2_top{
+        top:-4vw;
+      }
+      .yuan2_bottom{
+        bottom:-4vw;
+      }
+
+      .weui-cell{
+        padding: 0;
+        color: @white;
+        //border-left: 1px dashed @white;
+        //border-right: 1px dashed @white;
+        border: 1px dashed @white;
+        overflow: hidden;
+
+        &:before{
+          //.mixin(top,dashed,@white);
+          border: none;
+        }
+        //&:after{
+        //  .mixin(bottom,dashed,@white);
+        //}
+
+        .weui-cell__hd{
+          width: 12vw;
+          padding: 0 6vw;
+        }
+        .weui-cell__bd{
+          border-left: 1px dotted @white;
+          padding: 2vw 2vw 2vw 4vw;
+          p{
+            color: @white;
+            line-height: 1;
+            &.tenant_name{
+              color: #ffb1be;
+              height: 13px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+}

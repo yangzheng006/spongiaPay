@@ -1,0 +1,53 @@
+<div class="page">
+    <div class="page__bd" style="height: 100%;">
+        <div class="weui-tab tabBer row">
+            <div class="vux-tab f14" style="z-index: 1;">
+                <div class="vux-tab-item vux-center"><a href="javascript:;" class="pursecashbank">转出到银行卡</a></div>
+                <div class="vux-tab-item vux-center"><a href="javascript:;">转出到微信钱包</a></div>
+                <div class="vux-tab-ink-bar vux-tab-ink-bar-transition-forward" id="bor" style=" left:50%; right:0%;background-color: #00a0e9;"></div>
+            </div>
+            <div class="weui-tab__panel" style="padding-bottom: 0; padding-top: 44px; background: #f2f2f2;">
+                <div class="user_getcash_weixin cashPurse">
+                    <div class="weui-cells section1">
+                        <div class="weui-cell">
+                            <div class="weui-cell__hd">
+                                <i class="f26 icon iconfont icon-qianbaozhifuyuebuzuweixin"></i>
+                            </div>
+                            <div class="weui-cell__bd">
+                                <p id="selbank">微信钱包</p>
+                            </div>
+                        </div>
+                        <div class="weui-cell">
+                            <div class="weui-cell__hd f30">￥</div>
+                            <div class="weui-cell__bd">
+                                <input class="weui-input getcash" type="number" placeholder="">
+                            </div>
+                        </div>
+                        <div class="weui-cell f12 tips">
+                            <div class="weui-cell__hd">每笔限额2万</div>
+                            <div class="weui-cell__bd"></div>
+                            <div class="weui-cell__ft">
+                                <p>手续费：￥<span class="tip" id="tip">0.00</span></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="weui-cells">
+                        <div class="weui-cell trueAmount">
+                            <div class="weui-cell__hd f14">实际到账金额(元)</div>
+                            <div class="weui-cell__bd"></div>
+                            <div class="weui-cell__ft f16">
+                                <p class="trueamount"></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="section3 my_btn">
+                        <div class="weui-btn-area">
+                            <a href="javascript:;" class="weui-btn btn-default">确认转出</a>
+                        </div>
+                    </div>
+                    @import "../../../model/widget/include/cashpay.html";
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,10 @@
+<!--导购选择区域列表-->
+<div class="currentAreaSelect">
+    <h5 style="padding: 10px;">选择常驻区域</h5>
+    <ul class="areaCon">
+        {{#each this}}
+        <li areaId="{{id}}"><i class="icon iconfont icon-weixuan"></i><span>{{name}}</span></li>
+        {{/each}}
+    </ul>
+    <p><span class="cancel">取消</span><span class="confirm">确定</span></p>
+</div>

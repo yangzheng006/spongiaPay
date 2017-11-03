@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <title>搜索</title>
+    @import "../include/header.inc";
+</head>
+<body ontouchstart>
+<div class="weui-toptips weui-toptips_warn js_tooltips">错误提示</div>
+<div class="container" id="container"></div>
+
+<!--分类搜索-->
+<link rel="import" href="../../../pages/search/product/productReasult.html">
+
+<!--模版-->
+<link rel="import" href="../../../model/templete/include/hotArea.html">
+<!--分类点进去的产品列表页模版页-->
+<link rel="import" href="../../../model/templete/search/productList.html">
+
+@import "../../../model/widget/include/dialog.html";
+<script src="/weixin/js/common.min.js"></script>
+<script src="/weixin/js/wap.min.js"></script>
+
+<script type="text/javascript">
+    //获取category文件
+    var head = document.getElementsByTagName('head')[0];
+    var categoryScript = document.createElement('script');
+    categoryScript.type = 'text/javascript';
+    categoryScript.src = base+'resources/data/category.js';
+    head.appendChild(categoryScript);
+    $(function () {
+        pageManager.show("productReasult");
+        categoryScript.onload = function(){
+            var category = pageManager.GetQueryString('type');
+            if(category=='category'){
+                $('#nav_menu').css({'top':'44px'});
+                $('.top_position').addClass('none');
+                $('#navbar').css({'top':'0'});
+                $('#style').css({'top':'0'});
+                $('.pageable').css({'padding':'42px 0 0'});
+                var brandId = pageManager.GetQueryString("brandId")?pageManager.GetQueryString("brandId"):'';
+                var categoryId = pageManager.GetQueryString("categoryId")?pageManager.GetQueryString("categoryId"):'';
+                document.title =  unescape(pageManager.GetQueryString("categoryName"))?unescape(pageManager.GetQueryString("categoryName")):'全部';
+
+                var jsonsData={
+                    pageSize:20,
+                    pageNumber:1,
+                    lat: weixin.lat,
+                    lng: weixin.lng
+                };
+                jsonsData.productCategoryId= pageManager.GetQueryString("cateId");
+                jsonsData.brandId = brandId;
+                dropmenu.init("全城",unescape(pageManager.GetQueryString("categoryName")),"智能排序");
+                var ar=new area(function (data) {
+                    dropmenu.bindCity(data,function (data) {
+                        console.log(data);
+                        jsonsData.areaId=data.areaId;
+                        jsonsData.communityId=data.communityId;
+                        loadUpFn();
+                    });
+                    //热门商圈
+                    console.log('热门商圈：'+data);
+                    var h = render.fill($("#tpl_hotArea"), data);
+                    $(".hot").html(h);
+                });
+
+                ar.community();
+                initCategory();
+                reviseCategorys();
+                var dropmenuData;
+
+                if(brandId==''&&categoryId!=''){
+                    if($('html').attr("data-type")==1){
+                        dropmenuData = categorys[0].childrens[0].childrens;
+                    }else if($('html').attr("data-type")==2){
+                        dropmenuData = categorys[0].childrens;
+                    }else{
+                        dropmenuData = getCategoryChildRens(pageManager.GetQueryString("categoryId"));
+                    }
+                }else{
+                    if($('html').attr("data-type")==1){
+                        dropmenuData = categorys[0].childrens[0].childrens;
+                    }else if($('html').attr("data-type")==2){
+                        dropmenuData = categorys[0].childrens;
+                    }else{
+                        dropmenuData = categorys;
+                    }
+                }
+
+                dropmenu.bindCategory(dropmenuData,function (data) {
+                    console.log(data);
+//            jsonsData.brandId = brandId;
+                    jsonsData.brandId = '';
+                    jsonsData.productCategoryId=data.categoryId;
+                    loadUpFn();
+                });
+                dropmenu.bindOrder(["智能排序","价格由低到高","价格由高到低","销量优先","评论最高"],function (data) {
+                    console.log(data);
+                    var orderType="";
+                    if(data==0){
+                        orderType="weight";
+                    }
+                    if(data==1){
+                        orderType="priceAsc";
+                    }
+                    if(data==2){
+                        orderType="priceDesc";
+                    }
+                    if(data==3){
+                        orderType="salesDesc";
+                    }
+                    if(data==4){
+                        orderType="scoreDesc";
+                    }
+                    jsonsData.orderType=orderType;
+                    loadUpFn();
+                });
+
+                var pged = null;
+                var loadUpFn=function () {
+                    var tu = new product(function (data) {
+                        jsonsData.pageNumber += 1;
+                        var h = render.fill($("#tpl_productList"), data);
+                        $(".pageable .product-list").html(h);
+                        $('img').picLazyLoad();
+//                pged.unlock();
+                        pged.noData(false);
+                        pged.resetload();
+                    });
+                    jsonsData.pageNumber = 1;
+                    tu.list(jsonsData);
+                };
+
+                weixin.location(function () {
+                    $('.pageable-down').remove();
+                    jsonsData.lat=weixin.lat;
+                    jsonsData.lng=weixin.lng;
+                    pged = $(".pageable").pageable({
+                        scrollFn:function () {
+                            $(window).trigger('scroll');
+                        },
+                        loadUpFn: function (me) {
+                            loadUpFn();
+                        },
+                        loadDownFn: function (me) {
+                            weixin.location(function () {
+                                jsonsData.lat = weixin.lat;
+                                jsonsData.lng = weixin.lng;
+                                var td = new product(function (data) {
+                                    jsonsData.pageNumber += 1;
+                                    var h = render.fill($("#tpl_productList"), data);
+                                    $(".pageable .product-list").append(h);
+                                    $('img').picLazyLoad();
+                                    if (data.length < jsonsData.pageSize) {
+                                        me.lock();
+                                        me.noData();
+                                    }
+                                    me.resetload();
+                                });
+                                td.list(jsonsData);
+                            });
+                        }
+                    });
+                });
+
+                //搜索结果页点击切换商品样式
+                $('#goods_style').on('click', function () {
+                    $(this).toggleClass('col-2');
+                    if ($('#goods_style').hasClass('col-2')) {
+                        $('.product').addClass('product-grid').removeClass('product-list');
+                    }
+                    else {
+                        $('.product').addClass('product-list').removeClass('product-grid');
+                    }
+                });
+
+                $('#nav_menu .categoryd ol li').click(function(){
+                    if($(this).text() == '全部'){
+                        document.title = $(this).parent('ol').siblings('ul').children('li').eq($(this).parent('ol').index()-1).text();
+                    }else{
+                        document.title = $(this).text();
+                    }
+                })
+
+            }else{
+                // 清空输入框值
+                $('.clearSearchval').on('click',function () {
+                    $('#searchInput').val('');
+                });
+
+                $(document).keypress(function(e) {
+                    var code = e.keyCode || e.which;
+                    if( code == 13) {
+                        var keyword = $("#searchInput").val();
+                        if ( keyword == null || keyword == '') {
+                            toast.show('请先输入您想搜索的内容');
+                            return;
+                        }
+                        jsonsData.keyword = keyword;
+                        pged.refresh();
+                        return false;
+                    }
+                });
+
+                $('#searchInput').val(unescape(pageManager.GetQueryString("keyword")));
+                var txt = $('#searchInput').val();
+                if(txt != null || txt != null){
+                    $('#searchBar').addClass('weui-search-bar_focusing');
+                }
+
+                //即时搜索
+                var bind_name = 'input';
+                if (navigator.userAgent.indexOf("MSIE") != -1) {
+                    bind_name = 'propertychange';
+                }
+                if(navigator.userAgent.match(/android/i) == "android")
+                {
+                    bind_name = "keydown";
+                }
+
+                $("#searchInput").bind(bind_name, function (event) {
+                    var code = event.keyCode || event.which;
+                    var keyword = $("#searchInput").val();
+                    jsonsData.keyword = keyword;
+                    pged.refresh();
+                    return false;
+                });
+
+                var jsonsData={
+                    pageSize:20,
+                    pageNumber:1,
+                    lat: weixin.lat,
+                    lng: weixin.lng
+                };
+                jsonsData.keyword=pageManager.GetQueryString("keyword");
+                dropmenu.init("全城",'分类',"智能排序");
+                var ar=new area(function (data) {
+                    dropmenu.bindCity(data,function (data) {
+                        console.log(data);
+                        jsonsData.areaId=data.areaId;
+                        jsonsData.communityId=data.communityId;
+                        pged.refresh();
+                    });
+                    //热门商圈
+                    console.log('热门商圈：'+data);
+                    var h = render.fill($("#tpl_hotArea"), data);
+                    $(".hot").html(h);
+                });
+                ar.community();
+
+//                var rp=new redPacket(function (data) {
+//                    dropmenu.bindCategory(data,function (data) {
+//                        console.log(data);
+//                        jsonsData.productCategoryId=data.categoryId;
+//                        pged.refresh();
+//                    });
+//                });
+//                rp.category();
+                initCategory();
+                dropmenu.bindCategory(categorys,function (data) {
+                    console.log(data);
+                    jsonsData.productCategoryId=data.categoryId;
+                    pged.refresh();
+                })
+
+                dropmenu.bindOrder(["智能排序","价格由低到高","价格由高到低","销量优先","评论最高"],function (data) {
+                    console.log(data);
+                    var orderType="";
+                    if(data==0){
+                        orderType="weight";
+                    }
+                    if(data==1){
+                        orderType="priceAsc";
+                    }
+                    if(data==2){
+                        orderType="priceDesc";
+                    }
+                    if(data==3){
+                        orderType="salesDesc";
+                    }
+                    if(data==4){
+                        orderType="scoreDesc";
+                    }
+                    jsonsData.orderType=orderType;
+                    pged.refresh();
+                });
+
+                var pged;
+                if ($('#goods_style').hasClass('col-2') == false) {
+
+                    weixin.location(function () {
+                        $('pageable-up').remove();
+                        $('pageable-down').remove();
+                        jsonsData.lat=weixin.lat;
+                        jsonsData.lng=weixin.lng;
+                        pged = $(".pageable").pageable({
+                            scrollFn:function () {
+                                $(window).trigger('scroll');
+                            },
+                            loadUpFn: function () {
+                                var tu = new product(function (data) {
+                                    jsonsData.pageNumber += 1;
+                                    var h = render.fill($("#tpl_productList"), data);
+                                    $(".pageable .product_search").html(h);
+                                    $('img').picLazyLoad();
+                                    pged.resetload();
+                                });
+                                jsonsData.pageNumber = 1;
+                                tu.list(jsonsData);
+                            },
+                            loadDownFn: function (me) {
+                                weixin.location(function () {
+                                        jsonsData.lat=weixin.lat;
+                                        jsonsData.lng=weixin.lng;
+
+
+                                        var td = new product(function (data) {
+                                            jsonsData.pageNumber += 1;
+                                            var h = render.fill($("#tpl_productList"), data);
+                                            $(".pageable .product_search").append(h);
+                                            $('img').picLazyLoad();
+                                            if (data.length<jsonsData.pageSize) {
+                                                me.lock();
+                                                me.noData();
+                                            }
+                                            me.resetload();
+                                        });
+                                        td.list(jsonsData);
+                                    }
+                                )}
+                        });
+                    });
+                }
+
+                //搜索结果页点击切换商品样式
+                $('#goods_style').on('click', function () {
+                    $(this).toggleClass('col-2');
+                    if ($('#goods_style').hasClass('col-2')) {
+
+                        $('.product').addClass('product-grid').removeClass('product-list');
+
+                    }
+                    else {
+                        $('.product').addClass('product-list').removeClass('product-grid');
+                    }
+                });
+
+                var down=document.getElementsByClassName('pageable-down');
+                for(var i=0;i<down.length;i++){
+                    if(i>0){
+                        down[i].remove();
+                    }
+                }
+            }
+        }
+
+    });
+</script>
+</body>
+</html>

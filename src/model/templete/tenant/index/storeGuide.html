@@ -1,0 +1,58 @@
+{{#each this}}
+    <div class="item weui-cells">
+        <div class="weui-cell">
+            <div class="weui-cell__hd">
+                {{#compare headImg '!=' null}}
+                <img src="{{crop headImg 15 15}}" />
+                {{/compare}}
+                {{#compare headImg '==' null}}
+                <img src="../images/placeholder/user.png" />
+                {{/compare}}
+                {{#compare headImg '==' ""}}
+                <img src="../images/placeholder/user.png" />
+                {{/compare}}
+            </div>
+            <div class="weui-cell__bd">
+                {{#compare name '==' null}}
+                <a href="javascript:;" class="f14 clr_orange">{{nickName}}</a>
+                {{/compare}}
+                {{#compare name '!=' null}}
+                <a href="javascript:;" class="f14 clr_orange">{{name}}</a>
+                {{/compare}}
+                <p class="f12 clr_orange overone">{{tenantName}}</p>
+                <p class="info f12 clr_lightGray overone">
+                    <span class="overone">销售出{{quertity}}件</span>
+                    <span class="overone">粉丝数{{fansCount}}</span>
+                </p>
+            </div>
+        </div>
+        <div class="weui-cell">
+            <p class="weui-cell__bd">
+                <a class="send_msg" data="{{id}}" href="javascript:;">
+                    <i class="iconfont icon-l-news f14"></i>
+                    <span class="f12">发消息</span>
+                </a>
+            </p>
+            <p class="weui-cell__bd">
+                {{#compare phone '!=' null}}
+                    <a href="tel:{{phone}}" class="guide_tel">
+                        <i class="iconfont icon-phone-a f14"></i>
+                        <span class="f12">打电话</span>
+                    </a>
+                {{/compare}}
+                {{#compare phone '==' null}}
+                <a href="javascript:;" class="guide_tel">
+                    <i class="iconfont icon-phone-a f14"></i>
+                    <span class="f12">打电话</span>
+                </a>
+                {{/compare}}
+                {{#compare phone '==' ''}}
+                <a href="javascript:;" class="guide_tel">
+                    <i class="iconfont icon-phone-a f14"></i>
+                    <span class="f12">打电话</span>
+                </a>
+                {{/compare}}
+            </p>
+        </div>
+    </div>
+{{/each}}

@@ -1,0 +1,28 @@
+<div class="page">
+    <div class="page__bd" style="height: 100%;">
+        <div class="weui-tab">
+            <!--search-->
+            <div class="weui-search-bar citySearch" id="searchBar">
+                <form class="weui-search-bar__form">
+                    <div class="weui-search-bar__box">
+                        <i class="weui-icon-search"></i>
+                        <input type="search" class="weui-search-bar__input" id="searchInput" placeholder="城市/行政区" required="">
+                        <a href="javascript:" class="weui-icon-clear" id="searchClear"></a>
+                    </div>
+                    <label class="weui-search-bar__label" id="searchText">
+                        <i class="weui-icon-search"></i>
+                        <span>搜索</span>
+                    </label>
+                </form>
+                <a href="javascript:" class="weui-search-bar__cancel-btn" id="searchCancel">取消</a>
+            </div>
+            <!--search end-->
+
+            <!--regionSelection -->
+            <div class="weui-tab__panel pageable region" id="region" style="padding:44px 0 0 0;">
+                <ul class="f12 clr_mediumGray areah AreaClass_grid weui-cells"></ul>
+            </div>
+            <!--regionSelection end-->
+        </div>
+    </div>
+</div>

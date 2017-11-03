@@ -1,0 +1,340 @@
+@charset "UTF-8";
+
+.orderPayWrap{
+  #memo{border:none;}
+  .accordion2,.accordion{
+    .weui-flex{
+      .changestyle{
+        color: @gray01;
+        right: 6%;
+      }
+    }
+  }
+  &.confirmOrder{
+    background:@bodyBg;
+    .input-text{ background: @white;padding:2%;
+      input{border-bottom: 1px solid #eee;padding:5px; width: 95%}
+    }
+    .receipt{
+      a{
+        .weui-cell__bd{
+          p:first-child{ color:@Medium-gray;}
+          p:last-child{color:@orange;margin-top: 5px;
+            i{ font-size:15px;}
+          }
+        }
+      }
+    }
+
+    .store{
+      a{
+        .weui-cell__bd{
+          i{ margin-right:5px;}
+        }
+      }
+      .Subtotal{
+        text-align: right; line-height: 40px; height: 40px; padding-right:3%; color: @Medium-gray;
+        span{ color:@baseColor;}
+      }
+    }
+
+    .code{ background:@white;
+      border-top:1px solid #eee;
+      &:before{ border-top:none}
+    }
+    @viewportbase:6.4;
+    .sub{
+      background:@white;
+      //position: fixed;
+      //bottom:0; left:0;
+      //width: 100%;
+      //z-index: 100;
+      border-top:1px solid #eee;
+      height:unit(90px/@viewportbase, vw);
+      line-height: unit(90px/@viewportbase, vw);
+      //.inner{
+      //  overflow-y: auto;
+      //  position: absolute;
+      //  top: 0;
+      //  bottom: 0;
+      //  left: 0;
+      //  right: 0;}
+      //li{ float: left; color:@dark-gray;list-style: none;}
+      //li:first-child{width: 65%;padding-left:5%;text-align: center; color: @baseColor;}
+      //li:last-child{width: 30%;background:@baseColor; text-align: center;height:unit(90px/@viewportbase, vw);
+      //
+      //  a{ color: @white;}
+      //}
+      .weui-tabbar__item{  color:@dark-gray; padding: 0;}
+      .weui-tabbar__item:first-child{ flex: 2; color: @baseColor;}
+      .weui-tabbar__item:last-child{
+        flex:1;
+        height:unit(90px/@viewportbase, vw);
+        background:@baseColor;
+        color: @white;
+      }
+    }
+  }
+  .accordion2,.accordion{
+    .weui-flex{
+      .changestyle{
+        color: @gray01;
+        right: 6%;
+      }
+    }
+  }
+  .add_address,#changead,#saveadd,.addbank{
+    position: fixed;
+    bottom:0;
+    left:0;
+    width:100%;
+    background: @bodyBg;
+    .weui-btn{
+      width: 80%;
+      border-radius: 5px;
+    }
+    &.weui-btn-area{
+      margin: 1.17647059em auto 0;
+      padding:3vw 0 3vw;
+    }
+
+    div{
+      width:90%;
+      height:10vw;
+      border-radius:1vw;
+      background:@orange;
+      border:0;
+      color:@white;
+      text-align: center;
+      margin-left: 5%;
+      font-size: 5vw;
+    }
+  }
+  .chooseWidget{
+    .weui-cell{
+      padding:4% 3%;
+      text-transform: uppercase;
+      &:before{border-top:none}
+      border-bottom: 1px solid #eee;
+    }
+  }
+
+  .phone_test{
+    margin-top: 2%;
+    background: @white;
+    .weui-cell{
+      .weui-cell__bd{
+        input{
+          width: 100%;
+          border: none;
+        }
+      }
+      .weui-cell__ft{
+        input{
+          width: 50px;
+          height:7vw;
+          border:1px solid @dark-gray;
+        }
+      }
+    }
+  }
+  .usable{
+    background: @baseColor;
+    display: block;
+    max-width: 65px;
+    height:5vw;
+    line-height: 5vw;
+    text-align: center;
+    color: @white;
+    margin: 1.9vw 0 1.9vw 5px;
+  }
+
+
+  .delivery{
+    background: @white;
+    .weui-cell {
+      &:nth-child(2){
+        &:before{
+          .mixin(top,solid,#d9d9d9);
+        }
+      }
+    }
+  }
+  .address_moren{
+    padding: 0;
+    &:before{
+      border:none;
+    }
+    .weui-cell__hd{
+      margin-right: 5px;
+    }
+  }
+  .h30{
+    line-height: 8.8vw;
+  }
+
+  .sr_cell{
+    -webkit-align-items: flex-end;
+    -webkit-box-align: flex-end;
+    align-items: flex-end;
+  }
+
+  .paysdetail{
+    &.weui-cells,.weui-cells{
+      margin-top: 1.33vw;
+
+      &.store{
+        &:before{
+          border: none;
+        }
+        .product-list{
+          &:before{
+            border: none;
+          }
+        }
+        .match_item{
+          background: @white;
+          border: none;
+          .match_tit{
+            padding: 2% 0;
+            background: @white;
+            .pinglun_tit{
+              line-height: 2em;
+              padding-left: 15px;
+              border-left: 4px solid @baseColor;
+            }
+          }
+          .match_product{
+            background: #f9f9f9;
+          }
+        }
+      }
+    }
+    .order_tenant_icon{
+      padding-left: 30px;
+      i{
+        position: absolute;
+        top: 2vw;
+        left: 2%;
+      }
+    }
+  }
+
+  .bor_bottom_none{
+    &:after{
+      border-bottom: none;
+      height: 0;
+    }
+  }
+  #myad{
+    &:before{
+      border: none;
+    }
+  }
+
+  .checked_moren{
+    &:before{
+      display: block;
+      content: "\EA08";
+      color: #09bb07;
+      font-size: 16px;
+    }
+  }
+
+  .delivery{
+    display:none;
+    width: 100%;
+    .weui-cell:before{ border-top:0;}
+    &.weui-cells:before{ border:0;}
+  }
+  .couponList{
+    margin-top:0;
+    background:@bodyBg;
+    &:before{border-top:none}
+  }
+  .bor{border-bottom: 1px solid #eee;}
+  .bornone{
+    margin-top: 0;
+    &:before{ border-top:0;}
+    &.weui-cell:before{ border-top:0;}
+  }
+  .tedadress{
+    .title{
+      text-align: center;
+      padding: 10px 0;
+      border-bottom: 1px solid #eee;
+      background: @bodyBg;
+      .icon-remove-02{
+        float:right;
+        margin-right:5px;
+      }
+    }
+
+    .weui-actionsheet__cell{
+      padding-left: 10px;
+      .weui-cell__bd{
+        text-align: left;
+        padding-bottom: 3px;
+        color:@Medium-gray;
+        &:first-child{
+          font-weight: 500;
+        }
+      }
+      .weui-cell__ft{
+        width:29px;
+        margin-right: 10px;
+      }
+    }
+  }
+
+  .ucoupon{
+    .title{
+      text-align: center;
+      padding: 10px 0;
+      border-bottom: 1px solid #eee;
+      background: @bodyBg;
+      .icon-remove-02{
+        float:right;
+        margin-right:2%;
+      }
+    }
+
+    .weui-actionsheet__cell{
+      padding:10px 20px;
+      .weui-cell__bd{
+        text-align: left;
+        color:@dark-gray;
+        &:first-child{
+          font-weight: 500;
+        }
+        p{
+          margin-bottom: 3px;
+        }
+      }
+      .weui-cell__ft{
+        p{
+          background: @orange;
+          color:@white;
+          padding:5px 10px;
+          border-radius: 3px;
+        }
+      }
+    }
+    .closecoupon{
+      text-align: center;
+      background:@orange;
+      line-height: 100%;
+      color:@white;
+      padding:15px 0;
+      margin-top: 10px;
+    }
+  }
+
+  .soll{
+    max-height:50vh;
+    overflow-y:auto;
+    &:after{
+      border: none;
+    }
+  }
+}

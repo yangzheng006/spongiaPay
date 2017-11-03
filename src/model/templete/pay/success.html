@@ -1,0 +1,51 @@
+
+<div class="weui-cell hd">
+    <div class="weui-cell__hd">
+        <i class="weui-icon-success weui-icon_msg f10"></i>
+    </div>
+    <div class="weui-cell__bd">
+        <h4 class="f14 clr_orange">支付完成</h4>
+        <h1 class="f40 clr_darkGray">￥<span class="amount">{{amount}}</span></h1>
+    </div>
+</div>
+<div class="weui-cells f14 bd">
+    <div class="weui-cell">
+        <div class="weui-cell__hd clr_lightGray">收款商家：</div>
+        <div id="tenantName" class="weui-cell__bd tr">{{tenantName}}</div>
+    </div>
+    <div class="weui-cell">
+        <div class="weui-cell__hd clr_lightGray">消费金额：</div>
+        <div class="weui-cell__bd tr">￥<span class="totalAmount">{{totalAmount}}</span></div>
+    </div>
+    <div class="weui-cell">
+        <div class="weui-cell__hd clr_lightGray">支付时间：</div>
+        <div id="createDate" class="weui-cell__bd tr">{{createDate}}</div>
+    </div>
+    <div class="weui-cell">
+        <div class="weui-cell__hd clr_lightGray">优惠金额：</div>
+        <div class="weui-cell__bd tr">￥<span class="discount">{{discount}}</span></div>
+    </div>
+    <div class="weui-cell">
+        <div class="weui-cell__hd clr_lightGray">返现金额：</div>
+        {{#if backDiscount}}
+        <div class="weui-cell__bd tr">￥<span class="backDiscount">{{backDiscount}}</span></div>
+        {{else}}
+        <div class="weui-cell__bd tr">￥<span class="backDiscount">0</span></div>
+        {{/if}}
+    </div>
+</div>
+<div class="paysuccess_btn" style="cursor: pointer;">
+    <a href="javascript:;" class="f16">完成</a>
+</div>
+
+<div class="weui-mask tihuoStyle none">
+    <div class="tihuoSwip">
+        <p>
+            <img src="" alt="" id="tihuocode">
+        </p>
+        <p class="tc clr_white bold" >{{tradeSn}}</p>
+        <p class="f12  tc clr_white  overone tihuoAdd" >{{deliveryAddress}}</p>
+        <p class="f16 bold tc tenantName">{{tenantName}}提货码</p>
+        <div class="closeTihuo"><i class="iconfont icon-quxiao1 f22"></i></div>
+    </div>
+</div>

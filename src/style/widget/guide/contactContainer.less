@@ -1,0 +1,285 @@
+@charset "UTF-8";
+
+//包裹所有说说的外层容器
+.contactContainer{
+  border-bottom: 5px solid @bodyBg;
+  .weui-cells, .weui-cell {
+    &:before {
+      border: none;
+    }
+    &:after {
+      border: none;
+    }
+  }
+
+  .userInfo{
+    .weui-cell__hd{
+      height: 12vw;
+      width: 12vw;
+      margin-right: 2vw;
+      img{
+        border-radius: 50%;
+        width: 100%;
+        height: 100%;
+      }
+    }
+    .weui-cell__bd{
+      p{
+        width: 30vw;
+      }
+    }
+    .weui-cell__ft{
+      i{
+        margin-right: 1vw;
+      }
+      p{
+        width: 50vw;
+      }
+    }
+  }
+
+
+  //每一条说说的外层包裹类名
+  .guide_article {
+    background: @white;
+    margin-top: 5px;
+    position: static;
+    .weui-cell {
+      &:first-child {
+        .weui-cell__bd {
+          p {
+            padding-bottom: 2px;
+          }
+        }
+      }
+      &:last-child {
+        &:before {
+          border-top: 0;
+        }
+      }
+    }
+
+    //说说的图片部分
+    .contactImg{
+      padding-bottom: 0;
+      .weui-uploader__file {
+        width: 30.5vw;
+        height: 30.5vw;
+        margin-right: 2vw;
+        margin-bottom: 2vw;
+        &:nth-child(3n) {
+          margin-right: 0;
+        }
+
+        &:first-child {
+          margin-left: 0;
+        }
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+
+    //说说下部分享点赞
+    .contactOp{
+      text-align: center;
+      padding: 2% 4% 0;
+      justify-content: space-between!important;
+      .placeholder{
+        height: 30px;
+        line-height: 30px;
+        i{
+          margin-right: 5px;
+          color: #999;
+          vertical-align: -2px;
+          &.icon-icon-copy{
+            vertical-align: 0;
+          }
+        }
+      }
+      .iconred {
+        color: @roseRed !important;
+      }
+      .contactTime{
+        color: #999;
+        float: left;
+      }
+
+      .weui-flex__item{
+        display: inline-block!important;
+        flex: inherit!important;
+        .deleteContact{
+          padding-right: 0!important;
+        }
+      }
+      .deleteContact{
+        padding-left: 2vw;
+        padding-right: 5vw;
+        cursor: pointer;
+        color: #5e72a5;
+      }
+    }
+
+    //说说的分享商品部分
+    .shareProduct {
+      padding:0 2%;
+      background: @bodyBg;
+      margin-top: 0;
+      .padding_none{
+        padding: 0;
+      }
+      .weui-cell {
+        .weui-cell__hd {
+          width: 15vw;
+          height: 15vw;
+          margin-right: 2vw;
+          img {
+            width: 100%;
+            height: 100%;
+          }
+        }
+        .weui-cell__bd {
+          width: 53vw;
+          p {
+            &:first-child {
+              margin-bottom: 3vw;
+            }
+          }
+        }
+        .weui-cell__ft {
+          //background: #d5213f;
+          //color: #fff;
+          //padding: 2px 8px;
+          //border-radius: 6px;
+          &:after{
+            border-color: #5f94fd;
+          }
+        }
+      }
+    }
+
+    //分享的红包、优惠券、现金券部分样式
+    .dynamic_Red {
+      background: #f9f9f9;
+      &:before {
+        border: 0;
+      }
+      &:after {
+        border: 0;
+      }
+
+      .dynamic_Red_img {
+        width: 16vw;
+        height: 20vw;
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+      .weui-cell__bd {
+        width: 53vw;
+        margin-left: 8px;
+        .red_title {
+          margin-bottom: 6vw;
+        }
+      }
+      .red_get {
+        &:after{
+          border-color: @blue02;
+        }
+      }
+    }
+
+    //评论输入框样式
+    .interaction {
+      margin: 2% 4% 4%;
+      position: relative;
+      input {
+        width: 92%;
+        border:1px solid #eee;
+        height: 28px;
+        padding-left: 8%;
+        line-height: 28px;
+        font-family: inherit;
+      }
+      .icon-bianji1 {
+        position: absolute;
+        top: 8px;
+        left: 7px;
+        color: #bdbdbd;
+        font-size: 12px;
+      }
+    }
+
+    //评论的内容部分样式
+    .tosk {
+      margin-top: -10px;
+
+      .nameBlue{
+        color:#5e72a5;
+      }
+
+      .arrow {
+        height: 19px;
+        margin-left: 16px;
+        margin-bottom: -2px;
+        color: #f5f5f5;
+
+        i {
+          font-size: 24px;
+        }
+      }
+      .toskList {
+        margin: 2% 4%;
+        position: relative;
+        .task {
+          overflow: hidden;
+          li {
+            &:first-child {
+              padding-top: 10px
+            }
+            &.pad10 {
+              padding-bottom: 10px;
+            }
+            &:last-child {
+              padding-bottom: 10px
+            }
+            background: @bodyBg;
+            padding: 0 10px;
+            font-size: 12px;
+            line-height: 25px;
+            .ml8 {
+              margin-left: 8px;
+            }
+          }
+        }
+        .height {
+          max-height: 135px;
+        }
+        .on {
+          max-height: auto;
+        }
+      }
+
+      #top{
+        //text-align: center;
+        text-align: right;
+        //position: absolute;
+        right: 10px;
+        position: relative;
+        //bottom: 0;
+        //width: 10vw;
+        height: 45px;
+        line-height: 45px;
+        display: block;
+        cursor: pointer;
+        &.none{
+          display: none;
+        }
+      }
+    }
+
+
+  }
+
+}

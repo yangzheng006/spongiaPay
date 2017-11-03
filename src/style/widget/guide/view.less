@@ -1,0 +1,228 @@
+@charset "UTF-8";
+
+.guideView{
+
+  //顶部头像部分
+  .guideimg {
+    width: 100vw;
+    height: 100vw;
+    img {
+      width: 100%;
+      height: 100%;
+    }
+    position: relative;
+    .Edit {
+      width: 40px;
+      height: 40px;
+      line-height: 40px;
+      border-radius: 50%;
+      background: rgba(0, 0, 0, 0.5);
+      position: absolute;
+      top: 20px;
+      right: 10px;
+      text-align: center;
+      i {
+        color: @white;
+        font-size: 20px;
+      }
+    }
+    .new {
+      width: 6px;
+      height: 6px;
+      background: #ff5c5c;
+      border: 1px solid @white;
+      border-radius: 50%;
+      position: absolute;
+      top: -1px;
+      right: -2px;
+    }
+    .Showcase {
+      background: rgba(0, 0, 0, 0.5);
+      position: absolute;
+      top: 20px;
+      left: 10px;
+      border-radius: 15px;
+      padding: 4px 8px;
+      a {
+        color: @white;
+      }
+    }
+  }
+
+  //关注导购部分
+  .praise_guide {
+    background: @white;
+    text-align: center;
+    height: 16vw;
+    #goprise {
+      i {
+        &.icon-aixin {
+          color: #ff5252;
+        }
+      }
+    }
+    i {
+      font-size: 30px;
+      color: @light-gray;
+    }
+    p {
+      color: @light-gray;
+      &.f12 {
+        font-weight: 500;
+        margin-top: -8px;
+      }
+    }
+  }
+
+
+  //加载更多说说按钮
+  .loading{
+    display: block;
+    transform-origin: 0px 0px 0px;
+    opacity: 1;
+    transform: scale(1, 1);
+
+    .loadingmore {
+      text-align: center;
+      height: 6vh;
+      line-height: 6vh;
+      color: #999;
+      cursor: pointer;
+    }
+  }
+
+  //本店推荐的商品
+  .shopproduct{
+    white-space: nowrap;
+    overflow-x: auto;
+    margin-top: 0;
+    background: #fff;
+    padding: 10px;
+
+    a{
+      display: inline-block;
+      width: 32vw;
+      height: 32vw;
+      margin-left: 1%;
+    }
+  }
+
+  //店铺基本资料
+  .tenant_info {
+    background: @white;
+    border-top: 5px solid #f1f1f1;
+    padding: 4% 4% 2%;
+    position: static;
+    &:before {
+      border: none;
+    }
+    .weui-cell__hd {
+      width: 10vw;
+      height: 10vw;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+    .weui-cell__bd {
+      p {
+        margin-left: 8px;
+        .address {
+          float: right;
+          color: @light-gray;
+        }
+        i {
+          font-size: 12px;
+        }
+      }
+      .name {
+        span {
+          &.self {
+            .blueGrad;
+            font-size: 12px;
+            color: @white;
+            padding: 1px 4px;
+            margin: 0 5px;
+            border-radius: 3px;
+          }
+          &:last-child {
+            color: @light-gray;
+            margin-top: -1px;
+          }
+        }
+        .goShop {
+          float: right;
+          font-size: 12px;
+          i {
+            color: @orange;
+            font-size: 12px;
+            margin-right: 10px;
+          }
+        }
+      }
+
+      .tenantName{
+        display: inline-block;
+        width: 45vw;
+      }
+    }
+  }
+
+  .tenantGuide {
+    padding: 0 0 10px 0;
+    background: @white;
+    &.weui-flex{
+    justify-content: center;
+    text-align: center;
+  }
+    .weui-flex__item {
+      font-size: 14px;
+      &:first-child {
+        border-right: 1px solid #eee;
+      }
+
+      &.enterTenant {
+        -webkit-box-flex: 1.2;
+        -webkit-flex: 1.2;
+        flex: 1.2;
+      }
+
+      p {
+        a {
+          background: #fff;
+          border: 1px solid #333;
+          padding: 4px 20px;
+          font-weight: 500;
+        }
+      }
+    }
+  }
+
+
+  //发说说照相机按钮
+  .heart_circle {
+    box-shadow: 1px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    position: fixed;
+    bottom: 20px;
+    right: 15px;
+    text-align: center;
+    line-height: 13vw;
+    width: 14vw;
+    height: 14vw;
+    border-radius: 50%;
+    z-index: 1000;
+    background: @orange;
+    display: block;
+    &.none {
+      display: none;
+    }
+
+    i {
+      text-align: center;
+      color: white;
+      font-size: 30px;
+    }
+  }
+
+}

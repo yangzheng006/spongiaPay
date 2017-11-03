@@ -1,0 +1,111 @@
+@charset "UTF-8";
+.tenant_menu{
+  padding: 2px 0;
+  background: #f2f2f2;
+  z-index: 10000;
+  &:before{
+    //border-top:0
+  }
+  //.splitLine(border-top);
+  .weui-tabbar__item.weui-bar__item_on .weui-tabbar__icon,.weui-tabbar__item.weui-bar__item_on .weui-tabbar__label{
+    color: @baseColor;
+  }
+  .weui-tabbar__label{margin-top:-5px;}
+
+  .weui-tabbar__item{
+    &#nav4{
+      #cartCount{
+        display: none;
+        position: absolute;
+        z-index: 999999999;
+        top: 0;
+        right: -13px;
+        background: @baseColor;
+        color: #fff;
+        font-size: 12px;
+        height: 1.5em;
+        border-radius: 50%;
+        width: 18px;
+      }
+    }
+
+    &.weui-bar__item_on{
+      .icon-shouye3{
+        font-size: 23px;
+      }
+    }
+    &:first-child{
+      i{
+        display: inline-block;
+        margin-top: -1px;
+      }
+      .weui-tabbar__label{margin-top: -6px;}
+      i{font-size: 24px;}
+    }
+    &:nth-child(4){
+
+      //.weui-tabbar__label{margin-top: 6px;}
+    }
+    i{font-size: 23px; color:#000;}
+    p{
+      &.weui-tabbar__label{
+        color: #000;
+      }
+    }
+    padding: 0;
+
+    &.weui-bar__item_on {
+
+      i{
+        &:before{
+          color: @baseColor;
+        }
+      }
+    }
+  }
+  .couponmenu{
+    position: relative;display:flex;align-items: center;justify-content: center;
+    .couponwrap{
+      width:60px;
+      height:50px;
+      border:0.5px solid #cccccc;
+      border-radius: 50%;
+      margin-top:-20px;
+      background: #f2f2f2;
+      z-index: 3;
+    }
+    .couponcover{
+      width:62px;
+      height:50px;
+      background: #f2f2f2;
+      margin-top:9px;
+      margin-left:-1px;
+      display:flex;
+    }
+    .couponcircle{
+      margin: auto;
+      width:47px;
+      height:47px;
+      border:1px solid @baseColor;
+      background: #f2f2f2;
+      display:flex;
+      border-radius:50%;
+    }
+    .couponCon{
+      margin:auto;
+      width:39px;
+      height:39px;
+      color: #fff;
+      background: @baseColor;
+      border-radius:50%;
+      font-size:12px;
+      line-height:1.2;
+      display:flex;
+      div{
+        margin:auto;
+      }
+    }
+  }
+}
+
+

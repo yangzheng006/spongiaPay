@@ -1,0 +1,114 @@
+@charset "UTF-8";
+//商品搭配服务
+#actionSheet_collocation{
+  .actionSheet_collocation_info{
+    max-height: 80vh;
+    background: @white;
+    overflow: auto;
+  }
+}
+.match_item{
+  border-bottom: 5px solid #eeeeee;
+  &:nth-last-child(2){
+    border-bottom: none;
+  }
+  .tenant_tit{
+    line-height: 2em;
+    padding: 2% 0 2% 35px;
+    background: #fbfbfb;
+    position: relative;
+
+    &:before{
+      .mixin(top,solid,#d9d9d9);
+    }
+    &:after{
+      .mixin(bottom,solid,#d9d9d9);
+    }
+    i{
+      position: absolute;
+      top: 9px;
+      left: 2%;
+      margin-right: 5px;
+    }
+  }
+  .match_tit{
+    position: relative;
+    line-height: 2em;
+    padding: 0 2%;
+    margin: 2% auto;
+  }
+  .match_product{
+    background: @white;
+    .sr_weui-cell;
+    &:after{
+      .mixin(bottom, solid, #d9d9d9);
+    }
+    .match_product_img{
+      width: 24vw;
+      height:24vw;
+      margin-right: 2%;
+      img{
+        border-radius: 5px;
+      }
+    }
+    .match_product_info{
+      .sr_weui-cell__bd;
+      a{
+        p{
+          width: 60vw;
+          &:first-child{
+            line-height: 1.2;
+          }
+          &:nth-child(2){
+            width: 66vw;
+            margin-top: 3px;
+          }
+        }
+      }
+      .weui-cell{
+        padding: 0;
+        .weui-cell__ft{
+          .input-number-int{
+            width: 40px;
+            height:28px;
+            border: 1px solid @block-gray;
+          }
+          .vux-number-selector-sub,.vux-number-selector-plus{
+            width: 30px;
+            height:30px;
+            line-height: 30px;
+            background: #f2f1f9;
+            display: inline-block;
+          }
+        }
+      }
+    }
+  }
+  .zhankai_guige{
+    position: absolute;
+    top:-3vw;
+    right: 0;
+    width: 14vw;
+    height: 14vw;
+    line-height: 14vw;
+    cursor: pointer;
+  }
+  .guige{
+    padding: 2% 0 2% 2%;
+    background: @white;
+    li{
+      display: inline-block;
+      padding: 5px 10px;
+      background: #f2f1f9;
+      margin-right: 2%;
+      border-radius: 3px;
+      margin-bottom: 5px;
+      &.active{
+        background: @baseColor;
+        a{
+          color: @white;
+        }
+      }
+    }
+  }
+}

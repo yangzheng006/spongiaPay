@@ -1,0 +1,72 @@
+@charset "UTF-8";
+
+//付款页面样式
+.safepay {
+  background: #f1f1f1;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  height: 100%;
+
+  .icon-remove-02{
+    float:right;
+  }
+  .title{
+    text-align: center;
+    font-weight: 500;
+  }
+  .weui-cells{
+    margin-top: 2%;
+    .weui-cell{
+      padding: 4% 2%;
+
+      &.payMoney{
+        padding:2%;
+      }
+    }
+    &:before{
+      border: none;
+    }
+
+    //i{margin-right:5px}
+    //.icon-wechat{
+    //  background:#14d212;
+    //  color:@white;
+    //  padding: 2px 3px;
+    //  font-size: 13px;
+    //  border-radius:3px;
+    //  margin-right: 5px
+    //}
+    //.icon-purse-03{
+    //  background:@roseRed;
+    //  color:@white;
+    //  padding: 2px 3px;
+    //  font-size: 12px;
+    //  border-radius:3px;
+    //}
+
+    .weui-cell_access{
+      padding: 4% 2%;
+    }
+
+    .selectPay{
+      background: #f8f8f8;
+      padding: 2%;
+    }
+  }
+
+  .my_btn{
+    position: fixed;
+    bottom: 10vw;
+    left:0vw;
+
+    margin: 0 auto;
+    width: 100%;
+  }
+  #sendpay{
+    width: 90vw;
+    margin-top: 80px;
+    background:@baseColor;
+
+  }
+}

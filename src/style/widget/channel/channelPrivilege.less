@@ -1,0 +1,92 @@
+@charset "UTF-8";
+//频道特权图片
+.channel_img{
+  position: absolute;
+  top:0;
+  //top:44px;
+  right: 5vw;
+  z-index: 999999;
+  width:16vw;
+  height: 20vw;
+  display: flex;
+
+  &.none{
+    display: none !important;
+  }
+}
+
+//频道特权弹框
+#channel_privilege{
+  position: absolute;
+  z-index: 9999;
+  .privilege{
+    top: 36%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -36%);
+    transform: translate(-50%, -36%);
+    position: fixed;
+    z-index: 99999;
+    padding:2.34375vw;
+    width: 87.5vw;
+    height: 68.75vw;
+    background: @white;
+    border-radius: 10px;
+    .sr_weui-cell;
+    &.none{
+      display: none;
+    }
+
+    .privilege_img{
+      width: 32.8125vw;
+      margin: -2.34375vw 0;
+      background: -webkit-linear-gradient(left, #d0d0d0 , #fff); /* Safari 5.1 - 6.0 */
+      background: -o-linear-gradient(right, #fff, #d0d0d0); /* Opera 11.1 - 12.0 */
+      background: -moz-linear-gradient(right, #fff, #d0d0d0); /* Firefox 3.6 - 15 */
+      background: linear-gradient(to right, #fff , #d0d0d0); /* 标准的语法（必须放在最后） */
+      img{
+        height: 68.75vw;
+        margin: 2.34375vw 0;
+      }
+    }
+
+    .privilege_txt{
+      width: 57.03125vw;
+      margin-left: 10px;
+      i{
+        &.icon-pindaotequan1{
+          font-size: 20px;
+          margin-left: -6px;
+        }
+      }
+      .channel_intro{
+        width: 52.34375vw;
+        height: 53.125vw;
+        margin-top: 2vw;
+        overflow: auto;
+        word-wrap: break-word;
+        word-break: normal;
+      }
+    }
+  }
+
+  .close_intro{
+    width: 16.40625vw;
+    height:16.40625vw;
+    line-height: 16.40625vw;
+    text-align: center;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.78);
+    color: @white;
+    position: fixed;
+    z-index: 99999;
+    bottom:12%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -12%);
+    transform: translate(-50%, -12%);
+
+    i{
+      font-size: 24px;
+    }
+
+  }
+}

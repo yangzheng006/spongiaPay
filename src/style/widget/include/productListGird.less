@@ -1,0 +1,90 @@
+@charset "UTF-8";
+.product-grid{
+  padding:0 1vw;
+  background: @white !important;
+  margin: 0;
+  &.weui-cells:before,&.weui-cells:after,.weui-cell:after,.weui-cell:before{border-top:0;border-bottom: 0;}
+  &.hot_product .weui-cell, &.product_search .weui-cell{
+    margin-bottom: 0;
+  }
+  .position {
+    width: 47vw;
+    border-bottom: 0;
+    float: left;
+    background: @white;
+    padding: 2% 1vw;
+    flex-flow: column;
+    position: relative;
+    display: flex;
+    align-items: center;
+    .marketPrice{
+      text-decoration:line-through;
+      color:@light-gray;
+    }
+  }
+  a {
+    width:100%;
+    border-bottom:0;
+    background: @white;
+    padding:0;
+    flex-flow: column;
+    .weui-cell__hd{
+      width: 47vw;
+      height:47vw;
+      clear: both;
+      margin: 0;
+      img {
+        .img;
+        width: 100%;
+      }
+    }
+    .weui-cell__bd{
+      width: 100%;clear: both;position: relative;
+      .product_name{
+        margin: 10px 0 5px;
+        line-height: 1.2em;
+        height:2.4em;
+      }
+      .price {
+        //line-height: 1.8em;
+        margin: .2em 5px .2em 0;
+        span:nth-child(1) {
+          .good {
+            color: @orange;
+            float: @right;
+          }
+        }
+      }
+      .tag_list{
+        line-height: 1.2;
+        height:20px;
+      }
+      .renqi{
+        margin-top: 5px;
+        clear: both;
+      }
+    }
+  }
+  .cart{
+    cursor: pointer;
+    padding: 15px 10px;
+    display: block;
+    position: absolute;
+    right: 4%;
+    bottom: -8px;
+    z-index: 99;
+    span{
+      width: 7.5vw;
+      height: 7.5vw;
+      line-height: 7.5vw;
+      border: 1px solid @baseColor;
+      border-radius: 50%;
+      display: block;
+      i{
+        font-size: 14px;
+        margin: 0;
+        color: @baseColor;
+      }
+    }
+  }
+}

@@ -1,0 +1,129 @@
+<div class="page">
+    @import "../../model/widget/include/toast.html";
+    @import "../../model/widget/include/dialog.html";
+    <!--BEGIN actionSheet-商家优惠券-->
+    <div id="actionSheet_merchant_coupons">
+
+    </div>
+    <!--END actionSheet-商家优惠券-->
+    <!--分享-->
+    <div id="mcover" class="shareModelSwap none">
+        <img src="../images/static/payBill/guide1.png">
+    </div>
+    <!--分享-->
+
+    <div class="discount_img none"><img src="" alt=""/></div>
+    <div class="weui-mask weui-mask_transparent none" id="iosMask2"></div>
+    <div id="teannt_coupons" class="tc clr_coupon_red none">
+        <p class="f30 bold coupon_tit">快来领优惠券</p>
+        <img src="../images/static/payBill/offerToPay_img2.png" class="coupon_bg" alt=""/>
+        <div class="coupon_all"></div>
+        <i class="iconfont icon-quxiao f24 clr_lightGray"></i>
+    </div>
+
+    <div class="page__bd" style="height: 100%;">
+        <div class="weui-tab">
+            <!-- BEGIN offerToPay -->
+            <div class="offer_toPay">
+                    <div class="aadress none weui-cell weui-cell_access" id="sheet_choose_store">
+                        <div class=" weui-cell__bd" >
+                            <p class="f14" id="delivery_name">唯爱婴元一名城店</p>
+                            <p class="f10 clr_lightGray" id="delivery_address">瑶海区中绿广场二期三百米</p>
+                        </div>
+                    </div>
+                <div class="weui-cells hd">
+                    <div class="weui-cell">
+                        <div class="weui-cell__hd f14">消费总额：</div>
+                        <div class="weui-cell__bd">
+                            <input class="f14" type="number" id="amount" placeholder="输入到店消费总额">
+                        </div>
+                    </div>
+                    <div class="weui-cell" id="ckBoxDiv">
+                            <label id="ckBoxIco" class="iconfont icon-l-square f14" for="ckBoxMoney" style="width: 100vw;">
+                                <input hidden="" type="checkbox" id="ckBoxMoney"><span>输入不参与优惠金额</span>
+                            </label>
+                    </div>
+                    <div class="weui-cell money none">
+                        <div class="weui-cell__hd f14">不参与优惠金额：</div>
+                        <div class="weui-cell__bd">
+                            <input class="f14" type="number" id="noAmount" placeholder="询问商家收银员后输入">
+                        </div>
+                    </div>
+                </div>
+                <div class="weui-cells bd" id="tenant_coupon">
+                    <div class="weui-cell weui-cell_access sheet_merchant_coupons none" id="tenant_coupon_title">
+                        <div class="weui-cell__hd"></div>
+                        <div class="weui-cell__bd f14 "><span class="cou">商家优惠券</span></div>
+                        <div class="weui-cell__ft"></div>
+                    </div>
+                    <div class="weui-cell none" id="tenant_coupon_1">
+                        <div class="weui-cell__hd">?</div>
+                        <div class="weui-cell__bd">
+                            <p class="f14">更多优惠</p>
+                            <p>敬请期待</p>
+                        </div>
+                        <div class="mask_l"></div>
+                        <div class="mask_r"></div>
+                    </div>
+                    <div class="weui-cell none" id="tenant_coupon_2" style="padding: 1em">
+                        <div class="weui-cell__bd">
+                            <div class="weui-cell">
+                                <div class="weui-cell__hd">￥<span id="coupon_amount"></span></div>
+                                <div class="weui-cell__bd f14">
+                                    <p>满<span id="coupon_minimumPrice">0</span>可用</p>
+                                    <p>优惠券</p>
+                                </div>
+                            </div>
+                            <div class="f14 clr_lightGray">使用期限：<span id="coupon_date">2016.11.11-2017.01.11</span></div>
+                        </div>
+                        <div class="weui-cell__ft">
+                            <i class="iconfont icon-s-selected f14"></i>
+                        </div>
+                        <div class="mask_l"></div>
+                        <div class="mask_r"></div>
+                    </div>
+                    <div class="none" id="tenant_coupon_3">
+                        <img src="../images/static/payBill/offerToPay_img.png" alt=""/>
+                    </div>
+                </div>
+                <div class="weui-cells bd none" id="isBillDiscount">
+                    <div class="weui-cell weui-cell_access">
+                        <div class="weui-cell__hd"></div>
+                        <div class="weui-cell__bd f14"><span class="cou">商家折扣</span></div>
+                    </div>
+                    <div class="weui-cell" style="padding: 1em">
+                        <div class="weui-cell__bd">
+                            <p class="Ftitle" id="promotionName">光混节折扣</p>
+                            <p class="Fauxiliary" id="promotionDate">2016.11.02-2016.11.08</p>
+                        </div>
+                        <div class="weui-cell__ft orange f14">-￥<span id="promotionAmount">2.2</span></div>
+                        <div class="mask_l"></div>
+                        <div class="mask_r"></div>
+                    </div>
+                </div>
+
+                <div class="weui-cells pay-money" id="isActivityTenant">
+                    <div class="weui-cell f14">
+                        <div class="weui-cell__hd">平台优惠：</div>
+                        <div class="weui-cell__bd">￥<span id="activityAmount">0</span></div>
+                    </div>
+                </div>
+                <div class="weui-cells pay-money">
+                    <div class="weui-cell f14">
+                        <div class="weui-cell__hd">实付金额：</div>
+                        <div class="weui-cell__bd">￥<span id="payAmount">0</span></div>
+                    </div>
+                </div>
+                <div class="weui-cells ft" style="background: none;">
+                    <div class="weui-cell">
+                        <a class="weui-cell__bd" href="javascript:;" id="confirmPayBill">确认买单</a>
+                    </div>
+                </div>
+                <!--<a href="../coupon/view.jhtml" class="entrance_coupon">-->
+                    <!--<img src="../images/static/payBill/offerToPay_coupon.jpg" />-->
+                <!--</a>-->
+            </div>
+            <!-- BEGIN offerToPay end-->
+        </div>
+    </div>
+</div>

@@ -1,0 +1,39 @@
+<!-- BEGIN tenant-banner-info -->
+    <div class="weui-cell__hd tenant_logo">
+        {{#compare thumbnail '!=' null}}
+            <img src="{{logo}}" />
+        {{/compare}}
+        {{#compare thumbnail '==' null}}
+            <img src="../images/placeholder/tenant.png" />
+        {{/compare}}
+
+        {{#if closed}}
+            <div class="shopRest">
+                <div class="tooltip-arrow"></div>
+                <div class="tooltip-inner">休息中</div>
+            </div>
+        {{/if}}
+    </div>
+    <div class="weui-cell__bd weui-cell_primary">
+        <h2 class="f18 clr_white">{{name}}</h2>
+        <div class="stars starlevels" data-starnum="{{grade}}" data-starlevelized="false">
+            <i class="iconfont icon-xingxing f16 orange"></i>
+            <i class="iconfont icon-xingxing f16 orange"></i>
+            <i class="iconfont icon-xingxing f16 orange"></i>
+            <i class="iconfont icon-xingxing f16 orange"></i>
+            <i class="iconfont icon-xingxing f16 orange"></i>
+        </div>
+    </div>
+    <div class="weui-cell__ft">
+        <p id="tenant_add_powder" class="save clr_white f13" data-id="{{hasFavorite}}">
+            {{#compare hasFavorite '==' true}}
+            <i class="iconfont icon-s-star f18"></i>
+            {{/compare}}
+            {{#compare hasFavorite '==' false}}
+            <i class="iconfont icon-l-star f18"></i>
+            {{/compare}}
+            收藏
+        </p>
+        <span class="clr_white f14 hits">访问 {{hits}}</span>
+    </div>
+<!--END tenant-banner-info -->

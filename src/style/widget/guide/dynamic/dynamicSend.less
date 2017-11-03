@@ -1,0 +1,132 @@
+@charset "UTF-8";
+
+
+.dynamic{
+  background: @white;
+
+  //第四步
+  .dynamic_four{
+    width: 96vw;
+    padding: 2vw 2vw 0;
+    margin: 0 auto;
+    textarea{
+      resize: none;
+      outline: none;
+      border: 0;
+      margin-top: 6vw;
+      font-size: 14px;
+      font-family: '微软雅黑';
+      color: @dark-gray;
+      text-align: left;
+      width: 100%;
+      height: 20vw;
+      border: none;
+      -webkit-tap-highlight-color: transparent;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+    }
+
+    .dynamic_img{
+      margin-top: 10px;
+      ul{
+        font-size:0;
+        li{
+          position: relative;
+          width: 17vw;
+          height:17vw;
+          text-align: center;
+          margin: 0 3.125vw 3.125vw 0;
+          float: left;
+          border: 1px solid @block-gray;
+          &.jia{
+            i{
+              font-size:10vw;
+              color: @block-gray;
+            }
+          }
+          img{
+            max-height: 100%;
+          }
+        }
+      }
+    }
+  }
+
+
+  .upimage{
+    &:before{
+      border-top:0;
+    }
+    &:after{
+      border-bottom:0;
+    }
+    .weui-uploader__input-box{
+      margin: 9px;
+      width: 60px;
+      height: 60px;
+    }
+  }
+
+  .dynamic_product{
+    padding: 2%;
+    margin-top: 0;
+    &:after{
+      border-bottom: none;
+    }
+
+    .weui-cell{
+      &.padding_none{
+        padding: 0 !important;
+        background: @block-gray;
+        p{
+          padding: 2px 0;
+          width: 77vw;
+        }
+        .weui-cell{
+          padding: 0 2%;
+          &:hover{
+            background: transparent;
+          }
+          #price{
+            margin-right: 1em;
+          }
+          .weui-cell__hd{
+            margin-left: -2px;
+          }
+        }
+      }
+      &.weui-cell_access{
+        &:before{
+          border: none;
+        }
+      }
+      .dynamic_product_img{
+        width: 15vw;
+        height:15vw;
+        margin-right: 2vw;
+        img{
+          max-height: 100%;
+        }
+      }
+    }
+  }
+
+  //发表动态的图片删除按钮
+  .deleteimg{
+    position: absolute;
+    right: -5px;
+    top: -8px;
+    background: red;
+    width: 20px;
+    height: 20px;
+    color: #fff;
+    border-radius: 50%;
+    line-height: 20px;
+    text-align: center;
+    i{
+      font-size: 10px;
+    }
+  }
+
+}

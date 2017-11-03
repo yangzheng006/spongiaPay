@@ -1,0 +1,46 @@
+<!--BEGIN tenant_info-->
+    <a class="weui-cell weui-cell_access" data-id="{{tenantId}}" href="javascript:;">
+        <div class="weui-cell__bd f14">{{tenantName}}</div>
+        <div class="weui-cell__ft"></div>
+    </a>
+    <div class="weui-cell">
+        <div class="weui-cell__hd">
+            <img src="{{tenantThumbnail}}" alt="">
+        </div>
+        <div class="weui-cell__bd weui-cell_primary">
+            <div class="address">
+                <i class="iconfont icon-l-location f14"></i>
+                <span class="f14">{{address}}</span>
+            </div>
+            <div class="info f12">
+                <span>全部好货({{productCount}})</span>
+                <span>收藏人数({{tenantFavoriteCount}})</span>
+                <div class="stars starlevels"  data-starnum="{{tenantGrade}}" data-starlevelized="false">
+                    <i class="iconfont icon-xingxing f12 orange"></i>
+                    <i class="iconfont icon-xingxing f12 orange"></i>
+                    <i class="iconfont icon-xingxing f12 orange"></i>
+                    <i class="iconfont icon-xingxing f12 orange"></i>
+                    <i class="iconfont icon-xingxing f12 orange"></i>
+                </div>
+            </div>
+            <div class="other f12">
+                {{#compare noReason '==' true}}
+                <span>
+                    <i class="iconfont icon-seven f14"></i>
+                    七天退货
+                </span>
+                {{/compare}}
+                {{#compare noReason '==' false}}
+                {{/compare}}
+                {{#compare tamPo '==' true}}
+                <span>
+                    <i class="iconfont icon-assure f14"></i>
+                    担保交易
+                </span>
+                {{/compare}}
+                {{#compare tamPo '==' false}}
+                {{/compare}}
+            </div>
+        </div>
+    </div>
+<!--END tenant_info-->

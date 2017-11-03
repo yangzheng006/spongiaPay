@@ -1,0 +1,176 @@
+.shareProductListCon{
+  background: none;
+  &:after{border-bottom: none}
+  &:before{border-top: none}
+
+  .weui-cell{
+    background: @white;
+    margin-bottom:2%;
+    padding:0 4% 0 0;
+    .sr_weui-cell;
+
+    &:active{
+      background: none;
+    }
+
+    &:before{
+      border-top:0;
+    }
+    //.sr_weui-cell;
+
+    .weui-cell__hd{
+      width: 28vw;
+      margin-right: 2vw;
+      img{
+        .img;
+        //margin-top: 8px;
+      }
+    }
+
+    .weui-cell__bd{
+      width: 70vw;
+      padding: 5px 0 3px;
+      position: relative;
+      .sr_weui-cell__bd;
+
+      p{
+        //display: block;
+        //clear: both;
+        width: 100%;
+        -webkit-box-align: flex-end;
+        -webkit-align-items: flex-end;
+        align-items: flex-end;
+        &.weui-flex{
+          line-height: 20px;
+        }
+
+        .weui-flex__item{
+          &:last-child{
+            text-align: right;
+          }
+        }
+      }
+      .priceRed{ color: @ired}
+      .Commission{ color: @light-gray}
+      .checkSD{
+        .f14{ font-weight: 500}
+        width: 100%;
+        margin-top: 5px;
+        line-height: 25px !important;
+        position: relative;
+
+        span{ width: 33%; float: left;}
+        label{
+          display: none;
+          float: right;
+          width: 40px;
+          text-align: right;
+          position: absolute;
+          top:0;
+          right: 0;
+          i{
+            font-size: 17px;
+            &.icon-xuanzhong{ color: @ired}
+            &.icon-weixuan{ color: @light-gray}
+          }
+        }
+        .linkShare{
+          position: absolute;
+          top:-10px;
+          right: 0;
+          display: none;
+          float: right;
+          text-align: right;
+          cursor: pointer;
+          height: 40px;
+          line-height: 40px;
+          padding-right: 4vw;
+          i{
+            color:@Medium-gray;
+            //margin-right: 10px;
+            &.red{
+              color: #e55050;
+            }
+          }
+        }
+      }
+    }
+  }
+
+
+  .weui-mask_transparent{
+    background: rgba(0, 0, 0, 0.6);
+  }
+
+
+}
+
+.next_step{
+  width: 15.625vw;
+  height: 15.625vw;
+  line-height: 15.625vw;
+  text-align: center;
+  color: #fff;
+  border-radius: 50%;
+  background: rgba(0,0,0,.4);
+  position: fixed;
+  z-index: 9999;
+  top: 66vh;
+  right: 5vw;
+  cursor: pointer;
+}
+
+.weui-cells_checkbox{
+  .weui-cell .weui-cell__bd .checkSD label{ display: block }
+}
+
+.shares{
+  .weui-cell .weui-cell__bd .checkSD .linkShare{display: block}
+}
+
+#actionSheet_shares,.acshare{
+
+  .weui-actionsheet{
+    background: #f6f6f6;
+  }
+
+  .weui-flex{
+    padding:20px;
+    .weui-flex__item{
+      padding:10px 0;
+      p{
+        text-align: center;
+        &:first-child{
+          background: @white;
+          width: 60px;
+          height: 60px;
+          line-height: 60px;
+          text-align: center;
+          border-radius: 50%;
+          margin: 0 auto 10px auto;
+          img{ width: 12vw;padding-top: 11px;}
+          i{
+            font-size: 24px;
+            &.icon-wechat{color:@light-green; font-size: 28px}
+            &.icon-tuijian{
+              color: @grays;
+              &.icoRed{color: @roseRed}
+            }
+          }
+
+        }
+      }
+
+    }
+  }
+  .CASED{
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    display: block;
+    border-top: 2px solid @white;
+  }
+  .cancel{
+    position:static;
+  }
+}

@@ -1,0 +1,110 @@
+<!--挑货网商家列表（除频道页）所用模板-->
+<!-- BEGIN tenant-list -->
+{{#each this}}
+<a href="javascript:;" tenantId="{{id}}" class="weui-cells weui-cells_border tenant_thw union_tenant_list">
+    <div class="weui-cell">
+        <div class="weui-cell__hd tenant_img" id="{{id}}">
+            {{#compare thumbnail '!=' null}}
+            <img src="../images/placeholder/lazypic.png" data-original="{{crop thumbnail 45 27}}"/>
+            {{/compare}}
+            {{#compare thumbnail '==' null}}
+            <img src="../images/placeholder/tenant.png"/>
+            {{/compare}}
+            {{#if closed}}
+            <div class="shopRest">
+                <div class="tooltip-inner">休息中</div>
+            </div>
+            {{/if}}
+        </div>
+        <div class="weui-cell__bd">
+            <p class="f16 clr_darkGray tenant-name overtwo">{{name}}</p>
+            {{#if keyWords}}
+            <p class="f13 clr-downGray tenant-recommend overtwo">{{keyWords}}</p>
+            {{else}}
+            <p class="f13 clr-downGray tenant-recommend">{{tenantCategoryName}}</p>
+            {{/if}}
+            {{#if promotions}}
+            {{#compare promotions.length '>' '2'}}
+            <p class="promotionhang">
+                {{#each promotions}}
+                <i class="iconfont icon_{{type}} f18"></i>
+                {{/each}}
+                <i class="icon iconfont icon-xiala "></i>
+            </p>
+            {{#each promotions}}
+            <p class="promotion none"><i class="iconfont icon_{{type}} f18"></i><span class="f11 clr_lightGray">{{name}}</span></p>
+            {{/each}}
+            {{/compare}}
+            {{#compare promotions.length '<=' '2'}}
+            <p class="promotionhang none">
+                {{#each promotions}}
+                <i class="iconfont icon_{{type}} f18"></i>
+                {{/each}}
+                <i class="icon iconfont icon-xiala "></i>
+            </p>
+            {{#each promotions}}
+            <p class="promotion"><i class="iconfont icon_{{type}} f18"></i><span class="f11 clr_lightGray">{{name}}</span></p>
+            {{/each}}
+            {{/compare}}
+
+            {{/if}}
+            {{#compare grade '!=' '0'}}
+            <p class="ico f12 clr_mediumGray">
+                <span class="cf ft-bs starlevels"  data-starnum="{{grade}}" data-starlevelized="false">
+                {{#compare grade '==' '1'}}
+
+                        <i class="iconfont icon-xingxing f10 orange"></i>
+                {{/compare}}
+                {{#compare grade '==' '2'}}
+                        <i class="iconfont icon-xingxing f10 orange"></i>
+                        <i class="iconfont icon-xingxing f10 orange"></i>
+                {{/compare}}
+                {{#compare grade '==' '3'}}
+                        <i class="iconfont icon-xingxing f10 orange"></i>
+                        <i class="iconfont icon-xingxing f10 orange"></i>
+                        <i class="iconfont icon-xingxing f10 orange"></i>
+                {{/compare}}
+                {{#compare grade '==' '4'}}
+                        <i class="iconfont icon-xingxing f10 orange"></i>
+                        <i class="iconfont icon-xingxing f10 orange"></i>
+                        <i class="iconfont icon-xingxing f10 orange"></i>
+                        <i class="iconfont icon-xingxing f10 orange"></i>
+                {{/compare}}
+                {{#compare grade '==' '5'}}
+                        <i class="iconfont icon-xingxing f10 orange"></i>
+                        <i class="iconfont icon-xingxing f10 orange"></i>
+                        <i class="iconfont icon-xingxing f10 orange"></i>
+                        <i class="iconfont icon-xingxing f10 orange"></i>
+                        <i class="iconfont icon-xingxing f10 orange"></i>
+                {{/compare}}
+                </span>
+                {{#if perCapita}}
+                <span class="add f11">￥<span>{{perCapita}}</span>/人</span>
+                {{else}}
+                <span class="f11 clr_mediumGray">月售{{monthSales}}单</span>
+                {{/if}}
+
+            </p>
+            {{/compare}}
+            {{#compare grade '==' '0'}}
+            {{#if perCapita}}
+            <p class="ico f12 clr_mediumGray">
+                <span class="add f11" style="margin-right: 8px;">￥<span>{{perCapita}}</span>/人</span>
+                <span class="f11 clr_mediumGray">月售{{monthSales}}单</span>
+            </p>
+            {{else}}
+            <p class="ico f12 clr_mediumGray">
+                <span class="f11 clr_mediumGray">月售{{monthSales}}单</span>
+            </p>
+            {{/if}}
+            <p></p>
+            {{/compare}}
+            <div class="weui-flex f12 clr_darkGray" >
+                <div class="weui-flex__item f12 zhuying bold-700">{{communityName}}</div>
+                <div class="weui-flex__item clr_lightGray">{{#ifcond distance -1}}{{distance}}km{{else}}{{/ifcond}}</div>
+            </div>
+        </div>
+    </div>
+</a>
+{{/each}}
+<!-- END tenant-list -->

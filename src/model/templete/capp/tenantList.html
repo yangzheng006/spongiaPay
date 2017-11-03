@@ -1,0 +1,61 @@
+{{#each tenantModel}}
+<div class="weui-cells bornone">
+    <div class="line-wrapper">
+        <div class="line-scroll-wrapper">
+            <a class="" style="cursor:pointer;" href="../tenant/index.jhtml?id={{tenantId}}">
+                <div class="line-normal-wrapper">
+                    <div class="line-normal-left-wrapper">
+                        <div class="line-normal-avatar-wrapper">
+                            {{#compare logo '!=' null}}
+                            <img src="../images/placeholder/lazypic.png" data-original="{{crop logo 16.6 16.6}}" alt="">
+                            {{/compare}}
+                            {{#compare logo '==' null}}
+                            <img src="../images/placeholder/tenant.png" alt="">
+                            {{/compare}}
+                        </div>
+                        <div class="line-normal-info-wrapper">
+                            <div class="line-normal-user-name name f16 overone">{{shortName}}</div>
+                            <div class="line-normal-msg clr_lightGray f12" style="width: 95px;"><i class="iconfont icon-location f11"></i>{{address}}</div>
+                        </div>
+                        <div class="line-normal-time f12"><i class="iconfont icon-right-01"></i></div>
+                    </div>
+                    <div class="line-normal-icon-wrapper"></div>
+                </div>
+            </a>
+            <div class="line-btn-delete f14" id="{{tenantId}}">
+                <button>删除</button>
+            </div>
+        </div>
+    </div>
+    <!--<a href="../tenant/index.jhtml?id={{tenantId}}" class="weui-cell shadow">-->
+        <!--<div class="weui-cell__hd tenant_logo">-->
+            <!--{{#compare logo '!=' null}}-->
+            <!--<img src="../images/placeholder/lazypic.png" data-original="{{crop logo 16.6 16.6}}" alt="">-->
+            <!--{{/compare}}-->
+            <!--{{#compare logo '==' null}}-->
+            <!--<img src="../images/placeholder/tenant.png" alt="">-->
+            <!--{{/compare}}-->
+        <!--</div>-->
+        <!--<div class="weui-cell__bd">-->
+            <!--<div class="weui-cell p0 weui-cell_access">-->
+                <!--<div class="weui-cell__bd f16 overone">{{shortName}}</div>-->
+                <!--<div class="weui-cell__ft"></div>-->
+            <!--</div>-->
+            <!--<p class="clr_lightGray f12 overone address"><i class="iconfont icon-location f11"></i>{{address}}</p>-->
+        <!--</div>-->
+    <!--</a>-->
+    <div class="tenant_more">
+        {{#each products}}
+
+        <a href="../product/view.html?id={{productId}}">
+            {{#compare thumbnail '!=' null}}
+            <img src="../images/placeholder/lazypic.png" data-original="{{crop thumbnail 30 30}}" alt="">
+            {{/compare}}
+            {{#compare thumbnail '==' null}}
+            <img src="../images/placeholder/product.png" alt="">
+            {{/compare}}
+        </a>
+        {{/each}}
+    </div>
+</div>
+{{/each}}

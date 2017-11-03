@@ -1,0 +1,60 @@
+<!--导购分享本店商品列表模板-->
+<div class="shareProductListCon">
+    {{#each this}}
+    <div class="weui-cell">
+        {{#if thumbnail}}
+        <div class="weui-cell__hd"><img src="{{crop thumbnail 28 28}}"></div>
+        {{else}}
+        <div class="weui-cell__hd"><img src="../images/placeholder/product.png"></div>
+        {{/if}}
+        <div class="weui-cell__bd">
+            <div>
+                <p class="clr_mediumGray f14 overtwo">{{name}}</p>
+                <p class="checkSD weui-flex">
+                    <span class="clr_darkGray f16 bold">￥{{price}}</span>
+                    <span class="clr_lightGray f12 Commission">佣金：{{brokerage}}%</span>
+                    <label class="weui-check__label" for="s{{id}}">
+                        <input type="checkbox" class="weui-check" name="checkbox1" id="s{{id}}" >
+                        <i class="icon iconfont  icon-weixuan" productId="{{id}}"></i>
+                    </label>
+                    {{#compare recommoned '==' true}}
+                    <span class="linkShare" id="{{id}}"><i class="icon iconfont icon-icon28 red"></i></span>
+                    {{/compare}}
+                    {{#compare recommoned '==' false}}
+                    <span class="linkShare" id="{{id}}"><i class="icon iconfont icon-icon28"></i></span>
+                    {{/compare}}
+                </p>
+            </div>
+            <p class="weui-flex"><span class="fl f20 priceRed weui-flex__item"><span class="f12">已赚：</span><span class="bold">￥{{earnAmount}}</span></span><span class="f12 clr_mediumGray weui-flex__item">成交{{clinchCount}}<span class="m5">/</span>分享{{shareCount}}</span></p>
+        </div>
+    </div>
+    <div id="actionSheet_shares{{id}}" class="acshare" >
+        <div class="weui-mask_transparent actionsheet__mask" style="opacity: 0;display: none;"></div>
+        <div class="weui-actionsheet actionsheet">
+            <div class="weui-flex">
+                <div class="weui-flex__item shareweixin" sid="{{id}}">
+                    <p><i class="icon iconfont icon-wechat"></i></p>
+                    <p class="f12">分享给好友</p>
+                </div>
+                <div class="weui-flex__item shareweixin" sid="{{id}}">
+                    <p><img src="../../images/static/guide/penyou.png" alt=""></p>
+                    <p class="f12">分享到朋友圈</p>
+                </div>
+                {{#if recommoned}}
+                <div class="weui-flex__item ifrecommend" sid="{{id}}" restatus="true">
+                    <p><i class="icon iconfont icon-tuijian icoRed"></i></p>
+                    <p class="f12 wordStatus">取消推荐</p>
+                </div>
+                {{else}}
+                <div class="weui-flex__item ifrecommend" sid="{{id}}" restatus="false">
+                    <p><i class="icon iconfont icon-tuijian "></i></p>
+                    <p class="f12 wordStatus">加入推荐</p>
+                </div>
+                {{/if}}
+                <!--如果已推荐可以取消推荐-->
+            </div>
+            <div class="weui-actionsheet__cell cancel CASED f16 clr_darkGray bold" >取消</div>
+        </div>
+    </div>
+    {{/each}}
+</div>

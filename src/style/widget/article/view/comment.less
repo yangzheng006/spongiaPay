@@ -1,0 +1,87 @@
+
+.pinglun{
+  padding: 3vw 0 0;
+  margin-top: 5vw;
+  position: relative;
+  &:before{
+    .mixin(top,solid,#d9d9d9);
+  }
+  .weui-cells{
+    padding: 0 7.33vw 0 4vw;
+    background: transparent;
+
+    &:last-child{
+      &:after{
+        border-bottom: none;
+      }
+    }
+
+    .weui-cell{
+      &:nth-child(2){
+        padding: 0 2% 2%;
+      }
+    }
+    .pinglun_img{
+      width: 9.333vw;
+      height:9.333vw;
+      margin-right: 20px;
+      img{
+        width: 100%;
+        height:100%;
+        border-radius: 50%;
+      }
+    }
+    .weui-cell__bd{
+      .weui-cell{
+        padding: 0;
+        .pinglun_praise{
+          padding: 0 20px;
+          margin-right: -20px;
+        }
+        .orange{
+          color:@baseColor;
+        }
+      }
+    }
+  }
+  .watch_pinglun{
+    cursor: pointer;
+    line-height: 3em;
+    margin: 0 auto 8vw;
+    position: relative;
+  }
+}
+
+#actionSheet_pinglun{
+  .weui-actionsheet{
+    padding: 2%;
+    width: 96%;
+    p{
+      color:#808080;
+      margin-bottom: 10px;
+      .cancel{
+        position: static;
+        background: transparent;
+      }
+      .release_pinglun{
+        color: #c4c4c4;
+        padding-left: 30px;
+        cursor: pointer;
+      }
+    }
+    textarea{
+      width: 96%;
+      height: 38vh;
+      line-height: 2em;
+      padding: 10px 2%;
+      border-radius: 10px;
+      background: #f8f7f5;
+      font-family: 'Microsoft YaHei';
+    }
+  }
+
+}
+.pinglun_tit{
+  padding-left: 15px;
+  border-left: 4px solid @baseColor;
+}
