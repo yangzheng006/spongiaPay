@@ -1,10 +1,10 @@
 .idea/
 *.iml
-node_modules
-release
+node_modules/
+release/
 npm-debug.log.*
 .DS_Store/
 *.min.html
-.xml
+.project
 
 
