@@ -14,7 +14,9 @@
 <!--会员首页-->
 <link rel="import" href="../../../pages/member/index.html">
 
-
+<!--设置-->
+<link rel="import" href="../../../pages/member/setting/setting.html">
+<link rel="import" href="../../../pages/member/setting/changeBind.html">
 <!--积分-->
 <link rel="import" href="../../../pages/member/point/cashPoint.html">
 <link rel="import" href="../../../pages/member/point/cashSuccess.html">
@@ -60,6 +62,12 @@
         if(pageManager._getHash()=='#'){
             document.title='个人中心';
         }
+
+        //使用积分
+        if(window.location.hash=='#setting'){
+            document.title='设置';
+        }
+
 
         //使用积分
         if(window.location.hash=='#usePoint'){

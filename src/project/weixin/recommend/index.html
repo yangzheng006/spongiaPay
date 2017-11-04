@@ -23,14 +23,16 @@
 
     $(function(){
         pageManager.show("index");
+        $(document).on('click','.toggleShowDetail',function () {
+            $('.showDetailForm').toggle();
+            if($(this).find('.weui-cell__ft i').hasClass('icon-up')){
+                $(this).find('.weui-cell__ft i').removeClass('icon-up').addClass('icon-arrowbottom')
+            }else{
+                $(this).find('.weui-cell__ft i').removeClass('icon-arrowbottom').addClass('icon-up')
+            }
+        })
     })
-    var pageFn = function(){
-        //个人中心页面
-        if(pageManager._getHash()=='#'){
-        }
 
-    };
-    window.addEventListener('pageGoOk',pageFn)
 </script>
 </body>
 </html>
