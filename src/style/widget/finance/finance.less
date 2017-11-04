@@ -62,3 +62,132 @@
         }
     }
 }
+
+.loanDetails {
+    .loan-details {
+        background: #ffffff;
+        margin-top: 10px;
+        width: 100%;
+        padding: 2%;
+        box-sizing: border-box;
+        .title {
+            line-height: 20px;
+            justify-content: space-between;
+            span {
+                border: 1px solid #666;
+                display: inline-block;
+                width: 40%;
+                text-align: center;
+                border-radius: 10px;
+            }
+        }
+    }
+    .loan-condition {
+        background: #ffffff;
+        margin-top: 10px;
+        .title {
+            position: relative;
+            line-height: 40px;
+            padding-left: 2%;
+            &::after {
+                .mixin(bottom, solid, #dddddd);
+            }
+        }
+        .content {
+            padding: 2%;
+            color: #999;
+        }
+    }
+    .btn {
+        background: #ffffff;
+        margin-top: 10px;
+        padding: 10px 0;
+        .btn-default {
+            width: 80%;
+            border-radius: 30px;
+        }
+    }
+}
+
+.manageDetails {
+    .top {
+        img {
+            width: 86px;
+            height: 86px;
+            display: block;
+            border-radius: 5px;
+        }
+        .weui-cell__bd {
+            padding-left: 2%;
+        }
+    }
+    .details {
+        background: #ffffff;
+    }
+    table {
+        padding: 0 2%;
+    }
+    tr td:first-child {
+        white-space: nowrap;
+        padding-right: 4px;
+        display: inline-block;
+        color: #999999;
+    }
+}
+
+.lineTitle {
+    position: relative;
+    line-height: 40px;
+    padding-left: 2%;
+    &::after {
+        .mixin(bottom, solid, #dddddd);
+    }
+}
+
+.cardDetails {
+    .top {
+        background: #ffffff;
+        padding: 4%;
+        box-sizing: border-box;
+        img {
+            border-radius: 3%;
+        }
+        .gray {
+            color: #666;
+            line-height: 1.2;
+        }
+        .tipList {
+            span {
+                color: #3783db;
+                border: 1px solid #3783db;
+                padding: 1px 2px;
+                font-size: 12px;
+            }
+        }
+    }
+    .details {
+        background: #ffffff;
+        margin-top: 10px;
+        box-sizing: border-box;
+        padding: 0 2%;
+        line-height: 30px;
+        table {
+            padding: 0 2%;
+        }
+        tr td:first-child {
+            white-space: nowrap;
+            padding-right: 4px;
+            display: inline-block;
+            color: #999999;
+        }
+    }
+    .btn {
+        background: #ffffff;
+        margin-top: 10px;
+        padding: 10px 0;
+        .btn-default {
+            width: 80%;
+            border-radius: 30px;
+        }
+    }
+}
