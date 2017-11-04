@@ -46,6 +46,11 @@
 <link rel="import" href="../../../pages/member/bind.html">    <!--绑定手机-->
 <link rel="import" href="../../../pages/member/auth.html">    <!--实名认证-->
 
+<!--个人信息-->
+<link rel="import" href="../../../pages/member/info/tenantInfo.html">
+<!--商家信息-->
+<link rel="import" href="../../../pages/member/info/userInfo.html">
+
 @import "../../../model/widget/include/toast.html";
 @import "../../../model/widget/include/dialog.html";
 <script src="/weixin/js/common.min.js"></script>
@@ -72,6 +77,13 @@
             document.title='设置';
         }
 
+        //设置
+        if(window.location.hash=='#tenantInfo'){
+            document.title='商家信息';
+        }
+        if(window.location.hash=='#userInfo'){
+            document.title='个人信息';
+        }
 
 
         //使用积分
