@@ -1,34 +1,4 @@
 @charset "UTF-8";
-//频道页顶部导航（老版）
-.channels-nav {
-  font-size: 0;
-  white-space: nowrap;
-  overflow: auto;
-  overflow-x: auto;
-  padding: 2vw;
-  background-color: @white;
-  margin-bottom: 10px;
-  .it{
-    text-align: center;
-    width: 15vw;
-    display: inline-block;
-    padding: 2vw 4.5vw;
-    letter-spacing: normal;
-    word-spacing: normal;
-
-  img{
-    max-width: 80%;
-    margin: 0 auto;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-  }
-  p{
-    text-align: center;
-    line-height: 2.4em;
-    height: 2em;
-  }
-  }
-}
 //频道页顶部导航（新）
 /*swipe*/
 .find_nav{
@@ -64,7 +34,7 @@
     width: auto;
 
     li{
-      padding: 0 5px;
+      padding: 0 10px;
       display:inline-block;
       color:#000;
       text-align:center;
@@ -92,5 +62,27 @@
         pointer-events: none;
       }
     }
+  }
+}
+.tenant_tap{
+  padding: 1.5vw 0;
+  span{
+    display: inline-block;
+    width: 22%;
+    line-height: 1.8em;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    background: @white;
+    margin: 1.5vw 0 1.5vw 1%;
+    &.active{
+      color: @white;
+      background: @baseColor;
+    }
+  }
+}
+//商家列表
+.s_div{
+  .tenant_list{
+    padding-top: 2vw;
   }
 }

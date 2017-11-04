@@ -1,66 +1,8 @@
 <div class="page">
     @import "../../../model/widget/include/toast.html";
     @import "../../../model/widget/include/dialog.html";
-    <div id="actionSheet_contact_merchant">
-        <div class="weui-mask_transparent actionsheet__mask" style="opacity: 0;display: none;"></div>
-        <div class="weui-actionsheet actionsheet">
-            <div class="weui-cells shop">
-                <div class="weui-cell">
-                    <div class="weui-cell__hd shop_logo">
-                        <img id="tenant_logo" src=""/>
-                    </div>
-                    <div class="weui-cell__bd">
-                        <p class="f13 clr_darkGray" id="tenant_name"></p>
-                        <p class="f11 clr_mediumGray">营业时间：<span id="tenant_hour"></span></p>
-                    </div>
-                </div>
-            </div>
-            <div class="weui-cells address">
-            </div>
-            <div class="weui-actionsheet__action cancel">
-                <i class="iconfont icon-remove-02"></i>
-            </div>
-        </div>
-    </div>
-
     <div class="page__bd" style="height: 100%;overflow: hidden;">
         <div class="weui-tab" style="height: 100%; padding: 0 0 55px 0;overflow: hidden;">
-            <!--顶部悬浮弹窗-->
-            <div class="weui-cell share_app clr_white" style="display: none !important;">
-                <div class="weui-cell__hd close_shareApp">
-                    <i class="iconfont icon-remove-02"></i>
-                </div>
-                <div class="weui-cell__bd f10 clr_white">
-                    <div class="weui-cell">
-                        <div class="weui-cell__hd logo"><img src="/app/images/dmLogo.png"></div>
-                        <div class="weui-cell__bd">
-                            <p>点击购买</p>
-                            <p>通过APP购买有惊喜哦~</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="weui-cell__ft f13">
-                    <!--<a href="/rzico/assiant/app/open/" id="openApp">打开APP</a>-->
-                    <a href="javascript:;" id="openApp">打开APP</a>
-                </div>
-            </div>
-            <!--BEGIN top-nav-->
-            <div class="nav_change2">
-                <div id="run"></div>
-                <div class="topNav row">
-                    <div class="col-3 position"></div>
-                    <div class="col-18">
-                        <div class="weui-search-bar__box fl iSearch" id="searchBars">
-                            <i class="weui-icon-search"></i>
-                            <input type="search" class="weui-search-bar__input" id="searchInput" value="搜索店铺内商品" required="" disabled>
-                        </div>
-                        <div class="fl tc scan" id="scan_fun">
-                            <i class="iconfont icon-sweep"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--END top-nav-->
             <div class="weui-tab__panel pageable" style=" padding: 0 0 55px">
                 <div class="banner banner-tenant">
                     <div id="iSlider-wrapper" class="mask">
@@ -68,7 +10,44 @@
                     </div>
                     <div class="banner-info2 weui-cell bornone"></div>
                 </div>
-                @import "../../../model/widget/tenant/tenantNav.html";
+                <div class="tenant_info">
+                    <div class="weui-cell">
+                        <div class="weui-cell__bd">
+                            <p>星巴克（合肥乐汇街店）</p>
+                            <p>
+                                <i class="iconfont icon-s-star"></i>
+                                <i class="iconfont icon-s-star"></i>
+                                <i class="iconfont icon-l-star"></i>
+                                <i class="iconfont icon-l-star"></i>
+                                <i class="iconfont icon-l-star"></i>
+                                <span class="f12">3.5分</span>
+                            </p>
+                        </div>
+                        <div class="weui-cell__ft">
+                            <a href="jacascript:;">优惠买单</a>
+                        </div>
+                    </div>
+                    <div class="weui-cell">
+                        <div class="weui-cell__bd">
+                            <i class="iconfont icon-l-location"></i>
+                            瑶海区全椒路新地广场
+                        </div>
+                        <div class="weui-cell__ft">
+                            0.34<i class="iconfont icon-dianhua"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="goWhere">
+                    <i class="iconfont icon-dianhua"></i>
+                    到这里去
+                </div>
+
+                <div>
+                    <div class="ad_tit">爆款</div>
+                    <div>
+
+                    </div>
+                </div>
 
                 <a class="row tenant_new" href="javascript:;">
                     <div class="col-7 tc">
