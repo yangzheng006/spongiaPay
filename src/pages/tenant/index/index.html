@@ -3,139 +3,80 @@
     @import "../../../model/widget/include/dialog.html";
     <div class="page__bd" style="height: 100%;overflow: hidden;">
         <div class="weui-tab" style="height: 100%; padding: 0 0 55px 0;overflow: hidden;">
-            <div class="weui-tab__panel pageable" style=" padding: 0 0 55px">
-                <div class="banner banner-tenant">
-                    <div id="iSlider-wrapper" class="mask">
-                        <div class="mask-bg"></div>
+            <div class="weui-tab__panel pageable" style=" padding: 0 0 10px">
+                <div class="home_banner">
+                    <div class="img">
+                        <img src="http://cdn.tiaohuo.com/upload/image/201704/b0e9480a-87b9-40af-950b-afba8c745133.jpg@1080w_1l"/>
                     </div>
-                    <div class="banner-info2 weui-cell bornone"></div>
+                    <div class="banner_info">
+                        <p class="tr collect"><i class="iconfont icon-aixin orange_app"></i></p>
+                        <p class="tc tenant_touxiang"><img src="../images/placeholder/user.png" /></p>
+                    </div>
                 </div>
                 <div class="tenant_info">
                     <div class="weui-cell">
                         <div class="weui-cell__bd">
                             <p>星巴克（合肥乐汇街店）</p>
-                            <p>
-                                <i class="iconfont icon-s-star"></i>
-                                <i class="iconfont icon-s-star"></i>
-                                <i class="iconfont icon-l-star"></i>
-                                <i class="iconfont icon-l-star"></i>
-                                <i class="iconfont icon-l-star"></i>
+                            <p class="orange_app">
+                                <i class="iconfont icon-s-star f12"></i>
+                                <i class="iconfont icon-s-star f12"></i>
+                                <i class="iconfont icon-l-star f12"></i>
+                                <i class="iconfont icon-l-star f12"></i>
+                                <i class="iconfont icon-l-star f12"></i>
                                 <span class="f12">3.5分</span>
                             </p>
                         </div>
                         <div class="weui-cell__ft">
-                            <a href="jacascript:;">优惠买单</a>
+                            <a href="jacascript:;" class="pay_btn f14">优惠买单</a>
                         </div>
                     </div>
                     <div class="weui-cell">
-                        <div class="weui-cell__bd">
+                        <div class="weui-cell__bd f14 clr_mediumGray">
                             <i class="iconfont icon-l-location"></i>
                             瑶海区全椒路新地广场
                         </div>
-                        <div class="weui-cell__ft">
-                            0.34<i class="iconfont icon-dianhua"></i>
+                        <div class="weui-cell__ft clr_mediumGray">
+                            <span class="f12">0.34km</span>
+                            <i class="iconfont icon-dianhua orange_app"></i>
                         </div>
                     </div>
                 </div>
-                <div class="goWhere">
-                    <i class="iconfont icon-dianhua"></i>
-                    到这里去
+                <div class="weui-cell goWhere">
+                    <div class="weui-cell__bd">
+                    <i class="iconfont icon-go orange_app"></i>到这里去
+                    </div>
                 </div>
 
                 <div>
-                    <div class="ad_tit">爆款</div>
-                    <div>
-
+                    <div class="ad_tit">
+                        <span class="tit_line"></span>
+                        <span class="tit_circle"></span>
+                        <span class="tit_txt f16 tc">爆款</span>
+                        <span class="tit_circle"></span>
+                        <span class="tit_line"></span>
+                    </div>
+                    <div class="row tenant_ad">
+                        <a href="javascript:;" class="col-8">
+                            <img src="http://cdn.tiaohuo.com/upload/image/201707/5923a8d1-f45e-4d43-84c7-6a09675b10c7.jpg@360w_417h_1e_1c_100Q"/>
+                        </a>
+                        <a href="javascript:;" class="col-8">
+                            <img src="http://cdn.tiaohuo.com/upload/image/201707/5923a8d1-f45e-4d43-84c7-6a09675b10c7.jpg@360w_417h_1e_1c_100Q"/>
+                        </a>
+                        <a href="javascript:;" class="col-8">
+                            <img src="http://cdn.tiaohuo.com/upload/image/201707/5923a8d1-f45e-4d43-84c7-6a09675b10c7.jpg@360w_417h_1e_1c_100Q"/>
+                        </a>
+                        <a href="javascript:;" class="col-8">
+                            <img src="http://cdn.tiaohuo.com/upload/image/201707/5923a8d1-f45e-4d43-84c7-6a09675b10c7.jpg@360w_417h_1e_1c_100Q"/>
+                        </a>
+                        <a href="javascript:;" class="col-8">
+                            <img src="http://cdn.tiaohuo.com/upload/image/201707/5923a8d1-f45e-4d43-84c7-6a09675b10c7.jpg@360w_417h_1e_1c_100Q"/>
+                        </a>
+                        <a href="javascript:;" class="col-8">
+                            <img src="http://cdn.tiaohuo.com/upload/image/201707/5923a8d1-f45e-4d43-84c7-6a09675b10c7.jpg@360w_417h_1e_1c_100Q"/>
+                        </a>
                     </div>
                 </div>
-
-                <a class="row tenant_new" href="javascript:;">
-                    <div class="col-7 tc">
-                        <i class="iconfont icon-pinpai f18"></i>
-                        <i class="iconfont icon-gushi f20 orange"></i>
-                    </div>
-                    <div class="col-16 story_tenant">
-                        <i class="iconfont icon-laba f18 orange fl"></i><p class="f14 clr_darkGray new_title overone fl"></p>
-                    </div>
-                </a>
-
-                <div class="product2">
-                    <!--广告位-->
-                    <div class="top_line admiddle" style="padding-top:0;"></div>
-                </div>
-
-                <!--商品列表促销-->
-                <div class="product_sale product_ad"  id="goSale">
-                    <a href="javascript:;">
-                        <img src="../images/static/tenant/product_sale.png" alt="">
-                    </a>
-                </div>
-                <!-- BEGIN ad_sales -->
-                <div id="ad_sales" class="tenant_index_pic productType" style="position: relative;">
-                    <div class="banner_mask"></div>
-                    <img src="../images/placeholder/blank750x300.png" alt="">
-                    <div id="ad_sales_dot"></div>
-                </div>
-                <!-- BEGIN ad_sales end-->
-                <div class="product_list2 product_hot weui-cells_border"></div>
-                <div class="loading" >
-                    <div class="f12 clr_lightGray tc loadingmore loadproductHot none" style="height: 6vh;line-height: 6vh;cursor: pointer;">加载更多</div>
-                </div>
-
-                <!--商品列表新品-->
-                <div class="productType product_new product_ad" id="goNew">
-                    <a href="javascript:;">
-                        <img src="../images/static/tenant/product_new.png" alt="">
-                    </a>
-                </div>
-                <!-- BEGIN ad_news -->
-                <div id="ad_news" class="tenant_index_pic productType" style="position: relative;">
-                    <div class="banner_mask"></div>
-                    <img src="../images/placeholder/blank750x300.png" alt="">
-                    <div id="ad_news_dot"></div>
-                </div>
-                <!-- BEGIN ad_news end-->
-                <div class="product_list2 productNew weui-cells_border"></div>
-                <div class="loading">
-                    <div class="f12 clr_lightGray tc loadingmore loadproductNew none" style="height: 6vh;line-height: 6vh;cursor: pointer;">加载更多</div>
-                </div>
-
-                <!--商品列表推荐-->
-                <div class="product_recom product_ad"  id="goRecom">
-                    <a href="javascript:;">
-                        <img src="../images/static/tenant/product_recom.png" alt="">
-                    </a>
-                </div>
-                <!-- BEGIN ad_recs -->
-                <div id="ad_recs" class="tenant_index_pic productType" style="position: relative;">
-                    <div class="banner_mask"></div>
-                    <img src="../images/placeholder/blank750x300.png" alt="">
-                    <div id="ad_recs_dot"></div>
-                </div>
-                <!-- BEGIN ad_recs end-->
-                <div class="product-list product_recommend weui-cells weui-cells_border product-grid"></div>
-
             </div>
-            <div class="f18 clr_white toUp" style="display: none;"><i class="icon iconfont icon-dingbu f22"></i></div>
-            <!-- BEGIN offerToPay-img end-->
-            <div class="footNav weui-tabbar" >
-                <a href="javascript:;" class="weui-tabbar__item f14 goods">联系商家</a>
-                <a href="javascript:;" class="weui-tabbar__item f14 scan_fun">课程分类</a>
-                <a href="../cart/index.html" class="weui-tabbar__item f14" id="lianxi">购物车
-                    <span class="badge" id="shopCart" style="display: inline-block;"></span>
-                </a>
-                <a href="../member/index.html" id="union" class="weui-tabbar__item f14">个人中心</a>
-            </div>
-
-            <div class="classify none f14">
-                <a href="javascript:;" class="weui-cell" data-id="all">
-                    <div class="weui-cell__bd">全部好货</div>
-                </a>
-            </div>
-
-            <!--<a class="f18 clr_white tc offerToPay_fix" style="cursor: pointer;">优<br>惠<br>买<br>单</a>-->
-            <a class="f18 clr_white tc offerToPay_fix" style="cursor: pointer; line-height: 1.3em;">扫<br>条<br>码</a>
-            <div id="mask"></div>
         </div>
     </div>
 </div>
