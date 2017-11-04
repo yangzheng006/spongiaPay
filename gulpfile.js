@@ -115,7 +115,12 @@ gulp.task('build:project:style', function () {
             path.basename = 'style/' + path.basename + '.min';
             console.log(path.basename)
         }))
-        .pipe(gulp.dest(dist));
+        .pipe(gulp.dest(dist))
+        .on('end', function () {
+            var date = new Date();
+            browserSync.reload()
+            console.log('编译完成！！ ' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds());
+        })
 });
 
 gulp.task('build:project:js', function () {

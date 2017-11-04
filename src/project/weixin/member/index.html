@@ -14,6 +14,13 @@
 <!--会员首页-->
 <link rel="import" href="../../../pages/member/index.html">
 
+
+<!--积分-->
+<link rel="import" href="../../../pages/member/point/cashPoint.html">
+<link rel="import" href="../../../pages/member/point/cashSuccess.html">
+<link rel="import" href="../../../pages/member/point/givePoint.html">
+<link rel="import" href="../../../pages/member/point/listPoint.html">
+<link rel="import" href="../../../pages/member/point/usePoint.html">
 <!--邀请好友-->
 <link rel="import" href="../../../pages/member/invite/invite.html">
 <link rel="import" href="../../../pages/member/invite/inviteSuccess.html">
@@ -24,6 +31,7 @@
 
 <!--关于我们-->
 <link rel="import" href="../../../pages/member/aboutUs.html">
+
 
 <!--绑定手机与实名认证-->
 <link rel="import" href="../../../pages/member/bind.html">    <!--绑定手机-->
@@ -48,6 +56,26 @@
         //个人中心页面
         if(pageManager._getHash()=='#'){
             document.title='个人中心';
+        }
+
+        //使用积分
+        if(window.location.hash=='#usePoint'){
+            document.title='使用积分';
+        }
+
+        //积分提现
+        if(window.location.hash=='#cashPoint'){
+            document.title='积分提现';
+            $(document).on('click','.goCashPoint',function () {
+                pageManager.go('cashSuccess')
+            })
+        }
+        //积分提现成功页面
+        if(window.location.hash=='#cashSuccess'){
+            document.title='积分提现';
+            $(document).on('click','.goCashEnd',function () {
+                pageManager.back()
+            })
         }
 
         //帮助中心
