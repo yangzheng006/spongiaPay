@@ -17,6 +17,10 @@
 <!--设置-->
 <link rel="import" href="../../../pages/member/setting/setting.html">
 <link rel="import" href="../../../pages/member/setting/changeBind.html">
+
+<!--认证商家-->
+<link rel="import" href="../../../pages/member/authTenant.html">
+
 <!--积分-->
 <link rel="import" href="../../../pages/member/point/cashPoint.html">
 <link rel="import" href="../../../pages/member/point/cashSuccess.html">
@@ -63,10 +67,11 @@
             document.title='个人中心';
         }
 
-        //使用积分
+        //设置
         if(window.location.hash=='#setting'){
             document.title='设置';
         }
+
 
 
         //使用积分
@@ -88,6 +93,21 @@
                 pageManager.back()
             })
         }
+
+        //商户认证
+        if(window.location.hash=='#authTenant'){
+            document.title='商户认证';
+            $(document).on('click','.toggleShowDetail',function () {
+                $('.showDetailForm').toggle();
+                if($(this).find('.weui-cell__ft i').hasClass('icon-up')){
+                    $(this).find('.weui-cell__ft i').removeClass('icon-up').addClass('icon-arrowbottom')
+                }else{
+                    $(this).find('.weui-cell__ft i').removeClass('icon-arrowbottom').addClass('icon-up')
+                }
+            })
+        }
+
+
 
         //帮助中心
         if(window.location.hash=='#help'){
