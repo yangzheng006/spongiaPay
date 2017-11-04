@@ -1,7 +1,6 @@
 // var base = location.origin == "http://localhost:8080" ? "https://dev.tiaohuo.com/" : location.origin + "/";
 // var paymentBase = location.origin == "http://localhost:8080" ? "https://dev.tiaohuo.com/" : location.origin + "/";
-var base = "http://www.hgychina.com/";
-var paymentBase= "http://www.hgychina.com/";
+var base = "http://121.43.175.18//JK_HM_GATHER/";
 
 var redirecting = false;
 var hasLogin=false;

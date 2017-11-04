@@ -23,15 +23,53 @@
 
     $(function(){
         pageManager.show("index");
+
+        //发送验证码
+        $(document).on('click','.sendLoginCode',function () {
+            //手机号校验
+            var phoneNumber = $('.loginIndex .phoneNumber').val();
+            if(!(/^1[0-9]{10}$/.test(phoneNumber))){
+                toast.show('请输入正确手机号',1000);
+                return false;
+            }else{
+                new login(function (data) {
+                    console.log(data);
+                }).sendLoginCode({
+                    phoneNumber:phoneNumber,
+                    type:0
+                })
+            }
+        })
+
+        //注册提交
+        $(document).on('click','.goRegister',function () {
+            var phoneNumber = $('.loginIndex .phoneNumber').val();
+            var code=$('.loginIndex .code').val();
+            var password=$('.loginIndex .password').val();
+            var passwordConfirm=$('.loginIndex .passwordConfirm').val();
+            if(!phoneNumber){
+                toast.show('请输入手机号',1000)
+            }else if(!code){
+                toast.show('请输入验证码',1000)
+            }else if(password=='' || passwordConfirm==''){
+                toast.show('密码不能为空','1000')
+            }else if(password!=passwordConfirm){
+                toast.show('两次密码不一致','1000')
+            }else{
+                //注册提交
+                new login(function (data) {
+                    console.log(data)
+                }).register({
+                    account:phoneNumber,
+                    authoCode:code,
+                    passwd:passwordConfirm
+                })
+            }
+
+        })
+
     })
-    var pageFn = function(){
-        if(pageManager._getHash()=='#'){
-
-        }
-
-
-    };
-    window.addEventListener('pageGoOk',pageFn)
+    
 </script>
 </body>
 </html>

@@ -11,7 +11,3 @@
 @import "../../js/widget/dialog.js";
 @import "../../js/widget/toast.js";
 @import "../../js/widget/weixin.js";
-@import "../../js/widget/utils.js";
-@import "/js/fly.min.js";
-@import "../../js/service/cookie.js";
-@import "../../js/service/lbs.js";
