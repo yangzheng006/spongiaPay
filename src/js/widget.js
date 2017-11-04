@@ -36,3 +36,4 @@
 @import "../../js/widget/silderProductDot.js";
 @import "../../js/widget/tenantThw.js";
 @import "../../js/widget/productSilder.js";
+@import "../../js/widget/hiddenBtn.js";
