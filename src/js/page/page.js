@@ -430,10 +430,6 @@ var ajax={
             data: options.data,
             dataType: 'json',
             context: $('body'),
-            crossDomain: true,
-            xhrFields: {
-                withCredentials: true
-            },
             traditional:options.traditional?options.traditional:false,
             async: options.async != false,
             success: function (data) {
