@@ -44,18 +44,32 @@
                 document.getElementById("loginAccountImg").setAttribute("src", "../images/static/login/account.png");
                 document.getElementById("loginPasswdImg").setAttribute("src", "../images/static/login/passwd.png");
             }
+        });
 
+        $(document).on('click','.loginBtn',function () {
+            var account=$('.loginIndex .account').val();
+            var password=$('.loginIndex .password').val();
+            if(!account){
+                toast.show('请输入用户名',1000)
+            }else if(!password){
+                if(status=='NO'){
+                    toast.show('请输入密码',1000)
+                }else{
+                    toast.show('请输入验证码',1000)
+                }
+            }else{
+                new login(function (data) {
+                    console.log(data)
+                }).loginS({
+                    type:status=='NO'?1:2,   //1是密码登陆  2是验证码登陆
+                    account:account,
+                    authoCode:password
+                })
+            }
         })
+
+
     })
-    var pageFn = function(){
-        //个人中心页面
-        if(pageManager._getHash()=='#'){
-
-        }
-
-
-    };
-    window.addEventListener('pageGoOk',pageFn)
 </script>
 </body>
 </html>
