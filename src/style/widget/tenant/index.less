@@ -93,3 +93,34 @@
   }
 
 }
+
+//商家首页2
+.dial_phone{
+  background: @white;
+  margin-bottom: 2vw;
+  .weui-cell__hd{
+    margin-right: 3vw;
+    i{
+      margin-right: 3px;
+    }
+  }
+}
+.tenant_ad_top{
+  &:after{
+    .mixin(bottom,solid,@border-gray);
+  }
+}
+.tenant_ad_top,.tenant_ad_bottom{
+  padding: 0 2vw 2vw;
+  height: 64vw;
+  position: relative;
+  a{
+    text-align: center;
+    img{
+      width: 29.5vw !important;
+      height:29.5vw !important;
+      border-radius: 5px;
+      margin: 0 auto 1vw;
+    }
+  }
+}
