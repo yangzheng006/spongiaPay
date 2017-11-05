@@ -2,10 +2,10 @@
  * 金融
  */
 
-var ad = function (fn) {
+var finance = function (fn) {
     this.fn = fn;
 };
-ad.prototype = {
+finance.prototype = {
     /**
      * 一级导航分类
      *
