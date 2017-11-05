@@ -434,22 +434,18 @@ var ajax={
             async: options.async != false,
             success: function (data) {
                 // if(redirecting) return;
-                if (data.message.type == "success") {
+                if (data.ok) {
                     if(options.success) options.success(data);
                 } else {
-                    if (options.error != null) {
-                        options.error(data.message);
-                    } else {
-                        setTimeout(function () {
-                            toast.show(data.message.content);
-                        },100);
-                    }
+                    setTimeout(function () {
+                        toast.show(data.msg,1000);
+                    },100);
                 }
             },
             error: function (xhr, type) {
                 // if(redirecting) return;
                 if (options.error) {
-                    options.error(data.message);
+                    options.error(data.msg);
                 } else {
                     // toast.show("获取数据失败");
                 }
@@ -465,31 +461,19 @@ var ajax={
             data: options.data,
             dataType: 'json',
             context: $('body'),
-            crossDomain: true,
-            xhrFields: {
-                withCredentials: true
-            },
             contentType:(options.contentType!==""&&options.contentType!==undefined)?options.contentType:"application/x-www-form-urlencoded",
             processData:(options.processData!==""&&options.processData!==undefined)?options.processData:true,
             traditional:options.traditional?options.traditional:false,
             success: function (data) {
-
-                // if(redirecting) return;
-                if (data.message.type == "success") {
-                    if(options.success) options.success(data.data);
+                if (data.ok) {
+                    if(options.success) options.success(data);
                 } else {
-                    if (options.error != null) {
-                        options.error(data.message);
-                    } else {
-                        toast.closeLoading();
-                        setTimeout(function () {
-                            toast.show(data.message.content);
-                        },100);
-                    }
+                    setTimeout(function () {
+                        toast.show(data.msg,1000);
+                    },100);
                 }
             },
             error: function (xhr, type) {
-                // if(redirecting) return;
                 if (options.error != null) {
                     options.error(data.message);
                 } else {
