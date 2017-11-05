@@ -31,8 +31,12 @@
     //tianjatianjia
     $(function(){
         pageManager.show("main");
+        //点击搜索框跳转页面
+        $("#searchBars").on('click', function () {
+            window.location.href = "tenantList.html";
+        });
     });
-    var pageFn = function () {
+
             //顶部轮播图片
             var ads = new ad(
                     function (data) {
@@ -45,10 +49,7 @@
 
 
 
-            //点击搜索框跳转页面
-            $("#searchBars").on('click', function () {
-                window.location.href = "../search/tenant.html";
-            });
+
 
                 //顶部搜索背景渐变
                 var pged = $(".pageable").pageable({
@@ -81,9 +82,7 @@
                         });
                     }
                 });
-    };
 
-    window.addEventListener('pageGoOk',pageFn)
 
 </script>
 
