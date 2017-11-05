@@ -1,6 +1,4 @@
-// var base = location.origin == "http://localhost:8080" ? "https://dev.tiaohuo.com/" : location.origin + "/";
-// var paymentBase = location.origin == "http://localhost:8080" ? "https://dev.tiaohuo.com/" : location.origin + "/";
-var base = "http://121.43.175.18//JK_HM_GATHER/";
+var base = "http://121.43.175.18/JK_HM_GATHER/";
 
 var redirecting = false;
 var hasLogin=false;
@@ -397,28 +395,28 @@ var isWeiXin = function() {
 // $.ajaxSettings.complete=function () {
 //
 // };
-$(document).on("ajaxStart", function () {
-    var extension = pageManager.GetQueryString("extension");
-    if (extension) {
-        if (!redirecting) {
-            redirecting = true;
-            location.href = base + 'weixin/index/login.jhtml?redirectUrl=' + encodeURIComponent(location.href) + (extension ? ("&extension=" + extension) : "");
-        }
-    } else {
-        if (isWeiXin() && !redirecting && !hasLogin) {
-            new member(function (data) {
-                if (data) {
-                    hasLogin = true;
-                } else {
-                    redirecting = true;
-                    location.href = base + 'weixin/index/login.jhtml?redirectUrl=' + encodeURIComponent(location.href);
-                }
-            }).checkLogin(false);
-        }
-    }
-}).on("ajaxBeforeSend",function () {
-    if(redirecting) return false;
-});
+// $(document).on("ajaxStart", function () {
+//     var extension = pageManager.GetQueryString("extension");
+//     if (extension) {
+//         if (!redirecting) {
+//             redirecting = true;
+//             location.href = base + 'weixin/index/login.jhtml?redirectUrl=' + encodeURIComponent(location.href) + (extension ? ("&extension=" + extension) : "");
+//         }
+//     } else {
+//         if (isWeiXin() && !redirecting && !hasLogin) {
+//             new member(function (data) {
+//                 if (data) {
+//                     hasLogin = true;
+//                 } else {
+//                     redirecting = true;
+//                     location.href = base + 'weixin/index/login.jhtml?redirectUrl=' + encodeURIComponent(location.href);
+//                 }
+//             }).checkLogin(false);
+//         }
+//     }
+// }).on("ajaxBeforeSend",function () {
+//     if(redirecting) return false;
+// });
 
 
 
@@ -439,9 +437,9 @@ var ajax={
             traditional:options.traditional?options.traditional:false,
             async: options.async != false,
             success: function (data) {
-                if(redirecting) return;
+                // if(redirecting) return;
                 if (data.message.type == "success") {
-                    if(options.success) options.success(data.data);
+                    if(options.success) options.success(data);
                 } else {
                     if (options.error != null) {
                         options.error(data.message);
@@ -453,7 +451,7 @@ var ajax={
                 }
             },
             error: function (xhr, type) {
-                if(redirecting) return;
+                // if(redirecting) return;
                 if (options.error) {
                     options.error(data.message);
                 } else {
@@ -480,7 +478,7 @@ var ajax={
             traditional:options.traditional?options.traditional:false,
             success: function (data) {
 
-                if(redirecting) return;
+                // if(redirecting) return;
                 if (data.message.type == "success") {
                     if(options.success) options.success(data.data);
                 } else {
@@ -495,7 +493,7 @@ var ajax={
                 }
             },
             error: function (xhr, type) {
-                if(redirecting) return;
+                // if(redirecting) return;
                 if (options.error != null) {
                     options.error(data.message);
                 } else {
