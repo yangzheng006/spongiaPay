@@ -4,3 +4,5 @@
 @import "../../js/service/login.js";
 @import "../../js/service/member.js";
 @import "../../js/service/finance.js";
+@import "../../js/service/tenant.js";
+

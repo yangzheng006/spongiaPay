@@ -17,6 +17,30 @@ member.prototype = {
             data: data,
             success: this.fn
         });
+    },
+
+    /**
+     * 帮助管理
+     *
+     */
+    help: function (data) {
+        ajax.get({
+            url: base + "helpCenterGet",
+            data: data,
+            success: this.fn
+        });
+    },
+
+    /**
+     * 关于我们
+     *
+     */
+    about: function (data) {
+        ajax.get({
+            url: base + "aboutUsGet",
+            data: data,
+            success: this.fn
+        });
     }
 
 
