@@ -1,0 +1,126 @@
+<!--优质商家-->
+{{#compare list.length '!=' 0}}
+<div class="weui-cell clr_mediumGray f14 list_title">
+    <div class="weui-cell__bd tc"><span class="title_line">一</span>优质商家<span class="title_line">一</span></div>
+    <a href="tenantList.html" class="weui-cell__ft f12 clr_orange">更多>></a>
+</div>
+
+<div class="tenant_list">
+    {{#each list}}
+    <a href="../tenant/index.html?id={{ID}}" class="tenant" data-id="{{ID}}">
+        <div class="tenant_img">
+            {{#compare FRSFZZMZ '==' null}}
+            <img src="../images/placeholder/product.png"/>
+            {{/compare}}
+            {{#compare FRSFZZMZ '!=' null}}
+            <img src="{{FRSFZZMZ}}"/>
+            {{/compare}}
+        </div>
+        <div class="tenant_txt">
+            <p class="f16 tenant_tit overone">{{SHMC}}</p>
+            <div class="weui-cell f14">
+                <div class="weui-cell__bd clr_mediumGray overone tenant_address"><i class="iconfont icon-dizhi1"></i>{{YYDZ}}</div>
+                <div class="weui-cell__ft clr_mediumGray">1.8km</div>
+            </div>
+            <p class="f12 clr-gray02 num">
+                <span><i class="iconfont icon-xiangqingdianzan"></i>11</span>
+                <span><i class="iconfont icon-xin"></i>12</span>
+            </p>
+        </div>
+    </a>
+    {{/each}}
+</div>
+{{/compare}}
+{{#compare listJrcp.length '!=' 0}}
+<!--金融普惠-->
+<div class="weui-cell clr_mediumGray f14 list_title">
+    <div class="weui-cell__bd tc"><span class="title_line">一</span>金融普惠<span class="title_line">一</span></div>
+    <a href="../finance/index.html" class="weui-cell__ft f12 clr_orange">更多>></a>
+</div>
+<div class="finance_list">
+    {{#each listJrcp}}
+    {{#compare LBMC '==' "银行理财"}}
+    <a href="../tenant/home.html?id={{ID}}" class="weui-cell wealth" data-id="{{ID}}">
+        <div class="weui-cell__hd wealth_img">
+            {{#compare TB '==' null}}
+            <img src="../images/placeholder/product.png"/>
+            {{/compare}}
+            {{#compare TB '!=' null}}
+            <img src="{{TB}}"/>
+            {{/compare}}
+        </div>
+        <div class="weui-cell__bd wealth_txt f14">
+            <div class="weui-cell wealth_tit">
+                <div class="weui-cell__bd f16 overone">{{CPMC}}</div>
+                <div class="weui-cell__ft clr_mediumGray f14 overone">{{LC_FXJG}}</div>
+            </div>
+            <div class="weui-flex clr_mediumGray">
+                <div class="weui-flex__item">
+                    <p>起投</p>
+                    <p><span class="f18 clr_titleWhite">{{LC_QGJE}}</span>万元</p>
+                </div>
+                <div class="weui-flex__item">
+                    <p>期限</p>
+                    <p><span class="f18 clr_titleWhite">{{DK_FKQX}}</span>天</p>
+                </div>
+                <div class="weui-flex__item">
+                    <p>七日年化</p>
+                    <p class="clr_orange m5">{{LC_NHSY}}%</p>
+                </div>
+            </div>
+        </div>
+    </a>
+    {{/compare}}
+    {{#compare LBMC '==' "信用卡"}}
+    <a href="../finance/index.html#cardDetails?id={{ID}}" class="weui-cell credit_card">
+        <div class="weui-cell__hd">
+            {{#compare TB '==' null}}
+            <img src="../images/placeholder/product.png"/>
+            {{/compare}}
+            {{#compare TB '!=' null}}
+            <img src="{{TB}}"/>
+            {{/compare}}
+        </div>
+        <div class="weui-cell__bd">
+            <p class="f16 overone">{{CPMC}}</p>
+            <p class="f14 clr_mediumGray">{{XYK_TX}}</p>
+            <p class="f12 clr_orange">{{XYK_SQ}}人申请</p>
+        </div>
+    </a>
+    {{/compare}}
+    {{#compare LBMC '==' "贷款"}}
+    <a href="../finance/index.html#loanDetails?id={{ID}}" class="weui-cell loan" data-id="{{ID}}">
+        <div class="weui-cell__hd loan_img">
+            {{#compare TB '==' null}}
+            <img src="../images/placeholder/product.png"/>
+            {{/compare}}
+            {{#compare TB '!=' null}}
+            <img src="{{TB}}"/>
+            {{/compare}}
+        </div>
+        <div class="weui-cell__bd loan_txt">
+            <p class="f16 loan_tit overone">{{CPMC}}</p>
+            <div class="weui-cell f14">
+                <div class="weui-cell__bd">{{DK_SQ}}人申请/1天放款</div>
+                <div class="weui-cell__ft clr_mediumGray"><span class="f16 clr_orange">{{DK_LX}}</span>/月</div>
+            </div>
+            <div class="weui-cell">
+                <div class="weui-cell__bd">
+                    {{#compare DK_YWDY '==' null}}
+                    <span class="f12 loan_tip">无抵押</span>
+                    {{/compare}}
+                    {{#compare DK_YWDY '!=' null}}
+                    <span class="f12 loan_tip">有抵押</span>
+                    {{/compare}}
+                </div>
+                <div class="weui-cell__ft f14 clr_lighterGray">
+                    <span>可贷{{DK_KDJE}}万</span>
+                    <span>{{DK_HKFS}}</span>
+                </div>
+            </div>
+        </div>
+    </a>
+    {{/compare}}
+    {{/each}}
+</div>
+{{/compare}}

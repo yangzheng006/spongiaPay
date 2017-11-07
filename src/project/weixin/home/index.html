@@ -15,73 +15,37 @@
 <link rel="import" href="../../../pages/home/main.html">
 
 <!--模版-->
-<!--横屏广告位模板-->
-<link rel="import" href="../../../model/templete/home/hpAd.html">
-<!--活动商圈-->
-<link rel="import" href="../../../model/templete/home/activityCircle.html">
-<!--推荐商家-->
-<link rel="import" href="../../../model/templete/home/recommendTenantHGY.html">
+<link rel="import" href="../../../model/templete/home/list.html">
 
 @import "../../../model/widget/include/toast.html";
 @import "../../../model/widget/include/dialog.html";
 <script src="/weixin/js/common.min.js"></script>
 <script src="/weixin/js/wap.min.js"></script>
 <script type="text/javascript">
-
-    //tianjatianjia
     $(function(){
         pageManager.show("main");
         //点击搜索框跳转页面
         $("#searchBars").on('click', function () {
             window.location.href = "tenantList.html";
         });
+
+        //顶部轮播图片
+//        var ads = new ad(
+//                function (data) {
+//                    if (data.length > 0) {
+//                        $("#index_slider").silderDot(data, 1800, "", "true");
+//                    }
+//                }
+//        );
+//        ads.do(187);
+
+        //列表（优质商家、金融普惠）
+        var td = new tenant(function (data) {
+            var h = render.fill($("#tpl_list"), data);
+            $(".home_list").append(h);
+        });
+        td.list({});
     });
-
-            //顶部轮播图片
-            var ads = new ad(
-                    function (data) {
-                        if (data.length > 0) {
-                            $("#index_slider").silderDot(data, 1800, "", "true");
-                        }
-                    }
-            );
-            ads.do(187);
-
-
-
-
-
-                //顶部搜索背景渐变
-                var pged = $(".pageable").pageable({
-                    scrollFn: function (me) {
-                        $(window).trigger('scroll');
-                    },
-                    loadDownFn: function (me) {
-                        var td = new tenant(function (data) {
-                            var h = render.fill($("#tpl_recommendTenantHGY"), data);
-                            $(".pageable .TenantList").append(h);
-                            me.pageNumber = me.pageNumber + 1;
-                            $('img').picLazyLoad();
-                            if ($('.pageable .TenantList div').hasClass('channelTenantList') == false) {
-                                $('.tit_ztb').addClass('none');
-                                $('.pageable-down').remove();
-                            } else {
-                                $('.tit_ztb').removeClass('none');
-                            }
-                            if (data.length < 20) {
-                                pged.lock();
-                                pged.noData();
-                            }
-                            pged.resetload();
-                        });
-                        td.firstRecommend({
-                            tagId: 28,
-                            pageNumber: 1,
-                            lat: weixin.lat,
-                            lng: weixin.lng
-                        });
-                    }
-                });
 
 
 </script>
