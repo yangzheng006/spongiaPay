@@ -20,8 +20,10 @@
     <link rel="import" href="../../../pages/finance/details/loanDetails.html">
     <!-- 贷款详情 -->
     <link rel="import" href="../../../pages/finance/details/manageDetails.html">
-    @import "../../../model/widget/include/toast.html";
-    @import "../../../model/widget/include/dialog.html";
+    <!-- 模板 -->
+    <link rel="import" href="../../../model/templete/home/list.html">
+    <!-- @import "../../../model/widget/include/toast.html"; -->
+    <!-- @import "../../../model/widget/include/dialog.html"; -->
     <script src="/weixin/js/common.min.js"></script>
     <script src="/weixin/js/wap.min.js"></script>
     <script type="text/javascript">
@@ -32,9 +34,106 @@
         var pageFn = function () {
             //个人中心页面
             if (pageManager._getHash() == '#') {
+                function getCurrentSelected() {
+                    // return [
+                    //     $('.financeTab-tabTop div.active').attr('data-id'),
+                    //     $('.financeTab-show .financeTab-list div.active').attr('data-id')
+                    // ]
+                    if ($('.financeTab-show .financeTab-list').html() == '') {
+                        var selectTopId = $('.financeTab-tabTop div.active').attr('data-id');
+                        new finance(function (rest) {
+                            var htmlt = '';
+                            for (var i = 0, j = rest.list.length; i < j; i++) {
+                                htmlt += `<div class="${i == 0 ? 'active' : ''}" data-px="${rest.list[i].PX}" data-id="${rest.list[i].ID}">${rest.list[i].LBMC}</div>`
+                            }
+                            new finance(function (resd) {
+                                var h = render.fill($("#tpl_list"), resd);
+                                $('#tab' + selectTopId + ' .financeTab-listWrap').html(h)
+                            }).list({
+                                classificationId: rest.list[0].ID
+                            })
+                            $('#tab' + selectTopId + ' .financeTab-list').html(htmlt);
+
+                        }).classTwo({
+                            superiorId: selectTopId
+                        })
+                    }
+
+                }
+                $(document).on('click', '.financeTab-tabTop>div,.financeTab-list>div', function () {
+                    var index = $(this).index()
+                    if ($(this).hasClass('active')) {
+                        return false;
+                    }
+                    $(this).addClass('active').siblings('.active').removeClass('active');
+                    if ($(this).parents().hasClass('financeTab-tabTop') && !$('.financeTab-content').eq(index).hasClass('financeTab-show')) {
+                        $('.financeTab-content').eq(index).addClass('financeTab-show').siblings().removeClass('financeTab-show')
+                    }
+                    //获取数据
+                    if ($('.financeTab-show .financeTab-list').html() == '') {
+                        var selectTopId = $('.financeTab-tabTop div.active').attr('data-id');
+                        new finance(function (rest) {
+                            var htmlt = '';
+                            for (var i = 0, j = rest.list.length; i < j; i++) {
+                                htmlt += `<div class="${i == 0 ? 'active' : ''}" data-px="${rest.list[i].PX}" data-id="${rest.list[i].ID}">${rest.list[i].LBMC}</div>`
+                            }
+                            new finance(function (resd) {
+                                var h = render.fill($("#tpl_list"), resd);
+                                $('#tab' + selectTopId + ' .financeTab-listWrap').html(h)
+                            }).list({
+                                classificationId: rest.list[0].ID
+                            })
+                            $('#tab' + selectTopId + ' .financeTab-list').html(htmlt);
+
+                        }).classTwo({
+                            superiorId: selectTopId
+                        })
+                    }
+                    if ($(this).parent().hasClass('financeTab-list')) {
+                        console.log('x')
+                        var tapContentId = $(this).attr('data-id');
+                        var tapTopId = $('.financeTab-tabTop div.active').attr('data-id');
+                        new finance(function (resd) {
+                            var h = render.fill($("#tpl_list"), resd);
+                            $('#tab' + tapTopId + ' .financeTab-listWrap').html(h)
+                        }).list({
+                            classificationId: tapContentId
+                        })
+                    }
+                })
+
+                new finance(function (res) {
+                    new finance(function (rest) {
+                        var htmlt = '';
+                        console.log(rest)
+                        for (var i = 0, j = rest.list.length; i < j; i++) {
+                            htmlt += `<div class="${i == 0 ? 'active' : ''}" data-px="${rest.list[i].PX}" data-id="${rest.list[i].ID}">${rest.list[i].LBMC}</div>`
+                        }
+                        new finance(function (resd) {
+                            var h = render.fill($("#tpl_list"), resd);
+                            $('#tab' + res.list[0].ID + ' .financeTab-listWrap').html(h)
+                        }).list({
+                            classificationId: rest.list[0].ID
+                        })
+                        $('#tab' + res.list[0].ID + ' .financeTab-list').html(htmlt);
+
+                    }).classTwo({
+                        superiorId: res.list[0].ID
+                    })
+                    var tapTop = '', tapContent = '';
+                    for (var i = 0, j = res.list.length; i < j; i++) {
+                        tapTop += `<div class="weui-flex__item ${i == 0 ? 'active' : ''}"  data-px="${res.list[i].PX}" data-id="${res.list[i].ID}">${res.list[i].LBMC}</div>`;
+                        tapContent += `
+                        <div class="financeTab-content ${i == 0 ? 'financeTab-show' : ''}" data-px="${res.list[i].PX}" id="tab${res.list[i].ID}">
+                            <div class="financeTab-list f12 weui-flex"></div>
+                            <div class="financeTab-listWrap"></div>
+                        </div>
+                        `;
+                    }
+                    $('#financeTabTop').html(tapTop)
+                    $('#financeTab').append(tapContent)
+                }).classOne()
             }
-
-
         };
         window.addEventListener('pageGoOk', pageFn)
     </script>
