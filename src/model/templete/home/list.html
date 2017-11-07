@@ -9,10 +9,10 @@
     {{#each list}}
     <a href="../tenant/index.html?id={{ID}}" class="tenant" data-id="{{ID}}">
         <div class="tenant_img">
-            {{#compare FRSFZZMZ '==' null}}
+            {{#compare YYCSZP '==' null}}
             <img src="../images/placeholder/product.png"/>
             {{/compare}}
-            {{#compare FRSFZZMZ '!=' null}}
+            {{#compare YYCSZP '!=' null}}
             <img src="{{FRSFZZMZ}}"/>
             {{/compare}}
         </div>
@@ -23,8 +23,8 @@
                 <div class="weui-cell__ft clr_mediumGray">1.8km</div>
             </div>
             <p class="f12 clr-gray02 num">
-                <span><i class="iconfont icon-xiangqingdianzan"></i>11</span>
-                <span><i class="iconfont icon-xin"></i>12</span>
+                <span><i class="iconfont icon-xiangqingdianzan"></i>{{DZRS}}</span>
+                <span><i class="iconfont icon-xin"></i>{{SCRS}}</span>
             </p>
         </div>
     </a>
@@ -39,7 +39,7 @@
 </div>
 <div class="finance_list">
     {{#each listJrcp}}
-    {{#compare LBMC '==' "银行理财"}}
+    {{#compare SJFLMC '==' "理财"}}
     <a href="../tenant/home.html?id={{ID}}" class="weui-cell wealth" data-id="{{ID}}">
         <div class="weui-cell__hd wealth_img">
             {{#compare TB '==' null}}
@@ -71,7 +71,7 @@
         </div>
     </a>
     {{/compare}}
-    {{#compare LBMC '==' "信用卡"}}
+    {{#compare SJFLMC '==' "信用卡"}}
     <a href="../finance/index.html#cardDetails?id={{ID}}" class="weui-cell credit_card">
         <div class="weui-cell__hd">
             {{#compare TB '==' null}}
@@ -88,7 +88,7 @@
         </div>
     </a>
     {{/compare}}
-    {{#compare LBMC '==' "贷款"}}
+    {{#compare SJFLMC '==' "贷款"}}
     <a href="../finance/index.html#loanDetails?id={{ID}}" class="weui-cell loan" data-id="{{ID}}">
         <div class="weui-cell__hd loan_img">
             {{#compare TB '==' null}}

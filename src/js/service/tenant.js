@@ -28,7 +28,48 @@ tenant.prototype = {
             success: this.fn
         });
 
-    }
+    },
+
+    /**
+     * 更多商家页面顶部导航一级分类名称
+     */
+    classOne: function (data) {
+        ajax.get({
+            url: base + "merchantClassification?superiorId=0",
+            data: data,
+            success: this.fn
+        });
+
+    },
+
+    /**
+     * 更多商家页面顶部导航二级分类名称
+     * superiorId   一级分类id
+     */
+    classTwo: function (data) {
+        ajax.get({
+            url: base + "merchantClassification",
+            data: data,
+            success: this.fn
+        });
+
+    },
+
+    /**
+     * 更多商家商家列表
+     * classificationId 二级分类ID
+     */
+    moreList: function (data) {
+        ajax.get({
+            url: base + "classificationId",
+            data: data,
+            success: this.fn
+        });
+
+    },
+
+
+
 
 };
 
