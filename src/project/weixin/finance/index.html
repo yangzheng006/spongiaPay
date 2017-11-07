@@ -22,8 +22,11 @@
     <link rel="import" href="../../../pages/finance/details/manageDetails.html">
     <!-- 模板 -->
     <link rel="import" href="../../../model/templete/home/list.html">
-    <!-- @import "../../../model/widget/include/toast.html"; -->
-    <!-- @import "../../../model/widget/include/dialog.html"; -->
+    <link rel="import" href="../../../model/templete/finance/credit_card.html">
+    <link rel="import" href="../../../model/templete/finance/loan.html">
+    <link rel="import" href="../../../model/templete/finance/wealth.html">
+     @import "../../../model/widget/include/toast.html";
+     @import "../../../model/widget/include/dialog.html";
     <script src="/weixin/js/common.min.js"></script>
     <script src="/weixin/js/wap.min.js"></script>
     <script type="text/javascript">
@@ -61,7 +64,8 @@
 
                 }
                 $(document).on('click', '.financeTab-tabTop>div,.financeTab-list>div', function () {
-                    var index = $(this).index()
+                    var index = $(this).index();
+                    var financeName=$(this).html();
                     if ($(this).hasClass('active')) {
                         return false;
                     }
@@ -78,8 +82,17 @@
                                 htmlt += `<div class="${i == 0 ? 'active' : ''}" data-px="${rest.list[i].PX}" data-id="${rest.list[i].ID}">${rest.list[i].LBMC}</div>`
                             }
                             new finance(function (resd) {
-                                var h = render.fill($("#tpl_list"), resd);
-                                $('#tab' + selectTopId + ' .financeTab-listWrap').html(h)
+                                if(financeName=='理财'){
+                                    var h = render.fill($("#tpl_wealth"), resd);
+                                    $('#tab' + selectTopId + ' .financeTab-listWrap').html(h)
+                                }else if(financeName=='信用卡'){
+                                    var h = render.fill($("#tpl_credit_card"), resd);
+                                    $('#tab' + selectTopId + ' .financeTab-listWrap').html(h)
+                                }else if(financeName=='贷款'){
+                                    var h = render.fill($("#tpl_loan"), resd);
+                                    $('#tab' + selectTopId + ' .financeTab-listWrap').html(h)
+                                }
+
                             }).list({
                                 classificationId: rest.list[0].ID
                             })
@@ -94,8 +107,16 @@
                         var tapContentId = $(this).attr('data-id');
                         var tapTopId = $('.financeTab-tabTop div.active').attr('data-id');
                         new finance(function (resd) {
-                            var h = render.fill($("#tpl_list"), resd);
-                            $('#tab' + tapTopId + ' .financeTab-listWrap').html(h)
+                            if(financeName=='理财'){
+                                var h = render.fill($("#tpl_wealth"), resd);
+                                $('#tab' + selectTopId + ' .financeTab-listWrap').html(h)
+                            }else if(financeName=='信用卡'){
+                                var h = render.fill($("#tpl_credit_card"), resd);
+                                $('#tab' + selectTopId + ' .financeTab-listWrap').html(h)
+                            }else if(financeName=='贷款'){
+                                var h = render.fill($("#tpl_loan"), resd);
+                                $('#tab' + selectTopId + ' .financeTab-listWrap').html(h)
+                            }
                         }).list({
                             classificationId: tapContentId
                         })
@@ -110,7 +131,7 @@
                             htmlt += `<div class="${i == 0 ? 'active' : ''}" data-px="${rest.list[i].PX}" data-id="${rest.list[i].ID}">${rest.list[i].LBMC}</div>`
                         }
                         new finance(function (resd) {
-                            var h = render.fill($("#tpl_list"), resd);
+                            var h = render.fill($("#tpl_wealth"), resd);
                             $('#tab' + res.list[0].ID + ' .financeTab-listWrap').html(h)
                         }).list({
                             classificationId: rest.list[0].ID

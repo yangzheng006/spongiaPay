@@ -1,0 +1,17 @@
+{{#each this}}
+<a href="../finance/index.html#cardDetails?id={{ID}}" class="weui-cell credit_card">
+    <div class="weui-cell__hd">
+        {{#compare TB '==' null}}
+        <img src="../images/placeholder/product.png"/>
+        {{/compare}}
+        {{#compare TB '!=' null}}
+        <img src="{{TB}}"/>
+        {{/compare}}
+    </div>
+    <div class="weui-cell__bd">
+        <p class="f16 overone">{{CPMC}}</p>
+        <p class="f14 clr_mediumGray">{{XYK_TX}}</p>
+        <p class="f12 clr_orange">{{XYK_SQ}}人申请</p>
+    </div>
+</a>
+{{/each}}

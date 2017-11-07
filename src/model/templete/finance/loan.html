@@ -1,0 +1,33 @@
+{{#each this}}
+<a href="../finance/index.html#loanDetails?id={{ID}}" class="weui-cell loan" data-id="{{ID}}">
+    <div class="weui-cell__hd loan_img">
+        {{#compare TB '==' null}}
+        <img src="../images/placeholder/product.png"/>
+        {{/compare}}
+        {{#compare TB '!=' null}}
+        <img src="{{TB}}"/>
+        {{/compare}}
+    </div>
+    <div class="weui-cell__bd loan_txt">
+        <p class="f16 loan_tit overone">{{CPMC}}</p>
+        <div class="weui-cell f14">
+            <div class="weui-cell__bd">{{DK_SQ}}人申请/1天放款</div>
+            <div class="weui-cell__ft clr_mediumGray"><span class="f16 clr_orange">{{DK_LX}}</span>/月</div>
+        </div>
+        <div class="weui-cell">
+            <div class="weui-cell__bd">
+                {{#compare DK_YWDY '==' null}}
+                <span class="f12 loan_tip">无抵押</span>
+                {{/compare}}
+                {{#compare DK_YWDY '!=' null}}
+                <span class="f12 loan_tip">有抵押</span>
+                {{/compare}}
+            </div>
+            <div class="weui-cell__ft f14 clr_lighterGray">
+                <span>可贷{{DK_KDJE}}万</span>
+                <span>{{DK_HKFS}}</span>
+            </div>
+        </div>
+    </div>
+</a>
+{{/each}}
