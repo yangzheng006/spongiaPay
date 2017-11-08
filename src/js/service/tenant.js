@@ -61,7 +61,7 @@ tenant.prototype = {
      */
     moreList: function (data) {
         ajax.get({
-            url: base + "classificationId",
+            url: base + "merchantProductListGet",
             data: data,
             success: this.fn
         });
