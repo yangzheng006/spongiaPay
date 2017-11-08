@@ -25,8 +25,11 @@
     <link rel="import" href="../../../model/templete/finance/credit_card.html">
     <link rel="import" href="../../../model/templete/finance/loan.html">
     <link rel="import" href="../../../model/templete/finance/wealth.html">
-     @import "../../../model/widget/include/toast.html";
-     @import "../../../model/widget/include/dialog.html";
+    <link rel="import" href="../../../model/templete/finance/loanDetailsTpl.html">
+    <link rel="import" href="../../../model/templete/finance/cardDetailsTpl.html">
+    <link rel="import" href="../../../model/templete/finance/manageDetailsTpl.html">
+    @import "../../../model/widget/include/toast.html";
+    @import "../../../model/widget/include/dialog.html";
     <script src="/weixin/js/common.min.js"></script>
     <script src="/weixin/js/wap.min.js"></script>
     <script type="text/javascript">
@@ -37,40 +40,14 @@
         var pageFn = function () {
             //个人中心页面
             if (pageManager._getHash() == '#') {
-                function getCurrentSelected() {
-                    // return [
-                    //     $('.financeTab-tabTop div.active').attr('data-id'),
-                    //     $('.financeTab-show .financeTab-list div.active').attr('data-id')
-                    // ]
-                    if ($('.financeTab-show .financeTab-list').html() == '') {
-                        var selectTopId = $('.financeTab-tabTop div.active').attr('data-id');
-                        new finance(function (rest) {
-                            var htmlt = '';
-                            for (var i = 0, j = rest.list.length; i < j; i++) {
-                                htmlt += `<div class="${i == 0 ? 'active' : ''}" data-px="${rest.list[i].PX}" data-id="${rest.list[i].ID}">${rest.list[i].LBMC}</div>`
-                            }
-                            new finance(function (resd) {
-                                var h = render.fill($("#tpl_list"), resd.list);
-                                $('#tab' + selectTopId + ' .financeTab-listWrap').html(h)
-                            }).list({
-                                classificationId: rest.list[0].ID
-                            })
-                            $('#tab' + selectTopId + ' .financeTab-list').html(htmlt);
-
-                        }).classTwo({
-                            superiorId: selectTopId
-                        })
-                    }
-
-                }
                 $(document).on('click', '.financeTab-tabTop>div,.financeTab-list>div', function () {
-                    var index = $(this).index(),that = this;
+                    var index = $(this).index(), that = this;
 
                     if ($(this).hasClass('active')) {
                         return false;
                     }
                     $(this).addClass('active').siblings('.active').removeClass('active');
-                    var financeName=$('.financeTab-tabTop').find('.active').html();
+                    var financeName = $('.financeTab-tabTop').find('.active').html();
                     console.log(financeName)
                     if ($(this).parents().hasClass('financeTab-tabTop') && !$('.financeTab-content').eq(index).hasClass('financeTab-show')) {
                         $('.financeTab-content').eq(index).addClass('financeTab-show').siblings().removeClass('financeTab-show')
@@ -84,13 +61,13 @@
                                 htmlt += `<div class="${i == 0 ? 'active' : ''}" data-px="${rest.list[i].PX}" data-id="${rest.list[i].ID}">${rest.list[i].LBMC}</div>`
                             }
                             new finance(function (resd) {
-                                if(financeName=='理财'){
+                                if (financeName == '理财') {
                                     var h = render.fill($("#tpl_wealth"), resd.list);
                                     $('#tab' + selectTopId + ' .financeTab-listWrap').html(h)
-                                }else if(financeName=='信用卡'){
+                                } else if (financeName == '信用卡') {
                                     var h = render.fill($("#tpl_credit_card"), resd.list);
                                     $('#tab' + selectTopId + ' .financeTab-listWrap').html(h)
-                                }else if(financeName=='贷款'){
+                                } else if (financeName == '贷款') {
                                     var h = render.fill($("#tpl_loan"), resd.list);
                                     $('#tab' + selectTopId + ' .financeTab-listWrap').html(h)
                                 }
@@ -111,14 +88,14 @@
                         var tapContentId = $(this).attr('data-id');
                         var tapTopId = $('.financeTab-tabTop div.active').attr('data-id');
                         new finance(function (resd) {
-                            if(financeName=='理财'){
+                            if (financeName == '理财') {
                                 console.log(11212)
                                 var h = render.fill($("#tpl_wealth"), resd.list);
-                               $(that).parent().siblings('.financeTab-listWrap').html(h)
-                            }else if(financeName=='信用卡'){
+                                $(that).parent().siblings('.financeTab-listWrap').html(h)
+                            } else if (financeName == '信用卡') {
                                 var h = render.fill($("#tpl_credit_card"), resd.list);
                                 $(that).parent().siblings('.financeTab-listWrap').html(h)
-                            }else if(financeName=='贷款'){
+                            } else if (financeName == '贷款') {
                                 var h = render.fill($("#tpl_loan"), resd.list);
                                 $(that).parent().siblings('.financeTab-listWrap').html(h)
                             }
@@ -136,9 +113,8 @@
                             htmlt += `<div class="${i == 0 ? 'active' : ''}" data-px="${rest.list[i].PX}" data-id="${rest.list[i].ID}">${rest.list[i].LBMC}</div>`
                         }
                         new finance(function (resd) {
-                            console.log(resd)
                             var h = render.fill($("#tpl_wealth"), resd.list);
-                            $('#tab' + res.list[0].ID + ' .financeTab-listWrap').html(h)
+                            $('#tab' + res.list[0].ID + ' .financeTab-listWrap').html(h);
                         }).list({
                             classificationId: rest.list[0].ID
                         })
@@ -160,6 +136,33 @@
                     $('#financeTabTop').html(tapTop)
                     $('#financeTab').append(tapContent)
                 }).classOne()
+            }
+            if (pageManager._getHash() == '#loanDetails') {
+                var loanViewId = pageManager.GetQueryString('id')|| (location.hash = '#');
+                new finance(function (res) {
+                    var h = render.fill($("#tpl_loanDetailsTpl"), res.list[0]);
+                    $('#loanDetailsWrap').html(h);
+                }).loanView({
+                    id: loanViewId
+                })
+            }
+            if (pageManager._getHash() == '#cardDetails') {
+                var creditCardViewId = pageManager.GetQueryString('id') || (location.hash = '#');
+                new finance(function (res) {
+                    var h = render.fill($("#tpl_cardDetailsTpl"), res.list[0]);
+                    $('#cardDetailsWrap').html(h);
+                }).creditCardView({
+                    id: creditCardViewId
+                })
+            }
+            if (pageManager._getHash() == '#manageDetails') {
+                var wealthViewId = pageManager.GetQueryString('id') || (location.hash = '#');
+                new finance(function (res) {
+                    var h = render.fill($("#tpl_manageDetailsTpl"), res.list[0]);
+                    $('#manageDetailsWrap').html(h);
+                }).creditCardView({
+                    id: wealthViewId
+                })
             }
         };
         window.addEventListener('pageGoOk', pageFn)
