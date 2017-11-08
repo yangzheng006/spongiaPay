@@ -14,7 +14,8 @@
 <link rel="import" href="../../../pages/home/tenantList.html">
 
 <!--模版-->
-
+<link rel="import" href="../../../model/templete/home/classOne.html">
+<link rel="import" href="../../../model/templete/home/classTwo.html">
 
 @import "../../../model/widget/include/toast.html";
 @import "../../../model/widget/include/dialog.html";
@@ -22,8 +23,29 @@
 <script src="/weixin/js/wap.min.js"></script>
 <script type="text/javascript">
     $(function () {
-
         pageManager.show("tenantList");
+
+        //一级分类
+        var tu = new tenant(function (data) {
+            var h = render.fill($("#tpl_classOne"), data);
+            $(".find_nav").append(h);
+            console.log(h);
+            nav();
+//            //默认第一次加载
+            $('#pagenavi1 li').first().addClass('find_nav_cur');
+            var oneId = $('.find_nav_cur').attr('data-id');
+//          二级分类
+            var dh = new tenant(function (data) {
+                var h = render.fill($("#tpl_classTwo"), data);
+                $(".tenant_tap").append(h);
+                $('.tenant_tap span').first().addClass('active');
+            });
+            dh.classTwo({superiorId:oneId});
+        });
+        tu.classOne({});
+
+
+
 
         //频道页导航
 //        var tu = new productChannel(function (data) {
