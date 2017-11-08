@@ -1,7 +1,6 @@
 // 微信插件
 var weixin = {
     url: base + 'weixin/mutual/get_config.jhtml',
-    cardUrl: base + 'weixin/mutual/get_card_ext.jhtml',
     lat: 0, // 纬度，浮点数，范围为90 ~ -90
     lng: 0, // 经度，浮点数，范围为180 ~ -180。
     speed: 0, // 速度，以米/每秒计
@@ -69,27 +68,6 @@ var weixin = {
         return $def.promise();
     },
 
-    addCard: function () {
-        weixin.init().done(function () {
-            $.getJSON(weixin.cardUrl).done(function (res) {
-                var cardExt = res.data;
-                var cardExtJson='{"timestamp":"' + cardExt.timestamp + '","nonce_str":"' + cardExt.nonceStr + '","signature":"' + cardExt.signature + '"}';
-                wx.ready(function () {
-                    wx.addCard({
-                        cardList: [{
-                            cardId: cardExt.cardId,
-                            cardExt: cardExtJson
-                        }], // 需要添加的卡券列表
-                        success: function (res) {
-                            var cardList = res.cardList; // 添加的卡券列表信息
-                        }
-                    });
-
-                });
-            });
-
-        });
-    },
     /**
      * 分享接口
      * title    分享标题
@@ -272,202 +250,6 @@ var weixin = {
             });
         });
     },
-    /**
-     * 商品分享接口
-     * id 商品Id
-     */
-    sharept: function (id) {
-        weixin.init().done(function (config) {
-            wx.ready(function () {
-                wx.showMenuItems({
-                    menuList: ["menuItem:share:appMessage","menuItem:share:timeline","menuItem:share:qq","menuItem:share:weiboApp","menuItem:share:QZone"] // 要隐藏的菜单项，只能隐藏“传播类”和“保护类”按钮，所有menu项见附录3
-                });
-                new product(function (data) {
-                    //分享到朋友圈
-                    wx.onMenuShareTimeline({
-                        title: data.title,
-                        desc: data.desc,
-                        link: data.link,
-                        imgUrl: data.imgUrl,
-                        success: function () {
-                            // 用户确认分享后执行的回调函数
-                            new product().extend({id:id});
-                            new common().updateLuck();
-                        },
-                        cancel: function () {
-                            // 用户取消分享后执行的回调函数
-                        }
-                    });
-                    //分享给朋友
-                    wx.onMenuShareAppMessage({
-                        title: data.title,
-                        desc: data.desc,
-                        link: data.link,
-                        imgUrl: data.imgUrl,
-                        success: function () {
-                            // 用户确认分享后执行的回调函数
-                            new product().extend({id:id});
-                            new common().updateLuck();
-                        },
-                        cancel: function () {
-                            // 用户取消分享后执行的回调函数
-                        }
-                    });
-                    //分享到QQ
-                    wx.onMenuShareQQ({
-                        title: data.title,
-                        desc: data.desc,
-                        link: data.link,
-                        imgUrl: data.imgUrl,
-                        success: function () {
-                            // 用户确认分享后执行的回调函数
-                            new product().extend({id:id});
-                            new common().updateLuck();
-                        },
-                        cancel: function () {
-                            // 用户取消分享后执行的回调函数
-                        }
-                    });
-                    //分享到腾讯微博
-                    wx.onMenuShareWeibo({
-                        title: data.title,
-                        desc: data.desc,
-                        link: data.link,
-                        imgUrl: data.imgUrl,
-                        success: function () {
-                            // 用户确认分享后执行的回调函数
-                            new product().extend({id:id});
-                        },
-                        cancel: function () {
-                            // 用户取消分享后执行的回调函数
-                        }
-                    });
-                    //分享到QQ空间
-                    wx.onMenuShareQZone({
-                        title: data.title,
-                        desc: data.desc,
-                        link: data.link,
-                        imgUrl: data.imgUrl,
-                        success: function () {
-                            // 用户确认分享后执行的回调函数
-                            new product().extend({id:id});
-                            new common().updateLuck();
-                        },
-                        cancel: function () {
-                            // 用户取消分享后执行的回调函数
-                        }
-                    });
-                }).share({id: id});
-
-
-            });
-        });
-    },
-
-    /**
-     * 分享说说接口
-     * title    分享标题
-     * desc     分享描述
-     * link     分享链接
-     * imgUrl   分享图标
-     */
-
-    shareContact: function (id,conImg) {
-        weixin.init().done(function (config) {
-            wx.ready(function () {
-                wx.showMenuItems({
-                    menuList: ["menuItem:share:appMessage","menuItem:share:timeline","menuItem:share:qq","menuItem:share:weiboApp","menuItem:share:QZone"] // 要隐藏的菜单项，只能隐藏“传播类”和“保护类”按钮，所有menu项见附录3
-                });
-                var username = cookie.getCookie("username");
-
-                var link = location.origin + '/weixin/guide/dynamic/dynamicView.html?id='+id+'&extension=' + username;
-                new contact(function (data) {
-                    //分享到朋友圈
-                    var title=(data.contact.coupons!='')?(data.contact.coupons[0].title):'我分享了一个不错的东西哦，快去看看吧';
-                    var desc=(data.contact.coupons!='')?data.contact.coupons[0].content:'赶快下手吧！亲们！';
-                    wx.onMenuShareTimeline({
-                        title:title,
-                        desc:desc,
-                        link: link,
-                        imgUrl: conImg,
-                        success: function () {
-                            // 用户确认分享后执行的回调函数
-                            $('#iosMask2').hide();
-                            $('#mcover').css('display','none');
-                            new common().updateLuck();
-                        },
-                        cancel: function () {
-                            // 用户取消分享后执行的回调函数
-                        }
-                    });
-                    //分享给朋友
-                    wx.onMenuShareAppMessage({
-                        title:title,
-                        desc:desc,
-                        link: link,
-                        imgUrl: conImg,
-                        success: function () {
-                            // 用户确认分享后执行的回调函数
-                            $('#iosMask2').hide();
-                            $('#mcover').css('display','none');
-                            new common().updateLuck();
-                        },
-                        cancel: function () {
-                            // 用户取消分享后执行的回调函数
-                        }
-                    });
-                    //分享到QQ
-                    wx.onMenuShareQQ({
-                        title:title,
-                        desc:desc,
-                        link: link,
-                        imgUrl: conImg,
-                        success: function () {
-                            // 用户确认分享后执行的回调函数
-                            $('#iosMask2').hide();
-                            $('#mcover').css('display','none');
-                            new common().updateLuck();
-                        },
-                        cancel: function () {
-                            // 用户取消分享后执行的回调函数
-                        }
-                    });
-                    //分享到腾讯微博
-                    wx.onMenuShareWeibo({
-                        title:title,
-                        desc:desc,
-                        link: link,
-                        imgUrl: data.imgUrl,
-                        success: function () {
-                            // 用户确认分享后执行的回调函数
-                            $('#iosMask2').hide();
-                            $('#mcover').css('display','none');
-                        },
-                        cancel: function () {
-                            // 用户取消分享后执行的回调函数
-                        }
-                    });
-                    //分享到QQ空间
-                    wx.onMenuShareQZone({
-                        title:title,
-                        desc:desc,
-                        link: link,
-                        imgUrl: conImg,
-                        success: function () {
-                            $('#iosMask2').hide();
-                            $('#mcover').css('display','none');
-                            // 用户确认分享后执行的回调函数
-                            new common().updateLuck();
-                        },
-                        cancel: function () {
-                            // 用户取消分享后执行的回调函数
-                        }
-                    });
-                }).view({id: id});
-
-            });
-        });
-    },
 
     /**
      * 获取地理位置接口
@@ -512,7 +294,7 @@ var weixin = {
                 });
                 wx.error(function (res) {
                     console.log(res);
-                    if (fn) fn();
+                    // if (fn) fn();
                 });
 
             });
@@ -601,20 +383,6 @@ var weixin = {
 
             });
         });
-    },
-    /**
-     *
-     *打烊店铺隐藏分享按钮
-     *
-     */
-    hide:function () {
-        weixin.init().done(function (config) {
-            wx.ready(function () {
-                wx.hideMenuItems({
-                    menuList: ["menuItem:share:appMessage","menuItem:share:timeline","menuItem:share:qq","menuItem:share:weiboApp","menuItem:share:QZone"] // 要隐藏的菜单项，只能隐藏“传播类”和“保护类”按钮，所有menu项见附录3
-                });
-            });
-        })
     },
 
     /**
