@@ -1,10 +1,12 @@
 {{#each list}}
-<a href="../tenant/index.html" class="tenant">
+<a href="../tenant/index.html" class="tenant" data-id="{{ID}}">
     <div class="tenant_img">
-        {{#compare TP '==' null}}
-
+        {{#compare TP '!=' null}}
+        <img src="{{YYCSZP}}" />
         {{/compare}}
-        <img src="http://cdn.tiaohuo.com/upload/image/201709/574356ef-e5fc-4c8b-8da6-e097308f6268.jpg@192w_141h_1e_1c_100Q" />
+        {{#compare TP '==' null}}
+        <img src="../images/placeholder/tenant.png" />
+        {{/compare}}
     </div>
     <div class="tenant_txt">
         <p class="f16 tenant_tit overone">{{mz}}</p>

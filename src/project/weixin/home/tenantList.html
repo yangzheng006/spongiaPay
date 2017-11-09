@@ -14,8 +14,12 @@
 <link rel="import" href="../../../pages/home/tenantList.html">
 
 <!--模版-->
-<link rel="import" href="../../../model/templete/home/classOne.html">
-<link rel="import" href="../../../model/templete/home/classTwo.html">
+<!--一级分类-->
+<link rel="import" href="../../../model/templete/home/tenantList/classOne.html">
+<!--二级分类-->
+<link rel="import" href="../../../model/templete/home/tenantList/classTwo.html">
+<!--商家列表-->
+<link rel="import" href="../../../model/templete/home/tenantList/tenantList.html">
 
 @import "../../../model/widget/include/toast.html";
 @import "../../../model/widget/include/dialog.html";
@@ -39,190 +43,53 @@
                 var h = render.fill($("#tpl_classTwo"), data);
                 $(".tenant_tap").append(h);
                 $('.tenant_tap span').first().addClass('active');
+//                默认加载第一个
+                if($('.tenant_tap span').first().hasClass('active') == true){
+                    shuju();
+                }
             });
             dh.classTwo({superiorId:oneId});
         });
         tu.classOne({});
 
 
+        //顶部导航点击事件
+        $(document).on('click', ".find_nav_list li", function () {
+            var channelId = $(this).attr('data-id');
+            $('.pageable-down').remove();
+            $(".pageable .tenant_list").html('');
+
+            //定位，获取经纬度
+            var pge = null;
+            weixin.location(function () {
+                var td = new tenant(function (data) {
+                    var h = render.fill($("#tpl_tenantList"), data);
+                    $(".pageable .tenant_list").append(h);
+                });
+                td.list({
+                    channelId: pageManager.GetQueryString("id"),
+                    tenantCategoryId: channelId,
+                    lat: weixin.lat,
+                    lng: weixin.lng
+                });
+            });
+        });
 
 
-        //频道页导航
-//        var tu = new productChannel(function (data) {
-//            var h = render.fill($("#tpl_topNav"), data);
-//
-//            if(data.length > 3){
-//                $('.find_nav').removeClass('none');
-//                $('.weui-tab__panel').css('padding','44px 0 0 !important');
-//            }
-//            $(".find_nav").append(h);
-//            nav();
-//            //默认第一次加载
-//            $('#pagenavi1 li').first().addClass('find_nav_cur');
-//            if($('#pagenavi1 li').first().hasClass('find_nav_cur') == true){
-//                shuju();
-//            }
-//        });
-//        tu.tenantCategory({id: pageManager.GetQueryString("id")});
-
-//        //频道页横屏广告位1F(广告上方)
-//        new ad(function (data) {
-//            var h = render.fill($("#tpl_hpAd"), data);
-//            $("#hp_ad1").html(h);
-//            $('img').picLazyLoad();
-//        }).do(221);
-//
-//        //顶部导航点击事件
-//        $(document).on('click', ".find_nav_list li", function () {
-//            var channelId = $(this).attr('data-id');
-//            $('.pageable-down').remove();
-//            $(".pageable .TenantList").html('');
-//
-//            //定位，获取经纬度
-//            var pge = null;
-//            weixin.location(function () {
-//                //列表及分页
-//                pge = $(".pageable").pageable({
-//                    scrollFn:function () {
-//                        $(window).trigger('scroll');
-//                    },
-//                    loadDownFn: function (me) {
-//                        var td = new tenant(function (data) {
-//                            pge.pageNumber = me.pageNumber + 1;
-////                            var h = render.fill($("#tpl_recommendTenant"), data);
-//                            $(".pageable .TenantList").append(h);
-//                            var key = cookie.getCookie('key');
-//                            if(key == 'ztb'){
-//                                $('.channelTenantList .recommed').html('小邦推荐');
-//                            }else{
-//                                $('.channelTenantList .recommed').html('小编推荐');
-//                            }
-//                            $('.go_index').on('click',function () {
-//                                var tenatId=$(this).attr('tid');
-//                                location.href=location.origin+'/weixin/tenant/index.jhtml?id='+tenatId;
-//                            });
-//                            //点击收藏/取消
-//                            $(document).on('click','.dianzhao i',function () {
-//                                var $this=$(this);
-//                                var id=$this.parent().attr('id');
-//                                var status=$this.parent().attr('status');
-//                                if(status == true){
-//                                    var s = new tenant(function(data){
-//                                        $this.parent().attr('status','false');
-//                                        $this.addClass('icon-l-star clr_white').removeClass('icon-star orange');
-//                                    });
-//                                    s.delFavorite({id: id});
-//                                }else if(status == false){
-//                                    var s = new tenant(function(data){
-//                                        $this.parent().attr('status','true');
-//                                        $this.addClass('icon-star orange').removeClass('icon-l-star clr_white');
-//                                    });
-//                                    s.favorite({id: id});
-//                                }
-//                            });
-//                            $('img').picLazyLoad();
-//                            if (data.length < 20) {
-//                                pge.lock();
-//                                pge.noData();
-//                            }
-//                            pge.resetload();
-//                        });
-//                        td.list({
-//                            pageNumber: me.pageNumber,
-//                            channelId: pageManager.GetQueryString("id"),
-//                            tenantCategoryId: channelId,
-//                            tagIds: 6,
-//                            areaId:pageManager.GetQueryString("areaId"),
-//                            lat: weixin.lat,
-//                            lng: weixin.lng
-//                        });
-//                    }
-//                });
-//            });
-//        });
-//
-//
-//        function shuju() {
-//            //频道特权数据
-//            var tq = new productChannel(function (data) {
-//                document.title = data.name;
-//                //用于刷新浏览器标题
-//                var $body = $('body');
-//                var $iframe = $('<iframe  src="/favicon.ico" style="display: none;"></iframe>').on('load', function () {
-//                    setTimeout(function () {
-//                        $iframe.off('load').remove();
-//                    }, 0)
-//                }).appendTo($body)
-//            });
-//            tq.getprivilege({id: pageManager.GetQueryString("id")});
-//
-//            //默认取第一个导航
-//            var channelsId = $('.find_nav_list li').first().attr('data-id');
-//
-//            adwei(channelsId);
-//
-//            //定位，获取经纬度
-//            weixin.location(function () {
-//                $show.show();
-//                //商家列表及分页
-//                pge = $(".pageable").pageable({
-//                    scrollFn:function () {
-//                        $(window).trigger('scroll');
-//                    },
-//                    loadDownFn: function (me) {
-//                        var td = new tenant(function (data) {
-//                            pge.pageNumber = me.pageNumber + 1;
-////                            var h = render.fill($("#tpl_recommendTenant"), data);
-//                            $(".pageable .TenantList").append(h);
-//                            var key = cookie.getCookie('key');
-//                            if(key == 'ztb'){
-//                                $('.channelTenantList .recommed').html('小邦推荐');
-//                            }else{
-//                                $('.channelTenantList .recommed').html('小编推荐');
-//                            }
-//                            $('.go_index').on('click',function () {
-//                                var tenatId=$(this).attr('tid');
-//                                location.href=location.origin+'/weixin/tenant/index.jhtml?id='+tenatId;
-//                            });
-//                            //点击收藏/取消
-//                            $(document).on('click','.dianzhao i',function () {
-//                                var $this=$(this);
-//                                var id=$this.parent().attr('id');
-//                                var status=$this.parent().attr('status');
-//                                if(status == 'true'){
-//                                    var s = new tenant(function(data){
-//                                        $this.parent().attr('status','false');
-//                                        $this.addClass('icon-l-star clr_white').removeClass('icon-star orange');
-//                                    });
-//                                    s.delFavorite({id: id});
-//                                }else if(status == 'false'){
-//                                    var s = new tenant(function(data){
-//                                        $this.parent().attr('status','true');
-//                                        $this.addClass('icon-star orange').removeClass('icon-l-star clr_white');
-//                                    });
-//                                    s.favorite({id: id});
-//                                }
-//                            });
-//                            $('img').picLazyLoad();
-//                            if (data.length < 20) {
-//                                pge.lock();
-//                                pge.noData();
-//                            }
-//                            pge.resetload();
-//                        });
-//                        td.list({
-//                            pageNumber: me.pageNumber,
-//                            channelId: pageManager.GetQueryString("id"),
-//                            tenantCategoryId: channelsId,
-//                            tagIds: 6,
-//                            areaID: pageManager.GetQueryString("areaId"),
-//                            lat: weixin.lat,
-//                            lng: weixin.lng
-//                        });
-//                    }
-//                });
-//            });
-//        }
+        function shuju() {
+            //定位，获取经纬度
+            weixin.location(function () {
+                var td = new tenant(function (data) {
+                    var h = render.fill($("#tpl_recommendTenant"), data);
+                    $(".pageable .tenant_list").append(h);
+                });
+                td.list({
+                    channelId: pageManager.GetQueryString("id"),
+                    lat: weixin.lat,
+                    lng: weixin.lng
+                });
+            });
+        }
     })
 </script>
 
