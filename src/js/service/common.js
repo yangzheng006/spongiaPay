@@ -15,5 +15,20 @@ common.prototype = {
             url: base + 'weixin/common/public_key.jhtml',
             success:this.fn
         });
+    },
+
+
+    /**
+     * 获取公钥
+     * image
+     * type  0是实名认证正面照片
+     */
+    uploadImage: function (data) {
+        ajax.get({
+            url: base + 'fileUpload',
+            success:this.fn,
+            data:data
+        });
     }
+
 };

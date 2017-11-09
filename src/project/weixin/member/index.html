@@ -253,27 +253,40 @@
             document.title='实名认证';
             var img1src;
             var img2src;
-            $("#idcard1").on('change',function () {
-                toast.loading2('上传中');
-                $('#loadingToast').css('opacity',1);
-                var fl = new file(function (data) {
-                    getFullPath();
-                    img1src=data;
-//                    $('.certification #uploadimg1').attr('src',data);
-                    $('#loadingToast').css('opacity',0);
-                });
-                fl.uploadImage(new FormData($("#idform1")[0]));
+
+            $("#idcard1").on('change',function (e) {
+                var reader = new FileReader();
+                reader.onload = (function (file) {
+                    return function (e) {
+                        console.info(this.result); //这个就是base64的数据了
+                        var iamge=this.result;
+                        $("#uploadimg1")[0].src = this.result;
+                        new common(function (data) {
+                            console.log(data)
+                        }).uploadImage({
+                            image:iamge,
+                            type:0
+                        })
+                    };
+                })(e.target.files[0]);
+                reader.readAsDataURL(e.target.files[0]);
             });
-            $("#idcard2").on('change',function () {
-                toast.loading2('上传中');
-                $('#loadingToast').css('opacity',1);
-                var fl = new file(function (data) {
-                    img2src=data;
-                    getFullPath2();
-                    $('#loadingToast').css('opacity',0);
-//                    $('.certification #uploadimg2').attr('src',data);
-                });
-                fl.uploadImage(new FormData($("#idform2")[0]));
+            $("#idcard2").on('change',function (e) {
+                var reader = new FileReader();
+                reader.onload = (function (file) {
+                    return function (e) {
+                        console.info(this.result); //这个就是base64的数据了
+                        var iamge=this.result;
+                        $("#uploadimg2")[0].src = this.result;
+                        new common(function (data) {
+                            console.log(data)
+                        }).uploadImage({
+                            image:iamge,
+                            type:0
+                        })
+                    };
+                })(e.target.files[0]);
+                reader.readAsDataURL(e.target.files[0]);
             });
             $("#sendcerti").on('click',function () {
                 var name=$("#name").val();
