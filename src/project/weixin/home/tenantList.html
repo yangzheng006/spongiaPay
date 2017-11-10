@@ -19,7 +19,7 @@
 <!--二级分类-->
 <link rel="import" href="../../../model/templete/home/tenantList/classTwo.html">
 <!--商家列表-->
-<link rel="import" href="../../../model/templete/home/tenantList/tenantList.html">
+<link rel="import" href="../../../model/templete/home/tenantList/list.html">
 
 @import "../../../model/widget/include/toast.html";
 @import "../../../model/widget/include/dialog.html";
@@ -33,62 +33,67 @@
         var tu = new tenant(function (data) {
             var h = render.fill($("#tpl_classOne"), data);
             $(".find_nav").append(h);
-            console.log(h);
             nav();
-//            //默认第一次加载
+            //默认第一次加载
             $('#pagenavi1 li').first().addClass('find_nav_cur');
             var oneId = $('.find_nav_cur').attr('data-id');
-//          二级分类
+            //二级分类
             var dh = new tenant(function (data) {
                 var h = render.fill($("#tpl_classTwo"), data);
                 $(".tenant_tap").append(h);
                 $('.tenant_tap span').first().addClass('active');
-//                默认加载第一个
+                //默认加载第一个
                 if($('.tenant_tap span').first().hasClass('active') == true){
-                    shuju();
+                    var categoryId = $('.tenant_tap .active').attr('data-id');
+                    shuju(categoryId);
                 }
             });
             dh.classTwo({superiorId:oneId});
         });
         tu.classOne({});
 
-
-        //顶部导航点击事件
+        //点击一级分类
         $(document).on('click', ".find_nav_list li", function () {
-            var channelId = $(this).attr('data-id');
-            $('.pageable-down').remove();
-            $(".pageable .tenant_list").html('');
-
-            //定位，获取经纬度
-            var pge = null;
-            weixin.location(function () {
-                var td = new tenant(function (data) {
-                    var h = render.fill($("#tpl_tenantList"), data);
-                    $(".pageable .tenant_list").append(h);
-                });
-                td.list({
-                    channelId: pageManager.GetQueryString("id"),
-                    tenantCategoryId: channelId,
-                    lat: weixin.lat,
-                    lng: weixin.lng
-                });
+            var oneId = $(this).attr('data-id');
+            $(this).addClass('find_nav_cur').siblings.removeClass('find_nav_cur');
+            $(".tenant_list").html('');
+            //二级分类
+            var dh = new tenant(function (data) {
+                var h = render.fill($("#tpl_classTwo"), data);
+                $(".tenant_tap").append(h);
+                $('.tenant_tap span').first().addClass('active');
+                //加载商家列表
+                if($('.tenant_tap span').first().hasClass('active') == true){
+                    var categoryId = $('.tenant_tap .active').attr('data-id');
+                    shuju(categoryId);
+                }
             });
+            dh.classTwo({superiorId:oneId});
         });
 
+        //点击二級分类
+        $(document).on('click', ".tenant_tap span", function () {
+            var categoryId = $(this).attr('data-id');
+            $(this).addClass('active').siblings().removeClass('active');
+            $(".tenant_list").html('');
+            shuju(categoryId);
+        });
 
-        function shuju() {
+        function shuju(categoryId) {
             //定位，获取经纬度
-            weixin.location(function () {
+//            var categoryId = $('.tenant_tap .active').attr('data-id');
+//            weixin.location(function () {
                 var td = new tenant(function (data) {
-                    var h = render.fill($("#tpl_recommendTenant"), data);
-                    $(".pageable .tenant_list").append(h);
+                    var f = render.fill($("#tpl_list"), data);
+                    $(".tenant_list").append(f);
+                    console.log(f)
                 });
-                td.list({
-                    channelId: pageManager.GetQueryString("id"),
-                    lat: weixin.lat,
-                    lng: weixin.lng
+                td.moreList({
+                    classificationId: categoryId
+//                    lat: weixin.lat,
+//                    lng: weixin.lng
                 });
-            });
+//            });
         }
     })
 </script>
