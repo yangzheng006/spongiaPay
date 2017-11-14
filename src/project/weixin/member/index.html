@@ -74,6 +74,79 @@
         if(window.location.hash=='#setting'){
             document.title='设置';
         }
+
+        //修改绑定的手机号
+        if(window.location.hash=='#changeBind'){
+            document.title='修改绑定手机';
+            var countdown = 60;
+            var canSend=true;
+            function settime(val) {
+                if (countdown == 0) {
+                    canSend=true;
+                    val.innerHTML="发送验证码";
+                    val.style.color="#3782d9";
+                    countdown = 60;
+                    return;
+                } else {
+                    canSend=false;
+                    val.innerHTML="重新发送(" + countdown + ")";
+                    val.style.color="#999";
+                    countdown--;
+                }
+                setTimeout(function() {
+                    settime(val)
+                },1000)
+            }
+
+
+            //发送验证码
+            $(document).on('click','.sendChangeBind',function () {
+                if(canSend){
+                    var $this=this;
+                    //手机号校验
+                    var phoneNumber = $('.changeBindPage .oldPhone').val();
+                    if(!(/^1[0-9]{10}$/.test(phoneNumber))){
+                        toast.show('请输入正确手机号',1000);
+                        return false;
+                    }else{
+                        new common(function (data) {
+                            console.log(data);
+                            settime($this);
+                            canSend=false;
+                        }).sendCode({
+                            phoneNumber:phoneNumber,
+                            type:1
+                        })
+                    }
+                }
+            });
+
+            //修改手机号保存提交
+            $(document).on('click','.goChangeBind',function () {
+                var oldPhone=$('.changeBindPage .oldPhone').val();
+                var newPhone=$('.changeBindPage .newPhone').val();
+                var authCode=$('.changeBindPage .authCode').val();
+                if(!(/^1[0-9]{10}$/.test(oldPhone))){
+                    toast.show('原手机号格式不正确',1000)
+                }else  if(!(/^1[0-9]{10}$/.test(newPhone))){
+                    toast.show('新手机号格式不正确',1000)
+                }else if(!authCode){
+                    toast.show('请输入验证码')
+                }else{
+                    new member(function (data) {
+                        console.log(data);
+                        pageManager.back();
+                    }).mobilePhone({
+                        mobile:newPhone,
+                        currentMobile:newPhone,
+                        AuthoCode:authCode,
+                        id:13
+                    })
+                }
+            })
+        }
+
+
         //绑定银行卡第一步
         if(window.location.hash=='#cardOne'){
             document.title='绑定银行卡';

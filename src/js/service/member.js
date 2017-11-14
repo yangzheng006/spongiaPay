@@ -67,6 +67,22 @@ member.prototype = {
             data: data,
             success: this.fn
         });
+    },
+
+    /**
+     * 修改绑定的手机号
+     * mobile  新电话号码
+     * currentMobile 当前电话号码
+     * AuthoCode 验证码
+     * id   用户ID
+     *
+     */
+    mobilePhone: function (data) {
+        ajax.post({
+            url: base + "mobilePhone",
+            data: data,
+            success: this.fn
+        });
     }
 
 
