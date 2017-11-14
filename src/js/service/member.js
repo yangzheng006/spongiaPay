@@ -41,7 +41,22 @@ member.prototype = {
             data: data,
             success: this.fn
         });
+    },
+
+    /**
+     * 实名认证提交
+     *
+     */
+    realNameAuthen: function (data) {
+        ajax.post({
+            url: base + "realNameAuthentication",
+            data: data,
+            success: this.fn
+        });
     }
+
+
+
 
 
 };

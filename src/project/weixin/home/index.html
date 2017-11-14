@@ -30,14 +30,13 @@
         });
 
         //顶部轮播图片
-//        var ads = new ad(
-//                function (data) {
-//                    if (data.length > 0) {
-//                        $("#index_slider").silderDot(data, 1800, "", "true");
-//                    }
-//                }
-//        );
-//        ads.do(187);
+        new ad(function (data) {
+                var dataL=data.list;
+                if (data.list.length > 0) {
+                    $("#index_slider").silderDot(dataL, 1800, "", "true");
+                }
+            }
+        ).adIndex();
 
         //列表（优质商家、金融普惠）
         var td = new tenant(function (data) {

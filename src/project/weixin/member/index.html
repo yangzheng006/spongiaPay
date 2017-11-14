@@ -205,89 +205,46 @@
         //实名认证
         if(window.location.hash=='#auth'){
             hiddenBtn.bind();
-            //正面图片预览方法
-            function getFullPath() {
-                var file=document.getElementById('idcard1');
-                var fileList = file.files;
-                var img=document.getElementById("uploadimg1");
-                for(var i=0;i<fileList.length;i++){
-                    if(file.files[0]){
-                        img.style.display = 'block';
-                        img.style.width = '112px';
-                        img.style.height = '80px';
-                        if (window.createObjectURL!=undefined) { // basic
-                            img.src = window.createObjectURL(file.files[0]);
-                        } else if (window.URL!=undefined) { // mozilla(firefox)
-                            img.src = window.URL.createObjectURL(file.files[0]);
-                        } else if (window.webkitURL!=undefined) { // webkit or chrome
-                            img.src = window.webkitURL.createObjectURL(file.files[0]);
-                        }
-                    }
-                    var f_i= new FormData();
-                    f_i.append("file",fileList[i])
-                }
-            }
-            //反面图片预览方法
-            function getFullPath2() {
-                var file=document.getElementById('idcard2');
-                var fileList = file.files;
-                var img=document.getElementById("uploadimg2");
-                for(var i=0;i<fileList.length;i++){
-                    if(file.files[0]){
-                        img.style.display = 'block';
-                        img.style.width = '112px';
-                        img.style.height = '80px';
-                        if (window.createObjectURL!=undefined) { // basic
-                            img.src = window.createObjectURL(file.files[0]);
-                        } else if (window.URL!=undefined) { // mozilla(firefox)
-                            img.src = window.URL.createObjectURL(file.files[0]);
-                        } else if (window.webkitURL!=undefined) { // webkit or chrome
-                            img.src = window.webkitURL.createObjectURL(file.files[0]);
-                        }
-                    }
-                    var f_i= new FormData();
-                    f_i.append("file",fileList[i])
-                }
-            }
-
             document.title='实名认证';
             var img1src;
             var img2src;
-
             $("#idcard1").on('change',function (e) {
                 var reader = new FileReader();
                 reader.onload = (function (file) {
                     return function (e) {
                         console.info(this.result); //这个就是base64的数据了
-                        var iamge=this.result;
+                        var image=this.result;
+                        var upImg=image.substring(image.indexOf(",") + 1);
                         $("#uploadimg1")[0].src = this.result;
                         new common(function (data) {
-                            console.log(data)
+                            img1src=data.tpname;
                         }).uploadImage({
-                            image:iamge,
+                            image:upImg,
                             type:0
                         })
                     };
                 })(e.target.files[0]);
                 reader.readAsDataURL(e.target.files[0]);
             });
+
             $("#idcard2").on('change',function (e) {
                 var reader = new FileReader();
                 reader.onload = (function (file) {
                     return function (e) {
-                        console.info(this.result); //这个就是base64的数据了
-                        var iamge=this.result;
+                        var image=this.result;
                         $("#uploadimg2")[0].src = this.result;
+                        var upImg=image.substring(image.indexOf(",") + 1);
                         new common(function (data) {
-                            console.log(data)
+                            img2src=data.tpname;
                         }).uploadImage({
-                            image:iamge,
+                            image:upImg,
                             type:0
                         })
                     };
                 })(e.target.files[0]);
                 reader.readAsDataURL(e.target.files[0]);
             });
+
             $("#sendcerti").on('click',function () {
                 var name=$("#name").val();
                 var idcard=$("#idcard").val();
@@ -296,13 +253,16 @@
                 }else if(!idcard.match(/^(\d{15}$|^\d{18}$|^\d{17}(\d|X|x))$/)){
                     toast.show('请正确输入身份证号');
                 }else{
-                    var me=new member(function(data){
+                   new member(function(data){
                         dialog.show('提交成功，请耐心等待！');
-                        setTimeout(function () {
-                            pageManager.back();
-                        },1000);
+
+                    }).realNameAuthen({
+                        name:name,
+                        identificationcardNumber:idcard,
+                        positiveCart:img1src,
+                        negative:img2src,
+                        hyId:'13'
                     });
-                    me.realNameAuthen({name:name,idcard:idcard,pathFront:img1src,pathBack:img2src});
                 }
             })
         }

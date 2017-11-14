@@ -19,12 +19,12 @@ common.prototype = {
 
 
     /**
-     * 获取公钥
+     * 上传照片
      * image
-     * type  0是实名认证正面照片
+     * type  0是实名认证正面照片   1 实名认证身份证反面照
      */
     uploadImage: function (data) {
-        ajax.get({
+        ajax.post({
             url: base + 'fileUpload',
             success:this.fn,
             data:data

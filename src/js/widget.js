@@ -37,4 +37,3 @@
 @import "../../js/widget/tenantThw.js";
 @import "../../js/widget/productSilder.js";
 @import "../../js/widget/hiddenBtn.js";
-@import "../../js/widget/vconsole.min.js";
