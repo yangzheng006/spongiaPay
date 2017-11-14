@@ -1,76 +1,80 @@
 <!DOCTYPE html>
 <html lang="zh-cmn-Hans">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
     <title>登陆</title>
     @import "../include/header.inc";
-    <link rel="stylesheet" href="/weixin/style/wap.min.css"/>
+    <link rel="stylesheet" href="/weixin/style/wap.min.css" />
 </head>
+
 <body>
-<div class="weui-toptips weui-toptips_warn js_tooltips">错误提示</div>
-<div class="container" id="container"></div>
+    <div class="weui-toptips weui-toptips_warn js_tooltips">错误提示</div>
+    <div class="container" id="container"></div>
 
-<!--会员首页-->
-<link rel="import" href="../../../pages/login/index.html">
+    <!--会员首页-->
+    <link rel="import" href="../../../pages/login/index.html">
+    @import "../../../model/widget/include/toast.html";
+    @import "../../../model/widget/include/dialog.html";
+    <script src="/weixin/js/common.min.js"></script>
+    <script src="/weixin/js/wap.min.js"></script>
+    <script type="text/javascript">
 
-
-@import "../../../model/widget/include/toast.html";
-@import "../../../model/widget/include/dialog.html";
-<script src="/weixin/js/common.min.js"></script>
-<script src="/weixin/js/wap.min.js"></script>
-<script type="text/javascript">
-
-    $(function(){
-        pageManager.show("index");
-        var status = "NO";
-        $(document).on('click', '#phoneLoginAction', function() {
-            if (status == "NO") {
-                status = "YES";
-                document.getElementById("loginAuthoCode").style.display = "block";
-                document.getElementById("normalLogin").style.display = "none";
-                document.getElementById("phoneLoginAction").innerText = "使用账号登录";
-                document.getElementById("loginAccountTxt").setAttribute("placeholder", "请输入手机号");
-                document.getElementById("loginPasswdTxt").setAttribute("placeholder", "请填写验证码");
-                document.getElementById("loginAccountImg").setAttribute("src", "../images/static/register/phone.png");
-                document.getElementById("loginPasswdImg").setAttribute("src", "../images/static/register/code.png");
-            } else {
-                status = "NO";
-                document.getElementById("loginAuthoCode").style.display = "none";
-                document.getElementById("normalLogin").style.display = "block";
-                document.getElementById("phoneLoginAction").innerText = "使用手机验证码登录";
-                document.getElementById("loginAccountTxt").setAttribute("placeholder", "用户名");
-                document.getElementById("loginPasswdTxt").setAttribute("placeholder", "登录密码");
-                document.getElementById("loginAccountImg").setAttribute("src", "../images/static/login/account.png");
-                document.getElementById("loginPasswdImg").setAttribute("src", "../images/static/login/passwd.png");
-            }
-        });
-
-        $(document).on('click','.loginBtn',function () {
-            var account=$('.loginIndex .account').val();
-            var password=$('.loginIndex .password').val();
-            if(!account){
-                toast.show('请输入用户名',1000)
-            }else if(!password){
-                if(status=='NO'){
-                    toast.show('请输入密码',1000)
-                }else{
-                    toast.show('请输入验证码',1000)
+        $(function () {
+            pageManager.show("index");
+            var status = "NO";
+            $(document).on('click', '#phoneLoginAction', function () {
+                if (status == "NO") {
+                    status = "YES";
+                    document.getElementById("loginAuthoCode").style.display = "block";
+                    document.getElementById("normalLogin").style.display = "none";
+                    document.getElementById("phoneLoginAction").innerText = "使用账号登录";
+                    document.getElementById("loginAccountTxt").setAttribute("placeholder", "请输入手机号");
+                    document.getElementById("loginPasswdTxt").setAttribute("placeholder", "请填写验证码");
+                    document.getElementById("loginAccountImg").setAttribute("src", "../images/static/register/phone.png");
+                    document.getElementById("loginPasswdImg").setAttribute("src", "../images/static/register/code.png");
+                } else {
+                    status = "NO";
+                    document.getElementById("loginAuthoCode").style.display = "none";
+                    document.getElementById("normalLogin").style.display = "block";
+                    document.getElementById("phoneLoginAction").innerText = "使用手机验证码登录";
+                    document.getElementById("loginAccountTxt").setAttribute("placeholder", "用户名");
+                    document.getElementById("loginPasswdTxt").setAttribute("placeholder", "登录密码");
+                    document.getElementById("loginAccountImg").setAttribute("src", "../images/static/login/account.png");
+                    document.getElementById("loginPasswdImg").setAttribute("src", "../images/static/login/passwd.png");
                 }
-            }else{
-                new login(function (data) {
-                    console.log(data)
-                }).loginS({
-                    type:status=='NO'?1:2,   //1是密码登陆  2是验证码登陆
-                    account:account,
-                    authoCode:password
-                })
-            }
+            });
+
+            $(document).on('click', '.loginBtn', function () {
+                var account = $('.loginIndex .account').val();
+                var password = $('.loginIndex .password').val();
+                if (!account) {
+                    toast.show('请输入用户名', 1000)
+                } else if (!password) {
+                    if (status == 'NO') {
+                        toast.show('请输入密码', 1000)
+                    } else {
+                        toast.show('请输入验证码', 1000)
+                    }
+                } else {
+                    new login(function (data) {
+                        console.log(data)
+                        if (data.ID) {
+                            localStorage.setItem('loginID', data.ID);
+                            location.href = "../home/index.html";
+                        }
+                    }).loginS({
+                        type: status == 'NO' ? 1 : 2,   //1是密码登陆  2是验证码登陆
+                        account: account,
+                        authoCode: password
+                    })
+                }
+            })
+
+
         })
-
-
-    })
-</script>
+    </script>
 </body>
-</html>
 
+</html>

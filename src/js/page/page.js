@@ -1,10 +1,10 @@
 var base = "http://121.43.175.18/JK_HM_GATHER/";
 
 var redirecting = false;
-var hasLogin=false;
+var hasLogin = false;
 var winH = $(window).height();
 var args = {};
-var supportTouch = function(){
+var supportTouch = function () {
     try {
         document.createEvent("TouchEvent");
         return true;
@@ -30,23 +30,23 @@ var pageManager = {
     $container: $('#container'),
     _pageStack: [],
     _configs: [],
-    _pageAppend: function(){},
+    _pageAppend: function () { },
     _defaultPage: null,
     _pageIndex: 1,
-    _replaceType:false,
-    _getParam:function(url){
-        var hash = url?url:location.hash;
-        if(hash.indexOf('?')===-1){
+    _replaceType: false,
+    _getParam: function (url) {
+        var hash = url ? url : location.hash;
+        if (hash.indexOf('?') === -1) {
             return '';
         }
-        return hash.substring(hash.indexOf('?'),hash.length);
+        return hash.substring(hash.indexOf('?'), hash.length);
     },
-    _getHash:function(url){
-        var hash = url?url:location.hash;
-        if(hash===''){
+    _getHash: function (url) {
+        var hash = url ? url : location.hash;
+        if (hash === '') {
             return '#';
         }
-        return hash.substring(0,hash.indexOf('?')>1?hash.indexOf('?'):hash.length);
+        return hash.substring(0, hash.indexOf('?') > 1 ? hash.indexOf('?') : hash.length);
     },
     setDefault: function (defaultPage) {
         this._defaultPage = this._find('name', defaultPage);
@@ -68,8 +68,8 @@ var pageManager = {
             } else {
                 self._go(page);
             }
-            triggerEvent(window,'pageGoOk');
-            triggerEvent(window,url+'Ok');
+            triggerEvent(window, 'pageGoOk');
+            triggerEvent(window, url + 'Ok');
         });
 
         if (history.state && history.state._pageIndex) {
@@ -93,21 +93,21 @@ var pageManager = {
         if (!config) {
             return;
         }
-        location.hash = config.url+this._getParam(to);
+        location.hash = config.url + this._getParam(to);
         // location.reload();
     },
     _go: function (config) {
-        this._pageIndex ++;
+        this._pageIndex++;
         var stack;
-        if(this._replaceType){
+        if (this._replaceType) {
             stack = this._pageStack.pop();
         }
-        history.replaceState && history.replaceState({_pageIndex: this._pageIndex}, '', location.href);
+        history.replaceState && history.replaceState({ _pageIndex: this._pageIndex }, '', location.href);
 
         var html = $(config.template).html();
         var $html = $(html).addClass('slideIn').addClass(config.name);
-        $html.on('animationend webkitAnimationEnd', function(){
-            stack&&stack.dom.remove();
+        $html.on('animationend webkitAnimationEnd', function () {
+            stack && stack.dom.remove();
             $html.removeClass('slideIn').addClass('js_show');
         });
         this.$container.append($html);
@@ -123,21 +123,21 @@ var pageManager = {
 
         return this;
     },
-    replace:function(to){
+    replace: function (to) {
         var url = this._getHash(to);
         var config = this._find('name', url);
         if (!config) {
             return;
         }
         this._replaceType = true;
-        location.replace('#'+to)
+        location.replace('#' + to)
     },
     back: function () {
         // history.back();
         history.go(-1)
     },
     _back: function (config) {
-        this._pageIndex --;
+        this._pageIndex--;
         var stack = this._pageStack.pop();
         if (!stack) {
             return;
@@ -145,9 +145,9 @@ var pageManager = {
         // var url = location.hash.indexOf('#') === 0 ? location.hash : '#';
         var url = this._getHash();
         var found = this._findInStack(url);
-        if(url === '#'&&!found){
+        if (url === '#' && !found) {
             location.reload();
-        }else if (!found) {
+        } else if (!found) {
             var html = $(config.template).html();
             var $html = $(html).addClass('js_show').addClass(config.name);
             $html.insertBefore(stack.dom);
@@ -169,7 +169,7 @@ var pageManager = {
 
     _findInStack: function (url) {
         var found = null;
-        if(url === '#'){
+        if (url === '#') {
             url = this._defaultPage.url
         }
         for (var i = 0, len = this._pageStack.length; i < len; i++) {
@@ -221,11 +221,11 @@ var pageManager = {
     GetQueryString: function (name) {
         var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
         var r = this._getParam().substr(1).match(reg);
-        if (r != null){
+        if (r != null) {
             return unescape(r[2]);
-        }else{
+        } else {
             var r2 = window.location.search.substr(1).match(reg);
-            if(r2 != null) return unescape(r2[2]);
+            if (r2 != null) return unescape(r2[2]);
         }
         return null;
     },
@@ -285,28 +285,28 @@ var pageManager = {
         Handlebars.registerHelper('lazyload', function (intr) {
             var div = document.createElement('div');
             div.innerHTML = intr;
-            $(div).find('img').forEach(function (ele,index) {
+            $(div).find('img').forEach(function (ele, index) {
                 ele = $(ele)
-                var src=ele.attr('src');
-                ele.attr('src','/weixin/images/placeholder/lazypic.png');
-                ele.attr('data-original',src);
+                var src = ele.attr('src');
+                ele.attr('src', '/weixin/images/placeholder/lazypic.png');
+                ele.attr('data-original', src);
             })
             return div.innerHTML;
 
         });
 
         Handlebars.registerHelper('crop', function (src, w, h) {
-            if (!src||src.indexOf("cdn") === -1) {
+            if (!src || src.indexOf("cdn") === -1) {
                 return src;
-            }else if (src.indexOf("@") !== -1) {
+            } else if (src.indexOf("@") !== -1) {
                 src = src.substring(0, src.indexOf("@"));
             }
-            var screen = window.devicePixelRatio*document.documentElement.clientWidth;
-            if (h =='1'){
+            var screen = window.devicePixelRatio * document.documentElement.clientWidth;
+            if (h == '1') {
                 w = Math.ceil(w * screen / 100);
                 h = 1;
                 src += "@" + w + "w_" + h + "l";
-            }else{
+            } else {
                 w = Math.ceil(w * screen / 100);
                 h = Math.ceil(h * screen / 100);
                 src += "@" + w + "w_" + h + "h_1e_1c_100Q";
@@ -314,8 +314,8 @@ var pageManager = {
             return src;
         });
 
-        Handlebars.registerHelper('if_even', function(value, options) {
-            if((value % 2) == 0) {
+        Handlebars.registerHelper('if_even', function (value, options) {
+            if ((value % 2) == 0) {
                 return options.fn(this);
             } else {
                 return options.inverse(this);
@@ -323,20 +323,20 @@ var pageManager = {
         });
 
 
-        Handlebars.registerHelper('compare', function(left, operator, right, options) {
+        Handlebars.registerHelper('compare', function (left, operator, right, options) {
             if (arguments.length < 3) {
                 throw new Error('Handlerbars Helper "compare" needs 2 parameters');
             }
             var operators = {
-                '==':     function(l, r) {return l == r; },
-                '===':    function(l, r) {return l === r; },
-                '!=':     function(l, r) {return l != r; },
-                '!==':    function(l, r) {return l !== r; },
-                '<':      function(l, r) {return l < r; },
-                '>':      function(l, r) {return l > r; },
-                '<=':     function(l, r) {return l <= r; },
-                '>=':     function(l, r) {return l >= r; },
-                'typeof': function(l, r) {return typeof l == r; }
+                '==': function (l, r) { return l == r; },
+                '===': function (l, r) { return l === r; },
+                '!=': function (l, r) { return l != r; },
+                '!==': function (l, r) { return l !== r; },
+                '<': function (l, r) { return l < r; },
+                '>': function (l, r) { return l > r; },
+                '<=': function (l, r) { return l <= r; },
+                '>=': function (l, r) { return l >= r; },
+                'typeof': function (l, r) { return typeof l == r; }
             };
 
 
@@ -355,8 +355,8 @@ var pageManager = {
 
 
         // 初始化控制
-        if(typeof accordion !=='undefined'){accordion.bind()}
-        if(typeof searchbar !=='undefined'){searchbar.init();}
+        if (typeof accordion !== 'undefined') { accordion.bind() }
+        if (typeof searchbar !== 'undefined') { searchbar.init(); }
 
         // .container 设置了 overflow 属性, 导致 Android 手机下输入框获取焦点时, 输入法挡住输入框的 bug
         // 相关 issue: https://github.com/weui/weui/issues/15
@@ -373,12 +373,12 @@ var pageManager = {
                 }
             })
         }
-        triggerEvent(window,'pageGoOk');
+        triggerEvent(window, 'pageGoOk');
     }
 
 };
 
-var isWeiXin = function() {
+var isWeiXin = function () {
     var ua = window.navigator.userAgent.toLowerCase();
     return ua.match(/MicroMessenger/i) == 'micromessenger';
 };
@@ -420,26 +420,30 @@ var isWeiXin = function() {
 
 
 
-var ajax={
+var ajax = {
     //标准 ajax get 方法
-    get:function (options) {
+    get: function (options) {
         // toast.show("加载中");
+        if (!localStorage.getItem('loginID') && location.pathname.indexOf("login/index") == -1 && location.pathname.indexOf("register/index") == -1) {
+            window.location.href = location.origin + "/weixin/login/index.html";
+            return false;
+        }
         return $.ajax({
             type: 'GET',
             url: options.url,
             data: options.data,
             dataType: 'json',
             context: $('body'),
-            traditional:options.traditional?options.traditional:false,
+            traditional: options.traditional ? options.traditional : false,
             async: options.async != false,
             success: function (data) {
                 // if(redirecting) return;
                 if (data.ok) {
-                    if(options.success) options.success(data);
+                    if (options.success) options.success(data);
                 } else {
                     setTimeout(function () {
-                        toast.show(data.msg,1000);
-                    },100);
+                        toast.show(data.msg, 1000);
+                    }, 100);
                 }
             },
             error: function (xhr, type) {
@@ -453,24 +457,28 @@ var ajax={
         })
     },
     //标准 ajax post 方法
-    post:function (options) {
+    post: function (options) {
         // toast.show("加载中");
+        if (!localStorage.getItem('loginID') && location.pathname.indexOf("login/index") == -1 && location.pathname.indexOf("register/index") == -1) {
+            window.location.href = location.origin + "/weixin/login/index.html";
+            return false;
+        }
         $.ajax({
             type: 'POST',
             url: options.url,
             data: options.data,
             dataType: 'json',
             context: $('body'),
-            contentType:(options.contentType!==""&&options.contentType!==undefined)?options.contentType:"application/x-www-form-urlencoded",
-            processData:(options.processData!==""&&options.processData!==undefined)?options.processData:true,
-            traditional:options.traditional?options.traditional:false,
+            contentType: (options.contentType !== "" && options.contentType !== undefined) ? options.contentType : "application/x-www-form-urlencoded",
+            processData: (options.processData !== "" && options.processData !== undefined) ? options.processData : true,
+            traditional: options.traditional ? options.traditional : false,
             success: function (data) {
                 if (data.ok) {
-                    if(options.success) options.success(data);
+                    if (options.success) options.success(data);
                 } else {
                     setTimeout(function () {
-                        toast.show(data.msg,1000);
-                    },100);
+                        toast.show(data.msg, 1000);
+                    }, 100);
                 }
             },
             error: function (xhr, type) {
@@ -485,8 +493,8 @@ var ajax={
 
 };
 
-var render={
-    fill:function(el,data) {
+var render = {
+    fill: function (el, data) {
         var tpl = Handlebars.compile(el.html());
         return tpl(data);
     }
