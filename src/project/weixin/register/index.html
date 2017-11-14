@@ -24,22 +24,47 @@
     $(function(){
         pageManager.show("index");
 
+
+        var countdown = 60;
+        var canSend=true;
+        function settime(val) {
+            if (countdown == 0) {
+                canSend=true;
+                val.innerHTML="发送验证码";
+                val.style.color="#3782d9";
+                countdown = 60;
+                return;
+            } else {
+                canSend=false;
+                val.innerHTML="重新发送(" + countdown + ")";
+                val.style.color="#999";
+                countdown--;
+            }
+            setTimeout(function() {
+                settime(val)
+            },1000)
+        }
         //发送验证码
         $(document).on('click','.sendLoginCode',function () {
-            //手机号校验
-            var phoneNumber = $('.loginIndex .phoneNumber').val();
-            if(!(/^1[0-9]{10}$/.test(phoneNumber))){
-                toast.show('请输入正确手机号',1000);
-                return false;
-            }else{
-                new login(function (data) {
-                    console.log(data);
-                }).sendLoginCode({
-                    phoneNumber:phoneNumber,
-                    type:0
-                })
+            if(canSend){
+                var $this=this;
+                //手机号校验
+                var phoneNumber = $('.loginIndex .phoneNumber').val();
+                if(!(/^1[0-9]{10}$/.test(phoneNumber))){
+                    toast.show('请输入正确手机号',1000);
+                    return false;
+                }else{
+                    new login(function (data) {
+                        console.log(data);
+                        settime($this);
+                        canSend=false;
+                    }).sendLoginCode({
+                        phoneNumber:phoneNumber,
+                        type:0
+                    })
+                }
             }
-        })
+        });
 
         //注册提交
         $(document).on('click','.goRegister',function () {

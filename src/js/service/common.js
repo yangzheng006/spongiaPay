@@ -7,13 +7,15 @@ var common = function (fn) {
 };
 common.prototype = {
     /**
-     * 获取公钥
-     * @param data
+     * 发送验证码
+     * phoneNumber 电话号码
+     * @param type 0：注册验证码短信 1：修改手机号 2:绑定银行卡
      */
-    getPublicKey: function () {
+    sendCode: function (data) {
         ajax.get({
-            url: base + 'weixin/common/public_key.jhtml',
-            success:this.fn
+            url: base + 'getAuthenticationCodeGet',
+            success:this.fn,
+            data:data
         });
     },
 

@@ -26,7 +26,6 @@
 <link rel="import" href="../../../pages/member/point/usePoint.html">
 <!--添加银行卡-->
 <link rel="import" href="../../../pages/member/bankCard/cardOne.html">
-<link rel="import" href="../../../pages/member/bankCard/cardTwo.html">
 <link rel="import" href="../../../pages/member/bankCard/cardThree.html">
 <!--邀请好友-->
 <link rel="import" href="../../../pages/member/invite/invite.html">
@@ -71,27 +70,89 @@
         if(pageManager._getHash()=='#'){
             document.title='个人中心';
         }
-
         //设置
         if(window.location.hash=='#setting'){
             document.title='设置';
         }
-
         //绑定银行卡第一步
         if(window.location.hash=='#cardOne'){
             document.title='绑定银行卡';
-            $(document).on('click','.gocardTwo',function () {
-                pageManager.replace('cardTwo')
+            var countdown = 60;
+            var canSend=true;
+            function settime(val) {
+                if (countdown == 0) {
+                    canSend=true;
+                    val.innerHTML="发送验证码";
+                    val.style.color="#3782d9";
+                    countdown = 60;
+                    return;
+                } else {
+                    canSend=false;
+                    val.innerHTML="重新发送(" + countdown + ")";
+                    val.style.color="#999";
+                    countdown--;
+                }
+                setTimeout(function() {
+                    settime(val)
+                },1000)
+            }
+            //发送验证码
+            $(document).on('click','.useAddBank .sendBankcode',function () {
+                if(canSend){
+                    var $this=this;
+                    //手机号校验
+                    var phoneNumber = $('.useAddBank .ylsjh').val();
+                    if(!(/^1[0-9]{10}$/.test(phoneNumber))){
+                        toast.show('请输入正确手机号',1000);
+                        return false;
+                    }else{
+                        new common(function (data) {
+                            console.log(data);
+                            settime($this);
+                            canSend=false;
+                        }).sendCode({
+                            phoneNumber:phoneNumber,
+                            type:2
+                        })
+                    }
+                }
+            });
+            $(document).on('click','.useAddBank .gocardTwo',function () {
+                var zsxm=$('.useAddBank .zsxm').val();
+                var yhkh=$('.useAddBank .yhkh').val();
+                var fkjg=$('.useAddBank .fkjg').val();
+                var ylsjh=$('.useAddBank .ylsjh').val();
+                var authoCode=$('.useAddBank .authoCode').val();
+                if(!zsxm){
+                    toast.show('请输入持卡人姓名',1000)
+                }else if(!yhkh){
+                    toast.show('请输入银行卡号',1000)
+                }else if(!fkjg){
+                    toast.show('请填写银行名称',1000)
+                }else if(!ylsjh){
+                    toast.show('请填写预留手机号',1000)
+                }else if(!authoCode){
+                    toast.show('请填写验证码',1000)
+                }else{
+                    toast.show('添加成功',1000)
+                    new member(function (data) {
+                        console.log(data)
+                    }).addBinding({
+                        zsxm:zsxm,
+                        yhkh:yhkh,
+                        fkjg:fkjg,
+                        ylsjh:ylsjh,
+                        authoCode:authoCode,
+                        hyId:13
+                    })
+
+                }
+
+
+//                pageManager.replace('cardThree')
             })
         }
 
-        //绑定银行卡第二步
-        if(window.location.hash=='#cardTwo'){
-            document.title='绑定银行卡';
-            $(document).on('click','.gocardThree',function () {
-                pageManager.replace('cardThree')
-            })
-        }
 
         //绑定银行卡第三步
         if(window.location.hash=='#cardThree'){

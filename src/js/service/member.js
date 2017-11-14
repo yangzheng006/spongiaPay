@@ -53,7 +53,23 @@ member.prototype = {
             data: data,
             success: this.fn
         });
+    },
+
+
+
+    /**
+     * 绑定银行卡
+     *
+     */
+    addBinding: function (data) {
+        ajax.post({
+            url: base + "addBinding",
+            data: data,
+            success: this.fn
+        });
     }
+
+
 
 
 
