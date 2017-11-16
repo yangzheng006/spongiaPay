@@ -68,6 +68,104 @@ tenant.prototype = {
 
     },
 
+    /**
+     *查询是否收藏
+     * hyId 会员ID
+     * shId 商家id
+     */
+    collectionIfGet: function (data) {
+        ajax.get({
+            url: base + "collectionIfGet",
+            data: data,
+            success: this.fn
+        });
+
+    },
+
+    /**
+     *查询是否收藏
+     * hyId 会员ID
+     * shId 商家id
+     */
+    collectionIfGet: function (data) {
+        ajax.get({
+            url: base + "collectionIfGet",
+            data: data,
+            success: this.fn
+        });
+
+    },
+
+    /**
+     *添加收藏
+     * hyId 会员ID
+     * shId 商家id
+     */
+    collectionAdd: function (data) {
+        ajax.get({
+            url: base + "collectionAdd",
+            data: data,
+            success: this.fn
+        });
+
+    },
+
+    /**
+     *取消收藏
+     * hyId 会员ID
+     * shId 商家id
+     */
+    collectionRemove: function (data) {
+        ajax.get({
+            url: base + "collectionRemove",
+            data: data,
+            success: this.fn
+        });
+
+    },
+
+    /**
+     *查询是否点赞
+     * hyId 会员ID
+     * shId 商家id
+     */
+    fabulousIfGet: function (data) {
+        ajax.get({
+            url: base + "fabulousIfGet",
+            data: data,
+            success: this.fn
+        });
+
+    },
+
+    /**
+     *添加点赞
+     * hyId 会员ID
+     * shId 商家id
+     */
+    fabulousAdd: function (data) {
+        ajax.get({
+            url: base + "fabulousAdd",
+            data: data,
+            success: this.fn
+        });
+
+    },
+    /**
+     *添加点赞
+     * hyId 会员ID
+     * shId 商家id
+     */
+    fabulousRemove: function (data) {
+        ajax.get({
+            url: base + "fabulousRemove",
+            data: data,
+            success: this.fn
+        });
+
+    },
+
+
 
 
 
