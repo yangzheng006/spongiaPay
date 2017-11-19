@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-cmn-Hans">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
@@ -7,651 +8,647 @@
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
     <meta http-equiv="Pragma" content="no-cache" />
     <meta http-equiv="Expires" content="0" />
-    <link rel="stylesheet" href="/weixin/style/common.min.css"/>
-    <link rel="stylesheet" href="/weixin/style/wap.min.css"/>
+    <link rel="stylesheet" href="/weixin/style/common.min.css" />
+    <link rel="stylesheet" href="/weixin/style/wap.min.css" />
 
-    <style type="text/css">
-        @font-face {font-family: "iconfont";
-            src: url('../fonts/iconfont.eot?t=1495779286577'); /* IE9*/
-            src: url('../fonts/iconfont.svg?t=1495779286577#iconfont') format('svg'), /* iOS 4.1- */
-            url('../fonts/iconfont.svg?t=1495779286577#iconfont') format('svg'), /* iOS 4.1- */
-            url('../fonts/iconfont.woff?t=1495779286577') format('woff'), /* chrome, firefox */
-            url('../fonts/iconfont.ttf?t=1495779286577') format('truetype'),/* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
-            url('../fonts/iconfont.svg?t=1495779286577#iconfont') format('svg'); /* iOS 4.1- */
-        }
-        @font-face {
-            font-weight: 400;
-            font-style: normal;
-            font-family: weui;
-            src: url("data:application/octet-stream;base64,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") format("truetype")
-        }
-    </style>
 </head>
+
 <body ontouchstart>
-<div class="weui-toptips weui-toptips_warn js_tooltips">错误提示</div>
-<div class="container" id="container"></div>
+    <div class="weui-toptips weui-toptips_warn js_tooltips">错误提示</div>
+    <div class="container" id="container"></div>
 
-<!--商家首页-->
-<link rel="import" href="../../../pages/tenant/index/index.html">
-<!--模版-->
-<link rel="import" href="../../../model/templete/tenant/include/productList.html">
-<link rel="import" href="../../../model/templete/tenant/include/promotionProductList.html">
-<link rel="import" href="../../../model/templete/tenant/include/newProductList.html">
-<link rel="import" href="../../../model/templete/tenant/include/tenantBannerInfo.html">
-<link rel="import" href="../../../model/templete/tenant/index/productClassify.html">
-<link rel="import" href="../../../model/templete/tenant/include/tenantAddress.html">
-<link rel="import" href="../../../model/templete/tenant/include/defaultAd.html">
+    <!--商家首页-->
+    <link rel="import" href="../../../pages/tenant/index/index.html">
+    <!--模版-->
+    <link rel="import" href="../../../model/templete/tenant/include/productList.html">
+    <link rel="import" href="../../../model/templete/tenant/include/promotionProductList.html">
+    <link rel="import" href="../../../model/templete/tenant/include/newProductList.html">
+    <link rel="import" href="../../../model/templete/tenant/include/tenantBannerInfo.html">
+    <link rel="import" href="../../../model/templete/tenant/index/productClassify.html">
+    <link rel="import" href="../../../model/templete/tenant/include/tenantAddress.html">
+    <link rel="import" href="../../../model/templete/tenant/include/defaultAd.html">
 
-<script src="/weixin/js/common.min.js"></script>
-<script src="/weixin/js/wap.min.js"></script>
-<script type="text/javascript">
-    $(function () {
-        pageManager.show("index");
+    <script src="/weixin/js/common.min.js"></script>
+    <script src="/weixin/js/wap.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            pageManager.show("index");
 
-        new tenant(function (data) {
-            console.log(data);
-        }).collectionIfGet({
-            hyId:memberId,
-            shId:pageManager.GetQueryString('id')
-        })
+            new tenant(function (data) {
+                console.log(data);
+            }).collectionIfGet({
+                hyId: memberId,
+                shId: pageManager.GetQueryString('id')
+            })
 
-//        var t=new tenant(function (data) {
-//            console.log(data);
-//            document.title=data.name;
-//            //用于刷新浏览器标题
-//            var $body = $('body');
-//            var $iframe = $('<iframe  src="/favicon.ico" style="display: none;"></iframe>').on('load', function() {
-//                setTimeout(function() {
-//                    $iframe.off('load').remove();
-//                }, 0)
-//            }).appendTo($body)
-//        });
-//        t.view({id:pageManager.GetQueryString('id')});
-//
-//        setTimeout(function () {
-//            var t=new tenant(function (data) {
-//                document.title=data.name;
-//            });
-//            t.view({id:pageManager.GetQueryString('id')});
-//        },2000);
-//
-//
-//        var tsh=new tenant(function (data) {
-//            if(data.closed){
-//                weixin.hide();
-//            }else{
-//                var tb = new tenant(function (data) {
-//                    console.log(data);
-//                    weixin.share({//微信分享注册
-//                        title: data.title,
-//                        desc: data.desc,
-//                        link: data.link,
-//                        imgUrl: data.imgUrl
-//                    });
-//                });
-//                tb.share({id: pageManager.GetQueryString('id')});
-//            }
-//        });
-//        tsh.view({id:pageManager.GetQueryString("id")});
-//
-//        function is_weixn(){
-//            var ua = navigator.userAgent.toLowerCase();
-//            if(ua.match(/MicroMessenger/i)=="micromessenger") {
-//                new member(function (data) {
-//                    if(data.subscribe == 0){
-//                        $('#mask_guanzhu').fadeIn(200);
-//                        $('.guanzhu').css({'display':'block'});
-//                    }
-//                }).info();
-//                return true;
-//            } else {
-//                var a = pageManager.GetQueryString('alert');
-//                if( a == 'true' ){
-//                    $('#mask_guanzhu').fadeIn(200);
-//                    $('.guanzhu').css({'display':'block'});
-//                }
-//                return false;
-//            }
-//        }
-//
-//        //关注弹框
-//        new tenant(function (data) {
-//            if( data != ""){
-//                $('#tenant_ewm').attr('src',data);
-//            }else{
-//                $('#tenant_ewm').attr('src','../images/static/tenant/tiaohuowang.png');
-//            }
-//        }).qrcode({id:pageManager.GetQueryString('id')});
-//
-//        setTimeout(function () {
-//            is_weixn();
-//        },3000);
-//
-//        $(document).on('click','#quxiao',function () {
-//            $('#mask_guanzhu').fadeOut(200);
-//            $('.guanzhu').css({'display':'none'});
-//        });
-//        $(document).on('click','#mask',function () {
-//            $('#mask_guanzhu').fadeOut(200);
-//            $('.guanzhu').css({'display':'none'});
-//        });
-//
-//        $('html head').append('<style>.position:last-child .weui-cell {margin-bottom: 0;}</style>');
-//        $('html head').append('<style>.position:nth-child(1) {margin-top: 0;}</style>');
-//        $('html head').append('<style>.position:nth-child(2) {margin-top: 0;}</style>');
-//
-//        new cart(function(data){
-//            if(data!= 0){
-//                $('.footNav #shopCart').css('display','inline-block');
-//                if(data>99){
-//                    $('.footNav #shopCart').html('99');
-//                }else{
-//                    $('.footNav #shopCart').html(data);
-//                }
-//            }else{
-//                $('.footNav #shopCart').hide();
-//            }
-//        }).count();
-//
-//        $(document).on('click','.tenant-nav2 a', function () {
-//            var pageTop = [$('#goNew').offset().top-46,$('.product_sale').offset().top-46,$('.product_recom').offset().top-46];
-//            if(pageTop[$(this).index()]==-46){toast.show("暂无"+["新品","促销","推荐"][$(this).index()],800)}
-//            $('.pageable').scrollTop( pageTop[$(this).index()]-$('.pageable').offset().top);
-//        });
-//        $(document).on('click','.toUp', function () {
-//            $('.pageable').scrollTop(0);
-//            return false;
-//        });
-//        $(document).on('click','#searchBars',function () {
-//            window.location.href="../search/tenantSearch.html?id="+pageManager.GetQueryString('id');
-//        });
-//        //扫描条形码
-//        $(document).on('click','#scan_fun',function () {
-//            weixin.scanQRCode1(pageManager.GetQueryString("id"));
-//        });
-//        $(document).on('click','#tenant',function () {
-//            window.location.href="../search/tenantSearch.html?id="+pageManager.GetQueryString('id');
-//        });
-//
-//        //顶部轮播
-//        var ads = new ad(
-//                function (data) {
-//                    if(data.length!=0) {
-//                        $("#iSlider-wrapper").silder(data, 1800,"zoomout","true");
-//
-//                        //banner高度
-//                        $(document).ready(function(){
-//                            $("#iSlider-wrapper .islider-active a img").on("load",function(){
-//                                var h = $("#iSlider-wrapper .islider-active a img").height();
-//                                $('#iSlider-wrapper').css({'height':h});
-//                            })
-//                        });
-//
-//                        $(document).on('click','.islider-outer li a',function () {
-//                            if(this == 'javascript:news;'){
-//                                $(this).removeAttr("href");
-//                                $("#iSlider-wrapper").silder(data, 1800,"zoomout","true");
-//                                var pageTop = [$('.productType').offset().top,$('.product_sale').offset().top,$('.product_recom').offset().top];
-//                                $('.pageable').scrollTop( pageTop[0]-$('.pageable').offset().top);
-//                            }else if(this == 'javascript:special;'){
-//                                $(this).removeAttr("href");
-//                                $("#iSlider-wrapper").silder(data, 1800,"zoomout","true");
-//                                var pageTop = [$('.productType').offset().top,$('.product_sale').offset().top,$('.product_recom').offset().top];
-//                                $('.pageable').scrollTop( pageTop[1]-$('.pageable').offset().top);
-//                            }
-//                        });
-//                    }else{
-//                        new tenant(function (data) {
-//                            $("#iSlider-wrapper").append('<img src="' + data.thumbnail + '" class="product_banner" alt="" /><div class="product_mask" style="z-index: 30;"></div>');
-//                            //banner高度
-//                            $(document).ready(function(){
-//                                $("#iSlider-wrapper .product_banner").on("load",function(){
-//                                    var h = $("#product_album .product_banner").height();
-//                                    $('#iSlider-wrapper').css({'height':h});
-//                                })
-//                            });
-//                        }).view({id:pageManager.GetQueryString("id")});
-//                    }
-//                }
-//        );
-//        ads.doT(80,pageManager.GetQueryString("id"));
-//
-//        //商家信息
-//        var tenantInfo = new tenant(function (data) {
-//            var h = render.fill($("#tpl_tenantBannerInfo"), data);
-//            $(".banner-info2").html(h);
-//            //循环星星
-//            $(".starlevels").starLevelize();
-//            $('.clr-gray01').remove();
-//            //点击收藏/取消收藏
-//            $(document).on('click','#tenant_add_powder',function(){
-//                var favorite = $(this).attr('data-id');
-//                if(favorite=='true'){
-//                    var s = new tenant(function(data){
-//                        $('#tenant_add_powder').attr('data-id','false');
-//                        $('#tenant_add_powder>i').addClass('icon-l-star').removeClass('icon-s-star');
-//                    });
-//                    s.delFavorite({id: pageManager.GetQueryString("id")});
-//                }else{
-//                    var s = new tenant(function(data){
-//                        $('#tenant_add_powder').attr('data-id','true');
-//                        $('#tenant_add_powder>i').addClass('icon-s-star').removeClass('icon-l-star');
-//                    });
-//                    s.favorite({id: pageManager.GetQueryString("id")});
-//                }
-//            });
-//        });
-//        tenantInfo.view({id:pageManager.GetQueryString("id")});
-//
-//        $('.tenant-nav .weui-navbar__item').on('click', function () {
-//            $(this).addClass('active').siblings('.active').removeClass('active');
-//        });
-//
-//        //跳转优惠买单
-//        $(document).on('click','.offerToPay_fix',function () {
-//            var tn=new tenant(function (data) {
-//                if(data.closed){
-//                    dialog.show('商家已打烊');
-//                }else{
-////                    window.location.href='../payBill/index.html?id='+pageManager.GetQueryString("id");
-//                    weixin.scanQRCode1(pageManager.GetQueryString("id"));
-//                }
-//            });
-//            tn.view({id:pageManager.GetQueryString("id")});
-//        });
-//
-//        var key = cookie.getCookie('key');
-//        if(key == 'ztb'){
-//            //商家广告位
-//            var adm = new ad(function (data) {
-//                var h = render.fill($("#tpl_defaultAd"), data);
-//                $(".admiddle").append(h);
-//                if(data.length == 0){
-//                    $(".admiddle").addClass('none');
-//                }
-//            });
-//            adm.doT(145,pageManager.GetQueryString("id"));
-//        }else{
-//            //商家广告位
-//            var adm = new ad(function (data) {
-//                var h = render.fill($("#tpl_defaultAd"), data);
-//                $(".admiddle").append(h);
-//                if(data.length == 0){
-//                    $(".admiddle").addClass('none');
-//                }
-//            });
-//            adm.doT(211,pageManager.GetQueryString("id"));
-//        }
-//
-//        //促销广告位
-//        var adsales = new ad(
-//                function (data) {
-//                    if (data.length == 0) {
-//                        $("#ad_sales").html('');
-//                    }
-//                    else if (data.length != 0) {
-//                        $("#ad_sales_dot").silderProductDot(data,'ad');
-//                    }
-//                }
-//        );
-//        adsales.doT(214,pageManager.GetQueryString("id"));
-//        //新品广告为位
-//        var adnew = new ad(
-//                function (data) {
-//                    if (data.length == 0) {
-//                        $("#ad_news").html('');
-//                    }
-//                    else if (data.length != 0) {
-//                        $("#ad_news_dot").silderProductDot(data,'ad');
-//                    }
-//                }
-//        );
-//        adnew.doT(213,pageManager.GetQueryString("id"));
-//        //推荐广告位
-//        var adrec = new ad(
-//                function (data) {
-//                    if (data.length == 0) {
-//                        $("#ad_recs").html('');
-//                    }
-//                    else if (data.length != 0) {
-//                        $("#ad_recs_dot").silderProductDot(data,'ad');
-//                    }
-//                }
-//        );
-//        adrec.doT(215,pageManager.GetQueryString("id"));
-//
-//        //商家攻略
-//        var yu = new tenant(
-//                function (data) {
-//                    if(data.title != null) {
-//                        $('.story_tenant .new_title').html(data.title);
-////                        $('#myscroll a').attr('href',data.link);
-//                        $('.tenant_new').attr('href',data.link);
-//                    }else{
-//                        $('.tenant_new').css('display','none');
-//                    }
-//                }
-//        );
-//        yu.article({id: pageManager.GetQueryString("id")});
-//
-//        //新品商品加载方法
-//        function loadproductNew(pageNumber) {
-//            var ti = new product(function (data) {
-//                if(data.length==0){
-//                    if(pageNumber==1){
-//                        $('.product_new').addClass('none');
-//                        $('.loadproductNew').addClass('none');
-//                    }else if(pageNumber>1){
-////                        $('.loadproductNew').html('到底了亲');
-//                        $('.loadproductNew').remove();
-//                        $('.loadproductNew').removeClass('loadproductNew').addClass('loadingNone');
-//                    }
-//                }else if(data.length>0 && data.length<10){
-//                    $('.product_new').removeClass('none');
-////                    $('.loadproductNew').html('到底了亲');
-//                    $('.loadproductNew').remove();
-//                    $('.loadproductNew').removeClass('loadproductNew').addClass('loadingNone');
-//                }else if(data.length>0 && data.length==10){
-//                    $('.loadproductNew').removeClass('none');
-//                }
-//                var h = render.fill($("#tpl_newProductList"), data);
-//                $(".productNew").append(h);
-//                $('img').picLazyLoad();
-//                $('.hot_product .cart').css('display','flex');
-//            });
-//            ti.listT({
-//                id: pageManager.GetQueryString("id"),
-//                tagIds: 2,
-//                pageNumber:pageNumber,
-//                pageSize:10
-//            });
-//        }
-//
-//        //默认加载1页新品
-//        loadproductNew(1);
-//        var init_new_num=1;
-//        $(document).on('click','.loadproductNew',function () {
-//            init_new_num+=1;
-//            loadproductNew(init_new_num)
-//        });
-//
-//        //促销商品加载方法
-//        function loadproductHot(pageNumber) {
-//            new product(function (data) {
-//                if(data.length==0){
-//                    if(pageNumber==1){
-//                        $('.product_sale').addClass('none');
-//                        $('.loadproductHot').addClass('none');
-//                    }else if(pageNumber>1){
-////                        $('.loadproductHot').html('到底了亲');
-//                        $('.loadproductHot').remove();
-//                        $('.loadproductHot').removeClass('loadproductHot').addClass('loadingNone');
-//                    }
-//                }else  if(data.length>0 && data.length<10){
-//                    $('.product_sale').removeClass('none');
-////                    $('.loadproductHot').html('到底了亲');
-//                    $('.loadproductHot').remove();
-//                    $('.loadproductHot').removeClass('loadproductHot').addClass('loadingNone');
-//                }else if(data.length>0 && data.length==10){
-//                    $('.loadproductHot').removeClass('none');
-//                }
-//                var h = render.fill($("#tpl_promotionProductList"), data);
-//                $(".product_hot").append(h);
-//                $('.hot_product .cart').css('display','flex');
-//                $('img').picLazyLoad();
-//            }).listT({
-//                id: pageManager.GetQueryString("id"),
-//                tagIds: 1,
-//                pageNumber:pageNumber,
-//                pageSize: 10
-//            });
-//        }
-//        //默认加载1页促销商品
-//        loadproductHot(1);
-//        var init_hot_num=1;
-//        $(document).on('click','.loadproductHot',function () {
-//            init_hot_num+=1;
-//            loadproductHot(init_hot_num)
-//        });
-//
-//
-//        $(document).on('click','.loadingNone',function () {
-//            toast.show('没有更多了');
-//        });
-//
-//        //推荐
-//        var td = new product(function (data) {
-//            var h = render.fill($("#tpl_productList"), data);
-//            $(".pageable .product_recommend").append(h);
-//            $('img').picLazyLoad();
-//        });
-//        td.listT({
-//            id: pageManager.GetQueryString("id"),
-//            tagIds: 5,
-//            pageNumber: 1
-//        });
-//        setTimeout(function () {
-//            $(".pageable").pageable({
-//                scrollFn:function () {
-//                    $(window).trigger('scroll');
-//                    if($('.pageable').scrollTop()>160){
-//                        $('.toUp').css('display','block');
-//                    }else{
-//                        $('.toUp').css('display','none');
-//                    }
-////                    var top = $('#iSlider-wrapper').offset().top;
-////                    if(top<0){
-////                        $('.share_app').css({'display':'none'});
-////                        $('.nav_change2').css({'top':'0'});
-////                        $('.topNav').css({'top':'0 !important'});
-////                    }else{
-////                        $('.share_app').css({'display':'flex','display':'-webkit-flex'});
-////                        if($('.share_app').css('display') == 'none'){
-////                            $('.nav_change2').css({'top':'0'});
-////                            $('.topNav').css({'top':'0 !important'});
-////                        }else{
-////                            $('.nav_change2').css({'top':'60px'});
-////                            $('.topNav').css({'top':'60px !important'});
-////                        }
-////                    }
-//                },
-//                loadDownFn: function (me) {
-//                    var td = new product(function (data) {
-//                        me.pageNumber = me.pageNumber + 1;
-//                        var h = render.fill($("#tpl_productList"), data);
-//                        $(".pageable .product_recommend").append(h);
-//                        $('img').picLazyLoad();
-//                        if (data.length < 20) {
-//                            me.lock();
-//                            me.noData();
-//                        }
-//                        me.resetload();
-//                    });
-//                    td.listT({
-//                        id: pageManager.GetQueryString("id"),
-//                        tagIds: 5,
-//                        pageNumber: me.pageNumber==1?2:me.pageNumber
-//                    });
-//                }
-//            });
-//        },500);
-//
-//        //顶部购物车数量fly_cart_end
-//        var topcart = new tenant(function(data){
-//            if(data.cartCount == 0){
-//                $('#fly_cart_end>span').hide();
-//            }else{
-//                $('#fly_cart_end>span').show();
-//                $('#fly_cart_end>span').html(data.cartCount);
-//            }
-//        });
-//        topcart.view({id:pageManager.GetQueryString("id")});
-//        $('.tenant-nav .weui-navbar__item').on('click', function () {
-//            $(this).addClass('active').siblings('.active').removeClass('active');
-//        });
-//        //跳转优惠买单
-//        $('.offerToPay-img').on('click', function () {
-//            var tn=new tenant(function (data) {
-//                if(data.closed){
-//                    dialog.show('商家已打烊');
-//                }else{
-//                    window.location.href='../tenant/offerToPay.html?id='+pageManager.GetQueryString("id");
-//                }
-//            });
-//            tn.view({id:pageManager.GetQueryString("id")});
-//        });
-//
-//        //点击加入购物车
-//        $(document).on('click', '.cart', function (event) {
-//            var flycart = $(this);
-//            var productCart;
-//            productCart = $(this).attr('data-id');
-//            var productCart1 = new cart(function (data) {
-//                var img = flycart.parent().find('.fly_img img').attr('src');
-//                if(img){
-//                    var flyer = $('<img class="u-flyer" src="' + img + '">');
-//                }else{
-//                    var img2=flycart.prev().find('.fly_img img').attr('src');
-//                    var flyer = $('<img class="u-flyer" src="' + img2 + '">');
-//                }
-//                var offset = $('#lianxi').offset();
-//                flyer.fly({
-//                    start: {
-//                        left: event.pageX - 10, //开始位置（必填）#fly元素会被设置成position: fixed
-//                        top: event.pageY - 20 //开始位置（必填）
-//                    },
-//                    end: {
-//                        left: offset.left + 40, //结束位置（必填）
-//                        // left:10,
-//                        top: offset.top,
-//                        //top: offset.top + 10, //结束位置（必填）
-//                        width: 0, //结束时宽度
-//                        height: 0 //结束时高度
-//                    },
-//                    onEnd: function () { //结束回调
-//                        this.destory(); //移除dom
-//                    }
-//                });
-//
-//                //顶部购物车数量fly_cart_end
-//                new cart(function(data){
-//                    if(data!= 0){
-//                        $('.footNav #shopCart').css('display','inline-block');
-//                        if(data>99){
-//                            $('.footNav #shopCart').html('99');
-//                        }else{
-//                            $('.footNav #shopCart').html(data);
-//                        }
-//                    }else{
-//                        $('.footNav #shopCart').hide();
-//                    }
-//                }).count();
-//            });
-//            productCart1.add({id: productCart, quantity: 1});
-//        });
-//
-//        //点击搜索框跳转页面
-//        $("#searchBar").on('click', function () {
-//            window.location.href="../search/tenantSearch.html?id="+pageManager.GetQueryString('id');
-//        });
-//
-//        $('.weui-navbar__item#tenant_home').addClass("active").siblings().removeClass("active");
-//
-//        //商家商品分类
-//        var classify = new tenant(function (data) {
-//            var h = render.fill($("#tpl_productClassify"), data);
-//            //console.log(h);
-//            $(".classify").append(h);
-//        });
-//        classify.productCategory({tenantId:pageManager.GetQueryString("id")});
-//
-//        //分类页面
-//        $(".scan_fun").on('click', function () {
-////          weixin.scanQRCode1(pageManager.GetQueryString("id"));
-//            new tenant(function (adata) {
-//                if(adata == true){
-//                    $('.classify').toggle();
-//                    $('#mask').toggle();
-//                }else{
-//                    location.href=location.origin+'/weixin/tenant/category.html?id='+pageManager.GetQueryString('id')+'&type=origin';
-//                }
-//            }).allFirstGrade({tenantId: pageManager.GetQueryString("id")});
-//        });
-//
-//        $(document).on('click','.classify a', function () {
-//            var first=$(this).attr('data-id');
-//            var cate = $(this).attr('data-id');
-//
-//            var name=$(this).find('.weui-cell__bd').text();
-//            if(first=='all'){
-//                location.href='../search/tenantSearch.html?categoryId='+first+'&categoryName='+escape(name)+'&cateId='+ cate +'&id=' + pageManager.GetQueryString("id");
-//            }else{
-//                location.href='../search/tenantSearch.html?categoryId='+first+'&categoryName='+escape(name)+'&cateId='+ cate + '&id=' + pageManager.GetQueryString("id");
-//            }
-//        });
-//
-//        $('#mask').on('click', function () {
-//            $('.classify').hide();
-//            $('#mask').hide();
-//        });
-//
-//        var info = new tenant(function(data){
-//            $("#tenant_logo").attr('src',data.thumbnail);
-//            $("#tenant_name").html(data.name);
-//            if(data.hours == null){
-//                $("#tenant_hour").html("无");
-//            }else{
-//                $("#tenant_hour").html(data.hours);
-//            }
-//        });
-//        info.view({id: pageManager.GetQueryString("id")});
-//
-//        var tenantAddress = new tenant(function (data) {
-//            var h = render.fill($("#tpl_tenantAddress"), data);
-//            //console.log(h);
-//            $(".address").html(h);
-//        });
-//        tenantAddress.deliveryCenterList({id:pageManager.GetQueryString("id")});
-//
-//        var contactStatus = false;
-//        //联系商家
-//        $('.goods').on('click', function () {
-//            if(contactStatus){
-//                if($("#actionSheet_contact_merchant .actionsheet").hasClass('weui-actionsheet_toggle')){
-//                    $("#actionSheet_contact_merchant").actionsheetClose();
-//                }else{
-//                    $("#actionSheet_contact_merchant").actionsheet();
-//                }
-//                return false;
-//            }
-//            new tenant(function (data) {
-//                //1家门店直接进入联系商家页面
-//                if (data.length == 1) {
-//                    location.href = location.origin + '/weixin/tenant/contact.html?id=' + data[0].id;
-//                } else {
-//                    contactStatus = true;
-//                    var h = render.fill($("#tpl_tenantAddress"), data);
-//                    $(".address").html(h);
-//                    $("#actionSheet_contact_merchant").actionsheet();
-//                    $('.footNav.weui-tabbar').css("z-index",'99999999');
-//                    $('.actionsheet').css("bottom",'44px');
-//                }
-//            }).deliveryCenterList({id: pageManager.GetQueryString("id")});
-//        });
-//
-//        $(function () {
-//            //添加增加访问记录
-//            new visitRecord(function () {
-//            }).add({
-//                tenantId: pageManager.GetQueryString("id"),
-//                visitType: 'weixin',
-//                machineType: 'mobile'
-//            });
-//        });
+            new tenant(function (res) {
+                console.log(res)
+                $('#tenantName').html(res.item.SHMC);
+                $('#tenantLogo').attr("src", res.item.YYCSZP);
+                res.item.SCIF ?$('#isCollect').addClass('orange_app'):$('#isCollect').addClass('clr-gray01');
+                $('#tenantAddress').html(res.item.YYDZ)
+            }).merchantProductGet({
+                hyId: memberId,
+                shId: pageManager.GetQueryString('id')
+            })
 
-    });
+            //        var t=new tenant(function (data) {
+            //            console.log(data);
+            //            document.title=data.name;
+            //            //用于刷新浏览器标题
+            //            var $body = $('body');
+            //            var $iframe = $('<iframe  src="/favicon.ico" style="display: none;"></iframe>').on('load', function() {
+            //                setTimeout(function() {
+            //                    $iframe.off('load').remove();
+            //                }, 0)
+            //            }).appendTo($body)
+            //        });
+            //        t.view({id:pageManager.GetQueryString('id')});
+            //
+            //        setTimeout(function () {
+            //            var t=new tenant(function (data) {
+            //                document.title=data.name;
+            //            });
+            //            t.view({id:pageManager.GetQueryString('id')});
+            //        },2000);
+            //
+            //
+            //        var tsh=new tenant(function (data) {
+            //            if(data.closed){
+            //                weixin.hide();
+            //            }else{
+            //                var tb = new tenant(function (data) {
+            //                    console.log(data);
+            //                    weixin.share({//微信分享注册
+            //                        title: data.title,
+            //                        desc: data.desc,
+            //                        link: data.link,
+            //                        imgUrl: data.imgUrl
+            //                    });
+            //                });
+            //                tb.share({id: pageManager.GetQueryString('id')});
+            //            }
+            //        });
+            //        tsh.view({id:pageManager.GetQueryString("id")});
+            //
+            //        function is_weixn(){
+            //            var ua = navigator.userAgent.toLowerCase();
+            //            if(ua.match(/MicroMessenger/i)=="micromessenger") {
+            //                new member(function (data) {
+            //                    if(data.subscribe == 0){
+            //                        $('#mask_guanzhu').fadeIn(200);
+            //                        $('.guanzhu').css({'display':'block'});
+            //                    }
+            //                }).info();
+            //                return true;
+            //            } else {
+            //                var a = pageManager.GetQueryString('alert');
+            //                if( a == 'true' ){
+            //                    $('#mask_guanzhu').fadeIn(200);
+            //                    $('.guanzhu').css({'display':'block'});
+            //                }
+            //                return false;
+            //            }
+            //        }
+            //
+            //        //关注弹框
+            //        new tenant(function (data) {
+            //            if( data != ""){
+            //                $('#tenant_ewm').attr('src',data);
+            //            }else{
+            //                $('#tenant_ewm').attr('src','../images/static/tenant/tiaohuowang.png');
+            //            }
+            //        }).qrcode({id:pageManager.GetQueryString('id')});
+            //
+            //        setTimeout(function () {
+            //            is_weixn();
+            //        },3000);
+            //
+            //        $(document).on('click','#quxiao',function () {
+            //            $('#mask_guanzhu').fadeOut(200);
+            //            $('.guanzhu').css({'display':'none'});
+            //        });
+            //        $(document).on('click','#mask',function () {
+            //            $('#mask_guanzhu').fadeOut(200);
+            //            $('.guanzhu').css({'display':'none'});
+            //        });
+            //
+            //        $('html head').append('<style>.position:last-child .weui-cell {margin-bottom: 0;}</style>');
+            //        $('html head').append('<style>.position:nth-child(1) {margin-top: 0;}</style>');
+            //        $('html head').append('<style>.position:nth-child(2) {margin-top: 0;}</style>');
+            //
+            //        new cart(function(data){
+            //            if(data!= 0){
+            //                $('.footNav #shopCart').css('display','inline-block');
+            //                if(data>99){
+            //                    $('.footNav #shopCart').html('99');
+            //                }else{
+            //                    $('.footNav #shopCart').html(data);
+            //                }
+            //            }else{
+            //                $('.footNav #shopCart').hide();
+            //            }
+            //        }).count();
+            //
+            //        $(document).on('click','.tenant-nav2 a', function () {
+            //            var pageTop = [$('#goNew').offset().top-46,$('.product_sale').offset().top-46,$('.product_recom').offset().top-46];
+            //            if(pageTop[$(this).index()]==-46){toast.show("暂无"+["新品","促销","推荐"][$(this).index()],800)}
+            //            $('.pageable').scrollTop( pageTop[$(this).index()]-$('.pageable').offset().top);
+            //        });
+            //        $(document).on('click','.toUp', function () {
+            //            $('.pageable').scrollTop(0);
+            //            return false;
+            //        });
+            //        $(document).on('click','#searchBars',function () {
+            //            window.location.href="../search/tenantSearch.html?id="+pageManager.GetQueryString('id');
+            //        });
+            //        //扫描条形码
+            //        $(document).on('click','#scan_fun',function () {
+            //            weixin.scanQRCode1(pageManager.GetQueryString("id"));
+            //        });
+            //        $(document).on('click','#tenant',function () {
+            //            window.location.href="../search/tenantSearch.html?id="+pageManager.GetQueryString('id');
+            //        });
+            //
+            //        //顶部轮播
+            //        var ads = new ad(
+            //                function (data) {
+            //                    if(data.length!=0) {
+            //                        $("#iSlider-wrapper").silder(data, 1800,"zoomout","true");
+            //
+            //                        //banner高度
+            //                        $(document).ready(function(){
+            //                            $("#iSlider-wrapper .islider-active a img").on("load",function(){
+            //                                var h = $("#iSlider-wrapper .islider-active a img").height();
+            //                                $('#iSlider-wrapper').css({'height':h});
+            //                            })
+            //                        });
+            //
+            //                        $(document).on('click','.islider-outer li a',function () {
+            //                            if(this == 'javascript:news;'){
+            //                                $(this).removeAttr("href");
+            //                                $("#iSlider-wrapper").silder(data, 1800,"zoomout","true");
+            //                                var pageTop = [$('.productType').offset().top,$('.product_sale').offset().top,$('.product_recom').offset().top];
+            //                                $('.pageable').scrollTop( pageTop[0]-$('.pageable').offset().top);
+            //                            }else if(this == 'javascript:special;'){
+            //                                $(this).removeAttr("href");
+            //                                $("#iSlider-wrapper").silder(data, 1800,"zoomout","true");
+            //                                var pageTop = [$('.productType').offset().top,$('.product_sale').offset().top,$('.product_recom').offset().top];
+            //                                $('.pageable').scrollTop( pageTop[1]-$('.pageable').offset().top);
+            //                            }
+            //                        });
+            //                    }else{
+            //                        new tenant(function (data) {
+            //                            $("#iSlider-wrapper").append('<img src="' + data.thumbnail + '" class="product_banner" alt="" /><div class="product_mask" style="z-index: 30;"></div>');
+            //                            //banner高度
+            //                            $(document).ready(function(){
+            //                                $("#iSlider-wrapper .product_banner").on("load",function(){
+            //                                    var h = $("#product_album .product_banner").height();
+            //                                    $('#iSlider-wrapper').css({'height':h});
+            //                                })
+            //                            });
+            //                        }).view({id:pageManager.GetQueryString("id")});
+            //                    }
+            //                }
+            //        );
+            //        ads.doT(80,pageManager.GetQueryString("id"));
+            //
+            //        //商家信息
+            //        var tenantInfo = new tenant(function (data) {
+            //            var h = render.fill($("#tpl_tenantBannerInfo"), data);
+            //            $(".banner-info2").html(h);
+            //            //循环星星
+            //            $(".starlevels").starLevelize();
+            //            $('.clr-gray01').remove();
+            //            //点击收藏/取消收藏
+            //            $(document).on('click','#tenant_add_powder',function(){
+            //                var favorite = $(this).attr('data-id');
+            //                if(favorite=='true'){
+            //                    var s = new tenant(function(data){
+            //                        $('#tenant_add_powder').attr('data-id','false');
+            //                        $('#tenant_add_powder>i').addClass('icon-l-star').removeClass('icon-s-star');
+            //                    });
+            //                    s.delFavorite({id: pageManager.GetQueryString("id")});
+            //                }else{
+            //                    var s = new tenant(function(data){
+            //                        $('#tenant_add_powder').attr('data-id','true');
+            //                        $('#tenant_add_powder>i').addClass('icon-s-star').removeClass('icon-l-star');
+            //                    });
+            //                    s.favorite({id: pageManager.GetQueryString("id")});
+            //                }
+            //            });
+            //        });
+            //        tenantInfo.view({id:pageManager.GetQueryString("id")});
+            //
+            //        $('.tenant-nav .weui-navbar__item').on('click', function () {
+            //            $(this).addClass('active').siblings('.active').removeClass('active');
+            //        });
+            //
+            //        //跳转优惠买单
+            //        $(document).on('click','.offerToPay_fix',function () {
+            //            var tn=new tenant(function (data) {
+            //                if(data.closed){
+            //                    dialog.show('商家已打烊');
+            //                }else{
+            ////                    window.location.href='../payBill/index.html?id='+pageManager.GetQueryString("id");
+            //                    weixin.scanQRCode1(pageManager.GetQueryString("id"));
+            //                }
+            //            });
+            //            tn.view({id:pageManager.GetQueryString("id")});
+            //        });
+            //
+            //        var key = cookie.getCookie('key');
+            //        if(key == 'ztb'){
+            //            //商家广告位
+            //            var adm = new ad(function (data) {
+            //                var h = render.fill($("#tpl_defaultAd"), data);
+            //                $(".admiddle").append(h);
+            //                if(data.length == 0){
+            //                    $(".admiddle").addClass('none');
+            //                }
+            //            });
+            //            adm.doT(145,pageManager.GetQueryString("id"));
+            //        }else{
+            //            //商家广告位
+            //            var adm = new ad(function (data) {
+            //                var h = render.fill($("#tpl_defaultAd"), data);
+            //                $(".admiddle").append(h);
+            //                if(data.length == 0){
+            //                    $(".admiddle").addClass('none');
+            //                }
+            //            });
+            //            adm.doT(211,pageManager.GetQueryString("id"));
+            //        }
+            //
+            //        //促销广告位
+            //        var adsales = new ad(
+            //                function (data) {
+            //                    if (data.length == 0) {
+            //                        $("#ad_sales").html('');
+            //                    }
+            //                    else if (data.length != 0) {
+            //                        $("#ad_sales_dot").silderProductDot(data,'ad');
+            //                    }
+            //                }
+            //        );
+            //        adsales.doT(214,pageManager.GetQueryString("id"));
+            //        //新品广告为位
+            //        var adnew = new ad(
+            //                function (data) {
+            //                    if (data.length == 0) {
+            //                        $("#ad_news").html('');
+            //                    }
+            //                    else if (data.length != 0) {
+            //                        $("#ad_news_dot").silderProductDot(data,'ad');
+            //                    }
+            //                }
+            //        );
+            //        adnew.doT(213,pageManager.GetQueryString("id"));
+            //        //推荐广告位
+            //        var adrec = new ad(
+            //                function (data) {
+            //                    if (data.length == 0) {
+            //                        $("#ad_recs").html('');
+            //                    }
+            //                    else if (data.length != 0) {
+            //                        $("#ad_recs_dot").silderProductDot(data,'ad');
+            //                    }
+            //                }
+            //        );
+            //        adrec.doT(215,pageManager.GetQueryString("id"));
+            //
+            //        //商家攻略
+            //        var yu = new tenant(
+            //                function (data) {
+            //                    if(data.title != null) {
+            //                        $('.story_tenant .new_title').html(data.title);
+            ////                        $('#myscroll a').attr('href',data.link);
+            //                        $('.tenant_new').attr('href',data.link);
+            //                    }else{
+            //                        $('.tenant_new').css('display','none');
+            //                    }
+            //                }
+            //        );
+            //        yu.article({id: pageManager.GetQueryString("id")});
+            //
+            //        //新品商品加载方法
+            //        function loadproductNew(pageNumber) {
+            //            var ti = new product(function (data) {
+            //                if(data.length==0){
+            //                    if(pageNumber==1){
+            //                        $('.product_new').addClass('none');
+            //                        $('.loadproductNew').addClass('none');
+            //                    }else if(pageNumber>1){
+            ////                        $('.loadproductNew').html('到底了亲');
+            //                        $('.loadproductNew').remove();
+            //                        $('.loadproductNew').removeClass('loadproductNew').addClass('loadingNone');
+            //                    }
+            //                }else if(data.length>0 && data.length<10){
+            //                    $('.product_new').removeClass('none');
+            ////                    $('.loadproductNew').html('到底了亲');
+            //                    $('.loadproductNew').remove();
+            //                    $('.loadproductNew').removeClass('loadproductNew').addClass('loadingNone');
+            //                }else if(data.length>0 && data.length==10){
+            //                    $('.loadproductNew').removeClass('none');
+            //                }
+            //                var h = render.fill($("#tpl_newProductList"), data);
+            //                $(".productNew").append(h);
+            //                $('img').picLazyLoad();
+            //                $('.hot_product .cart').css('display','flex');
+            //            });
+            //            ti.listT({
+            //                id: pageManager.GetQueryString("id"),
+            //                tagIds: 2,
+            //                pageNumber:pageNumber,
+            //                pageSize:10
+            //            });
+            //        }
+            //
+            //        //默认加载1页新品
+            //        loadproductNew(1);
+            //        var init_new_num=1;
+            //        $(document).on('click','.loadproductNew',function () {
+            //            init_new_num+=1;
+            //            loadproductNew(init_new_num)
+            //        });
+            //
+            //        //促销商品加载方法
+            //        function loadproductHot(pageNumber) {
+            //            new product(function (data) {
+            //                if(data.length==0){
+            //                    if(pageNumber==1){
+            //                        $('.product_sale').addClass('none');
+            //                        $('.loadproductHot').addClass('none');
+            //                    }else if(pageNumber>1){
+            ////                        $('.loadproductHot').html('到底了亲');
+            //                        $('.loadproductHot').remove();
+            //                        $('.loadproductHot').removeClass('loadproductHot').addClass('loadingNone');
+            //                    }
+            //                }else  if(data.length>0 && data.length<10){
+            //                    $('.product_sale').removeClass('none');
+            ////                    $('.loadproductHot').html('到底了亲');
+            //                    $('.loadproductHot').remove();
+            //                    $('.loadproductHot').removeClass('loadproductHot').addClass('loadingNone');
+            //                }else if(data.length>0 && data.length==10){
+            //                    $('.loadproductHot').removeClass('none');
+            //                }
+            //                var h = render.fill($("#tpl_promotionProductList"), data);
+            //                $(".product_hot").append(h);
+            //                $('.hot_product .cart').css('display','flex');
+            //                $('img').picLazyLoad();
+            //            }).listT({
+            //                id: pageManager.GetQueryString("id"),
+            //                tagIds: 1,
+            //                pageNumber:pageNumber,
+            //                pageSize: 10
+            //            });
+            //        }
+            //        //默认加载1页促销商品
+            //        loadproductHot(1);
+            //        var init_hot_num=1;
+            //        $(document).on('click','.loadproductHot',function () {
+            //            init_hot_num+=1;
+            //            loadproductHot(init_hot_num)
+            //        });
+            //
+            //
+            //        $(document).on('click','.loadingNone',function () {
+            //            toast.show('没有更多了');
+            //        });
+            //
+            //        //推荐
+            //        var td = new product(function (data) {
+            //            var h = render.fill($("#tpl_productList"), data);
+            //            $(".pageable .product_recommend").append(h);
+            //            $('img').picLazyLoad();
+            //        });
+            //        td.listT({
+            //            id: pageManager.GetQueryString("id"),
+            //            tagIds: 5,
+            //            pageNumber: 1
+            //        });
+            //        setTimeout(function () {
+            //            $(".pageable").pageable({
+            //                scrollFn:function () {
+            //                    $(window).trigger('scroll');
+            //                    if($('.pageable').scrollTop()>160){
+            //                        $('.toUp').css('display','block');
+            //                    }else{
+            //                        $('.toUp').css('display','none');
+            //                    }
+            ////                    var top = $('#iSlider-wrapper').offset().top;
+            ////                    if(top<0){
+            ////                        $('.share_app').css({'display':'none'});
+            ////                        $('.nav_change2').css({'top':'0'});
+            ////                        $('.topNav').css({'top':'0 !important'});
+            ////                    }else{
+            ////                        $('.share_app').css({'display':'flex','display':'-webkit-flex'});
+            ////                        if($('.share_app').css('display') == 'none'){
+            ////                            $('.nav_change2').css({'top':'0'});
+            ////                            $('.topNav').css({'top':'0 !important'});
+            ////                        }else{
+            ////                            $('.nav_change2').css({'top':'60px'});
+            ////                            $('.topNav').css({'top':'60px !important'});
+            ////                        }
+            ////                    }
+            //                },
+            //                loadDownFn: function (me) {
+            //                    var td = new product(function (data) {
+            //                        me.pageNumber = me.pageNumber + 1;
+            //                        var h = render.fill($("#tpl_productList"), data);
+            //                        $(".pageable .product_recommend").append(h);
+            //                        $('img').picLazyLoad();
+            //                        if (data.length < 20) {
+            //                            me.lock();
+            //                            me.noData();
+            //                        }
+            //                        me.resetload();
+            //                    });
+            //                    td.listT({
+            //                        id: pageManager.GetQueryString("id"),
+            //                        tagIds: 5,
+            //                        pageNumber: me.pageNumber==1?2:me.pageNumber
+            //                    });
+            //                }
+            //            });
+            //        },500);
+            //
+            //        //顶部购物车数量fly_cart_end
+            //        var topcart = new tenant(function(data){
+            //            if(data.cartCount == 0){
+            //                $('#fly_cart_end>span').hide();
+            //            }else{
+            //                $('#fly_cart_end>span').show();
+            //                $('#fly_cart_end>span').html(data.cartCount);
+            //            }
+            //        });
+            //        topcart.view({id:pageManager.GetQueryString("id")});
+            //        $('.tenant-nav .weui-navbar__item').on('click', function () {
+            //            $(this).addClass('active').siblings('.active').removeClass('active');
+            //        });
+            //        //跳转优惠买单
+            //        $('.offerToPay-img').on('click', function () {
+            //            var tn=new tenant(function (data) {
+            //                if(data.closed){
+            //                    dialog.show('商家已打烊');
+            //                }else{
+            //                    window.location.href='../tenant/offerToPay.html?id='+pageManager.GetQueryString("id");
+            //                }
+            //            });
+            //            tn.view({id:pageManager.GetQueryString("id")});
+            //        });
+            //
+            //        //点击加入购物车
+            //        $(document).on('click', '.cart', function (event) {
+            //            var flycart = $(this);
+            //            var productCart;
+            //            productCart = $(this).attr('data-id');
+            //            var productCart1 = new cart(function (data) {
+            //                var img = flycart.parent().find('.fly_img img').attr('src');
+            //                if(img){
+            //                    var flyer = $('<img class="u-flyer" src="' + img + '">');
+            //                }else{
+            //                    var img2=flycart.prev().find('.fly_img img').attr('src');
+            //                    var flyer = $('<img class="u-flyer" src="' + img2 + '">');
+            //                }
+            //                var offset = $('#lianxi').offset();
+            //                flyer.fly({
+            //                    start: {
+            //                        left: event.pageX - 10, //开始位置（必填）#fly元素会被设置成position: fixed
+            //                        top: event.pageY - 20 //开始位置（必填）
+            //                    },
+            //                    end: {
+            //                        left: offset.left + 40, //结束位置（必填）
+            //                        // left:10,
+            //                        top: offset.top,
+            //                        //top: offset.top + 10, //结束位置（必填）
+            //                        width: 0, //结束时宽度
+            //                        height: 0 //结束时高度
+            //                    },
+            //                    onEnd: function () { //结束回调
+            //                        this.destory(); //移除dom
+            //                    }
+            //                });
+            //
+            //                //顶部购物车数量fly_cart_end
+            //                new cart(function(data){
+            //                    if(data!= 0){
+            //                        $('.footNav #shopCart').css('display','inline-block');
+            //                        if(data>99){
+            //                            $('.footNav #shopCart').html('99');
+            //                        }else{
+            //                            $('.footNav #shopCart').html(data);
+            //                        }
+            //                    }else{
+            //                        $('.footNav #shopCart').hide();
+            //                    }
+            //                }).count();
+            //            });
+            //            productCart1.add({id: productCart, quantity: 1});
+            //        });
+            //
+            //        //点击搜索框跳转页面
+            //        $("#searchBar").on('click', function () {
+            //            window.location.href="../search/tenantSearch.html?id="+pageManager.GetQueryString('id');
+            //        });
+            //
+            //        $('.weui-navbar__item#tenant_home').addClass("active").siblings().removeClass("active");
+            //
+            //        //商家商品分类
+            //        var classify = new tenant(function (data) {
+            //            var h = render.fill($("#tpl_productClassify"), data);
+            //            //console.log(h);
+            //            $(".classify").append(h);
+            //        });
+            //        classify.productCategory({tenantId:pageManager.GetQueryString("id")});
+            //
+            //        //分类页面
+            //        $(".scan_fun").on('click', function () {
+            ////          weixin.scanQRCode1(pageManager.GetQueryString("id"));
+            //            new tenant(function (adata) {
+            //                if(adata == true){
+            //                    $('.classify').toggle();
+            //                    $('#mask').toggle();
+            //                }else{
+            //                    location.href=location.origin+'/weixin/tenant/category.html?id='+pageManager.GetQueryString('id')+'&type=origin';
+            //                }
+            //            }).allFirstGrade({tenantId: pageManager.GetQueryString("id")});
+            //        });
+            //
+            //        $(document).on('click','.classify a', function () {
+            //            var first=$(this).attr('data-id');
+            //            var cate = $(this).attr('data-id');
+            //
+            //            var name=$(this).find('.weui-cell__bd').text();
+            //            if(first=='all'){
+            //                location.href='../search/tenantSearch.html?categoryId='+first+'&categoryName='+escape(name)+'&cateId='+ cate +'&id=' + pageManager.GetQueryString("id");
+            //            }else{
+            //                location.href='../search/tenantSearch.html?categoryId='+first+'&categoryName='+escape(name)+'&cateId='+ cate + '&id=' + pageManager.GetQueryString("id");
+            //            }
+            //        });
+            //
+            //        $('#mask').on('click', function () {
+            //            $('.classify').hide();
+            //            $('#mask').hide();
+            //        });
+            //
+            //        var info = new tenant(function(data){
+            //            $("#tenant_logo").attr('src',data.thumbnail);
+            //            $("#tenant_name").html(data.name);
+            //            if(data.hours == null){
+            //                $("#tenant_hour").html("无");
+            //            }else{
+            //                $("#tenant_hour").html(data.hours);
+            //            }
+            //        });
+            //        info.view({id: pageManager.GetQueryString("id")});
+            //
+            //        var tenantAddress = new tenant(function (data) {
+            //            var h = render.fill($("#tpl_tenantAddress"), data);
+            //            //console.log(h);
+            //            $(".address").html(h);
+            //        });
+            //        tenantAddress.deliveryCenterList({id:pageManager.GetQueryString("id")});
+            //
+            //        var contactStatus = false;
+            //        //联系商家
+            //        $('.goods').on('click', function () {
+            //            if(contactStatus){
+            //                if($("#actionSheet_contact_merchant .actionsheet").hasClass('weui-actionsheet_toggle')){
+            //                    $("#actionSheet_contact_merchant").actionsheetClose();
+            //                }else{
+            //                    $("#actionSheet_contact_merchant").actionsheet();
+            //                }
+            //                return false;
+            //            }
+            //            new tenant(function (data) {
+            //                //1家门店直接进入联系商家页面
+            //                if (data.length == 1) {
+            //                    location.href = location.origin + '/weixin/tenant/contact.html?id=' + data[0].id;
+            //                } else {
+            //                    contactStatus = true;
+            //                    var h = render.fill($("#tpl_tenantAddress"), data);
+            //                    $(".address").html(h);
+            //                    $("#actionSheet_contact_merchant").actionsheet();
+            //                    $('.footNav.weui-tabbar').css("z-index",'99999999');
+            //                    $('.actionsheet').css("bottom",'44px');
+            //                }
+            //            }).deliveryCenterList({id: pageManager.GetQueryString("id")});
+            //        });
+            //
+            //        $(function () {
+            //            //添加增加访问记录
+            //            new visitRecord(function () {
+            //            }).add({
+            //                tenantId: pageManager.GetQueryString("id"),
+            //                visitType: 'weixin',
+            //                machineType: 'mobile'
+            //            });
+            //        });
 
-</script>
+        });
+
+    </script>
 </body>
-</html>
 
+</html>

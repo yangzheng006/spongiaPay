@@ -5,7 +5,7 @@
             <div data-id="2" class="weui-flex__item">商家</div>
         </div>
         <div class="recommendTab-content">
-            <div class="recommendTab-show">
+            <div class="recommendTab-show" id="recommendListSingle">
                 <div class="recommendSingle weui-cell">
                     <div class="weui-cell__hd">
                         <img src="http://cdn.tiaohuo.com/upload/image/201709/574356ef-e5fc-4c8b-8da6-e097308f6268.jpg@192w_141h_1e_1c_100Q" alt="">
@@ -26,54 +26,39 @@
                     <div class="weui-flex__item">已通过</div>
                     <div class="weui-flex__item">未通过</div>
                 </div>
+                <div id="recommendListTenant">
+                    <div class="recommendShop weui-cell">
+                        <div class="weui-cell__hd">
+                            <img src="http://cdn.tiaohuo.com/upload/image/201709/574356ef-e5fc-4c8b-8da6-e097308f6268.jpg@192w_141h_1e_1c_100Q" alt="">
+                        </div>
+                        <div class="weui-cell__bd weui-flex__item f16 overone">
+                            <div class="f16 bold">韩式阿三阿斯顿</div>
+                            <div class="f14 score">
+                                <i class="iconfont icon-star"></i>
+                                <i class="iconfont icon-star"></i>
+                                <i class="iconfont icon-star"></i>
+                                <i class="iconfont icon-star"></i>
+                                <i class="iconfont icon-star"></i>
+                                <span>5.0分</span>
+                            </div>
+                            <div class="f14 location overone">
+                                <i class="iconfont icon-weizhi"></i>
+                                <span>紫云路啊实打实打算</span>
+                            </div>
+                            <div class="f14 location overone">
+                                <i class="iconfont icon-xiangqingdianzan"></i>
+                                <span>11</span>
+                                <i class="iconfont icon-xin"></i>
+                                <span>122</span>
+                            </div>
+                        </div>
+                        <div class="weui-cell__ft clr_mediumGray f14" style="color:#999;">
+                            1.9km
+                        </div>
+                    </div>
 
-                <div class="recommendShop weui-cell">
-                    <div class="weui-cell__hd">
-                        <img src="http://cdn.tiaohuo.com/upload/image/201709/574356ef-e5fc-4c8b-8da6-e097308f6268.jpg@192w_141h_1e_1c_100Q" alt="">
-                    </div>
-                    <div class="weui-cell__bd weui-flex__item f16 overone">
-                        <div class="f16 bold">韩式阿三阿斯顿</div>
-                        <div class="f14 score">
-                            <i class="iconfont icon-star"></i>
-                            <i class="iconfont icon-star"></i>
-                            <i class="iconfont icon-star"></i>
-                            <i class="iconfont icon-star"></i>
-                            <i class="iconfont icon-star"></i>
-                            <span>5.0分</span>
-                        </div>
-                        <div class="f14 location overone">
-                            <i class="iconfont icon-weizhi"></i>
-                            <span>紫云路啊实打实打算</span>
-                        </div>
-                        <div class="f14 location overone">
-                            <i class="iconfont icon-xiangqingdianzan"></i>
-                            <span>11</span>
-                            <i class="iconfont icon-xin"></i>
-                            <span>122</span>
-                        </div>
-                    </div>
-                    <div class="weui-cell__ft clr_mediumGray f14" style="color:#999;">
-                        1.9km
-                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<script>
-    $('.recommendTab>div').on('click', function () {
-        if ($(this).hasClass('active')) {
-            return false;
-        }
-        var index = $(this).index();
-        $(this).addClass('active').siblings().removeClass('active');
-        $('.recommendTab-content>div').eq(index).addClass('recommendTab-show').siblings().removeClass('recommendTab-show')
-    })
-    $('.towLevelTab div').on('click', function () {
-        if ($(this).hasClass('active')) {
-            return false;
-        }
-        var index = $(this).index();
-        $(this).addClass('active').siblings().removeClass('active');
-    })
-</script>

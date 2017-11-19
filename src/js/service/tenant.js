@@ -164,10 +164,19 @@ tenant.prototype = {
         });
 
     },
+    /**
+     * 商家详情
+     * hyId 会员ID
+     * shId 商家id
+     */
+    merchantProductGet: function (data) {
+        ajax.get({
+            url: base + "merchantProductGet",
+            data: data,
+            success: this.fn
+        });
 
-
-
-
+    },
 
 };
 

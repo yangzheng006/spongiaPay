@@ -83,6 +83,30 @@ member.prototype = {
             data: data,
             success: this.fn
         });
+    },
+
+    /**
+     * 历史推荐
+     * hyId 会员id
+     */
+    recommendList: function (data) {
+        ajax.get({
+            url: base + "recommendLest",
+            data: data,
+            success: this.fn
+        });
+    },
+
+    /**
+     * 历史推荐商家
+     * hyId 会员id
+     */
+    recommendTenantList: function (data) {
+        ajax.get({
+            url: base + "recommendShLest",
+            data: data,
+            success: this.fn
+        });
     }
 
 
