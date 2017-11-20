@@ -31,6 +31,7 @@
 
         //一级分类
         var tu = new tenant(function (data) {
+            console.log('点击一级分类');
             var h = render.fill($("#tpl_classOne"), data);
             $(".find_nav").append(h);
             nav();
@@ -39,23 +40,26 @@
             var oneId = $('.find_nav_cur').attr('data-id');
             //二级分类
             var dh = new tenant(function (data) {
+                console.log('加载二级分类');
                 var h = render.fill($("#tpl_classTwo"), data);
                 $(".tenant_tap").append(h);
                 $('.tenant_tap span').first().addClass('active');
+
                 //默认加载第一个
                 if($('.tenant_tap span').first().hasClass('active') == true){
+                    console.log('加载商家列表');
                     var categoryId = $('.tenant_tap .active').attr('data-id');
                     shuju(categoryId);
                 }
             });
             dh.classTwo({superiorId:oneId});
         });
-        tu.classOne({});
+        tu.classOne();
 
         //点击一级分类
         $(document).on('click', ".find_nav_list li", function () {
             var oneId = $(this).attr('data-id');
-            $(this).addClass('find_nav_cur').siblings.removeClass('find_nav_cur');
+            $(this).addClass('find_nav_cur').siblings().removeClass('find_nav_cur');
             $(".tenant_list").html('');
             //二级分类
             var dh = new tenant(function (data) {
@@ -73,6 +77,7 @@
 
         //点击二級分类
         $(document).on('click', ".tenant_tap span", function () {
+            console.log('二级分类');
             var categoryId = $(this).attr('data-id');
             $(this).addClass('active').siblings().removeClass('active');
             $(".tenant_list").html('');
@@ -80,6 +85,7 @@
         });
 
         function shuju(categoryId) {
+            console.log('调数据');
             //定位，获取经纬度
 //            var categoryId = $('.tenant_tap .active').attr('data-id');
 //            weixin.location(function () {
