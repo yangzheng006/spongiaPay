@@ -38,7 +38,7 @@
             pageManager.show("index");
         })
         var pageFn = function () {
-            //个人中心页面
+
             if (pageManager._getHash() == '#') {
                 $(document).on('click', '.financeTab-tabTop>div,.financeTab-list>div', function () {
                     var index = $(this).index(), that = this;
@@ -62,18 +62,19 @@
                             }
                             new finance(function (resd) {
                                 if (financeName == '理财') {
-                                    var h = render.fill($("#tpl_wealth"), resd.list);
+                                    var h = render.fill($("#tpl_wealth"), resd.pageList);
                                     $('#tab' + selectTopId + ' .financeTab-listWrap').html(h)
                                 } else if (financeName == '信用卡') {
-                                    var h = render.fill($("#tpl_credit_card"), resd.list);
+                                    var h = render.fill($("#tpl_credit_card"), resd.pageList);
                                     $('#tab' + selectTopId + ' .financeTab-listWrap').html(h)
                                 } else if (financeName == '贷款') {
-                                    var h = render.fill($("#tpl_loan"), resd.list);
+                                    var h = render.fill($("#tpl_loan"), resd.pageList);
                                     $('#tab' + selectTopId + ' .financeTab-listWrap').html(h)
                                 }
 
                             }).list({
-                                classificationId: rest.list[0].ID
+                                classificationId: rest.list[0].ID,
+                                page:1
                             })
                             $('#tab' + selectTopId + ' .financeTab-list').html(htmlt);
 
@@ -90,17 +91,18 @@
                         new finance(function (resd) {
                             if (financeName == '理财') {
                                 console.log(11212)
-                                var h = render.fill($("#tpl_wealth"), resd.list);
+                                var h = render.fill($("#tpl_wealth"), resd.pageList);
                                 $(that).parent().siblings('.financeTab-listWrap').html(h)
                             } else if (financeName == '信用卡') {
-                                var h = render.fill($("#tpl_credit_card"), resd.list);
+                                var h = render.fill($("#tpl_credit_card"), resd.pageList);
                                 $(that).parent().siblings('.financeTab-listWrap').html(h)
                             } else if (financeName == '贷款') {
-                                var h = render.fill($("#tpl_loan"), resd.list);
+                                var h = render.fill($("#tpl_loan"), resd.pageList);
                                 $(that).parent().siblings('.financeTab-listWrap').html(h)
                             }
                         }).list({
-                            classificationId: tapContentId
+                            classificationId: tapContentId,
+                            page:1
                         })
                     }
                 })
@@ -113,10 +115,11 @@
                             htmlt += `<div class="${i == 0 ? 'active' : ''}" data-px="${rest.list[i].PX}" data-id="${rest.list[i].ID}">${rest.list[i].LBMC}</div>`
                         }
                         new finance(function (resd) {
-                            var h = render.fill($("#tpl_wealth"), resd.list);
+                            var h = render.fill($("#tpl_wealth"), resd.pageList);
                             $('#tab' + res.list[0].ID + ' .financeTab-listWrap').html(h);
                         }).list({
-                            classificationId: rest.list[0].ID
+                            classificationId: rest.list[0].ID,
+                            page:1
                         })
                         $('#tab' + res.list[0].ID + ' .financeTab-list').html(htmlt);
 

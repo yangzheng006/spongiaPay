@@ -1,12 +1,12 @@
 <!--优质商家-->
-{{#compare list.length '!=' 0}}
+{{#compare pageList.length '!=' 0}}
 <div class="weui-cell clr_mediumGray f14 list_title">
     <div class="weui-cell__bd tc"><span class="title_line">一</span>优质商家<span class="title_line">一</span></div>
     <a href="tenantList.html" class="weui-cell__ft f12 clr_orange">更多>></a>
 </div>
 
 <div class="tenant_list">
-    {{#each list}}
+    {{#each pageList}}
     <a href="../tenant/index.html?id={{ID}}" class="tenant" data-id="{{ID}}">
         <div class="tenant_img">
             {{#compare YYCSZP '==' null}}
