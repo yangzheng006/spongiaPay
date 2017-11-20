@@ -1,22 +1,38 @@
-{{#each list}}
+{{#each pageList}}
 <a href="../tenant/index.html" class="tenant" data-id="{{ID}}">
     <div class="tenant_img">
-        {{#compare TP '!=' null}}
+        {{#compare YYCSZP '!=' null}}
         <img src="{{YYCSZP}}" />
         {{/compare}}
-        {{#compare TP '==' null}}
+        {{#compare YYCSZP '==' null}}
         <img src="../images/placeholder/tenant.png" />
         {{/compare}}
     </div>
     <div class="tenant_txt">
-        <p class="f16 tenant_tit overone">{{mz}}</p>
+        <p class="f16 tenant_tit overone">{{SHMC}}</p>
         <div class="weui-cell f14">
             <div class="weui-cell__bd clr_mediumGray overone tenant_address"><i class="iconfont icon-dizhi1"></i>{{YYDZ}}</div>
             <div class="weui-cell__ft clr_mediumGray">1.8km</div>
         </div>
         <p class="f12 clr-gray02 num">
-            <span><i class="iconfont icon-xiangqingdianzan"></i>11</span>
-            <span><i class="iconfont icon-xin"></i>12</span>
+            <span>
+                {{#compare DZIF '==' "false"}}
+                    <i class="iconfont icon-xiangqingdianzan"></i>
+                {{/compare}}
+                {{#compare DZIF '==' "true"}}
+                    <i class="iconfont icon-xiangqingdianzan orange"></i>
+                {{/compare}}
+                {{DZS}}
+            </span>
+            <span>
+                {{#compare SCIF '==' "false"}}
+                    <i class="iconfont icon-xin"></i>
+                {{/compare}}
+                {{#compare SCIF '==' "true"}}
+                    <i class="iconfont icon-xin orange"></i>
+                {{/compare}}
+                {{SCS}}
+            </span>
         </p>
     </div>
 </a>

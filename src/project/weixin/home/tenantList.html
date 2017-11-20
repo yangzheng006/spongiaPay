@@ -86,10 +86,11 @@
                 var td = new tenant(function (data) {
                     var f = render.fill($("#tpl_list"), data);
                     $(".tenant_list").append(f);
-                    console.log(f)
                 });
                 td.moreList({
-                    classificationId: categoryId
+                    classificationId: categoryId,
+                    hyId:localStorage.getItem('loginID'),
+                    page:1,
 //                    lat: weixin.lat,
 //                    lng: weixin.lng
                 });
