@@ -74,6 +74,70 @@
             //个人中心页面
             if (pageManager._getHash() == '#') {
                 document.title = '个人中心';
+                new member(function (data) {
+                    console.log(data);
+                    //认证情况(显示文字)
+                    $('.memberIndex #username1').html(data.XM)
+                    if(!data.IsAuthenticationSh && !data.IsAuthenticationSm){
+                        $('.memberIndex .tenantV').addClass('none');
+                        $('.memberIndex .userV').removeClass('none');
+                        $('.memberIndex .userV span').html('未认证')
+                    }else if(!data.IsAuthenticationSh && data.IsAuthenticationSm){
+                        $('.memberIndex .tenantV').addClass('none');
+                        $('.memberIndex .userV').removeClass('none');
+                        $('.memberIndex .userV span').html('已认证')
+                    }else if(data.IsAuthenticationSh && !data.IsAuthenticationSm){
+                        $('.memberIndex .userV').addClass('none');
+                        $('.memberIndex .tenantV').removeClass('none');
+                        $('.memberIndex .tenantV span').html('商家已认证')
+                    }else if(data.IsAuthenticationSh && data.IsAuthenticationSm){
+                        $('.memberIndex .userV').addClass('none');
+                        $('.memberIndex .tenantV').removeClass('none');
+                        $('.memberIndex .tenantV span').html('商家已认证')
+                    }
+
+                    //是否认证成商家
+                    if(data.IsAuthenticationSh){
+                        $('.IsAuthenticationSh .weui-cell__ft').html('已认证');
+                        $(document).on('click','.IsAuthenticationSh',function () {
+                            toast.show('您已认证',1000)
+                        })
+                    }else{
+                        $('.IsAuthenticationSh .weui-cell__ft').html('未认证');
+                        $(document).on('click','.IsAuthenticationSh',function () {
+                            pageManager.go('authTenant');
+                        })
+                    }
+
+                    //是否实名认证
+                    if(data.IsAuthenticationSm){
+                        $('.IsAuthenticationSm .weui-cell__ft').html('已认证');
+                        $(document).on('click','.IsAuthenticationSm',function () {
+                            toast.show('您已认证',1000)
+                        })
+                    }else{
+                        $('.IsAuthenticationSm .weui-cell__ft').html('未认证');
+                        $(document).on('click','.IsAuthenticationSm',function () {
+                            pageManager.go('auth');
+                        })
+                    }
+
+                    //是否绑定银行卡
+                    if(data.IsBinding){
+                        $('.IsBinding .weui-cell__ft').html('已绑定');
+                        $(document).on('click','.IsBinding',function () {
+                            toast.show('您已绑定',1000)
+                        })
+                    }else{
+                        $('.IsBinding .weui-cell__ft').html('未绑定');
+                        $(document).on('click','.IsBinding',function () {
+                            pageManager.go('cardOne')
+                        })
+                    }
+
+                }).view({
+                    memberId:memberId
+                })
             }
 
             //商户认证页面

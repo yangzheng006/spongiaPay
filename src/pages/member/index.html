@@ -12,8 +12,8 @@
                         <div class="user_name">
                             <p class="f14" id="username1">知晓</p>
                         </div>
-                        <p class="f10 clr_white ifConfirm tenantV"><img src="../images/static/mine/index/tenantV.png" alt="" >商家已认证</p>
-                        <p class="f10 clr_white ifConfirm none userV"><img src="../images/static/mine/index/userV.png" alt="" >已认证</p>
+                        <p class="f10 clr_white ifConfirm none tenantV"><img src="../images/static/mine/index/tenantV.png" alt="" ><span>商家已认证</span></p>
+                        <p class="f10 clr_white ifConfirm none userV"><img src="../images/static/mine/index/userV.png" alt="" ><span>已认证</span></p>
                     </div>
                     <div class="weui-cell__ft my_purse">
                         <a class="weui-cell weui-cell_access" href="javascript:pageManager.go('purseIndex');">
@@ -67,16 +67,16 @@
            </div>
            <div style="height: 10px;background: #f4f4f4;margin: 0 2%;"></div>
            <div class="weui-cells weui_cells_access bordernone f14" style="margin: 0px auto;background-color: white">
-               <a class="weui-cell weui-cell_access" href="javascript:pageManager.go('authTenant');">
+               <a class="weui-cell weui-cell_access IsAuthenticationSh" href="javascript:;">
                    <div class="weui-cell__hd"><img src="../images/static/mine/Merchant CA.png" alt="" style="width:20px;margin-right:5px;display:block"></div>
                    <div class="weui-cell__bd weui_cell_primary">
                        <p>商户认证</p>
                    </div>
                    <div class="weui-cell__ft f12">
-                       认证成商家
+                       未认证
                    </div>
                </a>
-               <a class="weui-cell weui-cell_access" href="javascript:pageManager.go('auth')">
+               <a class="weui-cell weui-cell_access IsAuthenticationSm" href="javascript:;">
                    <div class="weui-cell__hd"><img src="../images/static/mine/Certification CA.png" alt="" style="width:20px;margin-right:5px;display:block"></div>
                    <div class="weui-cell__bd weui_cell_primary">
                        <p>实名认证</p>
@@ -89,7 +89,7 @@
            <div style="height: 10px;background: #f4f4f4;margin: 0 2%;"></div>
 
            <div class="weui-cells bordernone f14">
-               <a class="weui-cell weui-cell_access" href="javascript:pageManager.go('cardOne');">
+               <a class="weui-cell weui-cell_access IsBinding" href="javascript:;">
                    <div class="weui-cell__hd"><img src="../images/static/mine/bindcarts.png" alt="" style="width:20px;margin-right:5px;display:block"></div>
                    <div class="weui-cell__bd weui_cell_primary">
                        <p>绑定银行卡</p>
