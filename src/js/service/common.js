@@ -23,7 +23,7 @@ common.prototype = {
     /**
      * 上传照片
      * image
-     * type  0是实名认证正面照片   1 实名认证身份证反面照
+     * type  0是实名认证正面照片   1 实名认证身份证反面照 2 营业执照照片 3 身份证正面照 4 身份证反面照 5 营业场所照片 6 授权书照片
      */
     uploadImage: function (data) {
         ajax.post({

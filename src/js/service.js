@@ -8,4 +8,5 @@
 @import "../../js/service/tenant.js";
 @import "../../js/service/product.js";
 @import "../../js/service/common.js";
+@import "../../js/service/authentication.js";
 

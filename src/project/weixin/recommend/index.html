@@ -30,7 +30,183 @@
             }else{
                 $(this).find('.weui-cell__ft i').removeClass('icon-arrowbottom').addClass('icon-up')
             }
+        });
+
+
+        var shId;
+        //填写第一步资料
+        $(document).on('click','.recommend .submitMore',function () {
+            var tenantName=$('.recommend .tenantName').val();
+            var linkMan=$('.recommend .linkMan').val();
+            var phone=$('.recommend .phone').val();
+            if(!tenantName){
+                toast.show('请输入商家名称',1000)
+            }else if(!linkMan){
+                toast.show('请输入联系人',1000)
+            }else if(!(/^1[0-9]{10}$/.test(phone))){
+                toast.show('请输入正确联系电话',1000)
+            }else{
+                toast.loadingSelf('60000','提交中');
+                new authentication(function (data) {
+                    toast.closeLoading();
+                    shId=data.id;
+                    $('.recommend .submitMore').addClass('none');
+                    $('.recommend .showDetailForm').show();
+                }).tenantsNormal({
+                    tenantName:tenantName,
+                    linkMan:linkMan,
+                    phone:phone,
+                    hyId:memberId
+                })
+            }
+        });
+
+        var bbusinessLicense,identityCardFront,identityCardBack,Authorizationletter,placeofBusiness;
+        var accounType='normal';
+        $("#bbusinessLicense").on('change', function (e) {
+            var reader = new FileReader();
+            reader.onload = (function (file) {
+                return function (e) {
+                    var image = this.result;
+                    var upImg = image.substring(image.indexOf(",") + 1);
+                    $("#bbusinessLicenseImg")[0].src = this.result;
+                    new common(function (data) {
+                        bbusinessLicense = data.tpname;
+                    }).uploadImage({
+                        image: upImg,
+                        type: 2
+                    })
+                };
+            })(e.target.files[0]);
+            reader.readAsDataURL(e.target.files[0]);
+        });
+        $("#identityCardFront").on('change', function (e) {
+            var reader = new FileReader();
+            reader.onload = (function (file) {
+                return function (e) {
+                    var image = this.result;
+                    var upImg = image.substring(image.indexOf(",") + 1);
+                    $("#identityCardFrontImg")[0].src = this.result;
+                    new common(function (data) {
+                        identityCardFront = data.tpname;
+                    }).uploadImage({
+                        image: upImg,
+                        type: 0
+                    })
+                };
+            })(e.target.files[0]);
+            reader.readAsDataURL(e.target.files[0]);
+        });
+        $("#identityCardBack").on('change', function (e) {
+            var reader = new FileReader();
+            reader.onload = (function (file) {
+                return function (e) {
+                    var image = this.result;
+                    var upImg = image.substring(image.indexOf(",") + 1);
+                    $("#identityCardBackImg")[0].src = this.result;
+                    new common(function (data) {
+                        identityCardBack = data.tpname;
+                    }).uploadImage({
+                        image: upImg,
+                        type: 1
+                    })
+                };
+            })(e.target.files[0]);
+            reader.readAsDataURL(e.target.files[0]);
+        });
+        $("#Authorizationletter").on('change', function (e) {
+            var reader = new FileReader();
+            reader.onload = (function (file) {
+                return function (e) {
+                    var image = this.result;
+                    var upImg = image.substring(image.indexOf(",") + 1);
+                    $("#AuthorizationletterImg")[0].src = this.result;
+                    new common(function (data) {
+                        Authorizationletter = data.tpname;
+                    }).uploadImage({
+                        image: upImg,
+                        type: 6
+                    })
+                };
+            })(e.target.files[0]);
+            reader.readAsDataURL(e.target.files[0]);
+        });
+        $("#placeofBusiness").on('change', function (e) {
+            var reader = new FileReader();
+            reader.onload = (function (file) {
+                return function (e) {
+                    var image = this.result;
+                    var upImg = image.substring(image.indexOf(",") + 1);
+                    $("#placeofBusinessImg")[0].src = this.result;
+                    new common(function (data) {
+                        placeofBusiness = data.tpname;
+                    }).uploadImage({
+                        image: upImg,
+                        type: 5
+                    })
+                };
+            })(e.target.files[0]);
+            reader.readAsDataURL(e.target.files[0]);
+        });
+
+
+        //选择账号类型（对工/法人）
+        $(document).on('click','.selsectAccounType .weui-check__label', function () {
+           var accType=$(this).attr('accType');
+            accounType=accType;
+        });
+
+        //填写第二步补充资料提交
+        $(document).on('click','.recommend .goSubmit',function () {
+            var bussinessNumber=$('.recommend .bussinessNumber').val();
+            var identityCardNum=$('.recommend .identityCardNum').val();
+            var account=$('.recommend .account').val();
+            var bank=$('.recommend .bank').val();
+            var bankAccount=$('.recommend .bankAccount').val();
+            if(!bussinessNumber){
+                toast.show('请填写营业执照号',1000)
+            }else if(!bbusinessLicense){
+                toast.show('请上传营业执照照片',1000)
+            }else if(!identityCardNum){
+                toast.show('请填写身份证号',1000)
+            }else if(!identityCardFront){
+                toast.show('请上传身份证正面照片',1000)
+            }else if(!identityCardBack){
+                toast.show('请上传身份证反面照片',1000)
+            }else if(!account){
+                toast.show('请填写开户名',1000)
+            }else if(!bank){
+                toast.show('请填写开户行',1000)
+            }else if(!bankAccount){
+                toast.show('请填写银行账户',1000)
+            }else if(!Authorizationletter){
+                toast.show('请上传授权书照片',1000)
+            }else if(!placeofBusiness){
+                toast.show('请上传营业场所照片',1000)
+            }else{
+                new authentication(function (data) {
+                  dialog.show('提交资料成功',function () {
+                      location.reload();
+                  })
+                }).tanantsAuthoBusinessLicense({
+                    bussinessNumber:bussinessNumber,
+                    bbusinessLicense:bbusinessLicense,
+                    identityCardNum:identityCardNum,
+                    identityCardFront:identityCardFront,
+                    identityCardBack:identityCardBack,
+                    accounType:accounType,
+                    account:account,
+                    bank:bank,
+                    bankAccount:bankAccount,
+                    Authorizationletter:Authorizationletter,
+                    placeofBusiness:placeofBusiness,
+                    shId:shId
+                })
+            }
+
         })
+
+
     })
 
 </script>

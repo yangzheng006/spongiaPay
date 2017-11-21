@@ -6,7 +6,7 @@
                     <label>商家名称<span class="clr_red01">*</span></label>
                 </div>
                 <div class="weui-cell__bd">
-                    <input class="weui-input" style="margin-left: 25px" type="text" placeholder="请输入商家名称">
+                    <input class="weui-input tenantName" style="margin-left: 25px" type="text" placeholder="请输入商家名称">
                 </div>
             </div>
             <div class="weui-cell" style="height: 40px">
@@ -14,7 +14,7 @@
                     <label>联系人<span class="clr_red01">*</span></label>
                 </div>
                 <div class="weui-cell__bd">
-                    <input class="weui-input" style="margin-left: 40px" type="text" placeholder="请输入真实姓名">
+                    <input class="weui-input linkMan" style="margin-left: 40px" type="text" placeholder="请输入真实姓名">
                 </div>
             </div>
             <div class="weui-cell" style="height: 40px">
@@ -22,18 +22,22 @@
                     <label>联系电话<span class="clr_red01">*</span></label>
                 </div>
                 <div class="weui-cell__bd">
-                    <input class="weui-input" style="margin-left: 25px" type="text" placeholder="请输入手机号">
+                    <input class="weui-input phone" style="margin-left: 25px" type="number" placeholder="请输入手机号">
                 </div>
             </div>
         </div>
 
-        <div class="weui-cells toggleShowDetail f16" style="cursor: pointer;">
-            <div class="weui-cell" style="padding: 3%">
-                <div class="weui-cell_hd f16">上传商家资料</div>
-                <div class="weui-cell__bd"></div>
-                <div class="weui-cell__ft clr_darkGray"><i class="icon iconfont icon-up"></i></div>
-            </div>
+        <div style="margin-top: 10vw;">
+            <button class="weui-btn weui-btn__default btnConfirm submitMore" >下一步</button>
         </div>
+
+        <!--<div class="weui-cells toggleShowDetail f16" style="cursor: pointer;">-->
+        <!--<div class="weui-cell" style="padding: 3%">-->
+        <!--<div class="weui-cell_hd f16">上传商家资料</div>-->
+        <!--<div class="weui-cell__bd"></div>-->
+        <!--<div class="weui-cell__ft clr_darkGray"><i class="icon iconfont icon-up"></i></div>-->
+        <!--</div>-->
+        <!--</div>-->
 
         <div class="showDetailForm f14" style="display: none">
             <div class="weui-cells f16">
@@ -42,7 +46,7 @@
                         <label>营业执照</label>
                     </div>
                     <div class="weui-cell__bd">
-                        <input class="weui-input" style="margin-left: 25px" type="text" placeholder="填写营业执照号">
+                        <input class="weui-input bussinessNumber" style="margin-left: 25px" type="text" placeholder="填写营业执照号">
                     </div>
                 </div>
             </div>
@@ -51,9 +55,9 @@
                 <div class="weui-cell">
                     <div class="weui-cell__hd">
                         <div class="form-item">
-                            <img src="../images/static/recommend/addPhoto.png" id="uploadimg2" >
-                            <form id="idform2" enctype ="multipart/form-data">
-                                <input type="file" class="upload_img" name="file" id="idcard2" style="padding:8vw 0;position: absolute;top:3vw;opacity:0">
+                            <img src="../images/static/recommend/addPhoto.png" id="bbusinessLicenseImg">
+                            <form  enctype ="multipart/form-data">
+                                <input type="file" class="upload_img" name="file" id="bbusinessLicense" style="padding:8vw 0;position: absolute;top:3vw;opacity:0">
                             </form>
                         </div>
                     </div>
@@ -67,7 +71,7 @@
                         <label>法人身份证号</label>
                     </div>
                     <div class="weui-cell__bd">
-                        <input class="weui-input" style="margin-left: 10px;" type="text" placeholder="请输入身份证号">
+                        <input class="weui-input identityCardNum" style="margin-left: 10px;" type="number" placeholder="请输入身份证号">
                     </div>
                 </div>
             </div>
@@ -76,9 +80,9 @@
                 <div class="weui-cell">
                     <div class="weui-cell__hd">
                         <div class="form-item">
-                            <img src="../images/static/member/cardFont.png" id="uploadimg1" style="display: block; width: 112px; height: 80px;">
-                            <form id="idform1" enctype ="multipart/form-data">
-                                <input type="file" class="upload_img" name="file" id="idcard1" style="padding:8vw 0;position: absolute;top:3vw;opacity:0">
+                            <img src="../images/static/member/cardFont.png" id="identityCardFrontImg" style="display: block; width: 112px; height: 80px;">
+                            <form enctype ="multipart/form-data">
+                                <input type="file" class="upload_img" name="file" id="identityCardFront" style="padding:8vw 0;position: absolute;top:3vw;opacity:0">
                             </form>
                         </div>
                     </div>
@@ -93,9 +97,9 @@
                 <div class="weui-cell">
                     <div class="weui-cell__hd">
                         <div class="form-item">
-                            <img src="../images/static/member/cardBack.png" id="uploadimg2" style="display: block; width: 112px; height: 80px;">
-                            <form id="idform2" enctype ="multipart/form-data">
-                                <input type="file" class="upload_img" name="file" id="idcard2" style="padding:8vw 0;position: absolute;top:3vw;opacity:0">
+                            <img src="../images/static/member/cardBack.png" id="identityCardBackImg" style="display: block; width: 112px; height: 80px;">
+                            <form enctype ="multipart/form-data">
+                                <input type="file" class="upload_img" name="file" id="identityCardBack" style="padding:8vw 0;position: absolute;top:3vw;opacity:0">
                             </form>
                         </div>
                     </div>
@@ -105,9 +109,9 @@
                     </div>
                 </div>
             </div>
-            <div class="weui-cells weui-cells_checkbox f16">
+            <div class="weui-cells weui-cells_checkbox f16 selsectAccounType">
                 <div class="weui-cell">
-                    <label class="weui-cell weui-check__label" for="s11">
+                    <label class="weui-cell weui-check__label" for="s11" accType="normal">
                         <div class="weui-cell__hd">
                             <input type="radio" class="weui-check" name="checkbox1" id="s11" checked="checked">
                             <i class="weui-icon-checked"></i>
@@ -116,7 +120,7 @@
                             <p>对工账号</p>
                         </div>
                     </label>
-                    <label class="weui-cell weui-check__label bordernone" for="s12">
+                    <label class="weui-cell weui-check__label bordernone" for="s12" accType="legal">
                         <div class="weui-cell__hd">
                             <input type="radio" name="checkbox1" class="weui-check" id="s12">
                             <i class="weui-icon-checked"></i>
@@ -132,7 +136,7 @@
                             <label>开户名</label>
                         </div>
                         <div class="weui-cell__bd">
-                            <input class="weui-input" style="margin-left: 25px" type="text" placeholder="请输入银行开户名">
+                            <input class="weui-input account" style="margin-left: 25px" type="text" placeholder="请输入银行开户名">
                         </div>
                     </div>
                     <div class="weui-cell" style="height: 40px">
@@ -140,15 +144,15 @@
                             <label>开户行</label>
                         </div>
                         <div class="weui-cell__bd">
-                            <input class="weui-input" style="margin-left: 25px" type="text" placeholder="请输入开户银行">
+                            <input class="weui-input bank" style="margin-left: 25px" type="text" placeholder="请输入开户银行">
                         </div>
                     </div>
                     <div class="weui-cell" style="height: 40px">
                         <div class="weui-cell__hd">
-                            <label>联系电话</label>
+                            <label>账号</label>
                         </div>
                         <div class="weui-cell__bd">
-                            <input class="weui-input" style="margin-left: 10px" type="text" placeholder="请输入15位或18位卡号号">
+                            <input class="weui-input bankAccount" style="margin-left: 10px" type="number" placeholder="请输入15位或18位卡号号">
                         </div>
                     </div>
                 </div>
@@ -158,9 +162,9 @@
                 <div class="weui-cell bordernone">
                     <div class="weui-cell__hd">
                         <div class="form-item">
-                            <img src="../images/static/recommend/addPhoto.png" id="uploadimg1">
-                            <form id="idform1" enctype ="multipart/form-data">
-                                <input type="file" class="upload_img" name="file" id="idcard1" style="padding:8vw 0;position: absolute;top:3vw;opacity:0">
+                            <img src="../images/static/recommend/addPhoto.png" id="AuthorizationletterImg">
+                            <form enctype ="multipart/form-data">
+                                <input type="file" class="upload_img" name="file" id="Authorizationletter" style="padding:8vw 0;position: absolute;top:3vw;opacity:0">
                             </form>
                         </div>
                     </div>
@@ -174,9 +178,9 @@
                 <div class="weui-cell bordernone">
                     <div class="weui-cell__hd">
                         <div class="form-item">
-                            <img src="../images/static/recommend/addPhoto.png" id="uploadimg1">
-                            <form id="idform1" enctype ="multipart/form-data">
-                                <input type="file" class="upload_img" name="file" id="idcard1" style="padding:8vw 0;position: absolute;top:3vw;opacity:0">
+                            <img src="../images/static/recommend/addPhoto.png" id="placeofBusinessImg">
+                            <form enctype ="multipart/form-data">
+                                <input type="file" class="upload_img" name="file" id="placeofBusiness" style="padding:8vw 0;position: absolute;top:3vw;opacity:0">
                             </form>
                         </div>
                     </div>
