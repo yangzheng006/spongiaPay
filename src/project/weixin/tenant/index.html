@@ -33,24 +33,40 @@
     <script type="text/javascript">
         $(function () {
             pageManager.show("index");
-
-            new tenant(function (data) {
-                console.log(data);
-            }).collectionIfGet({
+            var ajaxParams = {
                 hyId: memberId,
                 shId: pageManager.GetQueryString('id')
-            })
+            };
 
+            $(document).on('click', '#isFabulous', function () {
+                new tenant(function (res) {
+                    new tenant(function (data) {
+                        $('#isFabulous').removeClass('orange_app').addClass('clr-gray01');
+                    }).fabulousRemove(ajaxParams)
+                }, function () {
+                    new tenant(function (data) {
+                        $('#isFabulous').removeClass('clr-gray01').addClass('orange_app');
+                    }).fabulousAdd(ajaxParams)
+                }).fabulousIfGet(ajaxParams)
+            });
+            $(document).on('click', '#isCollect', function () {
+                new tenant(function (res) {
+                    new tenant(function (data) {
+                        $('#isCollect').removeClass('orange_app').addClass('clr-gray01');
+                    }).collectionRemove(ajaxParams)
+                }, function () {
+                    new tenant(function (data) {
+                        $('#isCollect').removeClass('clr-gray01').addClass('orange_app');
+                    }).collectionAdd(ajaxParams)
+                }).collectionIfGet(ajaxParams)
+            });
             new tenant(function (res) {
-                console.log(res)
                 $('#tenantName').html(res.item.SHMC);
                 $('#tenantLogo').attr("src", res.item.YYCSZP);
-                res.item.SCIF ?$('#isCollect').addClass('orange_app'):$('#isCollect').addClass('clr-gray01');
-                $('#tenantAddress').html(res.item.YYDZ)
-            }).merchantProductGet({
-                hyId: memberId,
-                shId: pageManager.GetQueryString('id')
-            })
+                res.item.SCIF == 'true' ? $('#isCollect').removeClass('clr-gray01').addClass('orange_app') : $('#isCollect').removeClass('orange_app').addClass('clr-gray01');
+                res.item.DZIF == 'true' ? $('#isFabulous').removeClass('clr-gray01').addClass('orange_app') : $('#isFabulous').removeClass('orange_app').addClass('clr-gray01');
+                $('#tenantAddress').html(res.item.YYDZ);
+            }).merchantProductGet(ajaxParams)
 
             //        var t=new tenant(function (data) {
             //            console.log(data);

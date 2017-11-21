@@ -2,8 +2,9 @@
  * tenant
  */
 
-var tenant = function (fn) {
+var tenant = function (fn, errfn) {
     this.fn = fn;
+    this.errfn = errfn;
 };
 tenant.prototype = {
     /**
@@ -91,7 +92,9 @@ tenant.prototype = {
         ajax.get({
             url: base + "collectionIfGet",
             data: data,
-            success: this.fn
+            success: this.fn,
+            error: this.errfn,
+            hideErrorTips: true
         });
 
     },
@@ -133,7 +136,9 @@ tenant.prototype = {
         ajax.get({
             url: base + "fabulousIfGet",
             data: data,
-            success: this.fn
+            success: this.fn,
+            error: this.errfn,
+            hideErrorTips: true
         });
 
     },

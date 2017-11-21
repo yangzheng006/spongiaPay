@@ -1,5 +1,5 @@
 var base = "http://121.43.175.18/JK_HM_GATHER/";
-var memberId=localStorage.getItem('loginID');
+var memberId = localStorage.getItem('loginID');
 var redirecting = false;
 var hasLogin = false;
 var winH = $(window).height();
@@ -441,6 +441,10 @@ var ajax = {
                 if (data.ok) {
                     if (options.success) options.success(data);
                 } else {
+                    options.error && options.error(data);
+                    if (options.hideErrorTips) {
+                        return false;
+                    }
                     setTimeout(function () {
                         toast.show(data.msg, 1000);
                     }, 100);
@@ -476,6 +480,10 @@ var ajax = {
                 if (data.ok) {
                     if (options.success) options.success(data);
                 } else {
+                    options.error && options.error(data);
+                    if (options.hideErrorTips) {
+                        return false;
+                    }
                     setTimeout(function () {
                         toast.show(data.msg, 1000);
                     }, 100);
