@@ -1,4 +1,5 @@
-var base = "http://121.43.175.18/JK_HM_GATHER/";
+var base = "http://123.17.175.48/JK_HM_GATHER/";
+// var base = "http://www.himisw.com/JK_HM_GATHER/";
 var memberId = localStorage.getItem('loginID');
 var redirecting = false;
 var hasLogin = false;
