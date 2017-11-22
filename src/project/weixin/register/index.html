@@ -83,7 +83,10 @@
             }else{
                 //注册提交
                 new login(function (data) {
-                    console.log(data)
+                    console.log(data);
+                    dialog.show('注册成功，立即登陆',function () {
+                        location.replace('../login/index.html')
+                    })
                 }).register({
                     account:phoneNumber,
                     authoCode:code,

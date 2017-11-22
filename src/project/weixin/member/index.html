@@ -552,6 +552,16 @@
                         }
                     })
                 })
+                new member(function (data) {
+                    $('.member_user_info .headImg').attr('src',data.data.TXTP)
+                    $('.member_user_info .name').html(data.data.XM)
+                    $('.member_user_info .sex').html(data.data.XB)
+                    $('.member_user_info .age').html(data.data.NL)
+                    $('.member_user_info .phone').html(data.data.SJHM)
+                    $('.member_user_info .idCard').html(data.data.SFZHM)
+                }).view({
+                    memberId:memberId
+                })
             }
 
 
