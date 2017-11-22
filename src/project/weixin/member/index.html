@@ -135,6 +135,9 @@
                         })
                     }
 
+                    $('.memberIndex #userHeadImg').attr('src',data.data.TXTP)
+                    $('.memberIndex #username').html(data.data.XM)
+
                 }).view({
                     memberId:memberId
                 })
@@ -436,7 +439,7 @@
                             mobile: oldPhone,
                             currentMobile: newPhone,
                             AuthoCode: authCode,
-                            id: 13
+                            id: memberId
                         })
                     }
                 })
@@ -512,7 +515,7 @@
                             fkjg: fkjg,
                             ylsjh: ylsjh,
                             authoCode: authoCode,
-                            hyId: 13
+                            hyId: memberId
                         })
 
                     }
@@ -591,13 +594,15 @@
             if (window.location.hash == '#help') {
                 document.title = '帮助中心';
                 new member(function (data) {
-                    if (data.list.length == 0) {
+                    if (data.pageList.length == 0) {
                         $('.memberHelp').html('<div class="tc f16">暂无数据</div>')
                     } else {
-                        var h = render.fill($("#tpl_helpList"), data.list);
+                        var h = render.fill($("#tpl_helpList"), data.pageList);
                         $('.memberHelp').html(h)
                     }
-                }).help({})
+                }).help({
+                    page:1
+                })
             }
 
             //邀请朋友
@@ -623,6 +628,7 @@
                     location.href = '../register/index.html'
                 })
             }
+
             //关于我们
             if (window.location.hash == '#aboutUs') {
                 document.title = '关于我们';
@@ -684,14 +690,15 @@
                         toast.show('请正确输入身份证号');
                     } else {
                         new member(function (data) {
-                            dialog.show('提交成功，请耐心等待！');
-
+                            dialog.show('提交成功，请耐心等待！',function () {
+                                pageManager.back()
+                            });
                         }).realNameAuthen({
                             name: name,
                             identificationcardNumber: idcard,
                             positiveCart: img1src,
                             negative: img2src,
-                            hyId: '13'
+                            hyId: memberId
                         });
                     }
                 })
