@@ -145,6 +145,8 @@
                 new finance(function (res) {
                     var h = render.fill($("#tpl_loanDetailsTpl"), res.list[0]);
                     $('#loanDetailsWrap').html(h);
+                    $('.loanDetailTp').attr('src',res.tp)
+                    $('.loanDetailMc').html(res.bt)
                 }).loanView({
                     id: loanViewId
                 });
@@ -179,6 +181,9 @@
                 new finance(function (res) {
                     var h = render.fill($("#tpl_cardDetailsTpl"), res.list[0]);
                     $('#cardDetailsWrap').html(h);
+                    $('.cardDetailTp').attr('src',res.tp)
+                    $('.cardDetailMc').html(res.bt)
+                    $('.cardDetailMc').html(res.bt)
                 }).creditCardView({
                     id: creditCardViewId
                 })
@@ -214,7 +219,9 @@
                 new finance(function (res) {
                     var h = render.fill($("#tpl_manageDetailsTpl"), res.list[0]);
                     $('#manageDetailsWrap').html(h);
-                }).creditCardView({
+                    $('.manageDetailTp').attr('src',res.tp)
+                    $('.manageDetailMc').html(res.bt)
+                }).wealthView({
                     id: wealthViewId
                 })
             }
