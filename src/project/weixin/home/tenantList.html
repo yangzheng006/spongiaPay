@@ -49,7 +49,7 @@
                 if($('.tenant_tap span').first().hasClass('active') == true){
                     console.log('加载商家列表');
                     var categoryId = $('.tenant_tap .active').attr('data-id');
-                    shuju(categoryId);
+//                    shuju(categoryId);
                 }
             });
             dh.classTwo({superiorId:oneId});
@@ -64,12 +64,12 @@
             //二级分类
             var dh = new tenant(function (data) {
                 var h = render.fill($("#tpl_classTwo"), data);
-                $(".tenant_tap").append(h);
+                $(".tenant_tap").html(h);
                 $('.tenant_tap span').first().addClass('active');
                 //加载商家列表
                 if($('.tenant_tap span').first().hasClass('active') == true){
                     var categoryId = $('.tenant_tap .active').attr('data-id');
-                    shuju(categoryId);
+//                    shuju(categoryId);
                 }
             });
             dh.classTwo({superiorId:oneId});
@@ -91,7 +91,7 @@
 //            weixin.location(function () {
                 var td = new tenant(function (data) {
                     var f = render.fill($("#tpl_list"), data);
-                    $(".tenant_list").append(f);
+                    $(".tenant_list").html(f);
                 });
                 td.moreList({
                     classificationId: categoryId,
