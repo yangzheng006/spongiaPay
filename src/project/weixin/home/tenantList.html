@@ -66,7 +66,7 @@
             var dh = new tenant(function (data) {
                 console.log('加载二级分类');
                 var h = render.fill($("#tpl_classTwo"), data);
-                $(".tenant_tap").append(h);
+                $(".tenant_tap").html(h);
                 $('.tenant_tap span').first().addClass('active');
                 //加载商家列表
                 if($('.tenant_tap span').first().hasClass('active') == true){
@@ -74,6 +74,8 @@
                     console.log('加载默认二级分类下的商家列表');
                     var categoryId = $('.tenant_tap .active').attr('data-id');
                     shuju(categoryId);
+                }else{
+                    $(".tenant_list").html('<p class="tc" style="margin-top: 30px;">暂时没有商家入驻哦~</p>');
                 }
             });
             dh.classTwo({superiorId:oneId});
