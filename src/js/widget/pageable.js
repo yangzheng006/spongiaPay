@@ -50,6 +50,13 @@
             loadDownFn : ''                                                      // 下方function
         }, options);
 
+        me.remove = function(){
+            me.$element.off();
+            me.$element.find('.'+me.opts.domUp.domClass).remove();
+            me.$element.find('.'+me.opts.domDown.domClass).remove();
+            me = null;
+        };
+
         // 如果加载下方，事先在下方插入DOM
         if(me.opts.loadDownFn != ''){
 
