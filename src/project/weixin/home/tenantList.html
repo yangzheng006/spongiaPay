@@ -124,16 +124,14 @@
                 },
                 loadUpFn: function (me) {
                     var tu = new tenant(function (data) {
-                        me.pageNumber += 1;
                         if(data.total == 0){
                             $(".tenant_list").html('<p class="tc" style="margin-top: 30px;">暂时没有商家入驻哦~</p>');
                         }else{
                             var f = render.fill($("#tpl_list"), data);
-                            $(".tenant_list").append(f);
+                            $(".tenant_list").html(f);
                         }
                         pget.resetload();
                     });
-                    me.pageNumber = 1;
                     tu.moreList({
                         classificationId: categoryId,
                         hyId:localStorage.getItem('loginID'),
@@ -142,8 +140,6 @@
                 },
                 loadDownFn: function (me) {
 //                    weixin.location(function () {
-
-
                     console.log('111111111111');
                         var td = new tenant(function (data) {
                             me.pageNumber += 1;
@@ -153,7 +149,7 @@
                                 var f = render.fill($("#tpl_list"), data);
                                 $(".tenant_list").append(f);
                             }
-                            if (data.length <= 0) {
+                            if (data.length <10) {
                                 me.lock();
                                 me.noData();
                             }
