@@ -31,7 +31,6 @@
 
         //一级分类
         var tu = new tenant(function (data) {
-            console.log('点击一级分类');
             var h = render.fill($("#tpl_classOne"), data);
             $(".find_nav").append(h);
             nav();
@@ -40,7 +39,6 @@
             var oneId = $('.find_nav_cur').attr('data-id');
             //二级分类
             var dh = new tenant(function (data) {
-                console.log('加载二级分类');
                 var h = render.fill($("#tpl_classTwo"), data);
                 $(".tenant_tap").html(h);
                 var navh = $(".tenant_tap").height()+44;
@@ -60,14 +58,12 @@
 
         //点击一级分类
         $(document).on('click', ".find_nav_list li", function () {
-            console.log('点击一级分类');
             var oneId = $(this).attr('data-id');
             $(this).addClass('find_nav_cur').siblings().removeClass('find_nav_cur');
             $('.tenant_tap').html();
             console.log(oneId);
             //二级分类
             var dh = new tenant(function (data) {
-                console.log('加载二级分类');
                 var h = render.fill($("#tpl_classTwo"), data);
                 $(".tenant_tap").html(h);
                 var navh = $(".tenant_tap").height()+44;
@@ -76,7 +72,6 @@
                 //加载商家列表
                 if($('.tenant_tap span').first().hasClass('active') == true){
                     $(".tenant_list").html('');
-                    console.log('加载默认二级分类下的商家列表');
                     var categoryId = $('.tenant_tap .active').attr('data-id');
                     shuju(categoryId);
                 }else{
@@ -88,7 +83,6 @@
 
         //点击二級分类
         $(document).on('click', ".tenant_tap span", function () {
-            console.log('点击二级分类');
             var categoryId = $(this).attr('data-id');
             $(this).addClass('active').siblings().removeClass('active');
             $(".tenant_list").html('');
@@ -96,26 +90,95 @@
         });
 
         function shuju(categoryId) {
-            console.log('调用商家数据');
             //定位，获取经纬度
 //            var categoryId = $('.tenant_tap .active').attr('data-id');
 //            weixin.location(function () {
-                var td = new tenant(function (data) {
-                    if(data.total == 0){
-                        $(".tenant_list").html('<p class="tc" style="margin-top: 30px;">暂时没有商家入驻哦~</p>');
-                    }else{
-                        var f = render.fill($("#tpl_list"), data);
-                        $(".tenant_list").append(f);
-                    }
-                });
-                td.moreList({
-                    classificationId: categoryId,
-                    hyId:localStorage.getItem('loginID'),
-                    page:1,
+
+
+//                var td = new tenant(function (data) {
+//                    if(data.total == 0){
+//                        $(".tenant_list").html('<p class="tc" style="margin-top: 30px;">暂时没有商家入驻哦~</p>');
+//                    }else{
+//                        var f = render.fill($("#tpl_list"), data);
+//                        $(".tenant_list").append(f);
+//                    }
+//                });
+//                td.moreList({
+//                    classificationId: categoryId,
+//                    hyId:localStorage.getItem('loginID'),
+//                    page:1,
+
+
 //                    lat: weixin.lat,
 //                    lng: weixin.lng
-                });
+//                });
 //            });
+
+
+
+            var pget = $(".pageable").pageable({
+                scrollFn: function () {
+
+                    console.log("22222222");
+                    $(window).trigger('scroll');
+                },
+                loadUpFn: function (me) {
+                    var tu = new tenant(function (data) {
+                        me.pageNumber += 1;
+                        if(data.total == 0){
+                            $(".tenant_list").html('<p class="tc" style="margin-top: 30px;">暂时没有商家入驻哦~</p>');
+                        }else{
+                            var f = render.fill($("#tpl_list"), data);
+                            $(".tenant_list").append(f);
+                        }
+                        pget.resetload();
+                    });
+                    me.pageNumber = 1;
+                    tu.moreList({
+                        classificationId: categoryId,
+                        hyId:localStorage.getItem('loginID'),
+                        page:1
+                    });
+                },
+                loadDownFn: function (me) {
+//                    weixin.location(function () {
+
+
+                    console.log('111111111111');
+                        var td = new tenant(function (data) {
+                            me.pageNumber += 1;
+                            if(data.total == 0){
+                                $(".tenant_list").html('<p class="tc" style="margin-top: 30px;">暂时没有商家入驻哦~</p>');
+                            }else{
+                                var f = render.fill($("#tpl_list"), data);
+                                $(".tenant_list").append(f);
+                            }
+                            if (data.length <= 0) {
+                                me.lock();
+                                me.noData();
+                            }
+                            else {
+                                me.noData(false);
+                            }
+                            me.resetload();
+                        });
+                    td.moreList({
+                        classificationId: categoryId,
+                        hyId:localStorage.getItem('loginID'),
+                        page:me.pageNumber
+                    });
+
+//                    })
+                }
+            });
+
+
+
+
+
+
+
+
         }
     })
 </script>
