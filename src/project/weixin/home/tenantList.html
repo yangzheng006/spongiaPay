@@ -42,7 +42,10 @@
             var dh = new tenant(function (data) {
                 console.log('加载二级分类');
                 var h = render.fill($("#tpl_classTwo"), data);
-                $(".tenant_tap").append(h);
+                $(".tenant_tap").html(h);
+                var navh = $(".tenant_tap").height()+44;
+                console.log('高度为：'+navh);
+                $('.weui-tab__panel').css({'padding': navh + 'px 0 0 !important'});
                 $('.tenant_tap span').first().addClass('active');
                 //默认加载第一个
                 if($('.tenant_tap span').first().hasClass('active') == true){
@@ -67,6 +70,8 @@
                 console.log('加载二级分类');
                 var h = render.fill($("#tpl_classTwo"), data);
                 $(".tenant_tap").html(h);
+                var navh = $(".tenant_tap").height()+44;
+                $('.weui-tab__panel').css({'padding': navh + 'px 0 0 !important'});
                 $('.tenant_tap span').first().addClass('active');
                 //加载商家列表
                 if($('.tenant_tap span').first().hasClass('active') == true){
