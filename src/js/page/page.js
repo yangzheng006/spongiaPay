@@ -425,7 +425,7 @@ var ajax = {
     //标准 ajax get 方法
     get: function (options) {
         // toast.show("加载中");
-        if (!localStorage.getItem('loginID') && location.pathname.indexOf("login/index") == -1 && location.pathname.indexOf("register/index") == -1) {
+        if (!localStorage.getItem('loginID') && location.pathname.indexOf("login/index") == -1 && location.pathname.indexOf("register/index") == -1 && location.pathname.indexOf("member/invite") == -1) {
             window.location.href = location.origin + "/weixin/login/index.html";
             return false;
         }
@@ -464,7 +464,7 @@ var ajax = {
     //标准 ajax post 方法
     post: function (options) {
         // toast.show("加载中");
-        if (!localStorage.getItem('loginID') && location.pathname.indexOf("login/index") == -1 && location.pathname.indexOf("register/index") == -1) {
+        if (!localStorage.getItem('loginID') && location.pathname.indexOf("login/index") == -1 && location.pathname.indexOf("register/index") == -1 && location.pathname.indexOf("member/invite") == -1) {
             window.location.href = location.origin + "/weixin/login/index.html";
             return false;
         }

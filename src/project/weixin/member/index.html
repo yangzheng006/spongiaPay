@@ -149,6 +149,15 @@
 
             //商户认证页面
             if(pageManager._getHash()=='#authTenant'){
+                document.title='商户认证';
+                $(document).on('click', '.toggleShowDetail', function () {
+                    $('.showDetailForm').toggle();
+                    if ($(this).find('.weui-cell__ft i').hasClass('icon-up')) {
+                        $(this).find('.weui-cell__ft i').removeClass('icon-up').addClass('icon-arrowbottom')
+                    } else {
+                        $(this).find('.weui-cell__ft i').removeClass('icon-arrowbottom').addClass('icon-up')
+                    }
+                })
                 var shId;
                 //填写第一步资料
                 var bbusinessLicense,identityCardFront,identityCardBack,Authorizationletter,placeofBusiness;
@@ -593,18 +602,6 @@
                 })
             }
 
-            //商户认证
-            if (window.location.hash == '#authTenant') {
-                document.title = '商户认证';
-                $(document).on('click', '.toggleShowDetail', function () {
-                    $('.showDetailForm').toggle();
-                    if ($(this).find('.weui-cell__ft i').hasClass('icon-up')) {
-                        $(this).find('.weui-cell__ft i').removeClass('icon-up').addClass('icon-arrowbottom')
-                    } else {
-                        $(this).find('.weui-cell__ft i').removeClass('icon-arrowbottom').addClass('icon-up')
-                    }
-                })
-            }
 
 
 
@@ -643,7 +640,7 @@
             if (window.location.hash == '#inviteSuccess') {
                 document.title = '邀请注册';
                 $(document).on('click', '.clickLogin', function () {
-                    location.href = '../register/index.html'
+                    location.href = '../member/invite.html'
                 })
             }
 
