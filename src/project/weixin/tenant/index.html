@@ -77,6 +77,16 @@
                 res.item.SCIF == 'true' ? $('#isCollect').removeClass('clr-gray01').addClass('orange_app') : $('#isCollect').removeClass('orange_app').addClass('clr-gray01');
                 res.item.DZIF == 'true' ? $('#isFabulous').removeClass('clr-gray01').addClass('orange_app') : $('#isFabulous').removeClass('orange_app').addClass('clr-gray01');
                 $('#tenantAddress').html(res.item.YYDZ);
+                if(res.item.TXTP){
+                    $('.tenant_touxiang').attr('src',res.item.TXTP)
+                }
+                $('#tel').attr('href','tel:'+res.item.LXRSJH);
+                $('.starScore').html(res.item.PF+'分');
+                var starScore=res.item.PF;
+                for(var i=0;i<starScore;i++){
+                    $('.starList').find('i').eq(i).addClass('icon-s-star')
+                }
+
             }).merchantProductGet(ajaxParams)
 
         });
