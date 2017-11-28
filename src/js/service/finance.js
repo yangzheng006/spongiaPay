@@ -58,6 +58,21 @@ finance.prototype = {
     },
 
     /**
+     * 理财产品推荐
+     *
+     */
+    recommendMerchantGet:function (data) {
+        ajax.get({
+            url: base + "recommendMerchantGet",
+            data:data,
+            success: this.fn
+        });
+
+    },
+
+
+
+    /**
      * 贷款产品详情
      *id  产品id
      */

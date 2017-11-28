@@ -25,6 +25,7 @@
     <link rel="import" href="../../../model/templete/finance/credit_card.html">
     <link rel="import" href="../../../model/templete/finance/loan.html">
     <link rel="import" href="../../../model/templete/finance/wealth.html">
+    <link rel="import" href="../../../model/templete/finance/recwealth.html">
     <link rel="import" href="../../../model/templete/finance/loanDetailsTpl.html">
     <link rel="import" href="../../../model/templete/finance/cardDetailsTpl.html">
     <link rel="import" href="../../../model/templete/finance/manageDetailsTpl.html">
@@ -223,6 +224,14 @@
                     $('.manageDetailMc').html(res.bt)
                 }).wealthView({
                     id: wealthViewId
+                })
+
+                new finance(function (data) {
+                    console.log(data)
+                    var h = render.fill($("#tpl_recwealth"), data.list);
+                    $('.recommendHot').html(h);
+                }).recommendMerchantGet({
+
                 })
             }
         };
