@@ -58,17 +58,20 @@
 
             //商品列表
             new product(function (res) {
+                if(res.list.length == 0){
+                    $('.ad_tit').addClass('none');
+                }
                 var html = "";
                 for (var i = 0, j = res.list.length; i < j; i++) {
-                    html += `<a href="javascript:;" class="col-8" id="${res.list[i].ID}">
-                            <img src="${res.list[i].TP}" />
-                        </a>`;
+                    html += '<a href="javascript:;" class="col-8" id="${res.list[i].ID}">' +
+                            '<img src="${res.list[i].TP}" />' +
+                            '</a>';
                 }
                 html += '<div style="clear:both;"></div>';
                 $('#productList').html(html);
             }).list({
                 merchantId: pageManager.GetQueryString('id')
-            })
+            });
 
             //初始数据
             new tenant(function (res) {
