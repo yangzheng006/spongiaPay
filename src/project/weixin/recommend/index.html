@@ -35,18 +35,23 @@
         var shId;
         //填写第一步资料
         var bbusinessLicense,identityCardFront,identityCardBack,Authorizationletter,placeofBusiness;
+        var accounType='normal';
+        //选择账号类型（对工/法人）
+        $(document).on('click','.selsectAccounType .weui-check__label', function () {
+            var accType=$(this).attr('accType');
+            accounType=accType;
+        });
         $(document).on('click','.recommend .goSubmit',function () {
             var tenantName=$('.recommend .tenantName').val();
             var linkMan=$('.recommend .linkMan').val();
             var phone=$('.recommend .phone').val();
 
-            var accounType='normal';
+
             var bussinessNumber=$('.recommend .bussinessNumber').val();
             var identityCardNum=$('.recommend .identityCardNum').val();
             var account=$('.recommend .account').val();
             var bank=$('.recommend .bank').val();
             var bankAccount=$('.recommend .bankAccount').val();
-
             if(!tenantName){
                 toast.show('请输入商家名称',1000)
             }else if(!linkMan){
@@ -55,8 +60,8 @@
                 toast.show('请输入正确联系电话',1000)
             }else if(!bbusinessLicense && !identityCardFront &&!identityCardBack && !Authorizationletter &&!placeofBusiness && !bussinessNumber &&!identityCardNum &&!account &&!bank &&!bankAccount){
                 new member(function (data) {
-                    if(!data.IsAuthenticationSm){
-                        dialog.query('实名认证后才可提交，立刻前去认证',function () {
+                    if(!data.IsAuthenticationSm && !data.IsAuthenticationSh){
+                        dialog.query('实名认证或商户认证后才可提交，立刻前去认证',function () {
                             location.href='../member/index.html#auth';
                         })
                     }else{
@@ -212,11 +217,7 @@
         });
 
 
-        //选择账号类型（对工/法人）
-        $(document).on('click','.selsectAccounType .weui-check__label', function () {
-           var accType=$(this).attr('accType');
-            accounType=accType;
-        });
+
 
     })
 
