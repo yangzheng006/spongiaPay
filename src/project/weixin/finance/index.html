@@ -37,11 +37,11 @@
 
         $(function () {
             pageManager.show("index");
-        })
+        });
         var pageFn = function () {
 
             if (pageManager._getHash() == '#') {
-                $(document).on('click', '.financeTab-tabTop>div,.financeTab-list>div', function () {
+                $(document).off().on('click', '.financeTab-tabTop>div,.financeTab-list>div', function () {
                     var index = $(this).index(), that = this;
 
                     if ($(this).hasClass('active')) {
@@ -84,15 +84,13 @@
                         })
                     }
                     if ($(this).parent().hasClass('financeTab-list')) {
-//                        console.log('x');
-//                        console.log(financeName)
-//                        console.log(selectTopId)
                         var tapContentId = $(this).attr('data-id');
                         var tapTopId = $('.financeTab-tabTop div.active').attr('data-id');
                         new finance(function (resd) {
                             if (financeName == '理财') {
-                                console.log(11212)
                                 var h = render.fill($("#tpl_wealth"), resd.list);
+                                console.log(h)
+                                console.log($(that).parent().siblings('.financeTab-listWrap'))
                                 $(that).parent().siblings('.financeTab-listWrap').html(h)
                             } else if (financeName == '信用卡') {
                                 var h = render.fill($("#tpl_credit_card"), resd.list);
@@ -107,7 +105,9 @@
                         })
                     }
                 })
-
+                if($('.financeTab-content').length>0){
+                    return;
+                }
                 new finance(function (res) {
                     new finance(function (rest) {
                         var htmlt = '';
@@ -232,7 +232,7 @@
                 }).recommendMerchantGet()
             }
         };
-        window.addEventListener('pageGoOk', pageFn)
+        window.addEventListener('pageGoOk', pageFn);
     </script>
 </body>
 
