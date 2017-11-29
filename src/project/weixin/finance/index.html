@@ -63,13 +63,13 @@
                             }
                             new finance(function (resd) {
                                 if (financeName == '理财') {
-                                    var h = render.fill($("#tpl_wealth"), resd.pageList);
+                                    var h = render.fill($("#tpl_wealth"), resd.list);
                                     $('#tab' + selectTopId + ' .financeTab-listWrap').html(h)
                                 } else if (financeName == '信用卡') {
-                                    var h = render.fill($("#tpl_credit_card"), resd.pageList);
+                                    var h = render.fill($("#tpl_credit_card"), resd.list);
                                     $('#tab' + selectTopId + ' .financeTab-listWrap').html(h)
                                 } else if (financeName == '贷款') {
-                                    var h = render.fill($("#tpl_loan"), resd.pageList);
+                                    var h = render.fill($("#tpl_loan"), resd.list);
                                     $('#tab' + selectTopId + ' .financeTab-listWrap').html(h)
                                 }
 
@@ -92,13 +92,13 @@
                         new finance(function (resd) {
                             if (financeName == '理财') {
                                 console.log(11212)
-                                var h = render.fill($("#tpl_wealth"), resd.pageList);
+                                var h = render.fill($("#tpl_wealth"), resd.list);
                                 $(that).parent().siblings('.financeTab-listWrap').html(h)
                             } else if (financeName == '信用卡') {
-                                var h = render.fill($("#tpl_credit_card"), resd.pageList);
+                                var h = render.fill($("#tpl_credit_card"), resd.list);
                                 $(that).parent().siblings('.financeTab-listWrap').html(h)
                             } else if (financeName == '贷款') {
-                                var h = render.fill($("#tpl_loan"), resd.pageList);
+                                var h = render.fill($("#tpl_loan"), resd.list);
                                 $(that).parent().siblings('.financeTab-listWrap').html(h)
                             }
                         }).list({
@@ -116,7 +116,7 @@
                             htmlt += `<div class="${i == 0 ? 'active' : ''}" data-px="${rest.list[i].PX}" data-id="${rest.list[i].ID}">${rest.list[i].LBMC}</div>`
                         }
                         new finance(function (resd) {
-                            var h = render.fill($("#tpl_wealth"), resd.pageList);
+                            var h = render.fill($("#tpl_wealth"), resd.list);
                             $('#tab' + res.list[0].ID + ' .financeTab-listWrap').html(h);
                         }).list({
                             classificationId: rest.list[0].ID,
