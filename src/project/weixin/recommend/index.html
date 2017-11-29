@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
     <title>推荐商家</title>
     @import "../include/header.inc";
-    <link rel="stylesheet" href="/weixin/style/member.min.css"/>
+    <link rel="stylesheet" href="/weixin/style/wap.min.css"/>
 </head>
 <body>
 <div class="weui-toptips weui-toptips_warn js_tooltips">错误提示</div>
@@ -20,7 +20,6 @@
 <script src="/weixin/js/common.min.js"></script>
 <script src="/weixin/js/wap.min.js"></script>
 <script type="text/javascript">
-
     $(function(){
         pageManager.show("index");
         $(document).on('click','.toggleShowDetail',function () {
@@ -55,14 +54,24 @@
             }else if(!(/^1[0-9]{10}$/.test(phone))){
                 toast.show('请输入正确联系电话',1000)
             }else if(!bbusinessLicense && !identityCardFront &&!identityCardBack && !Authorizationletter &&!placeofBusiness && !bussinessNumber &&!identityCardNum &&!account &&!bank &&!bankAccount){
-                new authentication(function (data) {
-                    shId=data.id;
-                    toast.show('提交成功',1000)
-                }).tenantsNormal({
-                    tenantName:tenantName,
-                    linkMan:linkMan,
-                    phone:phone,
-                    hyId:memberId
+                new member(function (data) {
+                    if(!data.IsAuthenticationSm){
+                        dialog.query('实名认证后才可提交，立刻前去认证',function () {
+                            location.href='../member/index.html#auth';
+                        })
+                    }else{
+                        new authentication(function (data) {
+                            shId=data.id;
+                            toast.show('提交成功',1000)
+                        }).tenantsNormal({
+                            tenantName:tenantName,
+                            linkMan:linkMan,
+                            phone:phone,
+                            hyId:memberId
+                        })
+                    }
+                }).view({
+                    memberId:memberId
                 })
             }else if(!bussinessNumber){
                 toast.show('请填写营业执照号',1000)

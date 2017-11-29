@@ -84,9 +84,9 @@
                         })
                     }
                     if ($(this).parent().hasClass('financeTab-list')) {
-                        console.log('x');
-                        console.log(financeName)
-                        console.log(selectTopId)
+//                        console.log('x');
+//                        console.log(financeName)
+//                        console.log(selectTopId)
                         var tapContentId = $(this).attr('data-id');
                         var tapTopId = $('.financeTab-tabTop div.active').attr('data-id');
                         new finance(function (resd) {
@@ -227,12 +227,9 @@
                 })
 
                 new finance(function (data) {
-                    console.log(data)
                     var h = render.fill($("#tpl_recwealth"), data.list);
                     $('.recommendHot').html(h);
-                }).recommendMerchantGet({
-
-                })
+                }).recommendMerchantGet()
             }
         };
         window.addEventListener('pageGoOk', pageFn)
