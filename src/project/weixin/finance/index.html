@@ -29,8 +29,8 @@
     <link rel="import" href="../../../model/templete/finance/loanDetailsTpl.html">
     <link rel="import" href="../../../model/templete/finance/cardDetailsTpl.html">
     <link rel="import" href="../../../model/templete/finance/manageDetailsTpl.html">
-    @import "../../../model/widget/include/toast.html";
-    @import "../../../model/widget/include/dialog.html";
+    <!-- @import "../../../model/widget/include/toast.html";
+    @import "../../../model/widget/include/dialog.html"; -->
     <script src="/weixin/js/common.min.js"></script>
     <script src="/weixin/js/wap.min.js"></script>
     <script type="text/javascript">
@@ -49,7 +49,6 @@
                     }
                     $(this).addClass('active').siblings('.active').removeClass('active');
                     var financeName = $('.financeTab-tabTop').find('.active').html();
-                    console.log(financeName)
                     if ($(this).parents().hasClass('financeTab-tabTop') && !$('.financeTab-content').eq(index).hasClass('financeTab-show')) {
                         $('.financeTab-content').eq(index).addClass('financeTab-show').siblings().removeClass('financeTab-show')
                     }
@@ -75,7 +74,7 @@
 
                             }).list({
                                 classificationId: rest.list[0].ID,
-                                page:1
+                                page: 1
                             })
                             $('#tab' + selectTopId + ' .financeTab-list').html(htmlt);
 
@@ -89,8 +88,6 @@
                         new finance(function (resd) {
                             if (financeName == '理财') {
                                 var h = render.fill($("#tpl_wealth"), resd.list);
-                                console.log(h)
-                                console.log($(that).parent().siblings('.financeTab-listWrap'))
                                 $(that).parent().siblings('.financeTab-listWrap').html(h)
                             } else if (financeName == '信用卡') {
                                 var h = render.fill($("#tpl_credit_card"), resd.list);
@@ -101,37 +98,19 @@
                             }
                         }).list({
                             classificationId: tapContentId,
-                            page:1
+                            page: 1
                         })
                     }
                 })
-                if($('.financeTab-content').length>0){
+                if ($('.financeTab-content').length > 0) {
                     return;
                 }
                 new finance(function (res) {
-                    new finance(function (rest) {
-                        var htmlt = '';
-                        console.log(rest)
-                        for (var i = 0, j = rest.list.length; i < j; i++) {
-                            htmlt += `<div class="${i == 0 ? 'active' : ''}" data-px="${rest.list[i].PX}" data-id="${rest.list[i].ID}">${rest.list[i].LBMC}</div>`
-                        }
-                        new finance(function (resd) {
-                            var h = render.fill($("#tpl_wealth"), resd.list);
-                            $('#tab' + res.list[0].ID + ' .financeTab-listWrap').html(h);
-                        }).list({
-                            classificationId: rest.list[0].ID,
-                            page:1
-                        })
-                        $('#tab' + res.list[0].ID + ' .financeTab-list').html(htmlt);
-
-                    }).classTwo({
-                        superiorId: res.list[0].ID
-                    })
                     var tapTop = '', tapContent = '';
                     for (var i = 0, j = res.list.length; i < j; i++) {
                         tapTop += `<div class="weui-flex__item ${i == 0 ? 'active' : ''}"  data-px="${res.list[i].PX}" data-id="${res.list[i].ID}">${res.list[i].LBMC}</div>`;
                         tapContent += `
-                        <div class="financeTab-content ${i == 0 ? 'financeTab-show' : ''}" data-px="${res.list[i].PX}" id="tab${res.list[i].ID}">
+                        <div class="financeTab-content pageable ${i == 0 ? 'financeTab-show' : ''}" data-px="${res.list[i].PX}" id="tab${res.list[i].ID}">
                             <div class="financeTab-list f12 weui-flex"></div>
                             <div class="financeTab-listWrap"></div>
                         </div>
@@ -139,40 +118,72 @@
                     }
                     $('#financeTabTop').html(tapTop)
                     $('#financeTab').append(tapContent)
+                    $('.financeTab-content[data-px="0"]').pageable({
+                        scrollFn: function () {
+                            $(window).trigger('scroll');
+                        },
+                        loadUpFn: function (me) {
+
+                        },
+                        loadDownFn: function (me) {
+                            new finance(function (rest) {
+                                var htmlt = '';
+                                for (var i = 0, j = rest.list.length; i < j; i++) {
+                                    htmlt += `<div class="${i == 0 ? 'active' : ''}" data-px="${rest.list[i].PX}" data-id="${rest.list[i].ID}">${rest.list[i].LBMC}</div>`
+                                }
+                                new finance(function (resd) {
+                                    var h = render.fill($("#tpl_wealth"), resd.list);
+                                    $('#tab' + res.list[0].ID + ' .financeTab-listWrap').html(h);
+                                    if (res.list.length < 10) {
+                                        me.lock();
+                                        me.noData();
+                                    }else {
+                                        me.noData(false);
+                                    }
+                                    me.resetload();
+                                }).list({
+                                    classificationId: rest.list[0].ID,
+                                    page: 1
+                                })
+                                $('#tab' + res.list[0].ID + ' .financeTab-list').html(htmlt);
+                            }).classTwo({
+                                superiorId: res.list[0].ID
+                            })
+                        }
+                    });
                 }).classOne()
             }
             if (pageManager._getHash() == '#loanDetails') {
-                var loanViewId = pageManager.GetQueryString('id')|| (location.hash = '#');
+                var loanViewId = pageManager.GetQueryString('id') || (location.hash = '#');
                 new finance(function (res) {
                     var h = render.fill($("#tpl_loanDetailsTpl"), res.list[0]);
                     $('#loanDetailsWrap').html(h);
-                    $('.loanDetailTp').attr('src',res.tp)
+                    $('.loanDetailTp').attr('src', res.tp)
                     $('.loanDetailMc').html(res.bt)
                 }).loanView({
                     id: loanViewId
                 });
                 new finance(function (data) {
-                    if(!data.revert){
-                        $(document).on('click','.loanApply',function () {
-                            dialog.query('是否确认申请',function () {
+                    if (!data.revert) {
+                        $(document).on('click', '.loanApply', function () {
+                            dialog.query('是否确认申请', function () {
                                 new finance(function (data) {
-                                    console.log(data);
                                     toast.show('申请成功');
                                     $('.loanApply').html('已申请')
                                     $('.loanApply').removeClass('loanApply');
                                 }).applicantAdd({
-                                    hyId:memberId,
-                                    cpId:pageManager.GetQueryString('id')
+                                    hyId: memberId,
+                                    cpId: pageManager.GetQueryString('id')
                                 })
                             })
                         })
-                    }else{
+                    } else {
                         $('.loanApply').html('已申请')
                     }
 
                 }).applicantGet({
-                    hyId:memberId,
-                    cpId:pageManager.GetQueryString('id')
+                    hyId: memberId,
+                    cpId: pageManager.GetQueryString('id')
                 })
 
 
@@ -182,7 +193,7 @@
                 new finance(function (res) {
                     var h = render.fill($("#tpl_cardDetailsTpl"), res.list[0]);
                     $('#cardDetailsWrap').html(h);
-                    $('.cardDetailTp').attr('src',res.tp)
+                    $('.cardDetailTp').attr('src', res.tp)
                     $('.cardDetailMc').html(res.bt)
                     $('.cardDetailMc').html(res.bt)
                 }).creditCardView({
@@ -190,27 +201,26 @@
                 })
 
                 new finance(function (data) {
-                    if(!data.revert){
-                        $(document).on('click','.cardApply',function () {
-                            dialog.query('是否确认申请',function () {
+                    if (!data.revert) {
+                        $(document).on('click', '.cardApply', function () {
+                            dialog.query('是否确认申请', function () {
                                 new finance(function (data) {
-                                    console.log(data);
                                     toast.show('申请成功')
                                     $('.cardApply').html('已申请')
                                     $('.cardApply').removeClass('cardApply');
                                 }).applicantAdd({
-                                    hyId:memberId,
-                                    cpId:pageManager.GetQueryString('id')
+                                    hyId: memberId,
+                                    cpId: pageManager.GetQueryString('id')
                                 })
                             })
                         })
-                    }else{
+                    } else {
                         $('.cardApply').html('已申请')
                     }
 
                 }).applicantGet({
-                    hyId:memberId,
-                    cpId:pageManager.GetQueryString('id')
+                    hyId: memberId,
+                    cpId: pageManager.GetQueryString('id')
                 })
 
 
@@ -220,7 +230,7 @@
                 new finance(function (res) {
                     var h = render.fill($("#tpl_manageDetailsTpl"), res.list[0]);
                     $('#manageDetailsWrap').html(h);
-                    $('.manageDetailTp').attr('src',res.tp)
+                    $('.manageDetailTp').attr('src', res.tp)
                     $('.manageDetailMc').html(res.bt)
                 }).wealthView({
                     id: wealthViewId
