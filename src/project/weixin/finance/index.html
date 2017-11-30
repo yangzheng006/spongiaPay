@@ -60,24 +60,6 @@
                             for (var i = 0, j = rest.list.length; i < j; i++) {
                                 htmlt += `<div class="${i == 0 ? 'active' : ''}" data-px="${rest.list[i].PX}" data-id="${rest.list[i].ID}">${rest.list[i].LBMC}</div>`
                             }
-                            var heig = $('.financeTab-list').height();
-                            $('.financeTab-listWrap').css({'padding':heig +'px 0 0'});
-                            new finance(function (resd) {
-                                if (financeName == '理财') {
-                                    var h = render.fill($("#tpl_wealth"), resd.list);
-                                    $('#tab' + selectTopId + ' .financeTab-listWrap').html(h)
-                                } else if (financeName == '信用卡') {
-                                    var h = render.fill($("#tpl_credit_card"), resd.list);
-                                    $('#tab' + selectTopId + ' .financeTab-listWrap').html(h)
-                                } else if (financeName == '贷款') {
-                                    var h = render.fill($("#tpl_loan"), resd.list);
-                                    $('#tab' + selectTopId + ' .financeTab-listWrap').html(h)
-                                }
-
-                            }).list({
-                                classificationId: rest.list[0].ID,
-                                page: 1
-                            })
                             $('#tab' + selectTopId + ' .financeTab-list').html(htmlt);
                             pageableRefresh(selectPx, rest.list[0].PX);
                         }).classTwo({
@@ -163,55 +145,9 @@
                             <div class="financeTab-listWrap"></div>
                         </div>
                         `;
-                    }
-                    $('#financeTabTop').html(tapTop);
-                    $('#financeTab').append(tapContent);
-                    setTimeout(function () {
-                        var heig = $('.financeTab-list').height();
-                        $('.financeTab-listWrap').css({'padding' : heig +'px 0 0'});
-                    },30);
-                    $('.financeTab-content[data-px="0"]').pageable({
-                        scrollFn: function () {
-                            $(window).trigger('scroll');
-                        },
-                        loadUpFn: function (me) {
-
-                        },
-                        loadDownFn: function (me) {
-                            new finance(function (rest) {
-                                var htmlt = '';
-                                for (var i = 0, j = rest.list.length; i < j; i++) {
-                                    htmlt += `<div class="${i == 0 ? 'active' : ''}" data-px="${rest.list[i].PX}" data-id="${rest.list[i].ID}">${rest.list[i].LBMC}</div>`
-                                }
-                                new finance(function (resd) {
-                                    var h = render.fill($("#tpl_wealth"), resd.list);
-                                    $('#tab' + res.list[0].ID + ' .financeTab-listWrap').html(h);
-                                    if (res.list.length < 10) {
-                                        me.lock();
-                                        me.noData();
-                                    }else {
-                                        me.noData(false);
-                                    }
-                                    me.resetload();
-                                }).list({
-                                    classificationId: rest.list[0].ID,
-                                    page: 1
-                                })
-                                $('#tab' + res.list[0].ID + ' .financeTab-list').html(htmlt);
-                            }).classTwo({
-                                superiorId: res.list[0].ID
-                            })
                         }
-                    });
-                }).classOne();
-
-                        $('#financeTabTop').html(tapTop);
-                        $('#financeTab').append(tapContent);
-
-                        setTimeout(function () {
-                            var heig = $('.financeTab-list').height();
-                            $('.financeTab-listWrap').css({'margin':heig+'px 0 0'})
-                        },30);
+                        $('#financeTabTop').html(tapTop)
+                        $('#financeTab').append(tapContent)
                         new finance(function (rest) {
                             var htmlt = '';
                             for (var i = 0, j = rest.list.length; i < j; i++) {
@@ -222,6 +158,13 @@
                         }).classTwo({
                             superiorId: res.list[0].ID
                         })
+
+                        setTimeout(function () {
+                            var heig = $('.financeTab-list').height();
+                            $('.financeTab-listWrap').css({ 'margin': heig + 'px 0 0' })
+                        }, 30);
+
+                    }).classOne()
                 }
             }
             //贷款详情页
