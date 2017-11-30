@@ -29,8 +29,6 @@
     <link rel="import" href="../../../model/templete/finance/loanDetailsTpl.html">
     <link rel="import" href="../../../model/templete/finance/cardDetailsTpl.html">
     <link rel="import" href="../../../model/templete/finance/manageDetailsTpl.html">
-    <!-- @import "../../../model/widget/include/toast.html";
-    @import "../../../model/widget/include/dialog.html"; -->
     <script src="/weixin/js/common.min.js"></script>
     <script src="/weixin/js/wap.min.js"></script>
     <script type="text/javascript">
@@ -60,6 +58,8 @@
                             for (var i = 0, j = rest.list.length; i < j; i++) {
                                 htmlt += `<div class="${i == 0 ? 'active' : ''}" data-px="${rest.list[i].PX}" data-id="${rest.list[i].ID}">${rest.list[i].LBMC}</div>`
                             }
+                            var heig = $('.financeTab-list').height();
+                            $('.financeTab-listWrap').css({'padding':heig +'px 0 0'});
                             new finance(function (resd) {
                                 if (financeName == '理财') {
                                     var h = render.fill($("#tpl_wealth"), resd.list);
@@ -116,8 +116,12 @@
                         </div>
                         `;
                     }
-                    $('#financeTabTop').html(tapTop)
-                    $('#financeTab').append(tapContent)
+                    $('#financeTabTop').html(tapTop);
+                    $('#financeTab').append(tapContent);
+                    setTimeout(function () {
+                        var heig = $('.financeTab-list').height();
+                        $('.financeTab-listWrap').css({'padding' : heig +'px 0 0'});
+                    },30);
                     $('.financeTab-content[data-px="0"]').pageable({
                         scrollFn: function () {
                             $(window).trigger('scroll');

@@ -30,9 +30,14 @@
     }
     .financeTab-list {
         background: #f1f1f4;
-        position: relative;
+        //position: relative;
         flex-wrap: wrap;
         padding: 2%;
+        position: fixed;
+        left:0;
+        top:50px;
+        z-index: 999;
+        width: 100%;
         &::after {
             .mixin(bottom, solid, #dddddd);
         }
