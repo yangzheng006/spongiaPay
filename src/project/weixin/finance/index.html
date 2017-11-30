@@ -153,6 +153,8 @@
                     });
                 }).classOne()
             }
+
+            //贷款详情页
             if (pageManager._getHash() == '#loanDetails') {
                 var loanViewId = pageManager.GetQueryString('id') || (location.hash = '#');
                 new finance(function (res) {
@@ -188,6 +190,8 @@
 
 
             }
+
+            //信用卡详情页
             if (pageManager._getHash() == '#cardDetails') {
                 var creditCardViewId = pageManager.GetQueryString('id') || (location.hash = '#');
                 new finance(function (res) {
@@ -225,6 +229,8 @@
 
 
             }
+
+            //理财详情页
             if (pageManager._getHash() == '#manageDetails') {
                 var wealthViewId = pageManager.GetQueryString('id') || (location.hash = '#');
                 new finance(function (res) {
