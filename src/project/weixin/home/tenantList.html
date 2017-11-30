@@ -43,12 +43,10 @@
                 var h = render.fill($("#tpl_classTwo"), data);
                 $(".tenant_tap").html(h);
                 var navh = $(".tenant_tap").height() + 44;
-                console.log('高度为：' + navh);
                 $('.weui-tab__panel').css({ 'padding': navh + 'px 0 0 !important' });
                 $('.tenant_tap span').first().addClass('active');
                 //默认加载第一个
                 if ($('.tenant_tap span').first().hasClass('active') == true) {
-                    console.log('加载商家列表');
                     var categoryId = $('.tenant_tap .active').attr('data-id');
                     shuju(categoryId);
                 }
@@ -92,7 +90,6 @@
 
         var pget = null;
         function shuju(categoryId) {
-            console.log("sj",categoryId);
             pget && pget.remove();
             pget = $(".pageable").pageable({
                 scrollFn: function () {
@@ -140,5 +137,4 @@
 </script>
 
 </body>
-
 </html>
