@@ -28,7 +28,9 @@
     <link rel="import" href="../../../model/templete/finance/recwealth.html">
     <link rel="import" href="../../../model/templete/finance/loanDetailsTpl.html">
     <link rel="import" href="../../../model/templete/finance/cardDetailsTpl.html">
-    <link rel="import" href="../../../model/templete/finance/manageDetailsTpl.html"> @import "../../../model/widget/include/toast.html"; @import "../../../model/widget/include/dialog.html";
+    <link rel="import" href="../../../model/templete/finance/manageDetailsTpl.html">
+    @import "../../../model/widget/include/toast.html";
+    @import "../../../model/widget/include/dialog.html";
     <script src="/weixin/js/common.min.js"></script>
     <script src="/weixin/js/wap.min.js"></script>
     <script type="text/javascript">
@@ -203,8 +205,12 @@
                     });
                 }).classOne()
                         }
-                        $('#financeTabTop').html(tapTop)
-                        $('#financeTab').append(tapContent)
+                        $('#financeTabTop').html(tapTop);
+                        $('#financeTab').append(tapContent);
+                        setTimeout(function () {
+                            var heig = $('.financeTab-list').height();
+                            $('.financeTab-listWrap').css({'margin':heig+'px 0 0'})
+                        },30);
                         new finance(function (rest) {
                             var htmlt = '';
                             for (var i = 0, j = rest.list.length; i < j; i++) {
