@@ -140,7 +140,7 @@
                         for (var i = 0, j = res.list.length; i < j; i++) {
                             tapTop += `<div class="weui-flex__item ${i == 0 ? 'active' : ''}"  data-px="${res.list[i].PX}" data-id="${res.list[i].ID}">${res.list[i].LBMC}</div>`;
                             tapContent += `
-                        <div class="financeTab-content pageable weui-tab__panel ${i == 0 ? 'financeTab-show' : ''}" data-px="${res.list[i].PX}" id="tab${res.list[i].ID}">
+                        <div style="padding-top: ${Math.ceil(j/4)*52.5}px" class="financeTab-content pageable weui-tab__panel ${i == 0 ? 'financeTab-show' : ''}" data-px="${res.list[i].PX}" id="tab${res.list[i].ID}">
                             <div class="financeTab-list f12 weui-flex"></div>
                             <div class="financeTab-listWrap"></div>
                         </div>
@@ -158,11 +158,6 @@
                         }).classTwo({
                             superiorId: res.list[0].ID
                         })
-
-                        setTimeout(function () {
-                            var heig = $('.financeTab-list').height();
-                            $('.financeTab-listWrap').css({ 'margin': heig + 'px 0 0' })
-                        }, 30);
 
                     }).classOne()
                 }
