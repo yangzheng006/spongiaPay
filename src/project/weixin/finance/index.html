@@ -203,10 +203,11 @@
                             })
                         }
                     });
-                }).classOne()
-                        }
+                }).classOne();
+
                         $('#financeTabTop').html(tapTop);
                         $('#financeTab').append(tapContent);
+
                         setTimeout(function () {
                             var heig = $('.financeTab-list').height();
                             $('.financeTab-listWrap').css({'margin':heig+'px 0 0'})
@@ -221,8 +222,6 @@
                         }).classTwo({
                             superiorId: res.list[0].ID
                         })
-
-                    }).classOne()
                 }
             }
             //贷款详情页
