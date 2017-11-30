@@ -28,20 +28,19 @@
     <link rel="import" href="../../../model/templete/finance/recwealth.html">
     <link rel="import" href="../../../model/templete/finance/loanDetailsTpl.html">
     <link rel="import" href="../../../model/templete/finance/cardDetailsTpl.html">
-    <link rel="import" href="../../../model/templete/finance/manageDetailsTpl.html">
+    <link rel="import" href="../../../model/templete/finance/manageDetailsTpl.html"> @import "../../../model/widget/include/toast.html"; @import "../../../model/widget/include/dialog.html";
     <script src="/weixin/js/common.min.js"></script>
     <script src="/weixin/js/wap.min.js"></script>
     <script type="text/javascript">
-
+        var pageableList = {};
         $(function () {
             pageManager.show("index");
         });
         var pageFn = function () {
 
             if (pageManager._getHash() == '#') {
-                $(document).off().on('click', '.financeTab-tabTop>div,.financeTab-list>div', function () {
+                function tabCheck() {
                     var index = $(this).index(), that = this;
-
                     if ($(this).hasClass('active')) {
                         return false;
                     }
@@ -53,6 +52,7 @@
                     //获取数据
                     if ($('.financeTab-show .financeTab-list').html() == '') {
                         var selectTopId = $('.financeTab-tabTop div.active').attr('data-id');
+                        var selectPx = $(this).attr('data-px');
                         new finance(function (rest) {
                             var htmlt = '';
                             for (var i = 0, j = rest.list.length; i < j; i++) {
@@ -77,40 +77,86 @@
                                 page: 1
                             })
                             $('#tab' + selectTopId + ' .financeTab-list').html(htmlt);
-
+                            pageableRefresh(selectPx, rest.list[0].PX);
                         }).classTwo({
                             superiorId: selectTopId
                         })
                     }
                     if ($(this).parent().hasClass('financeTab-list')) {
-                        var tapContentId = $(this).attr('data-id');
-                        var tapTopId = $('.financeTab-tabTop div.active').attr('data-id');
-                        new finance(function (resd) {
-                            if (financeName == '理财') {
-                                var h = render.fill($("#tpl_wealth"), resd.list);
-                                $(that).parent().siblings('.financeTab-listWrap').html(h)
-                            } else if (financeName == '信用卡') {
-                                var h = render.fill($("#tpl_credit_card"), resd.list);
-                                $(that).parent().siblings('.financeTab-listWrap').html(h)
-                            } else if (financeName == '贷款') {
-                                var h = render.fill($("#tpl_loan"), resd.list);
-                                $(that).parent().siblings('.financeTab-listWrap').html(h)
-                            }
-                        }).list({
-                            classificationId: tapContentId,
-                            page: 1
-                        })
+                        pageableRefresh($(this).parents('.financeTab-content').attr('data-px'), $(this).attr('data-id'));
                     }
-                })
-                if ($('.financeTab-content').length > 0) {
-                    return;
                 }
-                new finance(function (res) {
-                    var tapTop = '', tapContent = '';
-                    for (var i = 0, j = res.list.length; i < j; i++) {
-                        tapTop += `<div class="weui-flex__item ${i == 0 ? 'active' : ''}"  data-px="${res.list[i].PX}" data-id="${res.list[i].ID}">${res.list[i].LBMC}</div>`;
-                        tapContent += `
-                        <div class="financeTab-content pageable ${i == 0 ? 'financeTab-show' : ''}" data-px="${res.list[i].PX}" id="tab${res.list[i].ID}">
+
+                function pageableRefresh(px, paramsId) {
+                    pageableList['tp' + px] && pageableList['tp' + px].remove();
+                    pageableList['tp' + px] = $('.financeTab-content[data-px="' + px + '"]').pageable({
+                        scrollFn: function () {
+                            $(window).trigger('scroll');
+                        },
+                        loadUpFn: function (me) {
+                            new finance(function (res) {
+                                var financeName = $('.financeTab-tabTop .weui-flex__item[data-px="' + px + '"]').html(), h = '';
+                                if (financeName == '理财') {
+                                    h = render.fill($("#tpl_wealth"), res.list);
+                                } else if (financeName == '信用卡') {
+                                    h = render.fill($("#tpl_credit_card"), res.list);
+                                } else if (financeName == '贷款') {
+                                    h = render.fill($("#tpl_loan"), res.list);
+                                }
+                                $('.financeTab-content[data-px="' + px + '"] .financeTab-listWrap').html(h);
+                                if (res.list.length < 10) {
+                                    me.lock();
+                                    me.noData();
+                                } else {
+                                    me.noData(false);
+                                }
+                                me.resetload();
+                            }).list({
+                                classificationId: paramsId,
+                                page: 1
+                            })
+                        },
+                        loadDownFn: function (me) {
+                            new finance(function (res) {
+                                me.pageNumber += 1;
+                                var financeName = $('.financeTab-tabTop .weui-flex__item[data-px="' + px + '"]').html(), h = '';
+                                if (financeName == '理财') {
+                                    h = render.fill($("#tpl_wealth"), res.list);
+                                } else if (financeName == '信用卡') {
+                                    h = render.fill($("#tpl_credit_card"), res.list);
+                                } else if (financeName == '贷款') {
+                                    h = render.fill($("#tpl_loan"), res.list);
+                                } else {
+                                    h = render.fill($("#tpl_wealth"), res.list);
+                                }
+                                $('.financeTab-content[data-px="' + px + '"] .financeTab-listWrap').append(h);
+                                if (res.list.length < 10) {
+                                    me.lock();
+                                    me.noData();
+                                } else {
+                                    me.noData(false);
+                                }
+                                me.resetload();
+                            }).list({
+                                classificationId: paramsId,
+                                page: me.pageNumber
+                            })
+                        }
+                    });
+                    pageableList['tp' + px].refresh();
+                }
+
+                $(document)
+                    .off('click', '.financeTab-tabTop>div,.financeTab-list>div', tabCheck)
+                    .on('click', '.financeTab-tabTop>div,.financeTab-list>div', tabCheck);
+
+                if ($('.financeTab-content').length <= 0) {
+                    new finance(function (res) {
+                        var tapTop = '', tapContent = '';
+                        for (var i = 0, j = res.list.length; i < j; i++) {
+                            tapTop += `<div class="weui-flex__item ${i == 0 ? 'active' : ''}"  data-px="${res.list[i].PX}" data-id="${res.list[i].ID}">${res.list[i].LBMC}</div>`;
+                            tapContent += `
+                        <div class="financeTab-content pageable weui-tab__panel ${i == 0 ? 'financeTab-show' : ''}" data-px="${res.list[i].PX}" id="tab${res.list[i].ID}">
                             <div class="financeTab-list f12 weui-flex"></div>
                             <div class="financeTab-listWrap"></div>
                         </div>
@@ -156,7 +202,24 @@
                         }
                     });
                 }).classOne()
+                        }
+                        $('#financeTabTop').html(tapTop)
+                        $('#financeTab').append(tapContent)
+                        new finance(function (rest) {
+                            var htmlt = '';
+                            for (var i = 0, j = rest.list.length; i < j; i++) {
+                                htmlt += `<div class="${i == 0 ? 'active' : ''}" data-px="${rest.list[i].PX}" data-id="${rest.list[i].ID}">${rest.list[i].LBMC}</div>`
+                            }
+                            $('#tab' + res.list[0].ID + ' .financeTab-list').html(htmlt);
+                            pageableRefresh(rest.list[0].PX, rest.list[0].ID)
+                        }).classTwo({
+                            superiorId: res.list[0].ID
+                        })
+
+                    }).classOne()
+                }
             }
+            //贷款详情页
             if (pageManager._getHash() == '#loanDetails') {
                 var loanViewId = pageManager.GetQueryString('id') || (location.hash = '#');
                 new finance(function (res) {
@@ -192,6 +255,8 @@
 
 
             }
+
+            //信用卡详情页
             if (pageManager._getHash() == '#cardDetails') {
                 var creditCardViewId = pageManager.GetQueryString('id') || (location.hash = '#');
                 new finance(function (res) {
@@ -229,6 +294,8 @@
 
 
             }
+
+            //理财详情页
             if (pageManager._getHash() == '#manageDetails') {
                 var wealthViewId = pageManager.GetQueryString('id') || (location.hash = '#');
                 new finance(function (res) {
