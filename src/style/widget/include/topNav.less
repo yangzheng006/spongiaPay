@@ -2,18 +2,15 @@
 #iSlider-wrapper{
   .topNav{
     padding: 10px 0 5px;
-    position: absolute;
+    position: fixed;
     top:0;
     left:0;
     z-index: 999999999;
     width: 100%;
-    &.row{
-      background: transparent;
-    }
-    .col-8{
+    .weui-cell__hd{
       line-height: 30px;
     }
-    .col-15{
+    .weui-cell__bd{
       color: @light-gray;
       border-radius: 20px;
       background: @white;
@@ -23,11 +20,6 @@
       }
       .weui-search-bar__box .weui-search-bar__input{
         color: @dark-gray;
-      }
-    }
-    .col-3{
-      .iconfont{
-        color: @white;
       }
     }
   }
