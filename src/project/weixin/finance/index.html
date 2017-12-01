@@ -61,13 +61,13 @@
                                 htmlt += `<div class="${i == 0 ? 'active' : ''}" data-px="${rest.list[i].PX}" data-id="${rest.list[i].ID}">${rest.list[i].LBMC}</div>`
                             }
                             $('#tab' + selectTopId + ' .financeTab-list').html(htmlt);
-                            pageableRefresh(selectPx, rest.list[0].PX);
+                            pageableRefresh($('.financeTab-tabTop>div.active').attr('data-px'), rest.list[0].PX);
                         }).classTwo({
                             superiorId: selectTopId
                         })
                     }
                     if ($(this).parent().hasClass('financeTab-list')) {
-                        pageableRefresh($(this).parents('.financeTab-content').attr('data-px'), $(this).attr('data-id'));
+                        pageableRefresh($('.financeTab-tabTop>div.active').attr('data-px'), $(this).attr('data-id'));
                     }
                 }
 
@@ -154,7 +154,7 @@
                                 htmlt += `<div class="${i == 0 ? 'active' : ''}" data-px="${rest.list[i].PX}" data-id="${rest.list[i].ID}">${rest.list[i].LBMC}</div>`
                             }
                             $('#tab' + res.list[0].ID + ' .financeTab-list').html(htmlt);
-                            pageableRefresh(rest.list[0].PX, rest.list[0].ID)
+                            pageableRefresh(res.list[0].PX, rest.list[0].ID)
                         }).classTwo({
                             superiorId: res.list[0].ID
                         })
