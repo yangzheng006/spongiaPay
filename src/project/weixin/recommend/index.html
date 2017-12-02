@@ -134,10 +134,12 @@
             var reader = new FileReader();
             reader.onload = (function (file) {
                 return function (e) {
+                    toast.loadingSelf(1000000, '上传中');
                     var image = this.result;
                     var upImg = image.substring(image.indexOf(",") + 1);
                     $("#bbusinessLicenseImg")[0].src = this.result;
                     new common(function (data) {
+                        toast.closeLoading();
                         bbusinessLicense = data.tpname;
                     }).uploadImage({
                         image: upImg,
@@ -151,10 +153,12 @@
             var reader = new FileReader();
             reader.onload = (function (file) {
                 return function (e) {
+                    toast.loadingSelf(1000000, '上传中');
                     var image = this.result;
                     var upImg = image.substring(image.indexOf(",") + 1);
                     $("#identityCardFrontImg")[0].src = this.result;
                     new common(function (data) {
+                        toast.closeLoading();
                         identityCardFront = data.tpname;
                     }).uploadImage({
                         image: upImg,
@@ -168,10 +172,12 @@
             var reader = new FileReader();
             reader.onload = (function (file) {
                 return function (e) {
+                    toast.loadingSelf(1000000, '上传中');
                     var image = this.result;
                     var upImg = image.substring(image.indexOf(",") + 1);
                     $("#identityCardBackImg")[0].src = this.result;
                     new common(function (data) {
+                        toast.closeLoading();
                         identityCardBack = data.tpname;
                     }).uploadImage({
                         image: upImg,
@@ -185,10 +191,12 @@
             var reader = new FileReader();
             reader.onload = (function (file) {
                 return function (e) {
+                    toast.loadingSelf(1000000, '上传中');
                     var image = this.result;
                     var upImg = image.substring(image.indexOf(",") + 1);
                     $("#AuthorizationletterImg")[0].src = this.result;
                     new common(function (data) {
+                        toast.closeLoading();
                         Authorizationletter = data.tpname;
                     }).uploadImage({
                         image: upImg,
@@ -202,10 +210,12 @@
             var reader = new FileReader();
             reader.onload = (function (file) {
                 return function (e) {
+                    toast.loadingSelf(1000000, '上传中');
                     var image = this.result;
                     var upImg = image.substring(image.indexOf(",") + 1);
                     $("#placeofBusinessImg")[0].src = this.result;
                     new common(function (data) {
+                        toast.closeLoading();
                         placeofBusiness = data.tpname;
                     }).uploadImage({
                         image: upImg,

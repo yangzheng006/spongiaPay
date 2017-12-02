@@ -10,826 +10,840 @@
 </head>
 
 <body>
-<div class="weui-toptips weui-toptips_warn js_tooltips">错误提示</div>
-<div class="container" id="container"></div>
+    <div class="weui-toptips weui-toptips_warn js_tooltips">错误提示</div>
+    <div class="container" id="container"></div>
 
-<!--会员首页-->
-<link rel="import" href="../../../pages/member/index.html">
-<!--设置-->
-<link rel="import" href="../../../pages/member/setting/setting.html">
-<link rel="import" href="../../../pages/member/setting/changeBind.html">
-<!--认证商家-->
-<link rel="import" href="../../../pages/member/authTenant.html">
-<!--积分-->
-<link rel="import" href="../../../pages/member/point/cashPoint.html">
-<link rel="import" href="../../../pages/member/point/cashSuccess.html">
-<link rel="import" href="../../../pages/member/point/givePoint.html">
-<link rel="import" href="../../../pages/member/point/listPoint.html">
-<link rel="import" href="../../../pages/member/point/usePoint.html">
-<!--添加银行卡-->
-<link rel="import" href="../../../pages/member/bankCard/cardOne.html">
-<link rel="import" href="../../../pages/member/bankCard/cardThree.html">
-<!--邀请好友-->
-<link rel="import" href="../../../pages/member/invite/invite.html">
-<link rel="import" href="../../../pages/member/invite/inviteSuccess.html">
-<!-- 历史推荐 -->
-<link rel="import" href="../../../pages/member/recommend/historyRecommend.html">
-<!--帮助中心-->
-<link rel="import" href="../../../pages/member/help/help.html">
-<link rel="import" href="../../../pages/member/help/helpView.html">
-<!--关于我们-->
-<link rel="import" href="../../../pages/member/aboutUs.html">
-<!--绑定手机与实名认证-->
-<link rel="import" href="../../../pages/member/bind.html">
-<!--绑定手机-->
-<link rel="import" href="../../../pages/member/auth.html">
-<!--实名认证-->
-<!--个人信息-->
-<link rel="import" href="../../../pages/member/info/tenantInfo.html">
-<!--商家信息-->
-<link rel="import" href="../../../pages/member/info/userInfo.html">
+    <!--会员首页-->
+    <link rel="import" href="../../../pages/member/index.html">
+    <!--设置-->
+    <link rel="import" href="../../../pages/member/setting/setting.html">
+    <link rel="import" href="../../../pages/member/setting/changeBind.html">
+    <!--认证商家-->
+    <link rel="import" href="../../../pages/member/authTenant.html">
+    <!--积分-->
+    <link rel="import" href="../../../pages/member/point/cashPoint.html">
+    <link rel="import" href="../../../pages/member/point/cashSuccess.html">
+    <link rel="import" href="../../../pages/member/point/givePoint.html">
+    <link rel="import" href="../../../pages/member/point/listPoint.html">
+    <link rel="import" href="../../../pages/member/point/usePoint.html">
+    <!--添加银行卡-->
+    <link rel="import" href="../../../pages/member/bankCard/cardOne.html">
+    <link rel="import" href="../../../pages/member/bankCard/cardThree.html">
+    <!--邀请好友-->
+    <link rel="import" href="../../../pages/member/invite/invite.html">
+    <link rel="import" href="../../../pages/member/invite/inviteSuccess.html">
+    <!-- 历史推荐 -->
+    <link rel="import" href="../../../pages/member/recommend/historyRecommend.html">
+    <!--帮助中心-->
+    <link rel="import" href="../../../pages/member/help/help.html">
+    <link rel="import" href="../../../pages/member/help/helpView.html">
+    <!--关于我们-->
+    <link rel="import" href="../../../pages/member/aboutUs.html">
+    <!--绑定手机与实名认证-->
+    <link rel="import" href="../../../pages/member/bind.html">
+    <!--绑定手机-->
+    <link rel="import" href="../../../pages/member/auth.html">
+    <!--实名认证-->
+    <!--个人信息-->
+    <link rel="import" href="../../../pages/member/info/tenantInfo.html">
+    <!--商家信息-->
+    <link rel="import" href="../../../pages/member/info/userInfo.html">
 
 
 
-<link rel="import" href="../../../model/templete/member/helpList.html">
-<!-- 历史推荐 -->
-<link rel="import" href="../../../model/templete/member/recommendList.html">
-<link rel="import" href="../../../model/templete/member/recommendTenantList.html">
-@import "../../../model/widget/include/toast.html";
-@import "../../../model/widget/include/dialog.html";
-<script src="/weixin/js/common.min.js"></script>
-<script src="/weixin/js/wap.min.js"></script>
-<script type="text/javascript">
-    window.onpageshow = function (ev) {
-        if (pageManager._getHash() == '#orderList') {
-            if (ev.persisted && WeixinJSBridge) {
-                window.location.reload()
+    <link rel="import" href="../../../model/templete/member/helpList.html">
+    <!-- 历史推荐 -->
+    <link rel="import" href="../../../model/templete/member/recommendList.html">
+    <link rel="import" href="../../../model/templete/member/recommendTenantList.html">
+    @import "../../../model/widget/include/toast.html";
+    @import "../../../model/widget/include/dialog.html";
+    <script src="/weixin/js/common.min.js"></script>
+    <script src="/weixin/js/wap.min.js"></script>
+    <script type="text/javascript">
+        window.onpageshow = function (ev) {
+            if (pageManager._getHash() == '#orderList') {
+                if (ev.persisted && WeixinJSBridge) {
+                    window.location.reload()
+                }
             }
-        }
-    };
-    $(function () {
-        pageManager.show("index");
-    })
-    var pageFn = function () {
-        //个人中心页面
-        if (pageManager._getHash() == '#') {
-            document.title = '个人中心';
-            new member(function (data) {
-                console.log(data);
-                //认证情况(显示文字)
-                $('.memberIndex #username1').html(data.XM)
-                if(!data.IsAuthenticationSh && !data.IsAuthenticationSm){
-                    $('.memberIndex .tenantV').addClass('none');
-                    $('.memberIndex .userV').removeClass('none');
-                    $('.memberIndex .userV span').html('未认证')
-                }else if(!data.IsAuthenticationSh && data.IsAuthenticationSm){
-                    $('.memberIndex .tenantV').addClass('none');
-                    $('.memberIndex .userV').removeClass('none');
-                    $('.memberIndex .userV span').html('已认证')
-                }else if(data.IsAuthenticationSh && !data.IsAuthenticationSm){
-                    $('.memberIndex .userV').addClass('none');
-                    $('.memberIndex .tenantV').removeClass('none');
-                    $('.memberIndex .tenantV span').html('商家已认证')
-                }else if(data.IsAuthenticationSh && data.IsAuthenticationSm){
-                    $('.memberIndex .userV').addClass('none');
-                    $('.memberIndex .tenantV').removeClass('none');
-                    $('.memberIndex .tenantV span').html('商家已认证')
-                }
+        };
+        $(function () {
+            pageManager.show("index");
+        })
+        var pageFn = function () {
+            //个人中心页面
+            if (pageManager._getHash() == '#') {
+                document.title = '个人中心';
+                new member(function (data) {
+                    console.log(data);
+                    //认证情况(显示文字)
+                    $('.memberIndex #username1').html(data.XM)
+                    if (!data.IsAuthenticationSh && !data.IsAuthenticationSm) {
+                        $('.memberIndex .tenantV').addClass('none');
+                        $('.memberIndex .userV').removeClass('none');
+                        $('.memberIndex .userV span').html('未认证')
+                    } else if (!data.IsAuthenticationSh && data.IsAuthenticationSm) {
+                        $('.memberIndex .tenantV').addClass('none');
+                        $('.memberIndex .userV').removeClass('none');
+                        $('.memberIndex .userV span').html('已认证')
+                    } else if (data.IsAuthenticationSh && !data.IsAuthenticationSm) {
+                        $('.memberIndex .userV').addClass('none');
+                        $('.memberIndex .tenantV').removeClass('none');
+                        $('.memberIndex .tenantV span').html('商家已认证')
+                    } else if (data.IsAuthenticationSh && data.IsAuthenticationSm) {
+                        $('.memberIndex .userV').addClass('none');
+                        $('.memberIndex .tenantV').removeClass('none');
+                        $('.memberIndex .tenantV span').html('商家已认证')
+                    }
 
-                //是否认证成商家
-                if(data.IsAuthenticationSh){
-                    $('.IsAuthenticationSh .weui-cell__ft').html('已认证');
-                    $(document).on('click','.IsAuthenticationSh',function () {
-                        toast.show('您已认证',1000)
-                    })
-                }else{
-                    $('.IsAuthenticationSh .weui-cell__ft').html('未认证');
-                    $(document).on('click','.IsAuthenticationSh',function () {
-                        pageManager.go('authTenant');
-                    })
-                }
+                    //是否认证成商家
+                    if (data.IsAuthenticationSh) {
+                        $('.IsAuthenticationSh .weui-cell__ft').html('已认证');
+                        $(document).on('click', '.IsAuthenticationSh', function () {
+                            toast.show('您已认证', 1000)
+                        })
+                    } else {
+                        $('.IsAuthenticationSh .weui-cell__ft').html('未认证');
+                        $(document).on('click', '.IsAuthenticationSh', function () {
+                            pageManager.go('authTenant');
+                        })
+                    }
 
-                //是否实名认证
-                if(data.IsAuthenticationSm){
-                    $('.IsAuthenticationSm .weui-cell__ft').html('已认证');
-                    $(document).on('click','.IsAuthenticationSm',function () {
-                        toast.show('您已认证',1000)
-                    })
-                }else{
-                    $('.IsAuthenticationSm .weui-cell__ft').html('未认证');
-                    $(document).on('click','.IsAuthenticationSm',function () {
-                        pageManager.go('auth');
-                    })
-                }
+                    //是否实名认证
+                    if (data.IsAuthenticationSm) {
+                        $('.IsAuthenticationSm .weui-cell__ft').html('已认证');
+                        $(document).on('click', '.IsAuthenticationSm', function () {
+                            toast.show('您已认证', 1000)
+                        })
+                    } else {
+                        $('.IsAuthenticationSm .weui-cell__ft').html('未认证');
+                        $(document).on('click', '.IsAuthenticationSm', function () {
+                            pageManager.go('auth');
+                        })
+                    }
 
-                //是否绑定银行卡
-                if(data.IsBinding){
-                    $('.IsBinding .weui-cell__ft').html('已绑定');
-                    $(document).on('click','.IsBinding',function () {
-                        toast.show('您已绑定',1000)
-                    })
-                }else{
-                    $('.IsBinding .weui-cell__ft').html('未绑定');
-                    $(document).on('click','.IsBinding',function () {
-                        pageManager.go('cardOne')
-                    })
-                }
+                    //是否绑定银行卡
+                    if (data.IsBinding) {
+                        $('.IsBinding .weui-cell__ft').html('已绑定');
+                        $(document).on('click', '.IsBinding', function () {
+                            toast.show('您已绑定', 1000)
+                        })
+                    } else {
+                        $('.IsBinding .weui-cell__ft').html('未绑定');
+                        $(document).on('click', '.IsBinding', function () {
+                            pageManager.go('cardOne')
+                        })
+                    }
 
-                if(data.data.TXTP){
-                    $('.memberIndex #userHeadImg').attr('src',data.data.TXTP)
-                }else{
-                    $('.memberIndex #userHeadImg').attr('src','../images/placeholder/user.png')
-                }
-                $('.memberIndex #username').html(data.data.XM)
+                    if (data.data.TXTP) {
+                        $('.memberIndex #userHeadImg').attr('src', data.data.TXTP)
+                    } else {
+                        $('.memberIndex #userHeadImg').attr('src', '../images/placeholder/user.png')
+                    }
+                    $('.memberIndex #username').html(data.data.XM)
 
-            }).view({
-                memberId:memberId
-            })
-        }
+                }).view({
+                    memberId: memberId
+                })
+            }
 
-        //商户认证页面
-        if(pageManager._getHash()=='#authTenant'){
-            document.title='商户认证';
-            $(document).on('click', '.toggleShowDetail', function () {
-                $('.showDetailForm').toggle();
-                if ($(this).find('.weui-cell__ft i').hasClass('icon-up')) {
-                    $(this).find('.weui-cell__ft i').removeClass('icon-up').addClass('icon-arrowbottom')
-                } else {
-                    $(this).find('.weui-cell__ft i').removeClass('icon-arrowbottom').addClass('icon-up')
-                }
-            })
-            var shId;
-            //填写第一步资料
-            var bbusinessLicense,identityCardFront,identityCardBack,Authorizationletter,placeofBusiness;
-            $(document).on('click','.recommend .goSubmit',function () {
-                var tenantName=$('.recommend .tenantName').val();
-                var linkMan=$('.recommend .linkMan').val();
-                var phone=$('.recommend .phone').val();
+            //商户认证页面
+            if (pageManager._getHash() == '#authTenant') {
+                document.title = '商户认证';
+                $(document).on('click', '.toggleShowDetail', function () {
+                    $('.showDetailForm').toggle();
+                    if ($(this).find('.weui-cell__ft i').hasClass('icon-up')) {
+                        $(this).find('.weui-cell__ft i').removeClass('icon-up').addClass('icon-arrowbottom')
+                    } else {
+                        $(this).find('.weui-cell__ft i').removeClass('icon-arrowbottom').addClass('icon-up')
+                    }
+                })
+                var shId;
+                //填写第一步资料
+                var bbusinessLicense, identityCardFront, identityCardBack, Authorizationletter, placeofBusiness;
+                $(document).on('click', '.recommend .goSubmit', function () {
+                    var tenantName = $('.recommend .tenantName').val();
+                    var linkMan = $('.recommend .linkMan').val();
+                    var phone = $('.recommend .phone').val();
 
-                var accounType='normal';
-                var bussinessNumber=$('.recommend .bussinessNumber').val();
-                var identityCardNum=$('.recommend .identityCardNum').val();
-                var account=$('.recommend .account').val();
-                var bank=$('.recommend .bank').val();
-                var bankAccount=$('.recommend .bankAccount').val();
+                    var accounType = 'normal';
+                    var bussinessNumber = $('.recommend .bussinessNumber').val();
+                    var identityCardNum = $('.recommend .identityCardNum').val();
+                    var account = $('.recommend .account').val();
+                    var bank = $('.recommend .bank').val();
+                    var bankAccount = $('.recommend .bankAccount').val();
 
-                if(!tenantName){
-                    toast.show('请输入商家名称',1000)
-                }else if(!linkMan){
-                    toast.show('请输入联系人',1000)
-                }else if(!(/^1[0-9]{10}$/.test(phone))){
-                    toast.show('请输入正确联系电话',1000)
-                }else if(!bbusinessLicense && !identityCardFront &&!identityCardBack && !Authorizationletter &&!placeofBusiness && !bussinessNumber &&!identityCardNum &&!account &&!bank &&!bankAccount){
-                    new authentication(function (data) {
-                        shId=data.id;
-                        toast.show('提交成功',1000)
-                    }).merchantCA({
-                        tenantName:tenantName,
-                        linkMan:linkMan,
-                        phone:phone,
-                        hyId:memberId
-                    })
-                }else if(!bussinessNumber){
-                    toast.show('请填写营业执照号',1000)
-                }else if(!bbusinessLicense){
-                    toast.show('请上传营业执照照片',1000)
-                }else if(!identityCardNum){
-                    toast.show('请填写身份证号',1000)
-                }else if(!identityCardFront){
-                    toast.show('请上传身份证正面照片',1000)
-                }else if(!identityCardBack){
-                    toast.show('请上传身份证反面照片',1000)
-                }else if(!account){
-                    toast.show('请填写开户名',1000)
-                }else if(!bank){
-                    toast.show('请填写开户行',1000)
-                }else if(!bankAccount){
-                    toast.show('请填写银行账户',1000)
-                }else if(!Authorizationletter){
-                    toast.show('请上传授权书照片',1000)
-                }else if(!placeofBusiness){
-                    toast.show('请上传营业场所照片',1000)
-                }else{
-                    new authentication(function (data) {
-                        shId=data.id;
+                    if (!tenantName) {
+                        toast.show('请输入商家名称', 1000)
+                    } else if (!linkMan) {
+                        toast.show('请输入联系人', 1000)
+                    } else if (!(/^1[0-9]{10}$/.test(phone))) {
+                        toast.show('请输入正确联系电话', 1000)
+                    } else if (!bbusinessLicense && !identityCardFront && !identityCardBack && !Authorizationletter && !placeofBusiness && !bussinessNumber && !identityCardNum && !account && !bank && !bankAccount) {
                         new authentication(function (data) {
-                            dialog.show('提交资料成功',function () {
-                                location.reload();
+                            shId = data.id;
+                            toast.show('提交成功', 1000)
+                        }).merchantCA({
+                            tenantName: tenantName,
+                            linkMan: linkMan,
+                            phone: phone,
+                            hyId: memberId
+                        })
+                    } else if (!bussinessNumber) {
+                        toast.show('请填写营业执照号', 1000)
+                    } else if (!bbusinessLicense) {
+                        toast.show('请上传营业执照照片', 1000)
+                    } else if (!identityCardNum) {
+                        toast.show('请填写身份证号', 1000)
+                    } else if (!identityCardFront) {
+                        toast.show('请上传身份证正面照片', 1000)
+                    } else if (!identityCardBack) {
+                        toast.show('请上传身份证反面照片', 1000)
+                    } else if (!account) {
+                        toast.show('请填写开户名', 1000)
+                    } else if (!bank) {
+                        toast.show('请填写开户行', 1000)
+                    } else if (!bankAccount) {
+                        toast.show('请填写银行账户', 1000)
+                    } else if (!Authorizationletter) {
+                        toast.show('请上传授权书照片', 1000)
+                    } else if (!placeofBusiness) {
+                        toast.show('请上传营业场所照片', 1000)
+                    } else {
+                        new authentication(function (data) {
+                            shId = data.id;
+                            new authentication(function (data) {
+                                dialog.show('提交资料成功', function () {
+                                    location.reload();
+                                })
+                            }).tanantsAuthoBusinessLicense({
+                                bussinessNumber: bussinessNumber,
+                                bbusinessLicense: bbusinessLicense,
+                                identityCardNum: identityCardNum,
+                                identityCardFront: identityCardFront,
+                                identityCardBack: identityCardBack,
+                                accounType: accounType,
+                                account: account,
+                                bank: bank,
+                                bankAccount: bankAccount,
+                                Authorizationletter: Authorizationletter,
+                                placeofBusiness: placeofBusiness,
+                                shId: shId
                             })
-                        }).tanantsAuthoBusinessLicense({
-                            bussinessNumber:bussinessNumber,
-                            bbusinessLicense:bbusinessLicense,
-                            identityCardNum:identityCardNum,
-                            identityCardFront:identityCardFront,
-                            identityCardBack:identityCardBack,
-                            accounType:accounType,
-                            account:account,
-                            bank:bank,
-                            bankAccount:bankAccount,
-                            Authorizationletter:Authorizationletter,
-                            placeofBusiness:placeofBusiness,
-                            shId:shId
+                        }).merchantCA({
+                            tenantName: tenantName,
+                            linkMan: linkMan,
+                            phone: phone,
+                            hyId: memberId
                         })
-                    }).merchantCA({
-                        tenantName:tenantName,
-                        linkMan:linkMan,
-                        phone:phone,
-                        hyId:memberId
-                    })
 
-                }
-            });
+                    }
+                });
 
 
-            $("#bbusinessLicense").on('change', function (e) {
-                var reader = new FileReader();
-                reader.onload = (function (file) {
-                    return function (e) {
-                        var image = this.result;
-                        var upImg = image.substring(image.indexOf(",") + 1);
-                        $("#bbusinessLicenseImg")[0].src = this.result;
-                        new common(function (data) {
-                            bbusinessLicense = data.tpname;
-                        }).uploadImage({
-                            image: upImg,
-                            type: 2
-                        })
-                    };
-                })(e.target.files[0]);
-                reader.readAsDataURL(e.target.files[0]);
-            });
-            $("#identityCardFront").on('change', function (e) {
-                var reader = new FileReader();
-                reader.onload = (function (file) {
-                    return function (e) {
-                        var image = this.result;
-                        var upImg = image.substring(image.indexOf(",") + 1);
-                        $("#identityCardFrontImg")[0].src = this.result;
-                        new common(function (data) {
-                            identityCardFront = data.tpname;
-                        }).uploadImage({
-                            image: upImg,
-                            type: 0
-                        })
-                    };
-                })(e.target.files[0]);
-                reader.readAsDataURL(e.target.files[0]);
-            });
-            $("#identityCardBack").on('change', function (e) {
-                var reader = new FileReader();
-                reader.onload = (function (file) {
-                    return function (e) {
-                        var image = this.result;
-                        var upImg = image.substring(image.indexOf(",") + 1);
-                        $("#identityCardBackImg")[0].src = this.result;
-                        new common(function (data) {
-                            identityCardBack = data.tpname;
-                        }).uploadImage({
-                            image: upImg,
-                            type: 1
-                        })
-                    };
-                })(e.target.files[0]);
-                reader.readAsDataURL(e.target.files[0]);
-            });
-            $("#Authorizationletter").on('change', function (e) {
-                var reader = new FileReader();
-                reader.onload = (function (file) {
-                    return function (e) {
-                        var image = this.result;
-                        var upImg = image.substring(image.indexOf(",") + 1);
-                        $("#AuthorizationletterImg")[0].src = this.result;
-                        new common(function (data) {
-                            Authorizationletter = data.tpname;
-                        }).uploadImage({
-                            image: upImg,
-                            type: 6
-                        })
-                    };
-                })(e.target.files[0]);
-                reader.readAsDataURL(e.target.files[0]);
-            });
-            $("#placeofBusiness").on('change', function (e) {
-                var reader = new FileReader();
-                reader.onload = (function (file) {
-                    return function (e) {
-                        var image = this.result;
-                        var upImg = image.substring(image.indexOf(",") + 1);
-                        $("#placeofBusinessImg")[0].src = this.result;
-                        new common(function (data) {
-                            placeofBusiness = data.tpname;
-                        }).uploadImage({
-                            image: upImg,
-                            type: 5
-                        })
-                    };
-                })(e.target.files[0]);
-                reader.readAsDataURL(e.target.files[0]);
-            });
+                $("#bbusinessLicense").on('change', function (e) {
+                    var reader = new FileReader();
+                    reader.onload = (function (file) {
+                        return function (e) {
+                            toast.loadingSelf(1000000, '上传中');
+                            var image = this.result;
+                            var upImg = image.substring(image.indexOf(",") + 1);
+                            $("#bbusinessLicenseImg")[0].src = this.result;
+                            new common(function (data) {
+                                toast.closeLoading();
+                                bbusinessLicense = data.tpname;
+                            }).uploadImage({
+                                image: upImg,
+                                type: 2
+                            })
+                        };
+                    })(e.target.files[0]);
+                    reader.readAsDataURL(e.target.files[0]);
+                });
+                $("#identityCardFront").on('change', function (e) {
+                    var reader = new FileReader();
+                    reader.onload = (function (file) {
+                        return function (e) {
+                            toast.loadingSelf(1000000, '上传中');
+                            var image = this.result;
+                            var upImg = image.substring(image.indexOf(",") + 1);
+                            $("#identityCardFrontImg")[0].src = this.result;
+                            new common(function (data) {
+                                toast.closeLoading();
+                                identityCardFront = data.tpname;
+                            }).uploadImage({
+                                image: upImg,
+                                type: 0
+                            })
+                        };
+                    })(e.target.files[0]);
+                    reader.readAsDataURL(e.target.files[0]);
+                });
+                $("#identityCardBack").on('change', function (e) {
+                    var reader = new FileReader();
+                    reader.onload = (function (file) {
+                        toast.loadingSelf(1000000, '上传中');
+                        return function (e) {
+                            var image = this.result;
+                            var upImg = image.substring(image.indexOf(",") + 1);
+                            $("#identityCardBackImg")[0].src = this.result;
+                            new common(function (data) {
+                                toast.closeLoading();
+                                identityCardBack = data.tpname;
+                            }).uploadImage({
+                                image: upImg,
+                                type: 1
+                            })
+                        };
+                    })(e.target.files[0]);
+                    reader.readAsDataURL(e.target.files[0]);
+                });
+                $("#Authorizationletter").on('change', function (e) {
+                    var reader = new FileReader();
+                    reader.onload = (function (file) {
+                        toast.loadingSelf(1000000, '上传中');
+                        return function (e) {
+                            var image = this.result;
+                            var upImg = image.substring(image.indexOf(",") + 1);
+                            $("#AuthorizationletterImg")[0].src = this.result;
+                            new common(function (data) {
+                                toast.closeLoading();
+                                Authorizationletter = data.tpname;
+                            }).uploadImage({
+                                image: upImg,
+                                type: 6
+                            })
+                        };
+                    })(e.target.files[0]);
+                    reader.readAsDataURL(e.target.files[0]);
+                });
+                $("#placeofBusiness").on('change', function (e) {
+                    var reader = new FileReader();
+                    reader.onload = (function (file) {
+                        return function (e) {
+                            toast.loadingSelf(1000000, '上传中');
+                            var image = this.result;
+                            var upImg = image.substring(image.indexOf(",") + 1);
+                            $("#placeofBusinessImg")[0].src = this.result;
+                            new common(function (data) {
+                                toast.closeLoading();
+                                placeofBusiness = data.tpname;
+                            }).uploadImage({
+                                image: upImg,
+                                type: 5
+                            })
+                        };
+                    })(e.target.files[0]);
+                    reader.readAsDataURL(e.target.files[0]);
+                });
 
 
-            //选择账号类型（对工/法人）
-            $(document).on('click','.selsectAccounType .weui-check__label', function () {
-                var accType=$(this).attr('accType');
-                accounType=accType;
-            });
+                //选择账号类型（对工/法人）
+                $(document).on('click', '.selsectAccounType .weui-check__label', function () {
+                    var accType = $(this).attr('accType');
+                    accounType = accType;
+                });
 
 
-        }
+            }
 
-        //历史推荐页面
-        if (pageManager._getHash() == '#historyRecommend') {
-            document.title = '个人中心';
-            new member(function (res) {
-                var h = render.fill($("#tpl_recommendList"), res.list);
-                $('#recommendListSingle').html(h);
-            }).recommendList({
-                hyId: memberId
-            });
-            new member(function (res) {
-                var h = render.fill($("#tpl_recommendTenantList"), res.list);
-                $('#recommendListTenant').html(h);
-            }).recommendTenantList({
-                hyId: memberId,
-                type: 0
-            });
-            $('.recommendTab>div').off().on('click', function () {
-                if ($(this).hasClass('active')) {
-                    return false;
-                }
-                var index = $(this).index();
-                $(this).addClass('active').siblings().removeClass('active');
-                $('.recommendTab-content>div').eq(index).addClass('recommendTab-show').siblings().removeClass('recommendTab-show')
-            })
-            $('.towLevelTab div').off().on('click', function () {
-                if ($(this).hasClass('active')) {
-                    return false;
-                }
-                var index = $(this).index();
-                $(this).addClass('active').siblings().removeClass('active');
+            //历史推荐页面
+            if (pageManager._getHash() == '#historyRecommend') {
+                document.title = '个人中心';
+                new member(function (res) {
+                    var h = render.fill($("#tpl_recommendList"), res.list);
+                    $('#recommendListSingle').html(h);
+                }).recommendList({
+                    hyId: memberId
+                });
                 new member(function (res) {
                     var h = render.fill($("#tpl_recommendTenantList"), res.list);
                     $('#recommendListTenant').html(h);
                 }).recommendTenantList({
                     hyId: memberId,
-                    type: index
+                    type: 0
                 });
-            })
-
-        }
-
-        //设置
-        if (window.location.hash == '#setting') {
-            document.title = '设置';
-            $(document).on('click','.goQuitLogin',function () {
-                dialog.query('是否确认退出登陆?',function () {
-                    setTimeout(function () {
-                        localStorage.setItem('loginID','');
-                        location.href='../login/index.html'
-                    },500)
-                })
-            })
-        }
-
-        //修改绑定的手机号
-        if (window.location.hash == '#changeBind') {
-            document.title = '修改绑定手机';
-            var countdown = 60;
-            var canSend = true;
-            function settime(val) {
-                if (countdown == 0) {
-                    canSend = true;
-                    val.innerHTML = "发送验证码";
-                    val.style.color = "#3782d9";
-                    countdown = 60;
-                    return;
-                } else {
-                    canSend = false;
-                    val.innerHTML = "重新发送(" + countdown + ")";
-                    val.style.color = "#999";
-                    countdown--;
-                }
-                setTimeout(function () {
-                    settime(val)
-                }, 1000)
-            }
-
-
-            //发送验证码
-            $(document).on('click', '.sendChangeBind', function () {
-                if (canSend) {
-                    var $this = this;
-                    //手机号校验
-                    var phoneNumber = $('.changeBindPage .oldPhone').val();
-                    if (!(/^1[0-9]{10}$/.test(phoneNumber))) {
-                        toast.show('请输入正确手机号', 1000);
+                $('.recommendTab>div').off().on('click', function () {
+                    if ($(this).hasClass('active')) {
                         return false;
-                    } else {
-                        new common(function (data) {
-                            console.log(data);
-                            settime($this);
-                            canSend = false;
-                        }).sendCode({
-                            phoneNumber: phoneNumber,
-                            type: 1
-                        })
                     }
-                }
-            });
-
-            //修改手机号保存提交
-            $(document).on('click', '.goChangeBind', function () {
-                var oldPhone = $('.changeBindPage .oldPhone').val();
-                var newPhone = $('.changeBindPage .newPhone').val();
-                var authCode = $('.changeBindPage .authCode').val();
-                if (!(/^1[0-9]{10}$/.test(oldPhone))) {
-                    toast.show('原手机号格式不正确', 1000)
-                } else if (!(/^1[0-9]{10}$/.test(newPhone))) {
-                    toast.show('新手机号格式不正确', 1000)
-                } else if (!authCode) {
-                    toast.show('请输入验证码')
-                } else {
-                    new member(function (data) {
-                        console.log(data);
-                        pageManager.back();
-                    }).mobilePhone({
-                        mobile: oldPhone,
-                        currentMobile: newPhone,
-                        AuthoCode: authCode,
-                        id: memberId
-                    })
-                }
-            })
-        }
-
-
-        //绑定银行卡第一步
-        if (window.location.hash == '#cardOne') {
-            document.title = '绑定银行卡';
-            var countdown = 60;
-            var canSend = true;
-            function settime(val) {
-                if (countdown == 0) {
-                    canSend = true;
-                    val.innerHTML = "发送验证码";
-                    val.style.color = "#3782d9";
-                    countdown = 60;
-                    return;
-                } else {
-                    canSend = false;
-                    val.innerHTML = "重新发送(" + countdown + ")";
-                    val.style.color = "#999";
-                    countdown--;
-                }
-                setTimeout(function () {
-                    settime(val)
-                }, 1000)
-            }
-            //发送验证码
-            $(document).on('click', '.useAddBank .sendBankcode', function () {
-                if (canSend) {
-                    var $this = this;
-                    //手机号校验
-                    var phoneNumber = $('.useAddBank .ylsjh').val();
-                    if (!(/^1[0-9]{10}$/.test(phoneNumber))) {
-                        toast.show('请输入正确手机号', 1000);
-                        return false;
-                    } else {
-                        new common(function (data) {
-                            console.log(data);
-                            settime($this);
-                            canSend = false;
-                        }).sendCode({
-                            phoneNumber: phoneNumber,
-                            type: 2
-                        })
-                    }
-                }
-            });
-            $(document).on('click', '.useAddBank .gocardTwo', function () {
-                var zsxm = $('.useAddBank .zsxm').val();
-                var yhkh = $('.useAddBank .yhkh').val();
-                var fkjg = $('.useAddBank .fkjg').val();
-                var ylsjh = $('.useAddBank .ylsjh').val();
-                var authoCode = $('.useAddBank .authoCode').val();
-                if (!zsxm) {
-                    toast.show('请输入持卡人姓名', 1000)
-                } else if (!yhkh) {
-                    toast.show('请输入银行卡号', 1000)
-                } else if (!fkjg) {
-                    toast.show('请填写银行名称', 1000)
-                } else if (!ylsjh) {
-                    toast.show('请填写预留手机号', 1000)
-                } else if (!authoCode) {
-                    toast.show('请填写验证码', 1000)
-                } else {
-                    toast.show('添加成功', 1000)
-                    new member(function (data) {
-                        console.log(data)
-                    }).addBinding({
-                        zsxm: zsxm,
-                        yhkh: yhkh,
-                        fkjg: fkjg,
-                        ylsjh: ylsjh,
-                        authoCode: authoCode,
-                        hyId: memberId
-                    })
-
-                }
-
-
-                //                pageManager.replace('cardThree')
-            })
-        }
-
-
-        //绑定银行卡第三步
-        if (window.location.hash == '#cardThree') {
-            document.title = '绑定银行卡';
-            $(document).on('click', '.goCardSuccess', function () {
-                pageManager.replace('index')
-            })
-        }
-
-        //个人信息
-        if (window.location.hash == '#tenantInfo') {
-            document.title = '商家信息';
-        }
-
-        if (window.location.hash == '#userInfo') {
-            document.title = '个人信息';
-            $(document).on('click', '.openAddress', function () {
-                weixin.address({
-                    success: function (res) {
-                        let userName = res.userName; // 收货人姓名
-                        let detailInfo = res.detailInfo; // 详细收货地址信息
-                        let nationalCode = res.nationalCode; // 收货地址国家码
-                        let telNumber = res.telNumber; // 收货人手机号码
-                        console.log(11)
-                    }
+                    var index = $(this).index();
+                    $(this).addClass('active').siblings().removeClass('active');
+                    $('.recommendTab-content>div').eq(index).addClass('recommendTab-show').siblings().removeClass('recommendTab-show')
                 })
-            })
-            new member(function (data) {
-                $('.member_user_info .headImg').attr('src',data.data.TXTP)
-                $('.member_user_info .name').html(data.data.XM)
-                $('.member_user_info .sex').html(data.data.XB)
-                $('.member_user_info .age').html(data.data.NL)
-                $('.member_user_info .phone').html(data.data.SJHM)
-                $('.member_user_info .idCard').html(data.data.SFZHM)
-            }).view({
-                memberId:memberId
-            })
-        }
-
-
-        //使用积分
-        if (window.location.hash == '#usePoint') {
-            document.title = '使用积分';
-        }
-
-        //积分提现
-        if (window.location.hash == '#cashPoint') {
-            document.title = '积分提现';
-            $(document).on('click', '.goCashPoint', function () {
-                pageManager.go('cashSuccess')
-            })
-        }
-        //积分提现成功页面
-        if (window.location.hash == '#cashSuccess') {
-            document.title = '提现成功';
-            $(document).on('click', '.goCashEnd', function () {
-                pageManager.back()
-            })
-        }
-
-
-
-
-        //帮助中心
-        if (window.location.hash == '#help') {
-            document.title = '帮助中心';
-
-
-            var pget = $(".pageable").pageable({
-                loadUpFn: function (me) {
-                    new member(function (data) {
-                        var h = render.fill($("#tpl_helpList"), data.pageList);
-                        $('.pageable .memberHelp').html(h)
-                        pget.resetload();
-                    }).help({
-                        page:1
+                $('.towLevelTab div').off().on('click', function () {
+                    if ($(this).hasClass('active')) {
+                        return false;
+                    }
+                    var index = $(this).index();
+                    $(this).addClass('active').siblings().removeClass('active');
+                    new member(function (res) {
+                        var h = render.fill($("#tpl_recommendTenantList"), res.list);
+                        $('#recommendListTenant').html(h);
+                    }).recommendTenantList({
+                        hyId: memberId,
+                        type: index
                     });
-                },
-                loadDownFn: function (me) {
-                    new member(function (data) {
-                        me.pageNumber += 1;
-                        var h = render.fill($("#tpl_helpList"), data.pageList);
-                        $('.pageable .memberHelp').append(h)
-                        if (data.pageList.length <10) {
-                            me.lock();
-                            me.noData();
-                        }
-                        else {
-                            me.noData(false);
-                        }
-                        me.resetload();
-                    }).help({
-                        page:me.pageNumber
-                    });
+                })
 
-//                    })
-                }
-            });
-
-        }
-
-        //邀请朋友
-        if (window.location.hash == '#invite') {
-            document.title = '邀请好友';
-            var $iosMask = $('.weui-mask');
-            function hideActionSheet() {
-                $iosMask.fadeOut(200);
-                $(".shareModelSwap").css("display", "none");
             }
-            $iosMask.on('click', hideActionSheet);
-            $('.shareModelSwap').on('click', hideActionSheet);
-            $(document).on('click', '.goInvite', function () {
-                $iosMask.fadeIn(200);
-                $('.shareModelSwap').css("display", "block");
-            })
-            weixin.share1({
-                title:'sddss',
-                desc:'册似乎',
-                link:'http://www.himisw.com/weixin/member/index.html#inviteSuccess',
-                imgUrl:'http://cdn.tiaohuo.com/upload/image/201707/e75ca5f6-3f14-463d-a8ee-9887f3e02ec9.png@262w_262h_1e_1c_100Q'
-            })
-        }
 
-        //邀请朋友分享页面
-        if (window.location.hash == '#inviteSuccess') {
-            document.title = '邀请注册';
-            $(document).on('click', '.clickLogin', function () {
-                location.href = '../member/invite.html'
-            })
-        }
-
-        //关于我们
-        if (window.location.hash == '#aboutUs') {
-            document.title = '关于我们';
-            new member(function (data) {
-                $('.memberHelpCon').html(data.time.NR)
-            }).about()
-        }
-
-
-        //实名认证
-        if (window.location.hash == '#auth') {
-            hiddenBtn.bind();
-            document.title = '实名认证';
-            var img1src;
-            var img2src;
-            $("#idcard1").on('change', function (e) {
-                var reader = new FileReader();
-                reader.onload = (function (file) {
-                    return function (e) {
-                        console.info(this.result); //这个就是base64的数据了
-                        var image = this.result;
-                        var upImg = image.substring(image.indexOf(",") + 1);
-                        $("#uploadimg1")[0].src = this.result;
-                        new common(function (data) {
-                            img1src = data.tpname;
-                        }).uploadImage({
-                            image: upImg,
-                            type: 0
-                        })
-                    };
-                })(e.target.files[0]);
-                reader.readAsDataURL(e.target.files[0]);
-            });
-
-            $("#idcard2").on('change', function (e) {
-                var reader = new FileReader();
-                reader.onload = (function (file) {
-                    return function (e) {
-                        var image = this.result;
-                        $("#uploadimg2")[0].src = this.result;
-                        var upImg = image.substring(image.indexOf(",") + 1);
-                        new common(function (data) {
-                            img2src = data.tpname;
-                        }).uploadImage({
-                            image: upImg,
-                            type: 1
-                        })
-                    };
-                })(e.target.files[0]);
-                reader.readAsDataURL(e.target.files[0]);
-            });
-
-            $("#sendcerti").on('click', function () {
-                var name = $("#name").val();
-                var idcard = $("#idcard").val();
-                if (name == '') {
-                    toast.show('请输入姓名');
-                } else if (!idcard.match(/^(\d{15}$|^\d{18}$|^\d{17}(\d|X|x))$/)) {
-                    toast.show('请正确输入身份证号');
-                } else {
-                    new member(function (data) {
-                        dialog.show('提交成功，请耐心等待！',function () {
-                            pageManager.back()
-                        });
-                    }).realNameAuthen({
-                        name: name,
-                        identificationcardNumber: idcard,
-                        positiveCart: img1src,
-                        negative: img2src,
-                        hyId: memberId
-                    });
-                }
-            })
-        }
-
-        //绑定手机
-        if (window.location.hash == '#bind') {
-            document.title = '绑定手机';
-            hiddenBtn.bind();
-
-            var host = window.location.host;
-            //域名为直通邦
-            if (/www.ztbmall.com/gi.test(host)) {
-                $('.user_addphone .tiaohuo').html('腻了吗');
-            } else {
-                $('.user_addphone .tiaohuo').html('平台');
+            //设置
+            if (window.location.hash == '#setting') {
+                document.title = '设置';
+                $(document).on('click', '.goQuitLogin', function () {
+                    dialog.query('是否确认退出登陆?', function () {
+                        setTimeout(function () {
+                            localStorage.setItem('loginID', '');
+                            location.href = '../login/index.html'
+                        }, 500)
+                    })
+                })
             }
-            new member(function (data) {
-                if (data.bindMobile == 'binded') {
-                    $('#mobnum').val(data.mobile);
-                    $('#login').html('您已绑定');
-                    $('#login').css('background', '#999');
-                    $("#getcap").css('background', '#999');
-                    $("#login").unbind('click');
-                    $("#getcap").unbind('click');
-                }
-            }).view();
-            var countdown = 60;
-            function settime(val) {
-                if ($('#mobnum').val() != "") {
+
+            //修改绑定的手机号
+            if (window.location.hash == '#changeBind') {
+                document.title = '修改绑定手机';
+                var countdown = 60;
+                var canSend = true;
+                function settime(val) {
                     if (countdown == 0) {
-                        val.removeAttribute("disabled");
-                        val.value = "发送验证码";
-                        val.style.background = "#00a0e9";
+                        canSend = true;
+                        val.innerHTML = "发送验证码";
+                        val.style.color = "#3782d9";
                         countdown = 60;
                         return;
                     } else {
-                        val.setAttribute("disabled", true);
-                        val.value = "重新发送(" + countdown + ")";
-                        val.style.background = "#999";
+                        canSend = false;
+                        val.innerHTML = "重新发送(" + countdown + ")";
+                        val.style.color = "#999";
                         countdown--;
                     }
                     setTimeout(function () {
                         settime(val)
                     }, 1000)
                 }
-            }
-            //绑定手机获取验证码
-            $("#getcap").click(function () {
-                var mobnum = $("#mobnum").val();
-                if (mobnum == "") {
-                    toast.show("请输入手机号码");
-                } else {
-                    settime(this);
-                    var me = new member(function (data) {
-                    });
-                    me.sendCode({ mobile: mobnum })
-                }
-            });
-            //绑定手机
-            $("#login").click(function () {
-                var check = document.getElementById("weuiAgree");
-                var mobnum = $("#mobnum").val();
-                var capt = $("#captcha").val();
-                var invite = $("#inviteCode").val();
-                if (check.checked == true) {
-                    var me = new member(function (data) {
-                        toast.show("绑定成功");
-                        setTimeout(function () {
-                            if (pageManager.GetQueryString('type') == 'password') {
-                                location.replace('../payment/payPassword.html')
-                            } else {
-                                pageManager.back();
-                            }
-                            //                            window.location.href = document.referrer;
-                        }, 1000);
-                    });
-                    me.bindMobile({ mobile: mobnum, captcha: capt, inviteCode: invite });
-                } else {
-                    toast.show("请同意协议")
-                }
-            })
-        }
 
-    };
-    window.addEventListener('pageGoOk', pageFn)
-</script>
+
+                //发送验证码
+                $(document).on('click', '.sendChangeBind', function () {
+                    if (canSend) {
+                        var $this = this;
+                        //手机号校验
+                        var phoneNumber = $('.changeBindPage .oldPhone').val();
+                        if (!(/^1[0-9]{10}$/.test(phoneNumber))) {
+                            toast.show('请输入正确手机号', 1000);
+                            return false;
+                        } else {
+                            new common(function (data) {
+                                console.log(data);
+                                settime($this);
+                                canSend = false;
+                            }).sendCode({
+                                phoneNumber: phoneNumber,
+                                type: 1
+                            })
+                        }
+                    }
+                });
+
+                //修改手机号保存提交
+                $(document).on('click', '.goChangeBind', function () {
+                    var oldPhone = $('.changeBindPage .oldPhone').val();
+                    var newPhone = $('.changeBindPage .newPhone').val();
+                    var authCode = $('.changeBindPage .authCode').val();
+                    if (!(/^1[0-9]{10}$/.test(oldPhone))) {
+                        toast.show('原手机号格式不正确', 1000)
+                    } else if (!(/^1[0-9]{10}$/.test(newPhone))) {
+                        toast.show('新手机号格式不正确', 1000)
+                    } else if (!authCode) {
+                        toast.show('请输入验证码')
+                    } else {
+                        new member(function (data) {
+                            console.log(data);
+                            pageManager.back();
+                        }).mobilePhone({
+                            mobile: oldPhone,
+                            currentMobile: newPhone,
+                            AuthoCode: authCode,
+                            id: memberId
+                        })
+                    }
+                })
+            }
+
+
+            //绑定银行卡第一步
+            if (window.location.hash == '#cardOne') {
+                document.title = '绑定银行卡';
+                var countdown = 60;
+                var canSend = true;
+                function settime(val) {
+                    if (countdown == 0) {
+                        canSend = true;
+                        val.innerHTML = "发送验证码";
+                        val.style.color = "#3782d9";
+                        countdown = 60;
+                        return;
+                    } else {
+                        canSend = false;
+                        val.innerHTML = "重新发送(" + countdown + ")";
+                        val.style.color = "#999";
+                        countdown--;
+                    }
+                    setTimeout(function () {
+                        settime(val)
+                    }, 1000)
+                }
+                //发送验证码
+                $(document).on('click', '.useAddBank .sendBankcode', function () {
+                    if (canSend) {
+                        var $this = this;
+                        //手机号校验
+                        var phoneNumber = $('.useAddBank .ylsjh').val();
+                        if (!(/^1[0-9]{10}$/.test(phoneNumber))) {
+                            toast.show('请输入正确手机号', 1000);
+                            return false;
+                        } else {
+                            new common(function (data) {
+                                console.log(data);
+                                settime($this);
+                                canSend = false;
+                            }).sendCode({
+                                phoneNumber: phoneNumber,
+                                type: 2
+                            })
+                        }
+                    }
+                });
+                $(document).on('click', '.useAddBank .gocardTwo', function () {
+                    var zsxm = $('.useAddBank .zsxm').val();
+                    var yhkh = $('.useAddBank .yhkh').val();
+                    var fkjg = $('.useAddBank .fkjg').val();
+                    var ylsjh = $('.useAddBank .ylsjh').val();
+                    var authoCode = $('.useAddBank .authoCode').val();
+                    if (!zsxm) {
+                        toast.show('请输入持卡人姓名', 1000)
+                    } else if (!yhkh) {
+                        toast.show('请输入银行卡号', 1000)
+                    } else if (!fkjg) {
+                        toast.show('请填写银行名称', 1000)
+                    } else if (!ylsjh) {
+                        toast.show('请填写预留手机号', 1000)
+                    } else if (!authoCode) {
+                        toast.show('请填写验证码', 1000)
+                    } else {
+                        toast.show('添加成功', 1000)
+                        new member(function (data) {
+                            console.log(data)
+                        }).addBinding({
+                            zsxm: zsxm,
+                            yhkh: yhkh,
+                            fkjg: fkjg,
+                            ylsjh: ylsjh,
+                            authoCode: authoCode,
+                            hyId: memberId
+                        })
+
+                    }
+
+
+                    //                pageManager.replace('cardThree')
+                })
+            }
+
+
+            //绑定银行卡第三步
+            if (window.location.hash == '#cardThree') {
+                document.title = '绑定银行卡';
+                $(document).on('click', '.goCardSuccess', function () {
+                    pageManager.replace('index')
+                })
+            }
+
+            //个人信息
+            if (window.location.hash == '#tenantInfo') {
+                document.title = '商家信息';
+            }
+
+            if (window.location.hash == '#userInfo') {
+                document.title = '个人信息';
+                $(document).on('click', '.openAddress', function () {
+                    weixin.address({
+                        success: function (res) {
+                            let userName = res.userName; // 收货人姓名
+                            let detailInfo = res.detailInfo; // 详细收货地址信息
+                            let nationalCode = res.nationalCode; // 收货地址国家码
+                            let telNumber = res.telNumber; // 收货人手机号码
+                            console.log(11)
+                        }
+                    })
+                })
+                new member(function (data) {
+                    $('.member_user_info .headImg').attr('src', data.data.TXTP)
+                    $('.member_user_info .name').html(data.data.XM)
+                    $('.member_user_info .sex').html(data.data.XB)
+                    $('.member_user_info .age').html(data.data.NL)
+                    $('.member_user_info .phone').html(data.data.SJHM)
+                    $('.member_user_info .idCard').html(data.data.SFZHM)
+                }).view({
+                    memberId: memberId
+                })
+            }
+
+
+            //使用积分
+            if (window.location.hash == '#usePoint') {
+                document.title = '使用积分';
+            }
+
+            //积分提现
+            if (window.location.hash == '#cashPoint') {
+                document.title = '积分提现';
+                $(document).on('click', '.goCashPoint', function () {
+                    pageManager.go('cashSuccess')
+                })
+            }
+            //积分提现成功页面
+            if (window.location.hash == '#cashSuccess') {
+                document.title = '提现成功';
+                $(document).on('click', '.goCashEnd', function () {
+                    pageManager.back()
+                })
+            }
+
+
+
+
+            //帮助中心
+            if (window.location.hash == '#help') {
+                document.title = '帮助中心';
+
+
+                var pget = $(".pageable").pageable({
+                    loadUpFn: function (me) {
+                        new member(function (data) {
+                            var h = render.fill($("#tpl_helpList"), data.pageList);
+                            $('.pageable .memberHelp').html(h)
+                            pget.resetload();
+                        }).help({
+                            page: 1
+                        });
+                    },
+                    loadDownFn: function (me) {
+                        new member(function (data) {
+                            me.pageNumber += 1;
+                            var h = render.fill($("#tpl_helpList"), data.pageList);
+                            $('.pageable .memberHelp').append(h)
+                            if (data.pageList.length < 10) {
+                                me.lock();
+                                me.noData();
+                            }
+                            else {
+                                me.noData(false);
+                            }
+                            me.resetload();
+                        }).help({
+                            page: me.pageNumber
+                        });
+
+                        //                    })
+                    }
+                });
+
+            }
+
+            //邀请朋友
+            if (window.location.hash == '#invite') {
+                document.title = '邀请好友';
+                var $iosMask = $('.weui-mask');
+                function hideActionSheet() {
+                    $iosMask.fadeOut(200);
+                    $(".shareModelSwap").css("display", "none");
+                }
+                $iosMask.on('click', hideActionSheet);
+                $('.shareModelSwap').on('click', hideActionSheet);
+                $(document).on('click', '.goInvite', function () {
+                    $iosMask.fadeIn(200);
+                    $('.shareModelSwap').css("display", "block");
+                })
+                weixin.share1({
+                    title: 'sddss',
+                    desc: '册似乎',
+                    link: 'http://www.himisw.com/weixin/member/index.html#inviteSuccess',
+                    imgUrl: 'http://cdn.tiaohuo.com/upload/image/201707/e75ca5f6-3f14-463d-a8ee-9887f3e02ec9.png@262w_262h_1e_1c_100Q'
+                })
+            }
+
+            //邀请朋友分享页面
+            if (window.location.hash == '#inviteSuccess') {
+                document.title = '邀请注册';
+                $(document).on('click', '.clickLogin', function () {
+                    location.href = '../member/invite.html'
+                })
+            }
+
+            //关于我们
+            if (window.location.hash == '#aboutUs') {
+                document.title = '关于我们';
+                new member(function (data) {
+                    $('.memberHelpCon').html(data.time.NR)
+                }).about()
+            }
+
+
+            //实名认证
+            if (window.location.hash == '#auth') {
+                hiddenBtn.bind();
+                document.title = '实名认证';
+                var img1src;
+                var img2src;
+                $("#idcard1").on('change', function (e) {
+                    var reader = new FileReader();
+                    reader.onload = (function (file) {
+                        return function (e) {
+                            toast.loadingSelf(1000000, '上传中');
+                            console.info(this.result); //这个就是base64的数据了
+                            var image = this.result;
+                            var upImg = image.substring(image.indexOf(",") + 1);
+                            $("#uploadimg1")[0].src = this.result;
+                            new common(function (data) {
+                                img1src = data.tpname;
+                                toast.closeLoading()
+                            }).uploadImage({
+                                image: upImg,
+                                type: 0
+                            })
+                        };
+                    })(e.target.files[0]);
+                    reader.readAsDataURL(e.target.files[0]);
+                });
+
+                $("#idcard2").on('change', function (e) {
+                    var reader = new FileReader();
+                    reader.onload = (function (file) {
+                        return function (e) {
+                            toast.loadingSelf(1000000, '上传中');
+                            var image = this.result;
+                            $("#uploadimg2")[0].src = this.result;
+                            var upImg = image.substring(image.indexOf(",") + 1);
+                            new common(function (data) {
+                                img2src = data.tpname;
+                                toast.closeLoading();
+                            }).uploadImage({
+                                image: upImg,
+                                type: 1
+                            })
+                        };
+                    })(e.target.files[0]);
+                    reader.readAsDataURL(e.target.files[0]);
+                });
+
+                $("#sendcerti").on('click', function () {
+                    var name = $("#name").val();
+                    var idcard = $("#idcard").val();
+                    if (name == '') {
+                        toast.show('请输入姓名');
+                    } else if (!idcard.match(/^(\d{15}$|^\d{18}$|^\d{17}(\d|X|x))$/)) {
+                        toast.show('请正确输入身份证号');
+                    } else {
+                        new member(function (data) {
+                            dialog.show('提交成功，请耐心等待！', function () {
+                                pageManager.back()
+                            });
+                        }).realNameAuthen({
+                            name: name,
+                            identificationcardNumber: idcard,
+                            positiveCart: img1src,
+                            negative: img2src,
+                            hyId: memberId
+                        });
+                    }
+                })
+            }
+
+            //绑定手机
+            if (window.location.hash == '#bind') {
+                document.title = '绑定手机';
+                hiddenBtn.bind();
+
+                var host = window.location.host;
+                //域名为直通邦
+                if (/www.ztbmall.com/gi.test(host)) {
+                    $('.user_addphone .tiaohuo').html('腻了吗');
+                } else {
+                    $('.user_addphone .tiaohuo').html('平台');
+                }
+                new member(function (data) {
+                    if (data.bindMobile == 'binded') {
+                        $('#mobnum').val(data.mobile);
+                        $('#login').html('您已绑定');
+                        $('#login').css('background', '#999');
+                        $("#getcap").css('background', '#999');
+                        $("#login").unbind('click');
+                        $("#getcap").unbind('click');
+                    }
+                }).view();
+                var countdown = 60;
+                function settime(val) {
+                    if ($('#mobnum').val() != "") {
+                        if (countdown == 0) {
+                            val.removeAttribute("disabled");
+                            val.value = "发送验证码";
+                            val.style.background = "#00a0e9";
+                            countdown = 60;
+                            return;
+                        } else {
+                            val.setAttribute("disabled", true);
+                            val.value = "重新发送(" + countdown + ")";
+                            val.style.background = "#999";
+                            countdown--;
+                        }
+                        setTimeout(function () {
+                            settime(val)
+                        }, 1000)
+                    }
+                }
+                //绑定手机获取验证码
+                $("#getcap").click(function () {
+                    var mobnum = $("#mobnum").val();
+                    if (mobnum == "") {
+                        toast.show("请输入手机号码");
+                    } else {
+                        settime(this);
+                        var me = new member(function (data) {
+                        });
+                        me.sendCode({ mobile: mobnum })
+                    }
+                });
+                //绑定手机
+                $("#login").click(function () {
+                    var check = document.getElementById("weuiAgree");
+                    var mobnum = $("#mobnum").val();
+                    var capt = $("#captcha").val();
+                    var invite = $("#inviteCode").val();
+                    if (check.checked == true) {
+                        var me = new member(function (data) {
+                            toast.show("绑定成功");
+                            setTimeout(function () {
+                                if (pageManager.GetQueryString('type') == 'password') {
+                                    location.replace('../payment/payPassword.html')
+                                } else {
+                                    pageManager.back();
+                                }
+                                //                            window.location.href = document.referrer;
+                            }, 1000);
+                        });
+                        me.bindMobile({ mobile: mobnum, captcha: capt, inviteCode: invite });
+                    } else {
+                        toast.show("请同意协议")
+                    }
+                })
+            }
+
+        };
+        window.addEventListener('pageGoOk', pageFn)
+    </script>
 </body>
 
 </html>
