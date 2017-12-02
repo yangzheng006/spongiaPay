@@ -34,7 +34,7 @@
     <script src="/weixin/js/common.min.js"></script>
     <script src="/weixin/js/wap.min.js"></script>
     <script type="text/javascript">
-        var pageableList = {};
+        window.pageableList = {};
         $(function () {
             pageManager.show("index");
         });
@@ -61,7 +61,7 @@
                                 htmlt += `<div class="${i == 0 ? 'active' : ''}" data-px="${rest.list[i].PX}" data-id="${rest.list[i].ID}">${rest.list[i].LBMC}</div>`
                             }
                             $('#tab' + selectTopId + ' .financeTab-list').html(htmlt);
-                            pageableRefresh($('.financeTab-tabTop>div.active').attr('data-px'), rest.list[0].PX);
+                            pageableRefresh($('.financeTab-tabTop>div.active').attr('data-px'), rest.list[0].ID);
                         }).classTwo({
                             superiorId: selectTopId
                         })
@@ -72,6 +72,7 @@
                 }
 
                 function pageableRefresh(px, paramsId) {
+                    console.log(paramsId)
                     pageableList['tp' + px] && pageableList['tp' + px].remove();
                     pageableList['tp' + px] = $('.financeTab-content[data-px="' + px + '"]').pageable({
                         scrollFn: function () {
