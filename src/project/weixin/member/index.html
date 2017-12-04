@@ -248,27 +248,10 @@
                             toast.closeLoading();
                             bbusinessLicense = data.tpname;
                         }).uploadImage({
-                            image: file,
+                            image: file.substring(image.indexOf(",") + 1),
                             type: 2
                         })
                     })
-                    var reader = new FileReader();
-                    reader.onload = (function (file) {
-                        return function (e) {
-                            toast.loadingSelf(1000000, '上传中');
-                            var image = this.result;
-                            var upImg = image.substring(image.indexOf(",") + 1);
-                            $("#bbusinessLicenseImg")[0].src = this.result;
-                            new common(function (data) {
-                                toast.closeLoading();
-                                bbusinessLicense = data.tpname;
-                            }).uploadImage({
-                                image: upImg,
-                                type: 2
-                            })
-                        };
-                    })(e.target.files[0]);
-                    reader.readAsDataURL(e.target.files[0]);
                 });
                 $("#identityCardFront").on('change', function (e) {
                     var reader = new FileReader();
