@@ -263,14 +263,15 @@
                     })
                 });
                 $("#identityCardFront").on('change', function (e) {
-                    uploadImg(e.target.files, 0, function (data, file) {
+                    uploadImg(e.target.files, 3, function (data, file) {
                         toast.closeLoading();
                         identityCardFront = data.tpname;
                         $("#identityCardFrontImg")[0].src = file;
                     })
                 });
                 $("#identityCardBack").on('change', function (e) {
-                    uploadImg(e.target.files, 1, function (data, file) {
+                    uploadImg(e.target.files, 4
+                        , function (data, file) {
                         toast.closeLoading();
                         identityCardBack = data.tpname;
                         $("#identityCardBackImg")[0].src = file;
