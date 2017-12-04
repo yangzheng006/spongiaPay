@@ -512,6 +512,7 @@ var render = {
 
 
 var compressImg = function (file, callback, rate) {
+    if(!file) return
     var reader = new FileReader();
     date = new Date();
     reader.onload = function () {
@@ -545,5 +546,6 @@ var compressImg = function (file, callback, rate) {
     }
     reader.readAsDataURL(file);
 }
+
 
 
