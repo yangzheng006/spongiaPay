@@ -511,3 +511,39 @@ var render = {
 };
 
 
+var compressImg = function (file, callback, rate) {
+    var reader = new FileReader();
+    date = new Date();
+    reader.onload = function () {
+        var canvas = document.createElement("canvas");
+        var ctx = canvas.getContext("2d");
+        var image = new Image();
+        image.src = this.result;
+        image.onload = function () {
+            var cw = image.width;
+            var ch = image.height;
+            var w = image.width;
+            var h = image.height;
+            canvas.width = w;
+            canvas.height = h;
+            if (cw > 400 && cw > ch) {
+                w = 400;
+                h = (400 * ch) / cw;
+                canvas.width = w;
+                canvas.height = h;
+            }
+            if (ch > 400 && ch > cw) {
+                h = 400;
+                w = (400 * cw) / ch;
+                canvas.width = w;
+                canvas.height = h;
+            }
+            ctx.drawImage(image, 0, 0, w, h);
+            var smallImage = canvas.toDataURL("image/jpeg", rate ? rate : 0.7);
+            callback && callback(smallImage);
+        }
+    }
+    reader.readAsDataURL(file);
+}
+
+

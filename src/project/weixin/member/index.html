@@ -242,6 +242,16 @@
 
 
                 $("#bbusinessLicense").on('change', function (e) {
+                    toast.loadingSelf(1000000, '压缩上传中');
+                    compressImg(e.target.files[0], function (file) {
+                        new common(function (data) {
+                            toast.closeLoading();
+                            bbusinessLicense = data.tpname;
+                        }).uploadImage({
+                            image: file,
+                            type: 2
+                        })
+                    })
                     var reader = new FileReader();
                     reader.onload = (function (file) {
                         return function (e) {
