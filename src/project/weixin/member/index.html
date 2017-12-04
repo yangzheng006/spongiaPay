@@ -247,8 +247,9 @@
                         new common(function (data) {
                             toast.closeLoading();
                             bbusinessLicense = data.tpname;
+                            $("#bbusinessLicenseImg")[0].src = file;
                         }).uploadImage({
-                            image: file.substring(image.indexOf(",") + 1),
+                            image: file.substring(file.indexOf(",") + 1),
                             type: 2
                         })
                     })
