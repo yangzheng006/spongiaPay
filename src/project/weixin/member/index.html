@@ -60,13 +60,6 @@
     <script src="/weixin/js/common.min.js"></script>
     <script src="/weixin/js/wap.min.js"></script>
     <script type="text/javascript">
-        window.onpageshow = function (ev) {
-            if (pageManager._getHash() == '#orderList') {
-                if (ev.persisted && WeixinJSBridge) {
-                    window.location.reload()
-                }
-            }
-        };
         $(function () {
             pageManager.show("index");
         })
@@ -677,7 +670,7 @@
                             $("#uploadimg1")[0].src = file;
                         }).uploadImage({
                             image: file.substring(file.indexOf(",") + 1),
-                            type: 2
+                            type: 0
                         })
                     })
                 });
@@ -691,7 +684,7 @@
                             $("#uploadimg2")[0].src = file;
                         }).uploadImage({
                             image: file.substring(file.indexOf(",") + 1),
-                            type: 2
+                            type: 1
                         })
                     })
                 });
