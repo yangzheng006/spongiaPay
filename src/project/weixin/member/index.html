@@ -60,9 +60,30 @@
     <script src="/weixin/js/common.min.js"></script>
     <script src="/weixin/js/wap.min.js"></script>
     <script type="text/javascript">
+        window.onpageshow = function (ev) {
+            if (pageManager._getHash() == '#orderList') {
+                if (ev.persisted && WeixinJSBridge) {
+                    window.location.reload()
+                }
+            }
+        };
         $(function () {
             pageManager.show("index");
         })
+        function uploadImg(files, type, callback) {
+            if (files.length === 0) {
+                return false;
+            }
+            toast.loadingSelf(1000000, '压缩上传中');
+            compressImg(files[0], function (file) {
+                new common(function (data) {
+                    callback && callback(data, file)
+                }).uploadImage({
+                    image: file.substring(file.indexOf(",") + 1),
+                    type: type
+                })
+            })
+        }
         var pageFn = function () {
             //个人中心页面
             if (pageManager._getHash() == '#') {
@@ -235,68 +256,39 @@
 
 
                 $("#bbusinessLicense").on('change', function (e) {
-                    toast.loadingSelf(1000000, '压缩上传中');
-                    compressImg(e.target.files[0], function (file) {
-                        new common(function (data) {
-                            toast.closeLoading();
-                            bbusinessLicense = data.tpname;
-                            $("#bbusinessLicenseImg")[0].src = file;
-                        }).uploadImage({
-                            image: file.substring(file.indexOf(",") + 1),
-                            type: 2
-                        })
+                    uploadImg(e.target.files, 2, function (data, file) {
+                        toast.closeLoading();
+                        bbusinessLicense = data.tpname;
+                        $("#bbusinessLicenseImg")[0].src = file;
                     })
                 });
                 $("#identityCardFront").on('change', function (e) {
-                    toast.loadingSelf(1000000, '压缩上传中');
-                    compressImg(e.target.files[0], function (file) {
-                        new common(function (data) {
-                            toast.closeLoading();
-                            identityCardFront = data.tpname;
-                            $("#identityCardFrontImg")[0].src = file;
-                        }).uploadImage({
-                            image: file.substring(file.indexOf(",") + 1),
-                            type: 2
-                        })
+                    uploadImg(e.target.files, 3, function (data, file) {
+                        toast.closeLoading();
+                        identityCardFront = data.tpname;
+                        $("#identityCardFrontImg")[0].src = file;
                     })
                 });
                 $("#identityCardBack").on('change', function (e) {
-                    toast.loadingSelf(1000000, '压缩上传中');
-                    compressImg(e.target.files[0], function (file) {
-                        new common(function (data) {
-                            toast.closeLoading();
-                            identityCardBack = data.tpname;
-                            $("#identityCardBackImg")[0].src = file;
-                        }).uploadImage({
-                            image: file.substring(file.indexOf(",") + 1),
-                            type: 2
-                        })
+                    uploadImg(e.target.files, 4
+                        , function (data, file) {
+                        toast.closeLoading();
+                        identityCardBack = data.tpname;
+                        $("#identityCardBackImg")[0].src = file;
                     })
                 });
                 $("#Authorizationletter").on('change', function (e) {
-                    toast.loadingSelf(1000000, '压缩上传中');
-                    compressImg(e.target.files[0], function (file) {
-                        new common(function (data) {
-                            toast.closeLoading();
-                            Authorizationletter = data.tpname;
-                            $("#AuthorizationletterImg")[0].src = file;
-                        }).uploadImage({
-                            image: file.substring(file.indexOf(",") + 1),
-                            type: 2
-                        })
+                    uploadImg(e.target.files, 6, function (data, file) {
+                        toast.closeLoading();
+                        Authorizationletter = data.tpname;
+                        $("#AuthorizationletterImg")[0].src = file;
                     })
                 });
                 $("#placeofBusiness").on('change', function (e) {
-                    toast.loadingSelf(1000000, '压缩上传中');
-                    compressImg(e.target.files[0], function (file) {
-                        new common(function (data) {
-                            toast.closeLoading();
-                            placeofBusiness = data.tpname;
-                            $("#placeofBusinessImg")[0].src = file;
-                        }).uploadImage({
-                            image: file.substring(file.indexOf(",") + 1),
-                            type: 2
-                        })
+                    uploadImg(e.target.files, 5, function (data, file) {
+                        toast.closeLoading();
+                        placeofBusiness = data.tpname;
+                        $("#placeofBusinessImg")[0].src = file;
                     })
                 });
 
@@ -662,30 +654,18 @@
                 var img1src;
                 var img2src;
                 $("#idcard1").on('change', function (e) {
-                    toast.loadingSelf(1000000, '压缩上传中');
-                    compressImg(e.target.files[0], function (file) {
-                        new common(function (data) {
-                            toast.closeLoading();
-                            img1src = data.tpname;
-                            $("#uploadimg1")[0].src = file;
-                        }).uploadImage({
-                            image: file.substring(file.indexOf(",") + 1),
-                            type: 0
-                        })
+                    uploadImg(e.target.files, 0, function (data, file) {
+                        toast.closeLoading();
+                        img1src = data.tpname;
+                        $("#uploadimg1")[0].src = file;
                     })
                 });
 
                 $("#idcard2").on('change', function (e) {
-                    toast.loadingSelf(1000000, '压缩上传中');
-                    compressImg(e.target.files[0], function (file) {
-                        new common(function (data) {
-                            toast.closeLoading();
-                            img2src = data.tpname;
-                            $("#uploadimg2")[0].src = file;
-                        }).uploadImage({
-                            image: file.substring(file.indexOf(",") + 1),
-                            type: 1
-                        })
+                    uploadImg(e.target.files, 1, function (data, file) {
+                        toast.closeLoading();
+                        img2src = data.tpname;
+                        $("#uploadimg2")[0].src = file;
                     })
                 });
 
