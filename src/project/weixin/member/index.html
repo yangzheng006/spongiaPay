@@ -146,12 +146,14 @@
                 if (data.IsBinding) {
                     $('.IsBinding .weui-cell__ft').html('已绑定');
                     $(document).on('click', '.IsBinding', function () {
-                        toast.show('您已绑定', 1000)
+//                        toast.show('您已绑定', 1000)
+                        pageManager.go('bankList')
                     })
                 } else {
                     $('.IsBinding .weui-cell__ft').html('未绑定');
                     $(document).on('click', '.IsBinding', function () {
-                        pageManager.go('cardOne')
+//                        pageManager.go('cardOne')
+                        pageManager.go('bankList')
                     })
                 }
 
@@ -499,7 +501,7 @@
                 } else {
                     toast.show('添加成功', 1000)
                     new member(function (data) {
-                        console.log(data)
+                        pageManager.replace('cardThree')
                     }).addBinding({
                         zsxm: zsxm,
                         yhkh: yhkh,
@@ -512,7 +514,7 @@
                 }
 
 
-                //                pageManager.replace('cardThree')
+
             })
         }
 
@@ -521,7 +523,7 @@
         if (window.location.hash == '#cardThree') {
             document.title = '绑定银行卡';
             $(document).on('click', '.goCardSuccess', function () {
-                pageManager.replace('index')
+                pageManager.back()
             })
         }
 
