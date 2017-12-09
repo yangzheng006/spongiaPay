@@ -576,7 +576,7 @@
         //帮助中心
         if (window.location.hash == '#help') {
             document.title = '帮助中心';
-            pget || $(".pageable").pageable({
+            pget = pget || $(".pageable").pageable({
                 loadUpFn: function (me) {
                     new member(function (data) {
                         var h = render.fill($("#tpl_helpList"), data.pageList);
