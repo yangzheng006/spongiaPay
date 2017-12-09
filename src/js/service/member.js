@@ -70,6 +70,18 @@ member.prototype = {
     },
 
     /**
+     * 银行卡列表
+     *
+     */
+    bindingListGet: function (data) {
+        ajax.post({
+            url: base + "bindingListGet",
+            data: data,
+            success: this.fn
+        });
+    },
+
+    /**
      * 修改绑定的手机号
      * mobile  新电话号码
      * currentMobile 当前电话号码
