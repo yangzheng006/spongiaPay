@@ -1,0 +1,66 @@
+@charset "UTF-8";
+.bank_list{
+  .weui-cells{
+    .weui-cell{
+      width: 92vw;
+      border-radius: 5px;
+      margin: 2vw auto 0;
+      -webkit-box-align: flex-start;
+      -webkit-align-items: flex-start;
+      align-items: flex-start;
+
+      &:nth-child(3n){
+        background: #1bb291;
+      }
+      &:nth-child(3n+1){
+        background: #e85c65;
+      }
+      &:nth-child(3n+2){
+        background: #1b72ce;
+      }
+      .weui-cell__hd{
+        width: 12vw;
+        height:12vw;
+        border-radius: 50%;
+        margin-right: 2vw;
+        img{
+          width: 100%;
+          height:100%;
+          border-radius: 50%;
+        }
+      }
+      .weui-cell__bd{
+        color: @white;
+        p{
+          &:first-child{
+            margin-top: .3em;
+          }
+        }
+        .bankCard_num{
+          margin-top: 5vw;
+        }
+      }
+      .remove_bankCart{
+        padding: 10px;
+        color:@white;
+        display: block;
+        position: absolute;
+        bottom:2em;
+        right: 2em;
+      }
+    }
+  }
+  .add_bank{
+    position: fixed;
+    bottom:10px;
+    left:0;
+    width: 100%;
+    .weui-btn{
+      background: transparent;
+      border: none;
+      &:after{
+        border: none;
+      }
+    }
+  }
+}

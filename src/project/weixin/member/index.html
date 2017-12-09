@@ -26,6 +26,8 @@
 <link rel="import" href="../../../pages/member/point/givePoint.html">
 <link rel="import" href="../../../pages/member/point/listPoint.html">
 <link rel="import" href="../../../pages/member/point/usePoint.html">
+<!--添加銀行卡-->
+<link rel="import" href="../../../pages/member/bankCard/bankList.html">
 <!--添加银行卡-->
 <link rel="import" href="../../../pages/member/bankCard/cardOne.html">
 <link rel="import" href="../../../pages/member/bankCard/cardThree.html">
@@ -51,6 +53,8 @@
 
 
 <link rel="import" href="../../../model/templete/member/helpList.html">
+<!--银行卡列表-->
+<link rel="import" href="../../../model/templete/member/bankCardList.html">
 <!-- 历史推荐 -->
 <link rel="import" href="../../../model/templete/member/recommendList.html">
 <link rel="import" href="../../../model/templete/member/recommendTenantList.html">
@@ -519,6 +523,19 @@
             $(document).on('click', '.goCardSuccess', function () {
                 pageManager.replace('index')
             })
+        }
+
+        //银行卡列表
+        if (window.location.hash == '#bankList') {
+            new member(function (res) {
+                var h = render.fill($("#tpl_bankCardList"), res.list);
+                $('.bank_list .weui-cells').html(h);
+                $(document).on('click','.remove_bankCard', function () {
+                    $(this).parent('.weui-cell').remove();
+                })
+            }).bindingListGet({
+                hyId: memberId
+            });
         }
 
         //个人信息
