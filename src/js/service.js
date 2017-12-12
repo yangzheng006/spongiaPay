@@ -9,4 +9,5 @@
 @import "../../js/service/product.js";
 @import "../../js/service/common.js";
 @import "../../js/service/authentication.js";
+@import "../../js/service/point.js";
 
