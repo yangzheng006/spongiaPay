@@ -86,27 +86,29 @@
                         phone: phone,
                         hyId: memberId
                     })
-                } else if (!bussinessNumber) {
-                    toast.show('请填写营业执照号', 1000)
-                } else if (!bbusinessLicense) {
-                    toast.show('请上传营业执照照片', 1000)
-                } else if (!identityCardNum) {
-                    toast.show('请填写身份证号', 1000)
-                } else if (!identityCardFront) {
-                    toast.show('请上传身份证正面照片', 1000)
-                } else if (!identityCardBack) {
-                    toast.show('请上传身份证反面照片', 1000)
-                } else if (!account) {
-                    toast.show('请填写结算账户户名', 1000)
-                } else if (!bank) {
-                    toast.show('请填写开户行', 1000)
-                } else if (!bankAccount) {
-                    toast.show('请填写银行账户', 1000)
-                } else if (!Authorizationletter) {
-                    toast.show('请上传授权书照片', 1000)
-                } else if (!placeofBusiness) {
-                    toast.show('请上传营业场所照片', 1000)
-                } else {
+                }
+//                else if (!bussinessNumber) {
+//                    toast.show('请填写营业执照号', 1000)
+//                } else if (!bbusinessLicense) {
+//                    toast.show('请上传营业执照照片', 1000)
+//                } else if (!identityCardNum) {
+//                    toast.show('请填写身份证号', 1000)
+//                } else if (!identityCardFront) {
+//                    toast.show('请上传身份证正面照片', 1000)
+//                } else if (!identityCardBack) {
+//                    toast.show('请上传身份证反面照片', 1000)
+//                } else if (!account) {
+//                    toast.show('请填写结算账户户名', 1000)
+//                } else if (!bank) {
+//                    toast.show('请填写开户行', 1000)
+//                } else if (!bankAccount) {
+//                    toast.show('请填写银行账户', 1000)
+//                } else if (!Authorizationletter) {
+//                    toast.show('请上传授权书照片', 1000)
+//                } else if (!placeofBusiness) {
+//                    toast.show('请上传营业场所照片', 1000)
+//                }
+                else {
                     new authentication(function (data) {
                         shId = data.id;
                         new authentication(function (data) {
