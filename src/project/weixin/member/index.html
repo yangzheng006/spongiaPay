@@ -164,14 +164,9 @@
                 }
                 $('.memberIndex #username').html(data.data.XM)
 
+                $('.memberPoint').html(data.data.JF)
             }).view({
                 memberId: memberId
-            })
-
-            new point(function (data) {
-                $('.memberPoint').html(data.jf)
-            }).view({
-                id:memberId
             })
         }
 
