@@ -14,13 +14,12 @@ var weixin = {
             return $def.promise();
         }
         console.log(weixin.setting);
-        if (weixin.setting == "none") {
+        if (weixin.setting === "none") {
             weixin.setting = "pending";
             $.getJSON(weixin.url + '?url=' + encodeURIComponent(location.href.split('#')[0])).done(function (res) {
                 var config = res.obj;
                 wx.config({
-                    beta: true,
-                    debug: true,
+                    // debug: true,
                     appId: config.appId,
                     timestamp: config.timestamp,
                     nonceStr: config.nonce_str,
@@ -52,17 +51,17 @@ var weixin = {
                 weixin.setting = "none";
                 $def.reject();
             });
-        } else if (weixin.setting == "pending") {
+        } else if (weixin.setting === "pending") {
             var t = window.setInterval(function () {
-                if (weixin.setting == "success") {
+                if (weixin.setting === "success") {
                     clearInterval(t);
                     $def.resolve(weixin.config);
-                } else if (weixin.setting == "none") {
+                } else if (weixin.setting === "none") {
                     clearInterval(t);
                     $def.reject();
                 }
             }, 100);
-        } else if (weixin.setting == "success") {
+        } else if (weixin.setting === "success") {
             $def.resolve(weixin.config);
         }
         return $def.promise();
