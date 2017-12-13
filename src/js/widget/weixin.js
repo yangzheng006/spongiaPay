@@ -1,6 +1,6 @@
 // 微信插件
 var weixin = {
-    url: base + 'weixin/mutual/get_config.jhtml',
+    url: base + 'sign',
     lat: 0, // 纬度，浮点数，范围为90 ~ -90
     lng: 0, // 经度，浮点数，范围为180 ~ -180。
     speed: 0, // 速度，以米/每秒计
