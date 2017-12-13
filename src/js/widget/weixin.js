@@ -17,13 +17,13 @@ var weixin = {
         if (weixin.setting == "none") {
             weixin.setting = "pending";
             $.getJSON(weixin.url + '?url=' + encodeURIComponent(location.href.split('#')[0])).done(function (res) {
-                var config = res.data;
+                var config = res.obj;
                 wx.config({
                     beta: true,
-                    debug: false,
+                    debug: true,
                     appId: config.appId,
                     timestamp: config.timestamp,
-                    nonceStr: config.nonceStr,
+                    nonceStr: config.nonce_str,
                     signature: config.signature,
                     jsApiList: [
                         // 'hideMenuItems',
@@ -166,8 +166,6 @@ var weixin = {
                 wx.showMenuItems({
                     menuList: ["menuItem:share:appMessage","menuItem:share:timeline","menuItem:share:qq","menuItem:share:weiboApp","menuItem:share:QZone"] // 要隐藏的菜单项，只能隐藏“传播类”和“保护类”按钮，所有menu项见附录3
                 });
-
-                var username = cookie.getCookie("username");
 
                 //分享到朋友圈
                 wx.onMenuShareTimeline({
