@@ -6,6 +6,17 @@ var area=function (fn) {
     this.fn=fn
 };
 area.prototype={
+  /**
+   * 更新地址
+   * @param data
+   */
+  updateAddress:function(data){
+      ajax.post({
+        url: base + "updateAddress",
+        data: data,
+        success: this.fn
+      });
+    },
     /**
      * 全城
      * @param data
