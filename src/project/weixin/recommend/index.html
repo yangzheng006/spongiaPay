@@ -50,7 +50,7 @@
 
             var shId;
             //填写第一步资料
-            var bbusinessLicense, identityCardFront, identityCardBack, Authorizationletter, placeofBusiness;
+            var bbusinessLicense, identityCardFront, identityCardBack, Authorizationletter, placeofBusiness,identityCardFrontno,identityCardBackno,doorHead,placeofGathering;
             var accounType = 'normal';
             //选择账号类型（对工/法人）
             $(document).on('click', '.selsectAccounType .weui-check__label', function () {
@@ -65,6 +65,7 @@
 
                 var bussinessNumber = $('.recommend .bussinessNumber').val();
                 var identityCardNum = $('.recommend .identityCardNum').val();
+                var identityCardNumno=$('.recommend .identityCardNumno').val();
                 var account = $('.recommend .account').val();
                 var bank = $('.recommend .bank').val();
                 var bankAccount = $('.recommend .bankAccount').val();
@@ -135,7 +136,12 @@
                             bankAccount: bankAccount,
                             Authorizationletter: Authorizationletter,
                             placeofBusiness: placeofBusiness,
-                            shId: shId
+                            shId: shId,
+                            FFRSFZHM:identityCardNumno,
+                            FFRSFZZMZ:identityCardFrontno,
+                            FFRSFZFMZ:identityCardBackno,
+                            doorHead:doorHead,
+                            placeofGathering:placeofGathering
                         })
                     }).tenantsNormal({
                         tenantName: tenantName,
@@ -181,6 +187,34 @@
                     toast.closeLoading();
                     placeofBusiness = data.tpname;
                     $("#placeofBusinessImg")[0].src = file;
+                })
+            });
+            $("#identityCardFrontno").on('change', function (e) {
+                uploadImg(e.target.files, 7, function (data, file) {
+                    toast.closeLoading();
+                    identityCardFrontno = data.tpname;
+                    $("#identityCardFrontnoImg")[0].src = file;
+                })
+            });
+            $("#identityCardBackno").on('change', function (e) {
+                uploadImg(e.target.files, 8, function (data, file) {
+                    toast.closeLoading();
+                    identityCardBackno = data.tpname;
+                    $("#identityCardBacknoImg")[0].src = file;
+                })
+            });
+            $("#doorHead").on('change', function (e) {
+                uploadImg(e.target.files, 8, function (data, file) {
+                    toast.closeLoading();
+                    doorHead = data.tpname;
+                    $("#doorHeadImg")[0].src = file;
+                })
+            });
+            $("#placeofGathering").on('change', function (e) {
+                uploadImg(e.target.files, 9, function (data, file) {
+                    toast.closeLoading();
+                    placeofGathering = data.tpname;
+                    $("#placeofGatheringImg")[0].src = file;
                 })
             });
         })
