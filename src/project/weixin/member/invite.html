@@ -195,14 +195,14 @@
                 })
             });
             $("#doorHead").on('change', function (e) {
-                uploadImg(e.target.files, 8, function (data, file) {
+                uploadImg(e.target.files, 9, function (data, file) {
                     toast.closeLoading();
                     doorHead = data.tpname;
                     $("#doorHeadImg")[0].src = file;
                 })
             });
             $("#placeofGathering").on('change', function (e) {
-                uploadImg(e.target.files, 9, function (data, file) {
+                uploadImg(e.target.files, 10, function (data, file) {
                     toast.closeLoading();
                     placeofGathering = data.tpname;
                     $("#placeofGatheringImg")[0].src = file;

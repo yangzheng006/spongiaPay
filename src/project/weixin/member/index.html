@@ -325,14 +325,14 @@
                 })
             });
             $("#doorHead").on('change', function (e) {
-                uploadImg(e.target.files, 8, function (data, file) {
+                uploadImg(e.target.files, 9, function (data, file) {
                     toast.closeLoading();
                     doorHead = data.tpname;
                     $("#doorHeadImg")[0].src = file;
                 })
             });
             $("#placeofGathering").on('change', function (e) {
-                uploadImg(e.target.files, 9, function (data, file) {
+                uploadImg(e.target.files, 10, function (data, file) {
                     toast.closeLoading();
                     placeofGathering = data.tpname;
                     $("#placeofGatheringImg")[0].src = file;
@@ -633,6 +633,89 @@
                 pageManager.go('cashSuccess')
             })
         }
+
+        //积分赠送
+        if (window.location.hash == '#givePoint') {
+            document.title = '积分赠送';
+
+            var hasjf;
+            new point(function (data) {
+                hasjf=data.jf;
+                $('.givePointWrap .givePointc').attr('placeholder','请填写赠送积分,'+'可用积分('+data.jf+')')
+            }).view({
+                id:memberId
+            })
+
+            $('.givePointWrap .givePointc').bind('input propertychange', function() {
+                console.log( $('.givePointWrap .givePointc').val());
+                if($('.givePointWrap .givePointc').val()>hasjf){
+                    $('.givePointWrap .givePointc').val(hasjf);
+                    toast.show('您最大赠送积分额度为'+hasjf,1000)
+                }
+            })
+                new member(function (data) {
+                var phoneNumber=data.data.SJHM;
+                var countdown = 60;
+                var canSend = true;
+                function settime(val) {
+                    if (countdown == 0) {
+                        canSend = true;
+                        val.innerHTML = "发送验证码";
+                        val.style.color = "#3782d9";
+                        countdown = 60;
+                        return;
+                    } else {
+                        canSend = false;
+                        val.innerHTML = "重新发送(" + countdown + ")";
+                        val.style.color = "#999";
+                        countdown--;
+                    }
+                    setTimeout(function () {
+                        settime(val)
+                    }, 1000)
+                }
+                //发送验证码
+                $(document).on('click', '.givePointWrap .sendCode', function () {
+                    if (canSend) {
+                        var $this = this;
+                        //手机号校验
+                            new common(function (data) {
+                                console.log(data);
+                                settime($this);
+                                canSend = false;
+                            }).sendCode({
+                                phoneNumber: phoneNumber,
+                                type: 4
+                            })
+                    }
+                });
+
+            }).view({
+                memberId:memberId
+            })
+            $(document).on('click', '.goGivePoint', function () {
+                var yhzh=$('.givePointWrap .giveAccount').val();
+                var jf=$('.givePointWrap .givePointc').val();
+                var yzm=$('.givePointWrap .code').val();
+                if(!yhzh){
+                    toast.show('请填写赠送账户',1000)
+                }else if(!jf){
+                    toast.show('请填写赠送积分',1000)
+                }else if(!yzm){
+                    toast.show('请填写验证码',1000)
+                }else{
+                    new point(function (res) {
+                        
+                    }).givEIntegral({
+                        yhzh:yhzh,
+                        jf:jf,
+                        yzm:yzm,
+                        hyid:memberId
+                    })
+                }
+            })
+        }
+
         //积分提现成功页面
         if (window.location.hash == '#cashSuccess') {
             document.title = '提现成功';
