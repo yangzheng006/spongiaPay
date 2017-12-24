@@ -92,7 +92,6 @@ var weixin = {
           imgUrl: jsons && jsons.imgUrl ? jsons.imgUrl : config.shareimage,
           success: function () {
             // 用户确认分享后执行的回调函数
-            new common().updateLuck();
           },
           cancel: function () {
             // 用户取消分享后执行的回调函数
@@ -106,7 +105,6 @@ var weixin = {
           imgUrl: jsons && jsons.imgUrl ? jsons.imgUrl : config.shareimage,
           success: function () {
             // 用户确认分享后执行的回调函数
-            new common().updateLuck();
           },
           cancel: function () {
             // 用户取消分享后执行的回调函数
@@ -120,7 +118,6 @@ var weixin = {
           imgUrl: jsons && jsons.imgUrl ? jsons.imgUrl : config.shareimage,   // 分享图标
           success: function () {
             // 用户确认分享后执行的回调函数
-            new common().updateLuck();
           },
           cancel: function () {
             // 用户取消分享后执行的回调函数
@@ -134,7 +131,6 @@ var weixin = {
           imgUrl: jsons && jsons.imgUrl ? jsons.imgUrl : config.shareimage,   // 分享图标
           success: function () {
             // 用户确认分享后执行的回调函数
-            new common().updateLuck();
           },
           cancel: function () {
             // 用户取消分享后执行的回调函数
@@ -148,7 +144,6 @@ var weixin = {
           imgUrl: jsons && jsons.imgUrl ? jsons.imgUrl : config.shareimage,   // 分享图标
           success: function () {
             // 用户确认分享后执行的回调函数
-            new common().updateLuck();
           },
           cancel: function () {
             // 用户取消分享后执行的回调函数
@@ -175,7 +170,6 @@ var weixin = {
             // 用户确认分享后执行的回调函数
             console.log(jsons.imgUrl);
             if (jsons.success) jsons.success();
-            new common().updateLuck();
           },
 
           cancel: function () {
@@ -192,7 +186,6 @@ var weixin = {
             // 用户确认分享后执行的回调函数
             console.log(jsons.imgUrl);
             if (jsons.success) jsons.success();
-            new common().updateLuck();
           },
           cancel: function () {
             // 用户取消分享后执行的回调函数
@@ -207,7 +200,6 @@ var weixin = {
           success: function () {
             // 用户确认分享后执行的回调函数
             if (jsons.success) jsons.success();
-            new common().updateLuck();
           },
           cancel: function () {
             // 用户取消分享后执行的回调函数
@@ -222,7 +214,6 @@ var weixin = {
           success: function () {
             // 用户确认分享后执行的回调函数
             if (jsons.success) jsons.success();
-            new common().updateLuck();
           },
           cancel: function () {
             // 用户取消分享后执行的回调函数
@@ -237,7 +228,6 @@ var weixin = {
           success: function () {
             // 用户确认分享后执行的回调函数
             if (jsons.success) jsons.success();
-            new common().updateLuck();
           },
           cancel: function () {
             // 用户取消分享后执行的回调函数
@@ -307,6 +297,7 @@ var weixin = {
    * url  在查看位置界面底部显示的超链接,可点击跳转
    */
   openLocation: function (jsons) {
+    console.log(jsons)
     weixin.init().done(function (config) {
       wx.ready(function () {
         wx.openLocation({

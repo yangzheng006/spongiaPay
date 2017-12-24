@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="zh-cmn-Hans">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
@@ -90,6 +89,15 @@
                     $('.starList').find('i').eq(i).addClass('icon-s-star')
                 }
 
+
+                $(document).on('click','.goWhere',function () {
+                    weixin.openLocation({
+                        lat: res.item.lat,
+                        lng: res.item.lon,
+                        name: res.item.SHMC,
+                        address: res.item.YYDZ,
+                    })
+                })
             }).merchantProductGet(ajaxParams)
 
         });

@@ -604,13 +604,26 @@
             new member(function (data) {
                 $('.member_user_info .headImg').attr('src', data.data.TXTP)
                 $('.member_user_info .name').html(data.data.XM)
-                $('.member_user_info .sex').html(data.data.XB)
-                $('.member_user_info .age').html(data.data.NL)
+                $('.member_user_info .sex input').val(data.data.XB)
+                $('.member_user_info .age input').val(data.data.NL)
                 $('.member_user_info .phone').html(data.data.SJHM)
                 $('.member_user_info .idCard').html(data.data.SFZHM)
                 $('.member_user_info .address .weui-cell__ft').html(data.data.CZDZ)
             }).view({
                 memberId: memberId
+            })
+            
+            $(document).on('click','.saveInfo',function () {
+                dialog.query('确认保存个人信息？',function () {
+                    new member(function (data) {
+                        toast.show('保存成功',1000)
+                    }).updatePersonalInformation({
+                        XB: $('.member_user_info .sex input').val(),
+                        NL:$('.member_user_info .age input').val(),
+                        id:memberId
+                    })
+                })
+
             })
         }
 
@@ -618,13 +631,55 @@
         //使用积分
         if (window.location.hash == '#usePoint') {
             document.title = '使用积分';
+            var useStatus=false;
             new point(function (data) {
-                $('.usePoint .usePointAmount').html(data.jf)
-                $('.usePoint .useMoney').html(data.money)
+                $('.usePoint .usePointAmount').html(data.jf);
+                $('.usePoint .useMoney').html(data.money);
+                $('.weui-switch').on('click',function () {
+                    useStatus=!useStatus;
+                });
+
+                $('.usePoint .useMoney').bind('input propertychange', function() {
+                    if(!useStatus){
+                        $('.usePoint .trueAmount').html( $('.usePoint .useMoney').val());
+                    }else{
+                        $('.usePoint .trueAmount').html(parseInt($('.usePoint .useMoney').val())-parseInt(data.money));
+                    }
+                })
+
+                $(document).on('click','.confirmUseBtn',function () {
+                    var shmc=$('.usePoint .tenantName').val();
+                    new point(function () {
+                        weixin.scanQRCode({
+                            desc:'请扫描商家收款码'
+                        })
+                    }).useIntegral({
+                        hyId:memberId,
+                        shmc:shmc,
+                        jf:useStatus?data.jf:0
+                    })
+                })
+
             }).view({
                 id: memberId
             })
+
+
+
         }
+
+        //积分记录
+        if (window.location.hash == '#listPoint') {
+            document.title = '积分记录';
+            new point(function (data) {
+                $('.usePoint .usePointAmount').html(data.jf)
+                $('.usePoint .useMoney').html(data.money)
+            }).selectIntegralRecord({
+                hyid: memberId
+            })
+        }
+
+
 
         //积分提现
         if (window.location.hash == '#cashPoint') {

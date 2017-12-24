@@ -19,6 +19,22 @@ member.prototype = {
         });
     },
 
+
+    /**
+     * 修改个人信息
+     * id 用户id
+     * XB
+     * NL
+     *CZDZ
+     */
+    updatePersonalInformation: function (data) {
+        ajax.post({
+            url: base + "updatePersonalInformation",
+            data: data,
+            success: this.fn
+        });
+    },
+
     /**
      * 帮助管理
      *
