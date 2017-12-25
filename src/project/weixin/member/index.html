@@ -637,9 +637,15 @@
                 $('.usePoint .useMoney').html(data.money);
                 $('.weui-switch').on('click',function () {
                     useStatus=!useStatus;
+                    if(!useStatus){
+                        $('.usePoint .trueAmount').html( $('.usePoint .useMoney').val());
+                    }else{
+                        $('.usePoint .trueAmount').html(parseInt($('.usePoint .useMoney').val())-parseInt(data.money));
+                    }
                 });
 
                 $('.usePoint .useMoney').bind('input propertychange', function() {
+                    console.log(useStatus)
                     if(!useStatus){
                         $('.usePoint .trueAmount').html( $('.usePoint .useMoney').val());
                     }else{
