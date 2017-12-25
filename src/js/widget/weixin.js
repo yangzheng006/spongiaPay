@@ -254,24 +254,24 @@ var weixin = {
             console.log("lat:" + weixin.lat);
             console.log("lng:" + weixin.lng);
             if (fn) fn(true);//true表示已获取经纬度
-            new lbs(function (data) {
-              console.log("经纬度获取到的城市：");
-              console.log(data);
-
-              if (data.update) {
-                // if (confirm("检测当前所在城市为" + data.area.name + ",是否切换？")) {
-                //     new lbs(function () {
-                //         location.reload();
-                //     }).update({lat: weixin.lat, lng: weixin.lng})
-                // }
-                dialog.query("检测当前所在城市为" + data.area.name + ",是否切换？", function () {
-                  new lbs(function () {
-                    location.reload();
-                  }).update({lat: weixin.lat, lng: weixin.lng})
-                });
-
-              }
-            }).get({lat: weixin.lat, lng: weixin.lng});
+            // new lbs(function (data) {
+            //   console.log("经纬度获取到的城市：");
+            //   console.log(data);
+            //
+            //   if (data.update) {
+            //     // if (confirm("检测当前所在城市为" + data.area.name + ",是否切换？")) {
+            //     //     new lbs(function () {
+            //     //         location.reload();
+            //     //     }).update({lat: weixin.lat, lng: weixin.lng})
+            //     // }
+            //     dialog.query("检测当前所在城市为" + data.area.name + ",是否切换？", function () {
+            //       new lbs(function () {
+            //         location.reload();
+            //       }).update({lat: weixin.lat, lng: weixin.lng})
+            //     });
+            //
+            //   }
+            // }).get({lat: weixin.lat, lng: weixin.lng});
           },
           fail: function () {
             console.log("定位失败");
