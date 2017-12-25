@@ -1,15 +1,26 @@
 <div class="page">
+    <div id="actionSheet_contact_merchant" >
+        <div class="weui-mask_transparent actionsheet__mask" style="opacity: 0;display: none;"></div>
+        <div class="weui-actionsheet actionsheet bank_list" style="max-height: 50vh;overflow: hidden;overflow-y: scroll;">
+            <div class="weui-cells address ">
+            </div>
+            <!--<div class="weui-actionsheet__action cancel">-->
+                <!--<i class="iconfont icon-remove-02"></i>-->
+            <!--</div>-->
+        </div>
+    </div>
+
     <div class="page_bd cashPoint">
         <div class="point_amount clr_white">
             <p class="f16 tl lineOne">当前积分</p>
             <p class="f60 tl" id="balance">0.0</p>
         </div>
-        <div class="weui-cells " style="width: 100%;background-color: white">
+        <div class="weui-cells clickCard" style="width: 100%;background-color: white">
             <div class="weui-cell" style="height: 40px">
                 <div class="weui-cell__hd">银行卡 </div>
                 <div class="weui-cell__bd"> </div>
                 <div class="weui-cell__ft" style="margin-left: 10px">
-                    <input class="weui-input f14 tr baseColor" type="text" readonly value="中国农业银行尾号3949">
+                    <input class="weui-input f14 tr baseColor bankName" type="text" readonly value="选择银行">
                 </div>
             </div>
         </div>
@@ -18,13 +29,13 @@
                 <div class="weui-cell__hd">积分 </div>
                 <div class="weui-cell__bd"> </div>
                 <div class="weui-cell__ft" style="margin-left: 10px">
-                    <input class="weui-input f14 tr" type="number" placeholder="请输入提现积分" >
+                    <input class="weui-input f14 tr cashPointAmount" type="number" placeholder="请输入提现积分" >
                 </div>
             </div>
         </div>
         <div class="weui-cell f12">
             <div class="weui-cell__hd clr_lightGray">
-                全部积分300，<span class="baseColor">全部提现</span>
+                全部积分<span class="allPoint">0.0</span>，<span class="baseColor getCashAll">全部提现</span>
             </div>
             <div class="weui-cell__bd">
 

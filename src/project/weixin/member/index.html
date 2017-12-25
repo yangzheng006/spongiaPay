@@ -684,8 +684,66 @@
         //积分提现
         if (window.location.hash == '#cashPoint') {
             document.title = '积分提现';
+            var BKID,KHYH,YHKH,JMKH
+            $(document).on('click','.clickCard',function () {
+                $('.remove_bankCart').remove()
+                $("#actionSheet_contact_merchant").actionsheet();
+            })
+
+            $(document).on('click','.address .weui-cell',function () {
+                BKID=$(this).attr('data-id');
+                KHYH=$(this).attr('data-KHYH');
+                YHKH=$(this).attr('data-YHKH');
+                JMKH=$(this).attr('data-JMKH');
+                $('.cashPoint .bankName').val(KHYH+'尾号'+JMKH)
+                $("#actionSheet_contact_merchant").actionsheetClose();
+            })
+
+            new member(function (res) {
+                var h = render.fill($("#tpl_bankCardList"), res.list);
+                $('#actionSheet_contact_merchant .address').html(h);
+                $(document).on('click', '.remove_bankCard', function () {
+                    $(this).parent('.weui-cell').remove();
+                })
+                if(res.list.length){
+                    BKID=res.list[0].ID;
+                    KHYH=res.list[0].FKJG;
+                    YHKH=res.list[0].YHKH;
+                    JMKH=res.list[0].JMKH;
+                    $('.cashPoint .bankName').val(KHYH+'尾号'+JMKH)
+                }
+            }).bindingListGet({
+                hyId: memberId
+            });
+
+            new point(function (data) {
+                $('.cashPoint #balance').html(data.jf)
+                $('.cashPoint .allPoint').html(data.jf)
+                $(document).on('click','.getCashAll',function () {
+                    $('.cashPointAmount').val(data.jf)
+                })
+            }).view({
+                id: memberId
+            })
             $(document).on('click', '.goCashPoint', function () {
-                pageManager.go('cashSuccess')
+                var TXJF=$('.cashPointAmount').val();
+                if(!TXJF){
+                    toast.show('请输入提现积分',1000)
+                }else if(!BKID){
+                    toast.show('请先去绑定银行卡',1000)
+                }else{
+                    new point(function () {
+
+                    }).wthdrawals({
+                        hyid:memberId,
+                        KHYH:KHYH,
+                        YHKH:YHKH,
+                        BKID:BKID,
+                        TXJF:TXJF
+                    })
+                }
+
+//                pageManager.go('cashSuccess')
             })
         }
 
