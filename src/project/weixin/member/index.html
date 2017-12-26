@@ -55,6 +55,7 @@
 <link rel="import" href="../../../model/templete/member/helpList.html">
 <!--银行卡列表-->
 <link rel="import" href="../../../model/templete/member/bankCardList.html">
+<link rel="import" href="../../../model/templete/member/point/pointListTpl.html">
 <!-- 历史推荐 -->
 <link rel="import" href="../../../model/templete/member/recommendList.html">
 <link rel="import" href="../../../model/templete/member/recommendTenantList.html">
@@ -678,11 +679,42 @@
         if (window.location.hash == '#listPoint') {
             document.title = '积分记录';
             new point(function (data) {
-                $('.usePoint .usePointAmount').html(data.jf)
-                $('.usePoint .useMoney').html(data.money)
+                $('.listPoint #balance').html(data.jf)
+            }).view({
+                id: memberId
+            })
+
+            new point(function (data) {
+                var h = render.fill($("#tpl_pointListTpl"), data.list);
+                $('.listPointTplWrap').html(h)
             }).selectIntegralRecord({
                 hyid: memberId
             })
+
+
+            $('.chooseMonth').on('click', function () {
+                var date=new Date();
+                var year=date.getFullYear();
+                var month=date.getMonth()+1;
+                weui.datePicker({
+                    start: 2015, //开始月份
+                    end: new Date().getFullYear(),  //结束为当前年份
+                    depth:2,
+                    defaultValue: [year,month],
+                    //日期选择时执行方法
+                    onChange: function (result) {
+                        //隐藏日的显示,只显示年月
+                        $('.weui-picker__group').eq(2).css('display','none');
+                    },
+                    //日期确定后执行方法
+                    onConfirm: function (result) {
+                        $('.chooseMonth').html(result[0].value+'年'+result[1].value+'月');     //选择时当前年份值
+                    }
+                });
+                $('.weui-picker__group').eq(2).css('display','none');
+            });
+
+
         }
 
 
