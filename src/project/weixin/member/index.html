@@ -709,6 +709,15 @@
                     //日期确定后执行方法
                     onConfirm: function (result) {
                         $('.chooseMonth').html(result[0].value+'年'+result[1].value+'月');     //选择时当前年份值
+
+                        new point(function (data) {
+                            var h = render.fill($("#tpl_pointListTpl"), data.list);
+                            $('.listPointTplWrap').html(h)
+                        }).selectIntegralRecord({
+                            hyid: memberId,
+                            month:result[1].value,
+                            Year:result[0].value
+                        })
                     }
                 });
                 $('.weui-picker__group').eq(2).css('display','none');
