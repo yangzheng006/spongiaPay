@@ -656,15 +656,25 @@
 
                 $(document).on('click','.confirmUseBtn',function () {
                     var shmc=$('.usePoint .tenantName').val();
-                    new point(function () {
+                    if(!useStatus){
                         weixin.scanQRCode({
                             desc:'请扫描商家收款码'
                         })
-                    }).useIntegral({
-                        hyId:memberId,
-                        shmc:shmc,
-                        jf:useStatus?data.jf:0
-                    })
+                    }else if(useStatus && data.jf==0){
+                        weixin.scanQRCode({
+                            desc:'请扫描商家收款码'
+                        })
+                    }else{
+                        new point(function () {
+                            weixin.scanQRCode({
+                                desc:'请扫描商家收款码'
+                            })
+                        }).useIntegral({
+                            hyId:memberId,
+                            shmc:shmc,
+                            jf:useStatus?data.jf:0
+                        })
+                    }
                 })
 
             }).view({
@@ -789,7 +799,6 @@
                         TXJF:TXJF
                     })
                 }
-
             })
         }
 
