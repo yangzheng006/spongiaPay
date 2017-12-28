@@ -780,7 +780,7 @@
                     toast.show('请先去绑定银行卡',1000)
                 }else{
                     new point(function () {
-
+                        pageManager.go('cashSuccess')
                     }).wthdrawals({
                         hyid:memberId,
                         KHYH:KHYH,
@@ -790,7 +790,6 @@
                     })
                 }
 
-//                pageManager.go('cashSuccess')
             })
         }
 
