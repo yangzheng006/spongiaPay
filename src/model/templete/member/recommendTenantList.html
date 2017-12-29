@@ -1,7 +1,11 @@
 {{#each this}}
 <div class="recommendShop weui-cell">
     <div class="weui-cell__hd">
+        {{#if YYCSZP}}
         <img src="{{YYCSZP}}" alt="">
+        {{else}}
+        <img src="../images/placeholder/user.png" alt="">
+        {{/if}}
     </div>
     <div class="weui-cell__bd weui-flex__item f16 overone">
         <div class="f16 bold">{{SHMC}}</div>
