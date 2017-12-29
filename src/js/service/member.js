@@ -98,6 +98,21 @@ member.prototype = {
     },
 
     /**
+     * 删除银行卡
+     * id  卡id
+     *
+     */
+    bindingDle: function (data) {
+        ajax.post({
+            url: base + "bindingDle",
+            data: data,
+            success: this.fn
+        });
+    },
+
+
+
+    /**
      * 修改绑定的手机号
      * mobile  新电话号码
      * currentMobile 当前电话号码

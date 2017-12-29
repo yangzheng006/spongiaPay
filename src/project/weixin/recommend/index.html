@@ -118,37 +118,48 @@
 //                    toast.show('请上传营业场所照片', 1000)
 //                }
                 else {
-                    new authentication(function (data) {
-                        shId = data.id;
-                        new authentication(function (data) {
-                            dialog.show('提交资料成功', function () {
-                                location.reload();
+                    new member(function (data) {
+                        if (!data.IsAuthenticationSm && !data.IsAuthenticationSh) {
+                            dialog.query('实名认证或商户认证后才可提交，立刻前去认证', function () {
+                                location.href = '../member/index.html#auth';
                             })
-                        }).tanantsAuthoBusinessLicense({
-                            bussinessNumber: bussinessNumber,
-                            bbusinessLicense: bbusinessLicense,
-                            identityCardNum: identityCardNum,
-                            identityCardFront: identityCardFront,
-                            identityCardBack: identityCardBack,
-                            accounType: accounType,
-                            account: account,
-                            bank: bank,
-                            bankAccount: bankAccount,
-                            Authorizationletter: Authorizationletter,
-                            placeofBusiness: placeofBusiness,
-                            shId: shId,
-                            FFRSFZHM:identityCardNumno,
-                            FFRSFZZMZ:identityCardFrontno,
-                            FFRSFZFMZ:identityCardBackno,
-                            doorHead:doorHead,
-                            placeofGathering:placeofGathering
-                        })
-                    }).tenantsNormal({
-                        tenantName: tenantName,
-                        linkMan: linkMan,
-                        phone: phone,
-                        hyId: memberId
+                        } else {
+                            new authentication(function (data) {
+                                shId = data.id;
+                                new authentication(function (data) {
+                                    dialog.show('提交资料成功', function () {
+                                        location.reload();
+                                    })
+                                }).tanantsAuthoBusinessLicense({
+                                    bussinessNumber: bussinessNumber,
+                                    bbusinessLicense: bbusinessLicense,
+                                    identityCardNum: identityCardNum,
+                                    identityCardFront: identityCardFront,
+                                    identityCardBack: identityCardBack,
+                                    accounType: accounType,
+                                    account: account,
+                                    bank: bank,
+                                    bankAccount: bankAccount,
+                                    Authorizationletter: Authorizationletter,
+                                    placeofBusiness: placeofBusiness,
+                                    shId: shId,
+                                    FFRSFZHM:identityCardNumno,
+                                    FFRSFZZMZ:identityCardFrontno,
+                                    FFRSFZFMZ:identityCardBackno,
+                                    doorHead:doorHead,
+                                    placeofGathering:placeofGathering
+                                })
+                            }).tenantsNormal({
+                                tenantName: tenantName,
+                                linkMan: linkMan,
+                                phone: phone,
+                                hyId: memberId
+                            })
+                        }
+                    }).view({
+                        memberId: memberId
                     })
+
 
                 }
             });

@@ -571,12 +571,23 @@
             new member(function (res) {
                 var h = render.fill($("#tpl_bankCardList"), res.list);
                 $('.bank_list .weui-cells').html(h);
-                $(document).on('click', '.remove_bankCard', function () {
-                    $(this).parent('.weui-cell').remove();
-                })
+
             }).bindingListGet({
                 hyId: memberId
             });
+
+            $(document).on('click', '.remove_bankCart', function () {
+                var id=$(this).attr('data-id');
+                var $this=$(this);
+                dialog.query('确认删除该银行卡？',function () {
+                    new member(function () {
+                        $this.parent().remove();
+                        toast.show('删除成功',1000);
+                    }).bindingDle({
+                        id:id
+                    })
+                })
+            })
         }
 
         //个人信息
@@ -786,6 +797,8 @@
                 var TXJF=$('.cashPointAmount').val();
                 if(!TXJF){
                     toast.show('请输入提现积分',1000)
+                }else if(TXJF==0){
+                    toast.show('提现积分不能为0',1000)
                 }else if(!BKID){
                     toast.show('请先去绑定银行卡',1000)
                 }else{
