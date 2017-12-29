@@ -48,7 +48,38 @@
                 lon: weixin.lng,
                 lat:weixin.lat
             });
-        })
+        });
+
+
+        //定位
+        weixin.location(function (flag) {
+            if(flag){
+                new lbs(function (data) {
+                    $(".location")[0].innerText = data.area.sematic_description;
+                }).get({
+                    lat: weixin.lat,
+                    lng: weixin.lng
+                });
+            }else{
+                //获取当前城市
+                new lbs(function (data) {
+                    $(".location")[0].innerText = data.fullName;
+                }).current();
+            }
+        });
+
+        //刷新定位
+        $('.location').click(function () {
+            weixin.location(function (res) {
+                if(res){
+                    new lbs(function (data) {
+                        $(".location")[0].innerText = data.sematic_description;
+                    }).update({lat: weixin.lat, lng: weixin.lng});
+                }
+            });
+        });
+
+
     });
 </script>
 

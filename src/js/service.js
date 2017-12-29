@@ -11,4 +11,5 @@
 @import "../../js/service/authentication.js";
 @import "../../js/service/point.js";
 @import "../../js/service/area.js";
+@import "../../js/service/lbs.js";
 
