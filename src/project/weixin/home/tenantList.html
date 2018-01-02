@@ -91,47 +91,53 @@
         var pget = null;
         function shuju(categoryId) {
             pget && pget.remove();
-            pget = $(".pageable").pageable({
-                scrollFn: function () {
-                    $(window).trigger('scroll');
-                },
-                loadUpFn: function (me) {
-                    new tenant(function (data) {
-                        var f = render.fill($("#tpl_list"), data);
-                        $(".tenant_list").html(f);
-                        if (data.list.length < 10) {
-                            me.lock();
-                            me.noData();
-                        }else {
-                            me.noData(false);
-                        }
-                        pget.resetload();
-                    }).moreList({
-                        classificationId: categoryId,
-                        hyId: localStorage.getItem('loginID'),
-                        page: 1
-                    });
-                },
-                loadDownFn: function (me) {
-                    new tenant(function (data) {
-                        me.pageNumber += 1;
-                        var f = render.fill($("#tpl_list"), data);
-                        $(".tenant_list").append(f);
-                        if (data.list.length < 10) {
-                            me.lock();
-                            me.noData();
-                        }else {
-                            me.noData(false);
-                        }
-                        me.resetload();
-                    }).moreList({
-                        classificationId: categoryId,
-                        hyId: localStorage.getItem('loginID'),
-                        page: me.pageNumber
-                    });
-                }
+            weixin.location(function () {
+                pget = $(".pageable").pageable({
+                    scrollFn: function () {
+                        $(window).trigger('scroll');
+                    },
+                    loadUpFn: function (me) {
+                        new tenant(function (data) {
+                            var f = render.fill($("#tpl_list"), data);
+                            $(".tenant_list").html(f);
+                            if (data.list.length < 10) {
+                                me.lock();
+                                me.noData();
+                            }else {
+                                me.noData(false);
+                            }
+                            pget.resetload();
+                        }).moreList({
+                            classificationId: categoryId,
+                            hyId: localStorage.getItem('loginID'),
+                            page: 1,
+                            lon: weixin.lng,
+                            lat:weixin.lat
+                        });
+                    },
+                    loadDownFn: function (me) {
+                        new tenant(function (data) {
+                            me.pageNumber += 1;
+                            var f = render.fill($("#tpl_list"), data);
+                            $(".tenant_list").append(f);
+                            if (data.list.length < 10) {
+                                me.lock();
+                                me.noData();
+                            }else {
+                                me.noData(false);
+                            }
+                            me.resetload();
+                        }).moreList({
+                            classificationId: categoryId,
+                            hyId: localStorage.getItem('loginID'),
+                            page: me.pageNumber,
+                            lon: weixin.lng,
+                            lat:weixin.lat
+                        });
+                    }
+                });
+                pget.refresh();
             });
-            pget.refresh();
         }
     })
 </script>
