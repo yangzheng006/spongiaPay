@@ -58,7 +58,7 @@
             var shId;
             //填写第一步资料
             var accounType = 'normal';
-            var bbusinessLicense, identityCardFront, identityCardBack, Authorizationletter, placeofBusiness,identityCardFrontno,identityCardBackno,doorHead,placeofGathering;
+            var bbusinessLicense, identityCardFront, identityCardBack, Authorizationletter, placeofBusiness,identityCardFrontno,identityCardBackno,doorHead,placeofGathering,YHKZMZ;
             $(document).on('click', '.recommend .goSubmit', function () {
                 var tenantName = $('.recommend .tenantName').val();
                 var linkMan = $('.recommend .linkMan').val();
@@ -132,7 +132,8 @@
                             FFRSFZZMZ:identityCardFrontno,
                             FFRSFZFMZ:identityCardBackno,
                             doorHead:doorHead,
-                            placeofGathering:placeofGathering
+                            placeofGathering:placeofGathering,
+                            YHKZMZ:YHKZMZ
                         })
                     }).merchantCA({
                         tenantName: tenantName,
@@ -209,6 +210,13 @@
                 })
             });
 
+            $("#YHKZMZ").on('change', function (e) {
+                uploadImg(e.target.files, 11, function (data, file) {
+                    toast.closeLoading();
+                    YHKZMZ = data.tpname;
+                    $("#YHKZMZImg")[0].src = file;
+                })
+            });
 
             //选择账号类型（对工/法人）
             $(document).on('click', '.selsectAccounType .weui-check__label', function () {

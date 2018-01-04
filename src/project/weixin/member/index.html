@@ -184,7 +184,7 @@
             })
             var shId;
             //填写第一步资料
-            var bbusinessLicense, identityCardFront, identityCardBack, Authorizationletter, placeofBusiness,identityCardFrontno,identityCardBackno,doorHead,placeofGathering;
+            var bbusinessLicense, identityCardFront, identityCardBack, Authorizationletter, placeofBusiness,identityCardFrontno,identityCardBackno,doorHead,placeofGathering,YHKZMZ;
             var accounType = 'normal';
 
             $(document).on('click', '.recommend .goSubmit', function () {
@@ -261,7 +261,8 @@
                             FFRSFZZMZ:identityCardFrontno,
                             FFRSFZFMZ:identityCardBackno,
                             doorHead:doorHead,
-                            placeofGathering:placeofGathering
+                            placeofGathering:placeofGathering,
+                            YHKZMZ:YHKZMZ
                         })
                     }).merchantCA({
                         tenantName: tenantName,
@@ -340,6 +341,13 @@
                 })
             });
 
+            $("#YHKZMZ").on('change', function (e) {
+                uploadImg(e.target.files, 11, function (data, file) {
+                    toast.closeLoading();
+                    YHKZMZ = data.tpname;
+                    $("#YHKZMZImg")[0].src = file;
+                })
+            });
 
             //选择账号类型（对工/法人）
             $(document).on('click', '.selsectAccounType .weui-check__label', function () {
@@ -356,12 +364,14 @@
             new member(function (res) {
                 var h = render.fill($("#tpl_recommendList"), res.list);
                 $('#recommendListSingle').html(h);
+                $('.manTotal').html(res.total)
             }).recommendList({
                 hyId: memberId
             });
             new member(function (res) {
                 var h = render.fill($("#tpl_recommendTenantList"), res.list);
                 $('#recommendListTenant').html(h);
+                $('.tenantTotal').html(res.total)
             }).recommendTenantList({
                 hyId: memberId,
                 type: 0
@@ -624,7 +634,17 @@
             }).view({
                 memberId: memberId
             })
-            
+
+            var TXTP;
+            $("#headUpload").on('change', function (e) {
+                uploadImg(e.target.files, 12, function (data, file) {
+                        toast.closeLoading();
+                    TXTP = data.tpname;
+                        $("#headUploadImg")[0].src = file;
+                    })
+            });
+
+
             $(document).on('click','.saveInfo',function () {
                 dialog.query('确认保存个人信息？',function () {
                     new member(function (data) {
@@ -632,10 +652,10 @@
                     }).updatePersonalInformation({
                         XB: $('.member_user_info .sex input').val(),
                         NL:$('.member_user_info .age input').val(),
+                        TXTP:TXTP,
                         id:memberId
                     })
                 })
-
             })
         }
 
