@@ -84,7 +84,7 @@
                         tenantName: tenantName,
                         linkMan: linkMan,
                         phone: phone,
-                        hyId: memberId
+                        hyId: pageManager.GetQueryString('hyId')
                     })
                 }
 //                else if (!bussinessNumber) {
@@ -139,7 +139,7 @@
                         tenantName: tenantName,
                         linkMan: linkMan,
                         phone: phone,
-                        hyId: memberId
+                        hyId: pageManager.GetQueryString('hyId')
                     })
 
                 }
@@ -289,10 +289,11 @@
                         dialog.show('注册成功，立即登陆', function () {
                             location.replace('../login/index.html')
                         })
-                    }).register({
+                    }).registerInvite({
                         account: phoneNumber,
                         authoCode: code,
-                        passwd: passwordConfirm
+                        passwd: passwordConfirm,
+                        hyId:pageManager.GetQueryString('hyId')
                     })
                 }
 

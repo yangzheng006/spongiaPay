@@ -34,6 +34,22 @@ login.prototype = {
     },
 
     /**
+     * 注册提交
+     * account 账号
+     * authoCode验证码
+     * passwd 密码
+     */
+    registerInvite: function (data) {
+        ajax.post({
+            url: base + "registerInvite",
+            data: data,
+            success: this.fn
+        });
+    },
+
+
+
+    /**
      * 登陆
      * type 1:密码登录2:验证码登录
      * account 账号

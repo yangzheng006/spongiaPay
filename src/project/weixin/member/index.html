@@ -981,7 +981,7 @@
             weixin.share1({
                 title: '海绵思维平台',
                 desc: '海绵思维是以渠道代理为银行等金融机构营销各类商户办理POS机、收款二维码支付体系',
-                link: 'http://www.himisw.com/weixin/member/index.html?#inviteSuccess',
+                link: 'http://www.himisw.com/weixin/member/index.html?hyId='+memberId+'#inviteSuccess',
                 imgUrl: 'http://www.himisw.com/weixin/images/static/member/logo.png'
             })
         }
@@ -990,7 +990,7 @@
         if (window.location.hash == '#inviteSuccess') {
             document.title = '邀请注册';
             $(document).on('click', '.clickLogin', function () {
-                location.href = '../member/invite.html'
+                location.href = '../member/invite.html?hyId='+pageManager.GetQueryString('hyId')
             })
         }
 
