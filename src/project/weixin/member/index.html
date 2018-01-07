@@ -208,7 +208,10 @@
                 } else if (!bbusinessLicense && !identityCardFront && !identityCardBack && !Authorizationletter && !placeofBusiness && !bussinessNumber && !identityCardNum && !account && !bank && !bankAccount) {
                     new authentication(function (data) {
                         shId = data.id;
-                        toast.show('提交成功', 1000)
+                        toast.show('提交成功', 1000);
+                        setTimeout(function () {
+                            location.replace('../member/index.html')
+                        },1500)
                     }).merchantCA({
                         tenantName: tenantName,
                         linkMan: linkMan,
@@ -242,7 +245,9 @@
                         shId = data.id;
                         new authentication(function (data) {
                             dialog.show('提交资料成功', function () {
-                                location.reload();
+                                setTimeout(function () {
+                                    location.replace('../member/index.html')
+                                },500)
                             })
                         }).tanantsAuthoBusinessLicense({
                             bussinessNumber: bussinessNumber,

@@ -84,7 +84,9 @@
                         } else {
                             new authentication(function (data) {
                                 shId = data.id;
-                                toast.show('提交成功', 1000)
+                                dialog.show('提交资料成功', function () {
+                                    location.replace('../home/index.html')
+                                })
                             }).tenantsNormal({
                                 tenantName: tenantName,
                                 linkMan: linkMan,
