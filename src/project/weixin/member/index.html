@@ -653,7 +653,11 @@
             $(document).on('click','.saveInfo',function () {
                 dialog.query('确认保存个人信息？',function () {
                     new member(function (data) {
-                        toast.show('保存成功',1000)
+                        toast.show('保存成功',1000);
+                    },function(){
+                      setTimeout(function(){
+                        window.history.back();
+                      },1000)
                     }).updatePersonalInformation({
                         XB: $('.member_user_info .sex input').val(),
                         NL:$('.member_user_info .age input').val(),
