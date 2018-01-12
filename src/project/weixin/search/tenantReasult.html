@@ -13,11 +13,9 @@
 <!--搜索商家结果页-->
 <link rel="import" href="../../../pages/search/tenant/tenantReasult.html">
 
-<!--模版-->
-<link rel="import" href="../../../model/templete/include/hotArea.html">
 <!--商家搜索结果模版页-->
-<link rel="import" href="../../../model/templete/search/tenantList.html">
-<link rel="import" href="../../../model/templete/search/tenantListZtb.html">
+<!--商家列表-->
+<link rel="import" href="../../../model/templete/home/tenantList/list.html">
 
 @import "../../../model/widget/include/dialog.html";
 <script src="/weixin/js/common.min.js"></script>
@@ -34,12 +32,12 @@
 
         var jsonsData={
             pageSize:20,
-            pageNumber:1,
+            page:1,
             lat: weixin.lat,
-            lng: weixin.lng
+            lon: weixin.lng,
+            hyId:memberId
         };
 
-        jsonsData.keyword=pageManager.GetQueryString("keyword");
 
         $(document).keypress(function(e) {
             var code = e.keyCode || e.which;
@@ -49,7 +47,7 @@
                     toast.show('请先输入您想搜索的内容');
                     return;
                 }
-                jsonsData.keyword = keyword;
+                jsonsData.SHMC = keyword;
                 pget.refresh();
                 return false;
             }
@@ -60,12 +58,11 @@
                 toast.show('请先输入您想搜索的内容');
                 return;
             }
-            jsonsData.keyword = keyword;
+            jsonsData.SHMC = keyword;
             pget.refresh();
             return false;
         });
 
-        $('#searchInput').val(unescape(pageManager.GetQueryString("keyword")));
         var txt = $('#searchInput').val();
         if(txt != null || txt != null){
             $('#searchBar').addClass('weui-search-bar_focusing');
@@ -90,7 +87,6 @@
 
 
         var pget;
-        var key = cookie.getCookie('key');
         //定位，获取经纬度
         weixin.location(function () {
             $('pageable-up').remove();
@@ -98,7 +94,7 @@
             console.log("lat:" + weixin.lat);
             console.log("lng:" + weixin.lng);
             jsonsData.lat=weixin.lat;
-            jsonsData.lng=weixin.lng;
+            jsonsData.lon=weixin.lng;
             //列表及分页
             pget = $(".tenantReasult .pageable").pageable({
                 scrollFn: function () {
@@ -106,37 +102,25 @@
                 },
                 loadUpFn: function () {
                     var tu = new tenant(function (data) {
-                        jsonsData.pageNumber += 1;
-                        if(key == 'ztb'){
-                            var h = render.fill($("#tpl_tenantListZtb"), data);
+                        jsonsData.page += 1;
+                            var h = render.fill($("#tpl_list"), data);
                             $(".pageable .tenant_list").html(h);
                             $('img').picLazyLoad();
-                        } else{
-                            var h = render.fill($("#tpl_tenantList"), data);
-                            $(".pageable .tenant_list").html(h);
-                            $('img').picLazyLoad();
-                        }
                         pget.resetload();
                     });
-                    jsonsData.pageNumber = 1;
-                    tu.list(jsonsData);
+                    jsonsData.page = 1;
+                    tu.merchantProductSearch(jsonsData);
                 },
                 loadDownFn: function (me) {
                     weixin.location(function () {
                         jsonsData.lat=weixin.lat;
-                        jsonsData.lng=weixin.lng;
+                        jsonsData.lon=weixin.lng;
                         var td = new tenant(function (data) {
-                            jsonsData.pageNumber += 1;
-                            if(key == 'ztb'){
-                                var h = render.fill($("#tpl_tenantListZtb"), data);
+                            jsonsData.page += 1;
+                                var h = render.fill($("#tpl_list"), data);
                                 $(".pageable .tenant_list").append(h);
                                 $('img').picLazyLoad();
-                            } else{
-                                var h = render.fill($("#tpl_tenantList"), data);
-                                $(".pageable .tenant_list").append(h);
-                                $('img').picLazyLoad();
-                            }
-                            if (data.length < jsonsData.pageSize) {
+                            if (data.list.length < jsonsData.pageSize) {
                                 me.lock();
                                 me.noData();
                             }
@@ -145,54 +129,13 @@
                             }
                             me.resetload();
                         });
-                        td.list(jsonsData);
+                        td.merchantProductSearch(jsonsData);
 
                     })
                 }
             });
         });
 
-        dropmenu.init("全城",'分类',"智能排序");
-        var ar=new area(function (data) {
-            dropmenu.bindCity(data,function (data) {
-                console.log(data);
-                jsonsData.areaId=data.areaId;
-                jsonsData.communityId=data.communityId;
-                pget.refresh();
-            });
-            //热门商圈
-            console.log('热门商圈：'+data);
-            var h = render.fill($("#tpl_hotArea"), data);
-            $(".hot").html(h);
-        });
-        ar.community();
-
-        var rp=new redPacket(function (data) {
-            dropmenu.bindCategory(data,function (data) {
-                console.log(data);
-                jsonsData.tenantCategoryId=data.categoryId;
-                pget.refresh();
-            });
-        });
-        rp.category();
-        dropmenu.bindOrder(["智能排序","点击降序","评分降序","距离优先"],function (data) {
-            console.log(data);
-            var orderType="";
-            if(data==0){
-                orderType="weight";
-            }
-            if(data==1){
-                orderType="hitsDesc";
-            }
-            if(data==2){
-                orderType="scoreDesc";
-            }
-            if(data==3){
-                orderType="distance";
-            }
-            jsonsData.orderType=orderType;
-            pget.refresh();
-        });
 
         var down=document.getElementsByClassName('pageable-down');
         for(var i=0;i<down.length;i++){

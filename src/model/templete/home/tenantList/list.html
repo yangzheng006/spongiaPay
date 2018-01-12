@@ -1,12 +1,11 @@
 {{#each list}}
 <a href="../tenant/index.html?id={{ID}}" class="tenant" data-id="{{ID}}">
     <div class="tenant_img">
-        {{#compare YYCSZP '!=' null}}
+        {{#if YYCSZP }}
         <img src="{{YYCSZP}}" />
-        {{/compare}}
-        {{#compare YYCSZP '==' null}}
+        {{else}}
         <img src="../images/placeholder/tenant.png" />
-        {{/compare}}
+        {{/if}}
     </div>
     <div class="tenant_txt">
         <p class="f16 tenant_tit overone">{{SHMC}}</p>

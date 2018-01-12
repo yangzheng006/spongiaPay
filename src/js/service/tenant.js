@@ -20,6 +20,19 @@ tenant.prototype = {
     },
 
     /**
+     * 优质商家、金融惠普
+     */
+    merchantProductSearch: function (data) {
+        ajax.get({
+            url: base + "merchantProductSearch",
+            data: data,
+            success: this.fn
+        });
+
+    },
+
+
+    /**
      * 附近商家
      */
     nearby: function (data) {
