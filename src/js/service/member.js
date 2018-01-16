@@ -129,6 +129,20 @@ member.prototype = {
   },
 
   /**
+   * 修改密码
+   * newpwd  新密码
+   * id   用户ID
+   *
+   */
+  updatePassword: function (data) {
+    ajax.post({
+      url: base + "updatePassword",
+      data: data,
+      success: this.fn
+    });
+  },
+
+  /**
    * 历史推荐
    * hyId 会员id
    */
