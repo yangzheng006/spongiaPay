@@ -502,12 +502,17 @@
             $(document).on('click', '.goChangePassword', function () {
                 var newPassword = $('.changeBindPage .newPassword').val();
                 var truePassword = $('.changeBindPage .truePassword').val();
-                if (newPassword != truePassword) {
+                if(!truePassword && !truePassword){
+                    toast.show('密码不能为空',1000)
+                }else if (newPassword != truePassword) {
                     toast.show('密码输入不一致，请重新输入', 1000)
                 }  else {
                     new member(function (data) {
                         console.log(data);
-                        pageManager.back();
+                        toast.show('修改密码成功',1000)
+                        setTimeout(function () {
+                            pageManager.back();
+                        },1500)
                     }).updatePassword({
                         newpwd: newPassword,
                         id: memberId

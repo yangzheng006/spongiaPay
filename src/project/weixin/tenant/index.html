@@ -80,7 +80,7 @@
                 res.item.DZIF == 'true' ? $('#isFabulous').removeClass('clr-gray01').addClass('orange_app') : $('#isFabulous').removeClass('orange_app').addClass('clr-gray01');
                 $('#tenantAddress').html(res.item.YYDZ);
                 if(res.item.TXTP){
-                    $('.tenant_touxiang').attr('src',res.item.TXTP)
+                    $('.tenant_touxiang img').attr('src',res.item.TXTP)
                 }
                 $('#tel').attr('href','tel:'+res.item.LXRSJH);
                 $('.starScore').html(res.item.PF+'分');
