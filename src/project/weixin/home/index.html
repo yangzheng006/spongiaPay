@@ -40,14 +40,6 @@
 
         //列表（优质商家、金融普惠）
         weixin.location(function () {
-            var td = new tenant(function (data) {
-                var h = render.fill($("#tpl_list"), data);
-                $(".home_list").append(h);
-            });
-            td.list({
-                lon: weixin.lng,
-                lat:weixin.lat
-            });
             $.ajax({
                 type: 'GET',
                 url:'http://apis.map.qq.com/ws/geocoder/v1/?output=jsonp&location='+weixin.lat+','+weixin.lng+'&key=BU6BZ-FPMKU-JABVP-4PDOI-ZR4UF-7AB7L&get_poi=1',
