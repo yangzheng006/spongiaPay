@@ -23,7 +23,10 @@
             var str = '';
             if(pImage == "true"){
                 for (var i = 0; i < this.data.length; i++) {
-                    var  _url = 'javascript:;';
+                    var  _url = this.data[i].URL;
+                    if(!_url){
+                        _url='javascript:;'
+                    }
                     str = '<a href="'+ _url +'">';
                     str += '<img src="' + this.data[i].TPLJ + '">';
                     str += '</a>';
