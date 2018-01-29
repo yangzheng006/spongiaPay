@@ -84,9 +84,20 @@
                 //注册提交
                 new login(function (data) {
                     console.log(data);
-                    dialog.show('注册成功，立即登陆',function () {
-                        location.replace('../login/index.html')
+                    dialog.show('注册成功',function () {
+//                        location.replace('../login/index.html')
+                        new login(function (res) {
+                            if (res.ID) {
+                                localStorage.setItem('loginID', res.ID);
+                                location.href = "../home/index.html";
+                            }
+                        }).loginS({
+                            type:1,   //1是密码登陆  2是验证码登陆
+                            account: phoneNumber,
+                            authoCode: password
+                        })
                     })
+
                 }).register({
                     account:phoneNumber,
                     authoCode:code,
