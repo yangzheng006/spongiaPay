@@ -172,41 +172,45 @@
                     $('.loanDetailTp').attr('src', res.tp)
                     $('.loanDetailMc').html(res.bt)
                     $('.sqMan').html(res.sq);
+                    new finance(function (data) {
+                        if (!data.revert) {
+                            $(document).on('click', '.loanApply', function () {
+                                new member(function (data) {
+                                    if (!data.IsAuthenticationSm) {
+                                        dialog.query('实名认证后才可提交，立刻前去认证', function () {
+                                            location.href = '../member/index.html#auth';
+                                        })
+                                    } else {
+                                        dialog.query('是否确认申请', function () {
+                                            new finance(function (data) {
+                                                toast.show('申请成功');
+                                                $('.loanApply').html('已申请')
+                                                $('.loanApply').removeClass('loanApply');
+                                                setTimeout(function () {
+                                                    location.href=res.list[0].CPLJ
+                                                },1500)
+                                            }).applicantAdd({
+                                                hyId: memberId,
+                                                cpId: pageManager.GetQueryString('id')
+                                            })
+                                        })
+                                    }
+                                }).view({
+                                    memberId: memberId
+                                })
+                            })
+                        } else {
+                            $('.loanApply').html('已申请')
+                        }
+
+                    }).applicantGet({
+                        hyId: memberId,
+                        cpId: pageManager.GetQueryString('id')
+                    })
                 }).loanView({
                     id: loanViewId
                 });
-                new finance(function (data) {
-                    if (!data.revert) {
-                        $(document).on('click', '.loanApply', function () {
-                            new member(function (data) {
-                                if (!data.IsAuthenticationSm) {
-                                    dialog.query('实名认证后才可提交，立刻前去认证', function () {
-                                        location.href = '../member/index.html#auth';
-                                    })
-                                } else {
-                                    dialog.query('是否确认申请', function () {
-                                        new finance(function (data) {
-                                            toast.show('申请成功');
-                                            $('.loanApply').html('已申请')
-                                            $('.loanApply').removeClass('loanApply');
-                                        }).applicantAdd({
-                                            hyId: memberId,
-                                            cpId: pageManager.GetQueryString('id')
-                                        })
-                                    })
-                                }
-                            }).view({
-                                memberId: memberId
-                            })
-                        })
-                    } else {
-                        $('.loanApply').html('已申请')
-                    }
 
-                }).applicantGet({
-                    hyId: memberId,
-                    cpId: pageManager.GetQueryString('id')
-                })
 
 
             }
@@ -220,42 +224,47 @@
                     $('.cardDetailTp').attr('src', res.tp)
                     $('.cardDetailMc').html(res.bt)
                     $('.cardDetailMc').html(res.bt)
+
+                    new finance(function (data) {
+                        if (!data.revert) {
+                            $(document).on('click', '.cardApply', function () {
+                                new member(function (data) {
+                                    if (!data.IsAuthenticationSm) {
+                                        dialog.query('实名认证后才可提交，立刻前去认证', function () {
+                                            location.href = '../member/index.html#auth';
+                                        })
+                                    } else {
+                                        dialog.query('是否确认申请', function () {
+                                            new finance(function (data) {
+                                                toast.show('申请成功')
+                                                $('.cardApply').html('已申请')
+                                                $('.cardApply').removeClass('cardApply');
+                                                setTimeout(function () {
+                                                    location.href=res.list[0].CPLJ
+                                                },1500)
+                                            }).applicantAdd({
+                                                hyId: memberId,
+                                                cpId: pageManager.GetQueryString('id')
+                                            })
+                                        })
+                                    }
+                                }).view({
+                                    memberId: memberId
+                                })
+                            })
+                        } else {
+                            $('.cardApply').html('已申请')
+                        }
+
+                    }).applicantGet({
+                        hyId: memberId,
+                        cpId: pageManager.GetQueryString('id')
+                    })
                 }).creditCardView({
                     id: creditCardViewId
                 })
 
-                new finance(function (data) {
-                    if (!data.revert) {
-                        $(document).on('click', '.cardApply', function () {
-                            new member(function (data) {
-                                if (!data.IsAuthenticationSm) {
-                                    dialog.query('实名认证后才可提交，立刻前去认证', function () {
-                                        location.href = '../member/index.html#auth';
-                                    })
-                                } else {
-                                    dialog.query('是否确认申请', function () {
-                                        new finance(function (data) {
-                                            toast.show('申请成功')
-                                            $('.cardApply').html('已申请')
-                                            $('.cardApply').removeClass('cardApply');
-                                        }).applicantAdd({
-                                            hyId: memberId,
-                                            cpId: pageManager.GetQueryString('id')
-                                        })
-                                    })
-                                }
-                            }).view({
-                                memberId: memberId
-                            })
-                        })
-                    } else {
-                        $('.cardApply').html('已申请')
-                    }
 
-                }).applicantGet({
-                    hyId: memberId,
-                    cpId: pageManager.GetQueryString('id')
-                })
 
 
             }
@@ -268,9 +277,50 @@
                     $('#manageDetailsWrap').html(h);
                     $('.manageDetailTp').attr('src', res.tp)
                     $('.manageDetailMc').html(res.bt)
+
+
+                    new finance(function (data) {
+                        if (!data.revert) {
+                            $(document).on('click', '.loanManager', function () {
+                                new member(function (data) {
+                                    if (!data.IsAuthenticationSm) {
+                                        dialog.query('实名认证后才可提交，立刻前去认证', function () {
+                                            location.href = '../member/index.html#auth';
+                                        })
+                                    } else {
+                                        dialog.query('是否确认申请', function () {
+                                            new finance(function (data) {
+                                                toast.show('申请成功')
+                                                $('.loanManager').html('已申请')
+                                                $('.loanManager').removeClass('loanManager');
+                                                setTimeout(function () {
+                                                    location.href=res.list[0].CPLJ
+                                                },1500)
+                                            }).applicantAdd({
+                                                hyId: memberId,
+                                                cpId: pageManager.GetQueryString('id')
+                                            })
+                                        })
+                                    }
+                                }).view({
+                                    memberId: memberId
+                                })
+                            })
+                        } else {
+                            $('.loanManager').html('已申请')
+                        }
+
+                    }).applicantGet({
+                        hyId: memberId,
+                        cpId: pageManager.GetQueryString('id')
+                    })
+
+
                 }).wealthView({
                     id: wealthViewId
                 })
+
+
 
                 new finance(function (data) {
                     var h = render.fill($("#tpl_recwealth"), data.list);
