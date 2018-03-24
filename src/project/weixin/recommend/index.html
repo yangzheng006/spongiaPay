@@ -61,6 +61,7 @@
                 var tenantName = $('.recommend .tenantName').val();
                 var linkMan = $('.recommend .linkMan').val();
                 var phone = $('.recommend .phone').val();
+                var tenantAddress = $('.recommend .tenantAddress').val();
 
 
                 var bussinessNumber = $('.recommend .bussinessNumber').val();
@@ -75,6 +76,8 @@
                     toast.show('请输入联系人', 1000)
                 } else if (!(/^1[0-9]{10}$/.test(phone))) {
                     toast.show('请输入正确联系电话', 1000)
+                }else if(!tenantAddress){
+                    toast.show('请输入商家地址', 1000)
                 } else if (!bbusinessLicense && !identityCardFront && !identityCardBack && !Authorizationletter && !placeofBusiness && !bussinessNumber && !identityCardNum && !account && !bank && !bankAccount) {
                     new member(function (data) {
                         if (!data.IsAuthenticationSm && !data.IsAuthenticationSh) {
@@ -87,10 +90,11 @@
                                 dialog.show('提交资料成功', function () {
                                     location.replace('../home/index.html')
                                 })
-                            }).tenantsNormal({
+                            }).newTenantsNormal({
                                 tenantName: tenantName,
                                 linkMan: linkMan,
                                 phone: phone,
+                                YYDZ:tenantAddress,
                                 hyId: memberId
                             })
                         }
@@ -152,10 +156,11 @@
                                     placeofGathering:placeofGathering,
                                     YHKZMZ:YHKZMZ
                                 })
-                            }).tenantsNormal({
+                            }).newTenantsNormal({
                                 tenantName: tenantName,
                                 linkMan: linkMan,
                                 phone: phone,
+                                YYDZ:tenantAddress,
                                 hyId: memberId
                             })
                         }

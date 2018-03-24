@@ -22,6 +22,23 @@ authentication.prototype = {
         });
     },
 
+    /**新普通商家 推荐商家(tab下推荐商家)
+     *  tenantName 商家名称
+     * linkMan 联系人
+     *  phone   电话号码
+     *  hyId   会员id
+     */
+    newTenantsNormal: function (data) {
+        ajax.post({
+            url: base + 'newTenantsNormal',
+            success:this.fn,
+            data:data
+        });
+    },
+
+
+
+
 
     /**商户认证(个人中心商户认证)
      *  tenantName 商家名称

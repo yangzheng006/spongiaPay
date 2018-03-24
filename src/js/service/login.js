@@ -61,6 +61,21 @@ login.prototype = {
             data: data,
             success: this.fn
         });
+    },
+
+    /**
+     * 忘记密码
+     * id 用户id
+     * mobile 电话号
+     * Pwd  密码
+     * AuthoCode 验证码
+     */
+    modifyPwd: function (data) {
+        ajax.post({
+            url: base + "modifyPwd",
+            data: data,
+            success: this.fn
+        });
     }
 
 

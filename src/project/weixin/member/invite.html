@@ -63,6 +63,7 @@
                 var tenantName = $('.recommend .tenantName').val();
                 var linkMan = $('.recommend .linkMan').val();
                 var phone = $('.recommend .phone').val();
+                var tenantAddress = $('.recommend .tenantAddress').val();
                 var bussinessNumber = $('.recommend .bussinessNumber').val();
                 var identityCardNum = $('.recommend .identityCardNum').val();
                 var identityCardNumno=$('.recommend .identityCardNumno').val();
@@ -76,14 +77,17 @@
                     toast.show('请输入联系人', 1000)
                 } else if (!(/^1[0-9]{10}$/.test(phone))) {
                     toast.show('请输入正确联系电话', 1000)
-                } else if (!bbusinessLicense && !identityCardFront && !identityCardBack && !Authorizationletter && !placeofBusiness && !bussinessNumber && !identityCardNum && !account && !bank && !bankAccount) {
+                }else if(!tenantAddress){
+                    toast.show('请输入商家地址', 1000)
+                }  else if (!bbusinessLicense && !identityCardFront && !identityCardBack && !Authorizationletter && !placeofBusiness && !bussinessNumber && !identityCardNum && !account && !bank && !bankAccount) {
                     new authentication(function (data) {
                         shId = data.id;
                         toast.show('提交成功', 1000)
-                    }).tenantsNormal({
+                    }).newTenantsNormal({
                         tenantName: tenantName,
                         linkMan: linkMan,
                         phone: phone,
+                        YYDZ:tenantAddress,
                         hyId: pageManager.GetQueryString('hyId')
                     })
                 }
@@ -135,10 +139,11 @@
                             placeofGathering:placeofGathering,
                             YHKZMZ:YHKZMZ
                         })
-                    }).tenantsNormal({
+                    }).newTenantsNormal({
                         tenantName: tenantName,
                         linkMan: linkMan,
                         phone: phone,
+                        YYDZ:tenantAddress,
                         hyId: pageManager.GetQueryString('hyId')
                     })
 
