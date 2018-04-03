@@ -59,6 +59,7 @@
             });
             $(document).on('click', '.recommend .goSubmit', function () {
                 var tenantName = $('.recommend .tenantName').val();
+                var nameSimple=$('.recommend .nameSimple').val();
                 var linkMan = $('.recommend .linkMan').val();
                 var phone = $('.recommend .phone').val();
                 var tenantAddress = $('.recommend .tenantAddress').val();
@@ -72,13 +73,17 @@
                 var bankAccount = $('.recommend .bankAccount').val();
                 if (!tenantName) {
                     toast.show('请输入商家名称', 1000)
+                } else if (!nameSimple) {
+                    toast.show('请输入商户简称', 1000)
                 } else if (!linkMan) {
                     toast.show('请输入联系人', 1000)
                 } else if (!(/^1[0-9]{10}$/.test(phone))) {
                     toast.show('请输入正确联系电话', 1000)
-                }else if(!tenantAddress){
+                } else if(!tenantAddress){
                     toast.show('请输入商家地址', 1000)
-                } else if (!bbusinessLicense && !identityCardFront && !identityCardBack && !Authorizationletter && !placeofBusiness && !bussinessNumber && !identityCardNum && !account && !bank && !bankAccount) {
+                } else if(!tenantAddress){
+                    toast.show('请输入商家地址', 1000)
+                }else if (!bbusinessLicense && !identityCardFront && !identityCardBack && !Authorizationletter && !placeofBusiness && !bussinessNumber && !identityCardNum && !account && !bank && !bankAccount) {
                     new member(function (data) {
                         if (!data.IsAuthenticationSm && !data.IsAuthenticationSh) {
                             dialog.query('实名认证或商户认证后才可提交，立刻前去认证', function () {
@@ -95,6 +100,7 @@
                                 linkMan: linkMan,
                                 phone: phone,
                                 YYDZ:tenantAddress,
+                                SHJC:nameSimple,
                                 hyId: memberId
                             })
                         }
@@ -161,6 +167,7 @@
                                 linkMan: linkMan,
                                 phone: phone,
                                 YYDZ:tenantAddress,
+                                SHJC:nameSimple,
                                 hyId: memberId
                             })
                         }

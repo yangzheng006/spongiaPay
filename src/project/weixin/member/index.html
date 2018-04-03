@@ -190,8 +190,10 @@
 
             $(document).on('click', '.recommend .goSubmit', function () {
                 var tenantName = $('.recommend .tenantName').val();
+                var nameSimple=$('.recommend .nameSimple').val();
                 var linkMan = $('.recommend .linkMan').val();
                 var phone = $('.recommend .phone').val();
+                var tenantAddress = $('.recommend .tenantAddress').val();
 
                 var bussinessNumber = $('.recommend .bussinessNumber').val();
                 var identityCardNum = $('.recommend .identityCardNum').val();
@@ -202,6 +204,8 @@
 
                 if (!tenantName) {
                     toast.show('请输入商家名称', 1000)
+                } else if (!nameSimple) {
+                    toast.show('请输入商户简称', 1000)
                 } else if (!linkMan) {
                     toast.show('请输入联系人', 1000)
                 } else if (!(/^1[0-9]{10}$/.test(phone))) {
@@ -213,10 +217,12 @@
                         setTimeout(function () {
                             location.replace('../member/index.html')
                         },1500)
-                    }).merchantCA({
+                    }).newMerchantCA({
                         tenantName: tenantName,
                         linkMan: linkMan,
                         phone: phone,
+                        YYDZ:tenantAddress,
+                        SHJC:nameSimple,
                         hyId: memberId
                     })
                 }
@@ -270,10 +276,12 @@
                             placeofGathering:placeofGathering,
                             YHKZMZ:YHKZMZ
                         })
-                    }).merchantCA({
+                    }).newMerchantCA({
                         tenantName: tenantName,
                         linkMan: linkMan,
                         phone: phone,
+                        YYDZ:tenantAddress,
+                        SHJC:nameSimple,
                         hyId: memberId
                     })
 

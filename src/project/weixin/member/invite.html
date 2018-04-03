@@ -61,6 +61,7 @@
             var bbusinessLicense, identityCardFront, identityCardBack, Authorizationletter, placeofBusiness,identityCardFrontno,identityCardBackno,doorHead,placeofGathering,YHKZMZ;
             $(document).on('click', '.recommend .goSubmit', function () {
                 var tenantName = $('.recommend .tenantName').val();
+                var nameSimple=$('.recommend .nameSimple').val();
                 var linkMan = $('.recommend .linkMan').val();
                 var phone = $('.recommend .phone').val();
                 var tenantAddress = $('.recommend .tenantAddress').val();
@@ -73,7 +74,9 @@
 
                 if (!tenantName) {
                     toast.show('请输入商家名称', 1000)
-                } else if (!linkMan) {
+                }else if (!nameSimple) {
+                    toast.show('请输入商户简称', 1000)
+                }  else if (!linkMan) {
                     toast.show('请输入联系人', 1000)
                 } else if (!(/^1[0-9]{10}$/.test(phone))) {
                     toast.show('请输入正确联系电话', 1000)
@@ -88,6 +91,7 @@
                         linkMan: linkMan,
                         phone: phone,
                         YYDZ:tenantAddress,
+                        SHJC:nameSimple,
                         hyId: pageManager.GetQueryString('hyId')
                     })
                 }
@@ -144,6 +148,7 @@
                         linkMan: linkMan,
                         phone: phone,
                         YYDZ:tenantAddress,
+                        SHJC:nameSimple,
                         hyId: pageManager.GetQueryString('hyId')
                     })
 

@@ -54,6 +54,20 @@ authentication.prototype = {
         });
     },
 
+    /**商户认证(个人中心商户认证)
+     *  tenantName 商家名称
+     * linkMan 联系人
+     *  phone   电话号码
+     *  hyId   会员id
+     */
+    newMerchantCA: function (data) {
+        ajax.post({
+            url: base + 'newMerchantCA',
+            success:this.fn,
+            data:data
+        });
+    },
+
 
     /**(补充认证资料)
      *  identityCardNum 身份证号码
